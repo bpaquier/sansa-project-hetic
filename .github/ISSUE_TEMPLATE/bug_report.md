@@ -1,15 +1,17 @@
 ---
 name: Bug report
 about: Créer un rapport de bug
-title: ''
+title: "[component] - [bug name]"
 labels: ''
 assignees: ''
 
 ---
 
-## Description du bug
-<!-- Que fait ce bug ? Vous pouvez ajouter une photo ou vidéo du problème -->
+## Contexte
+<!-- Où se situe le bug ? -->
 
+## Comportement observé
+<!-- Que fait ce bug ? Vous pouvez ajouter une photo ou vidéo du problème -->
 
 ## Reproduction du bug
 <!-- ajouter les étapes pour reproduire le bug, ou supprimer cette section -->

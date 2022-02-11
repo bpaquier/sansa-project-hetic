@@ -1,18 +1,14 @@
 ---
 name: Feature request
 about: Ajouter une feature à ce projet
-title: ''
+title: "[nom de la feature]"
 labels: ''
 assignees: ''
 
 ---
 
-## Problématique
-<!-- Décrire la problématique à résoudre avec cette issue, ou retirer cette section -->
+## Contexte
+<!-- Device et component -->
 
 ## Description
-<!-- Décrire ce que fait la feature, et comment elle résout la problématique -->
-
-## Implémentation
-<!-- Remplacer le [ ] par [x] pour checker la box. -->
-- [ ] Je veux résoudre cette issue.
+<!-- Décrire ce que fait la feature, et ajouter une photo ou vidéo si nécessaire -->
