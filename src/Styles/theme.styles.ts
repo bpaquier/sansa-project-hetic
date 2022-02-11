@@ -8,7 +8,7 @@ const theme = {
       orangeWhite: `#FFB678`,
       orangeBlack: `#CF7D38`,
       paper: `#F7F3EA`,
-      white: `#E0DBD4`,
+      white: `#FBFBFB`,
     },
     semantic: {
       success: `#D4EDDA`,
