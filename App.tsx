@@ -9,7 +9,7 @@ export default function App() {
       <Page>
         <Routes>
           <Route index element={<Home />} />
-          <Route path="/about" element={<About text="About" />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Page>
     </NativeRouter>

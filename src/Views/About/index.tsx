@@ -1,13 +1,10 @@
-import { StyledText, StyledView } from "./styles";
+//@ts-ignore
+import { Text } from "react-native";
 
-interface AboutProps {
-  text?: string;
-}
-
-export default function About({ text }: AboutProps): JSX.Element {
+export default function About(): JSX.Element {
   return (
-    <StyledView>
-      <StyledText color="white">{text}</StyledText>
-    </StyledView>
+    <>
+      <Text>About</Text>
+    </>
   );
 }

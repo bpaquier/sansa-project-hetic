@@ -1,12 +1,17 @@
 //@ts-ignore
 import styled from "styled-components/native";
+import { globalStyle } from "~/Styles/mixins.styles";
 
 interface StyledViewProps {
   height: string;
   width: string;
 }
 
-export const StyledView = styled.View`
+export const SafeArea = styled.View`
   width: ${(props: StyledViewProps) => props.width}px;
   height: ${(props: StyledViewProps) => props.height}px;
+`;
+
+export const PageContainer = styled.ScrollView`
+  ${globalStyle.page}
 `;

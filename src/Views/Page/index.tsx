@@ -3,7 +3,7 @@ import { View, Dimensions } from "react-native";
 
 import Navigation from "~/Components/Navigation";
 
-import { StyledView } from "./styles";
+import { SafeArea, PageContainer } from "./styles";
 
 interface PageProps {
   children: ReactElement;
@@ -12,9 +12,9 @@ interface PageProps {
 export default function Page({ children }: PageProps) {
   const { height, width } = Dimensions.get("window");
   return (
-    <StyledView {...{ height, width }}>
-      {children}
+    <SafeArea {...{ height, width }}>
+      <PageContainer>{children}</PageContainer>
       <Navigation />
-    </StyledView>
+    </SafeArea>
   );
 }
