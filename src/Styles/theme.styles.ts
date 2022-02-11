@@ -2,8 +2,8 @@ const theme = {
   color: {
     primary: {
       blue: `#55789B`,
-      blueExtraLight: `#E7ECF1`,
-      blueLight: `#CFDBE8`,
+      blueExtraLight: `#F0F7FF`,
+      blueLight: `#E3EAF2`,
       blueDark: `#305677`,
       blueExtraDark: `#002D4B`,
       orange: `#E68430`,
