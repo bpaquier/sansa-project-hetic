@@ -1,5 +1,4 @@
 import { ViewProps, View } from "react-native";
-
 import { StyledView } from "./styles";
 
 interface BaseComponentProps extends ViewProps {}
