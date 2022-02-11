@@ -4,6 +4,10 @@ const theme = {
     overlay: `0px 4px 12px rgba(0, 0, 0, 0.1)`,
     popin: `0px 8px 24px rgba(0, 0, 0, 0.1)`,
   },
+  grid: {
+    columns: 16,
+    maxWidth: "3000px",
+  },
 };
 
 export default theme;
