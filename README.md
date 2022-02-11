@@ -1,4 +1,4 @@
-# SANSA
+# SANSA Application
 
 ### How to start
 - pull project
