@@ -2,11 +2,13 @@ const theme = {
   color: {
     primary: {
       blue: `#55789B`,
-      blueWhite: `#305677`,
-      blueBlack: `#002D4B`,
+      blueExtraLight: `#E7ECF1`,
+      blueLight: `#CFDBE8`,
+      blueDark: `#305677`,
+      blueExtraDark: `#002D4B`,
       orange: `#E68430`,
-      orangeWhite: `#FFB678`,
-      orangeBlack: `#CF7D38`,
+      orangeLight: `#FFB678`,
+      orangeDark: `#CF7D38`,
       paper: `#F7F3EA`,
       white: `#FBFBFB`,
     },
