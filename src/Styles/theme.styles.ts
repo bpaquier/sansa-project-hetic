@@ -35,7 +35,7 @@ const theme = {
       black5: `#E8E8E8`,
     },
   },
-  boxShadows: {
+  boxShadow: {
     panel: `box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15)`,
     overlay: `0px 4px 12px rgba(0, 0, 0, 0.1)`,
     popin: `0px 8px 24px rgba(0, 0, 0, 0.1)`,
@@ -44,12 +44,17 @@ const theme = {
     columns: 16,
     maxWidth: "3000px",
   },
-  fontSizes: {
+  fontSize: {
     titleXL: "32px",
     titleL: "24px",
     titleM: "20px",
     paragraph: "16px",
     small: "12px",
+  },
+  fontFamily: {
+    bold: "HelveticaBold",
+    medium: "HelveticaMedium",
+    regular: "Helvetica",
   },
 };
 

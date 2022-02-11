@@ -8,12 +8,6 @@ export const gridColumnWidth = (numberOfColumns: number) => `
   max-width: calc((${grid.maxWidth} / ${grid.columns}) * ${numberOfColumns});
 `;
 
-export const getTextStyle = ({ type }: TextComponentProps) => {
-  return `
-
-  `;
-};
-
 export const globalStyle = {
   page: () => `
     position: relative;
