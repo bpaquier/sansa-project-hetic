@@ -1,12 +1,13 @@
-import { Text } from "react-native";
-import { StyledText } from "./styles";
+import Text from "~/Components/Ui-kit/Text";
 
 interface HomePorps {}
 
 export default function Home(props: HomePorps): JSX.Element {
   return (
     <>
-      <Text>Home</Text>
+      <Text type="paragraph" weight="bold">
+        Hellllo
+      </Text>
     </>
   );
 }
