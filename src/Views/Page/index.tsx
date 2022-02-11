@@ -1,9 +1,9 @@
 import { ReactElement } from "react";
-import { View, Dimensions } from "react-native";
 
-import Navigation from "~/Components/Navigation";
+import { Dimensions } from "react-native";
 
 import { SafeArea, PageContainer } from "./styles";
+import Navigation from "~/Components/Navigation";
 
 interface PageProps {
   children: ReactElement;

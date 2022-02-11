@@ -40,6 +40,7 @@
     ],
     "@typescript-eslint/no-explicit-any": "off",
     // imports
+    "import/no-unresolved": [2, { "ignore": ["~/*"] }],
     "import/namespace": "off",
     "import/order": [
       "error",
