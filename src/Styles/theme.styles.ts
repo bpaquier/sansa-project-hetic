@@ -26,7 +26,7 @@ const theme = {
     },
     neutral: {
       black100: `#1F1F1F`,
-      black60: `##545454`,
+      black60: `#545454`,
       black40: `#808080`,
       black20: `#AEAEAE`,
       black10: `#D6D6D6`,
