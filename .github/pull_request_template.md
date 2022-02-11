@@ -1,6 +1,8 @@
+<!-- NOM DE LA PR = numero du ticket/type-nom du ticket-->
+
 ## Fixes
 
-<!-- Si la PR ne résoud pas completement l'issue, remplacer 'Fixes' par 'Related to'. -->
+<!-- Si la PR ne résout pas complètement l'issue, remplacer 'Fixes' par 'Related to'. -->
 <!-- S'il n'y a pas d'issue existante, merci de bien vouloir créer une issue avant de créer cette pull request. -->
 
 Fixes #[issue number]
