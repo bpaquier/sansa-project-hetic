@@ -1,5 +1,4 @@
 import Theme from "~/Styles/theme.styles";
-import { TextComponentProps } from "~/Components/Ui-kit/Text";
 
 const { grid } = Theme;
 

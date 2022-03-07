@@ -6,7 +6,6 @@ import theme from "~/Styles/theme.styles";
 const { fontSize, color: themeColor, fontFamily } = theme;
 
 interface TextContainerProps {
-  //fontFamily: string;
   type: TextComponentProps["type"];
   weight: TextComponentProps["weight"];
   color: TextComponentProps["color"];
