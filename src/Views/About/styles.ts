@@ -1,4 +1,3 @@
-//@ts-ignore
 import styled from "styled-components/native";
 
 import { globalStyle } from "~/Styles/mixins.styles";

@@ -1,10 +1,10 @@
-//@ts-ignore
 import styled from "styled-components/native";
+
 import { globalStyle } from "~/Styles/mixins.styles";
 
 interface StyledViewProps {
-  height: string;
-  width: string;
+  height: number;
+  width: number;
 }
 
 export const SafeArea = styled.View`

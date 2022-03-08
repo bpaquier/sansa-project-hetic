@@ -13,5 +13,5 @@ export const globalStyle = {
     padding: 50px 20px;
     width: 100%;
     min-height: 100%;
-  `,
+  `
 };

@@ -2,15 +2,15 @@ const theme = {
   color: {
     primary: {
       blue: `#55789B`,
-      blueExtraLight: `#E7ECF1`,
-      blueLight: `#CFDBE8`,
+      blueExtraLight: `#F0F7FF`,
+      blueLight: `#E3EAF2`,
       blueDark: `#305677`,
       blueExtraDark: `#002D4B`,
       orange: `#E68430`,
       orangeLight: `#FFB678`,
       orangeDark: `#CF7D38`,
       paper: `#F7F3EA`,
-      white: `#FBFBFB`,
+      white: `#FBFBFB`
     },
     semantic: {
       success: `#D4EDDA`,
@@ -24,7 +24,7 @@ const theme = {
       warningText: `#896404`,
       danger: `#F8D7DA`,
       dangerBorder: `#F5C6CB`,
-      dangerText: `#9D1C24`,
+      dangerText: `#9D1C24`
     },
     neutral: {
       black100: `#1F1F1F`,
@@ -32,13 +32,13 @@ const theme = {
       black40: `#808080`,
       black20: `#AEAEAE`,
       black10: `#D6D6D6`,
-      black5: `#E8E8E8`,
-    },
+      black5: `#E8E8E8`
+    }
   },
   boxShadow: {
     panel: `box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15)`,
     overlay: `0px 4px 12px rgba(0, 0, 0, 0.1)`,
-    popin: `0px 8px 24px rgba(0, 0, 0, 0.1)`,
+    popin: `0px 8px 24px rgba(0, 0, 0, 0.1)`
   },
   grid: {
     columns: 16,
