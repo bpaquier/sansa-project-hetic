@@ -24,7 +24,6 @@ export default function Checkbox({
         checked={checked}
         onPress={handleChange}
       ></StyledBox>
-      <Logo />
       <StyledLabel>{label}</StyledLabel>
     </StyledView>
   );
