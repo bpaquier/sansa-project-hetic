@@ -10,7 +10,7 @@ const theme = {
       orangeLight: `#FFB678`,
       orangeDark: `#CF7D38`,
       paper: `#F7F3EA`,
-      white: `#FBFBFB`,
+      white: `#FBFBFB`
     },
     semantic: {
       success: `#D4EDDA`,
@@ -24,7 +24,7 @@ const theme = {
       warningText: `#896404`,
       danger: `#F8D7DA`,
       dangerBorder: `#F5C6CB`,
-      dangerText: `#9D1C24`,
+      dangerText: `#9D1C24`
     },
     neutral: {
       black100: `#1F1F1F`,
@@ -32,8 +32,8 @@ const theme = {
       black40: `#808080`,
       black20: `#AEAEAE`,
       black10: `#D6D6D6`,
-      black5: `#E8E8E8`,
-    },
+      black5: `#E8E8E8`
+    }
   },
   boxShadows: {
     panel: `box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15)`,

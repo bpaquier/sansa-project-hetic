@@ -1,8 +1,9 @@
 import { NativeRouter, Routes, Route } from "react-router-native";
 
-import Page from "~/Views/Page";
-import Home from "~/Views/Home";
 import About from "~/Views/About";
+import Home from "~/Views/Home";
+import Page from "~/Views/Page";
+
 export default function App() {
   return (
     <NativeRouter>
