@@ -1,9 +1,5 @@
-import { Text } from "react-native";
+import Text from "~/Components/Ui-kit/Text";
 
 export default function Home(): JSX.Element {
-  return (
-    <>
-      <Text>Home</Text>
-    </>
-  );
+  return <Text type="titleXL">Home</Text>;
 }
