@@ -1,5 +1,5 @@
-//@ts-ignore
 import styled from "styled-components/native";
+
 import { TextComponentProps } from "./index";
 import theme from "~/Styles/theme.styles";
 
