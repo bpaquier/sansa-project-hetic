@@ -1,20 +1,33 @@
 import styled from "styled-components/native";
 
 import { ButtonProps } from "./index";
-import { gridColumnWidth } from "~/Styles/mixins.styles";
 import theme from "~/Styles/theme.styles";
-const { color, shape } = theme;
+const { color } = theme;
 
 interface BackgroundPrpos extends ButtonProps {
   isActive?: boolean;
 }
 
+export const ButtonWrapper = styled.View`
+  justify-content: ${({ horizontalPosition }: ButtonProps) => {
+    switch (horizontalPosition) {
+      case "right":
+        return "flex-start";
+      case "left":
+        return "flex-end";
+      case "center":
+      default:
+        return "center";
+    }
+  }};
+  flex-direction: row;
+`;
+
 export const StyledButton = styled.Pressable`
   position: relative;
-  text-align: center;
   justify-content: center;
-  flex: 1;
   align-items: center;
+  flex-grow: ${({ fullWidth }) => (fullWidth ? 1 : 0)};
   padding: ${({ type }: ButtonProps) =>
     type === "tertiary" ? "0" : "16px 16px 16px 16px"};
   background-color: ${({ type, isActive, isDisabled }: BackgroundPrpos) => {
@@ -34,6 +47,7 @@ export const StyledButton = styled.Pressable`
   border: ${({ type, isDisabled }: ButtonProps) =>
     type === "secondary" && !isDisabled ? color?.primary?.blue : "none"};
   border-radius: 8px;
+  width: auto;
 `;
 
 export const TextContainer = styled.View`

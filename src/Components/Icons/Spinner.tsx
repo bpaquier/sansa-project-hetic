@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import { Animated } from "react-native";
+import { Animated, Easing } from "react-native";
 import Svg, { Path } from "react-native-svg";
 
 import theme from "~/Styles/theme.styles";
@@ -25,11 +25,14 @@ export default function Spinner({
 
   useEffect(() => {
     rotateValueHolder?.current &&
-      Animated.timing(rotateValueHolder?.current, {
-        toValue: 1,
-        duration: 3000,
-        useNativeDriver: false
-      }).start();
+      Animated.loop(
+        Animated.timing(rotateValueHolder?.current, {
+          toValue: 1,
+          duration: 1500,
+          useNativeDriver: false,
+          easing: Easing?.linear
+        })
+      ).start();
   }, [rotateValueHolder]);
 
   return (

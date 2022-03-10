@@ -1,6 +1,11 @@
 import { useState } from "react";
 
-import { StyledButton, SpinnerContainer, TextContainer } from "./styles";
+import {
+  ButtonWrapper,
+  StyledButton,
+  SpinnerContainer,
+  TextContainer
+} from "./styles";
 import Spinner from "~/Components/Icons/Spinner";
 import Text, { TextComponentProps } from "~/Components/Ui-kit/Text";
 
@@ -13,19 +18,21 @@ export interface ButtonProps {
   isLoading?: boolean;
   isDisabled?: boolean;
   type?: "primary" | "secondary" | "tertiary";
-  fitContent?: boolean;
+  fullWidth?: boolean;
+  horizontalPosition?: "left" | "center" | "right";
 }
 
-export default function Button({
+export default function ButtonComponent({
   onLongPress,
   onPress,
   onPressIn,
   onPressOut,
   text,
-  fitContent,
+  fullWidth,
   type,
   isDisabled,
-  isLoading
+  isLoading,
+  horizontalPosition = "center"
 }: ButtonProps): JSX.Element {
   const [isActive, setIsActive] = useState<boolean>(false);
 
@@ -36,33 +43,35 @@ export default function Button({
     : "blue";
 
   return (
-    <StyledButton
-      {...{
-        onLongPress,
-        onPress,
-        onPressIn,
-        onPressOut,
-        fitContent,
-        type,
-        isActive,
-        isDisabled
-      }}
-      onPressIn={() => !isLoading && !isDisabled && setIsActive(true)}
-      onPressOut={() => !isLoading && !isDisabled && setIsActive(false)}
-    >
-      <TextContainer {...{ isLoading, isDisabled }}>
-        <Text
-          color={isActive && type === "tertiary" ? "darkBlue" : color}
-          weight="bold"
-        >
-          {text}
-        </Text>
-      </TextContainer>
-      {isLoading && !isDisabled && (
-        <SpinnerContainer>
-          <Spinner />
-        </SpinnerContainer>
-      )}
-    </StyledButton>
+    <ButtonWrapper {...{ horizontalPosition }}>
+      <StyledButton
+        {...{
+          onLongPress,
+          onPress,
+          onPressIn,
+          onPressOut,
+          fullWidth,
+          type,
+          isActive,
+          isDisabled
+        }}
+        onPressIn={() => !isLoading && !isDisabled && setIsActive(true)}
+        onPressOut={() => !isLoading && !isDisabled && setIsActive(false)}
+      >
+        <TextContainer {...{ isLoading, isDisabled }}>
+          <Text
+            color={isActive && type === "tertiary" ? "darkBlue" : color}
+            weight="bold"
+          >
+            {text}
+          </Text>
+        </TextContainer>
+        {isLoading && !isDisabled && (
+          <SpinnerContainer>
+            <Spinner />
+          </SpinnerContainer>
+        )}
+      </StyledButton>
+    </ButtonWrapper>
   );
 }

@@ -9,8 +9,8 @@ export default function Home(): JSX.Element {
         text="Button"
         type="primary"
         isLoading
-        //isDisabled
-        //fitContent
+        isDisabled
+        //fullWidth
         onPress={() => console.log("hello")}
       />
     </>
