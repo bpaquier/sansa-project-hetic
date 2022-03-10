@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 
 import { ButtonProps } from "./index";
 import theme from "~/Styles/theme.styles";
-const { color } = theme;
+const { color, shape } = theme;
 
 interface BackgroundPrpos extends ButtonProps {
   isActive?: boolean;
@@ -11,9 +11,9 @@ interface BackgroundPrpos extends ButtonProps {
 export const ButtonWrapper = styled.View`
   justify-content: ${({ horizontalPosition }: ButtonProps) => {
     switch (horizontalPosition) {
-      case "right":
-        return "flex-start";
       case "left":
+        return "flex-start";
+      case "right":
         return "flex-end";
       case "center":
       default:
@@ -44,9 +44,13 @@ export const StyledButton = styled.Pressable`
     }
   }};
 
-  border: ${({ type, isDisabled }: ButtonProps) =>
-    type === "secondary" && !isDisabled ? color?.primary?.blue : "none"};
-  border-radius: 8px;
+  border: ${({ isDisabled, type }: ButtonProps) =>
+    type === "tertiary"
+      ? "none"
+      : isDisabled
+      ? color?.neutral?.black10
+      : color?.primary?.blue};
+  border-radius: ${shape?.radius?.button}px;
   width: auto;
 `;
 

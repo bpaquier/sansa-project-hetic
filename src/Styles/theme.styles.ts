@@ -57,7 +57,9 @@ const theme = {
     regular: "Helvetica"
   },
   shape: {
-    borderRadius: (numerator: number) => `calc(${numerator} * 4px);`
+    radius: {
+      button: 8
+    }
   },
   spacing: (numerator: number) => `calc(${numerator} * 4px);`
 };

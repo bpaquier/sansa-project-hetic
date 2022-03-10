@@ -8,6 +8,7 @@ import {
 } from "./styles";
 import Spinner from "~/Components/Icons/Spinner";
 import Text, { TextComponentProps } from "~/Components/Ui-kit/Text";
+import theme from "~/Styles/theme.styles";
 
 export interface ButtonProps {
   onPressIn?: () => any;
@@ -29,7 +30,7 @@ export default function ButtonComponent({
   onPressOut,
   text,
   fullWidth,
-  type,
+  type = "primary",
   isDisabled,
   isLoading,
   horizontalPosition = "center"
@@ -68,7 +69,11 @@ export default function ButtonComponent({
         </TextContainer>
         {isLoading && !isDisabled && (
           <SpinnerContainer>
-            <Spinner />
+            <Spinner
+              {...(type === "primary" && {
+                color: theme?.color?.primary?.white
+              })}
+            />
           </SpinnerContainer>
         )}
       </StyledButton>

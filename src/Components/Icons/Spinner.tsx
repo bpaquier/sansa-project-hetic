@@ -12,7 +12,7 @@ export interface SpinnerProps {
 }
 
 export default function Spinner({
-  color = theme?.color?.primary?.white,
+  color = theme?.color?.primary?.blue,
   width = 24,
   height = 24
 }: SpinnerProps): JSX.Element {
