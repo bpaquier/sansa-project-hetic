@@ -1,14 +1,14 @@
 import { useMemo } from "react";
 
-import Check from "../Icons/System/Check";
-import Minus from "../Icons/System/Minus";
-import Text from "../Ui-kit/Text";
 import {
   StyledView,
   StyledBox,
   StyledTextContainer,
   StyledCheckContainer
 } from "./styles";
+import Check from "~/Components/Icons/System/Check";
+import Minus from "~/Components/Icons/System/Minus";
+import Text from "~/Components/Ui-kit/Text";
 import theme from "~/Styles/theme.styles";
 
 type CheckBoxProps = {
