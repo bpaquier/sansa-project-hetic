@@ -33,6 +33,19 @@ const theme = {
       black20: `#AEAEAE`,
       black10: `#D6D6D6`,
       black5: `#E8E8E8`
+    },
+    icon: {
+      system: `#808080`,
+      categories: {
+        primary: `#808080`,
+        secondary: `#282828`
+      }
+    }
+  },
+  size: {
+    icon: {
+      system: 24,
+      categories: 40
     }
   },
   boxShadow: {
