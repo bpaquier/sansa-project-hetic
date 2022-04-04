@@ -41,7 +41,7 @@ const theme = {
     popin: `0px 8px 24px rgba(0, 0, 0, 0.1)`
   },
   grid: {
-    columns: 16,
+    columns: 8,
     maxWidth: 3000
   },
   fontSize: {
