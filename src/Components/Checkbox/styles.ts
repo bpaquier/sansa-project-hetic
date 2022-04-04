@@ -10,13 +10,12 @@ type StyledBoxProps = {
 export const StyledView = styled.Pressable`
   flex-direction: row;
   align-items: center;
-  cursor: pointer;
 `;
 
 export const StyledBox = styled.Pressable<StyledBoxProps>`
   height: 16px;
   width: 16px;
-  border-radius: ${theme.shape.borderRadius(1)};
+  border-radius: ${theme.shape.borderRadius(1)}px;
   border: 1px solid
     ${({ checked, disabled }) => {
       if (disabled) return theme.color.neutral.black5;
@@ -32,7 +31,6 @@ export const StyledBox = styled.Pressable<StyledBoxProps>`
 
 export const StyledLabel = styled.Text`
   align-self: center;
-  justify-self: center;
   padding-bottom: 2px;
-  margin-left: ${theme.spacing(1)};
+  margin-left: ${theme.spacing(2)}px;
 `;

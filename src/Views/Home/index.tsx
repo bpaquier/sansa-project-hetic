@@ -13,7 +13,6 @@ export default function Home(): JSX.Element {
         label={"coucou"}
         onChange={() => setCheck(!check)}
         checked={check}
-        disabled
       />
     </>
   );
