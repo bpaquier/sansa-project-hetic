@@ -61,7 +61,12 @@ const theme = {
       button: 8
     }
   },
-  spacing: (numerator: number) => `calc(${numerator} * 4px);`
+  spacing: (numerator: number) => `calc(${numerator} * 4px);`,
+  globalSpacing: {
+    small: "32px",
+    medium: "48px",
+    large: "72px"
+  }
 };
 
 export default theme;
