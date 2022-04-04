@@ -29,8 +29,14 @@ export const StyledBox = styled.Pressable<StyledBoxProps>`
   }};
 `;
 
-export const StyledLabel = styled.Text`
+export const StyledTextContainer = styled.View`
   align-self: center;
   padding-bottom: 2px;
   margin-left: ${theme.spacing(2)}px;
+`;
+
+export const StyledCheckContainer = styled.View`
+  position: absolute;
+  top: -5px;
+  left: -1px;
 `;
