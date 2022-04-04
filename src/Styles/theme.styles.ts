@@ -45,7 +45,7 @@ const theme = {
   size: {
     icon: {
       system: 24,
-      categories: 40
+      categories: 16
     }
   },
   boxShadow: {
