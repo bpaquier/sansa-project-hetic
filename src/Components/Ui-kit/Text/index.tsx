@@ -7,7 +7,7 @@ import { TextContainer } from "./styles";
 export interface TextComponentProps {
   type?: "titleXL" | "titleL" | "titleM" | "paragraph" | "small";
   weight?: "bold" | "regular" | "medium";
-  color?: "black" | "white" | "orange";
+  color?: "black" | "white" | "orange" | "blue" | "grey" | "darkBlue";
   children?: React.ReactNode | ReactNode[];
 }
 

@@ -42,7 +42,7 @@ const theme = {
   },
   grid: {
     columns: 16,
-    maxWidth: "3000px"
+    maxWidth: 3000
   },
   fontSize: {
     titleXL: "32px",
@@ -55,7 +55,13 @@ const theme = {
     bold: "HelveticaBold",
     medium: "HelveticaMedium",
     regular: "Helvetica"
-  }
+  },
+  shape: {
+    radius: {
+      button: 8
+    }
+  },
+  spacing: (numerator: number) => `calc(${numerator} * 4px);`
 };
 
 export default theme;

@@ -3,8 +3,8 @@ import Theme from "~/Styles/theme.styles";
 const { grid } = Theme;
 
 export const gridColumnWidth = (numberOfColumns: number) => `
-  width: calc((100vw / ${grid.columns}) * ${numberOfColumns});
-  max-width: calc((${grid.maxWidth} / ${grid.columns}) * ${numberOfColumns});
+  width: ${(100 / grid.columns) * numberOfColumns}%;
+  max-width: ${(grid.maxWidth / grid.columns) * numberOfColumns}px;
 `;
 
 export const globalStyle = {
