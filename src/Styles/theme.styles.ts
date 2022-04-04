@@ -73,7 +73,8 @@ const theme = {
   shape: {
     radius: {
       input: 16,
-      button: "36px"
+      button: "36px",
+      checkbox: 4
     }
   },
   spacing: (numerator: number) => `calc(${numerator} * 4px);`,

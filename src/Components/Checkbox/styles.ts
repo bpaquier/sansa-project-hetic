@@ -15,7 +15,7 @@ export const StyledView = styled.Pressable`
 export const StyledBox = styled.Pressable<StyledBoxProps>`
   height: 16px;
   width: 16px;
-  border-radius: ${theme.shape.borderRadius(1)}px;
+  border-radius: ${theme.shape.radius.checkbox}px;
   border: 1px solid
     ${({ checked, disabled }) => {
       if (disabled) return theme.color.neutral.black5;
