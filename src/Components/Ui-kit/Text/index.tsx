@@ -9,13 +9,15 @@ export interface TextComponentProps {
   weight?: "bold" | "regular" | "medium";
   color?: "black" | "white" | "orange" | "blue" | "grey" | "darkBlue";
   children?: React.ReactNode | ReactNode[];
+  textAlign?: "left" | "center" | "right";
 }
 
 const TextComponent = ({
   type,
   children,
   color,
-  weight
+  weight,
+  textAlign = "left"
 }: TextComponentProps) => {
   const [loaded] = useFonts({
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -30,7 +32,11 @@ const TextComponent = ({
     return null;
   }
 
-  return <TextContainer {...{ type, weight, color }}>{children}</TextContainer>;
+  return (
+    <TextContainer {...{ type, weight, color, textAlign }}>
+      {children}
+    </TextContainer>
+  );
 };
 
 export default TextComponent;

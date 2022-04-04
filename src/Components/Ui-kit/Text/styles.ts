@@ -5,14 +5,8 @@ import theme from "~/Styles/theme.styles";
 
 const { fontSize, color: themeColor, fontFamily } = theme;
 
-interface TextContainerProps {
-  type: TextComponentProps["type"];
-  weight: TextComponentProps["weight"];
-  color: TextComponentProps["color"];
-}
-
 export const TextContainer = styled.Text`
-  font-family: ${({ weight, type }: TextContainerProps) => {
+  font-family: ${({ weight, type }: TextComponentProps) => {
     switch (type) {
       case "titleXL":
         return fontFamily?.bold;
@@ -25,9 +19,9 @@ export const TextContainer = styled.Text`
         return weight ? fontFamily[weight] : fontFamily?.regular;
     }
   }};
-  font-size: ${({ type }: TextContainerProps) =>
+  font-size: ${({ type }: TextComponentProps) =>
     type ? fontSize[type] : fontSize?.paragraph};
-  color: ${({ color }: TextContainerProps) => {
+  color: ${({ color }: TextComponentProps) => {
     switch (color) {
       case "white":
         return themeColor?.primary?.white;
@@ -44,4 +38,5 @@ export const TextContainer = styled.Text`
         return themeColor?.neutral?.black100;
     }
   }};
+  text-align: ${({ textAlign }: TextComponentProps) => textAlign};
 `;
