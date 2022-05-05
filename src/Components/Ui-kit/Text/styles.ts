@@ -30,9 +30,13 @@ export const TextContainer = styled.Text`
       case "blue":
         return themeColor?.primary?.blue;
       case "grey":
+        return themeColor?.neutral?.black60;
+      case "black40":
         return themeColor?.neutral?.black40;
       case "darkBlue":
         return themeColor?.primary?.blueDark;
+      case "red":
+        return themeColor?.semantic?.dangerText;
       case "black":
       default:
         return themeColor?.neutral?.black100;

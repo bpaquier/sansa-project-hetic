@@ -1,3 +1,5 @@
+import { StyleSheet } from "react-native";
+
 import Theme from "~/Styles/theme.styles";
 
 const { grid, color } = Theme;
@@ -14,5 +16,16 @@ export const globalStyle = {
     width: 100%;
     min-height: 100%;
     background-color: ${color?.neutral?.black5};
+  `,
+  pageWrapper: () => `
+    margin-bottom: 200px
   `
 };
+
+export const ImageStyle = StyleSheet.create({
+  image: {
+    width: "100%",
+    maxHeight: "100%",
+    resizeMode: "contain"
+  }
+});

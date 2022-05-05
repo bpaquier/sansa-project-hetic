@@ -50,7 +50,7 @@ export const StyledButton = styled.Pressable`
       : isDisabled
       ? color?.neutral?.black10
       : color?.primary?.blue};
-  border-radius: ${shape?.radius?.button}px;
+  border-radius: ${shape?.radius?.button};
   width: auto;
 `;
 

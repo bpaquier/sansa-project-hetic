@@ -36,4 +36,16 @@ export const StyledView = styled.View`
   }};
   ${({ orientation }: SeparatorProps) =>
     orientation === "horizontal" && "align-self: center;"};
+  margin: ${({ orientation, margin }: SeparatorProps) => {
+    if (margin) {
+      switch (orientation) {
+        case "vertical":
+          return `0 ${margin}px`;
+        case "horizontal":
+          return `${margin}px 0`;
+      }
+    } else {
+      return "0";
+    }
+  }};
 `;

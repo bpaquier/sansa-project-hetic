@@ -7,7 +7,15 @@ import { TextContainer } from "./styles";
 export interface TextComponentProps {
   type?: "titleXL" | "titleL" | "titleM" | "paragraph" | "small";
   weight?: "bold" | "regular" | "medium";
-  color?: "black" | "white" | "orange" | "blue" | "grey" | "darkBlue";
+  color?:
+    | "black"
+    | "white"
+    | "orange"
+    | "blue"
+    | "grey"
+    | "darkBlue"
+    | "black40"
+    | "red";
   children?: React.ReactNode | ReactNode[];
   textAlign?: "left" | "center" | "right";
 }

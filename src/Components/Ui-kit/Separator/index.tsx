@@ -5,15 +5,19 @@ export interface SeparatorProps {
   orientation: "horizontal" | "vertical";
   columnWidth?: number;
   height?: string;
+  margin?: number;
 }
 
 export default function Separator({
   theme = "dark",
   orientation,
   columnWidth,
-  height
+  height,
+  margin
 }: SeparatorProps): JSX.Element {
   return (
-    <StyledView {...{ theme, orientation, columnWidth, height }}></StyledView>
+    <StyledView
+      {...{ theme, orientation, columnWidth, height, margin }}
+    ></StyledView>
   );
 }
