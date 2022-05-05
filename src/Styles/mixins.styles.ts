@@ -1,6 +1,6 @@
 import Theme from "~/Styles/theme.styles";
 
-const { grid } = Theme;
+const { grid, color } = Theme;
 
 export const gridColumnWidth = (numberOfColumns: number) => `
   width: ${(100 / grid.columns) * numberOfColumns}%;
@@ -13,5 +13,6 @@ export const globalStyle = {
     padding: 50px 20px;
     width: 100%;
     min-height: 100%;
+    background-color: ${color?.neutral?.black5};
   `
 };

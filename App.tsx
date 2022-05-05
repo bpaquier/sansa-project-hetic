@@ -1,7 +1,7 @@
 import { NativeRouter, Routes, Route } from "react-router-native";
 
-import About from "~/Views/About";
 import Home from "~/Views/Home";
+import Login from "~/Views/Login";
 import Page from "~/Views/Page";
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
       <Page>
         <Routes>
           <Route index element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Page>
     </NativeRouter>

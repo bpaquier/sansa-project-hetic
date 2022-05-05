@@ -10,8 +10,8 @@ export default function Navigation() {
     <StyledView>
       <Button onPress={() => navigate("/")} text="Home" />
       <Button
-        onPress={() => navigate("/about")}
-        text="About"
+        onPress={() => navigate("/login")}
+        text="Login"
         type="secondary"
       />
     </StyledView>
