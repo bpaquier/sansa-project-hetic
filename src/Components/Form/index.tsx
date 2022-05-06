@@ -29,6 +29,7 @@ export default function Form({
   const [ctaDisabled, setCtaDisabled] = useState(true);
 
   useEffect(() => {
+    alert(JSON.stringify(formData));
     const dataValues = Object.values(formData);
     if (dataValues?.length === 0 || dataValues?.includes(null)) {
       setCtaDisabled(true);
@@ -51,7 +52,7 @@ export default function Form({
       {title && (
         <TitleWrapper>
           <Text type="titleL" color="grey">
-            {title} coucou
+            {title}
           </Text>
         </TitleWrapper>
       )}

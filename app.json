@@ -3,7 +3,7 @@
     "name": "sansa",
     "slug": "sans",
     "version": "1.0.0",
-    "orientation": "landscape",
+    "orientation": "portrait",
     "icon": "./assets/images/Team_success_TwoColor.png",
     "splash": {
       "image": "./assets/images/Team_success_TwoColor.png",

@@ -23,7 +23,7 @@ export const PageContent = styled.View`
 `;
 
 export const PageContentBorne = styled.View`
-  border-radius: ${shape?.radius?.input};
+  border-radius: ${shape?.radius?.input}px;
   width: 90%;
   background-color: ${color?.primary?.white};
   padding: 70px 80px;

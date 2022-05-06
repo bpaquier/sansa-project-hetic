@@ -59,7 +59,7 @@ const theme = {
   },
   shape: {
     radius: {
-      input: "16px",
+      input: 16,
       button: "36px"
     }
   },

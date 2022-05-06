@@ -63,18 +63,33 @@ export default function Login(): JSX.Element {
               submitCtaLabel="Se connecter"
               inlineCtaLabel="Mot de passe oublié"
               items={[
-                {
+                /*  {
                   placeholder: "johndoe@gmail.com",
                   label: "Votre email ou indentifiant",
                   name: "ID",
-                  required: true,
+                  required: false,
                   type: "email"
                 },
                 {
                   label: "Votre mot de passe",
                   name: "password",
                   type: "password",
-                  required: true
+                  required: false
+                }, */
+                {
+                  label: "Choisissez une question personnelle",
+                  type: "select",
+                  name: "question",
+                  options: [
+                    {
+                      label: "Quel est le nom de votre chat ?",
+                      value: "q1"
+                    },
+                    {
+                      label: "Où avez vous grandi ?",
+                      value: "q2"
+                    }
+                  ]
                 }
               ]}
             />

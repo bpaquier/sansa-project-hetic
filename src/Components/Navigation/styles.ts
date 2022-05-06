@@ -21,5 +21,5 @@ export const NavBorne = styled.View`
   left: 10px;
   justify-content: space-around;
   background-color: grey;
-  border-radius: ${shape?.radius?.input};
+  border-radius: ${shape?.radius?.input}px;
 `;
