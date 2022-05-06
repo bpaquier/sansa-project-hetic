@@ -43,7 +43,7 @@ export default function Form({
   };
 
   const onSubmit = () => {
-    !ctaDisabled && alert(formData);
+    !ctaDisabled && alert(JSON.stringify(formData));
   };
 
   return (
@@ -51,7 +51,7 @@ export default function Form({
       {title && (
         <TitleWrapper>
           <Text type="titleL" color="grey">
-            {title}
+            {title} coucou
           </Text>
         </TitleWrapper>
       )}

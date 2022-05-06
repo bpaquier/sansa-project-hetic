@@ -35,6 +35,8 @@ export default function Input({
 }: InputProps): JSX.Element {
   const [value, setValue] = useState<string>(defaultValue ?? "");
   const [error, setError] = useState<ErrorType>({ status: false });
+  const re =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   useEffect(() => {
     required && updateValue && updateValue({ [name]: null });
@@ -44,6 +46,18 @@ export default function Input({
     if (required && value?.length === 0) {
       setError({ status: true, type: "empty", content: ErrorMessages?.empty });
       updateValue && updateValue({ [name]: null });
+    } else if (type === "email") {
+      if (re.test(value)) {
+        setError({ status: false });
+        updateValue && updateValue({ [name]: value });
+      } else {
+        setError({
+          status: true,
+          type: "format",
+          content: ErrorMessages?.format
+        });
+        updateValue && updateValue({ [name]: null });
+      }
     } else {
       setError({ status: false });
       updateValue && updateValue({ [name]: value });
