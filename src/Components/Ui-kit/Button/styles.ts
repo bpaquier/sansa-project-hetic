@@ -40,7 +40,11 @@ export const StyledButton = styled.Pressable`
         ? color?.primary?.blueLight
         : "transparent";
     } else {
-      return type === "primary" ? color?.primary?.blue : "transparent";
+      return type === "primary"
+        ? color?.primary?.blue
+        : type === "secondary"
+        ? color?.neutral?.black5
+        : "transparent";
     }
   }};
 

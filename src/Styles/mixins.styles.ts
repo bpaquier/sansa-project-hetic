@@ -2,23 +2,24 @@ import { StyleSheet } from "react-native";
 
 import Theme from "~/Styles/theme.styles";
 
-const { grid, color } = Theme;
+const { grid } = Theme;
 
 export const gridColumnWidth = (numberOfColumns: number) => `
   width: ${(100 / grid.columns) * numberOfColumns}%;
-  max-width: ${(grid.maxWidth / grid.columns) * numberOfColumns}px;
+  max-width: ${(grid.mobileMAxWidth / grid.columns) * numberOfColumns}px;
+`;
+
+export const bornMaxWidth = (numberOfColumns: number) => `
+  max-width: ${(grid?.borneMaxWidth / grid.columns) * numberOfColumns}px;
 `;
 
 export const globalStyle = {
-  page: () => `
+  pageMobile: () => `
     position: relative;
     padding: 50px 20px;
     width: 100%;
     min-height: 100%;
-    background-color: ${color?.neutral?.black5};
-  `,
-  pageWrapper: () => `
-    margin-bottom: 200px
+    margin-bottom: 100px;
   `
 };
 

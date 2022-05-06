@@ -42,7 +42,8 @@ const theme = {
   },
   grid: {
     columns: 8,
-    maxWidth: 3000
+    mobileMAxWidth: 500,
+    borneMaxWidth: 1000
   },
   fontSize: {
     titleXL: "32px",
@@ -67,6 +68,10 @@ const theme = {
     small: "32px",
     medium: "48px",
     large: "72px"
+  },
+  sizes: {
+    breakPoint: 800,
+    navBornWidth: "130"
   }
 };
 
