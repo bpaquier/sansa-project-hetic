@@ -17,7 +17,7 @@ export const NavBorne = styled.View`
   position: absolute;
   bottom: 10px;
   top: 10px;
-  width: ${sizes?.navBornWidth}px;
+  width: ${sizes?.navBorneWidth}px;
   left: 10px;
   justify-content: space-around;
   background-color: grey;

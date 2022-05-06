@@ -71,7 +71,8 @@ const theme = {
   },
   sizes: {
     breakPoint: 800,
-    navBornWidth: "130"
+    navBorneWidth: 130,
+    mobilePageMarginBottom: 200
   }
 };
 
