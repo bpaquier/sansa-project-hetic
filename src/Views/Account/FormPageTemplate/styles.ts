@@ -12,7 +12,7 @@ export const PageWrapper = styled.View`
 export const PageWrapperBorne = styled.View`
   width: 100%;
   height: 100%;
-  padding: 5% 0 5% ${sizes?.navBorneWidth + 10}px;
+  padding: 2% 0 2% ${sizes?.navBorneWidth + 10}px;
   justify-content: center;
   align-items: center;
 `;
@@ -26,7 +26,7 @@ export const PageContentBorne = styled.View`
   border-radius: ${shape?.radius?.input}px;
   width: 90%;
   background-color: ${color?.primary?.white};
-  padding: 70px 80px;
+  padding: 40px 80px;
 `;
 
 export const ContentWrapperMobile = styled.View`
@@ -50,7 +50,7 @@ export const ImageWrapperMobile = styled.View`
 `;
 
 export const ImageWrapperBorne = styled.View`
-  width: 55%;
+  width: 50%;
   align-items: center;
   justify-content: flex-start;
 `;
@@ -59,7 +59,7 @@ export const FormWrapperMobile = styled.View`
   width: 100%;
 `;
 export const FormWrapperBorne = styled.ScrollView`
-  margin-right: 30px;
+  margin-right: 100px;
 `;
 
 export const BottomText = styled.View`

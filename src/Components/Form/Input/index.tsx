@@ -5,7 +5,7 @@ import { Picker } from "@react-native-picker/picker";
 import { InputWrapper, InputElement, Select } from "./styles";
 import Text from "~/Components/Ui-kit/Text";
 import Theme from "~/Styles/theme.styles";
-const { color, shape } = Theme;
+const { color } = Theme;
 
 export interface InputProps {
   name: string;
