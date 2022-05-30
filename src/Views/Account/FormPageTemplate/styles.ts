@@ -53,6 +53,7 @@ export const ImageWrapperBorne = styled.View`
   width: 50%;
   align-items: center;
   justify-content: flex-start;
+  aspect-ratio: 1;
 `;
 
 export const FormWrapperMobile = styled.View`

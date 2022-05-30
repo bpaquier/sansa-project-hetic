@@ -10,6 +10,10 @@
     "eject": "expo eject",
     "lint": "eslint App.tsx ./src --ext .js,.jsx,.ts,.tsx"
   },
+  "resolutions": {
+    "react-devtools": "~4.14.0",
+    "react-devtools-core": "~4.14.0"
+  },
   "dependencies": {
     "@react-native-picker/picker": "^2.4.1",
     "babel-plugin-root-import": "^6.6.0",

@@ -3,10 +3,10 @@
     "name": "sansa",
     "slug": "sans",
     "version": "1.0.0",
-    "orientation": "landscape",
-    "icon": "./assets/images/Team_success_TwoColor.png",
+    "orientation": "portrait",
+    "icon": "./assets/images/Team_success_Two_Color.png",
     "splash": {
-      "image": "./assets/images/Team_success_TwoColor.png",
+      "image": "./assets/images/Team_success_Two_Color.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -21,12 +21,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/Team_success_TwoColor.png",
+        "foregroundImage": "./assets/images/Team_success_Two_Color.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/images/Team_success_TwoColor.png"
+      "favicon": "./assets/images/Team_success_Two_Color.png"
     }
   }
 }

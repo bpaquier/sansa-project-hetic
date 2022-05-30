@@ -1,25 +1,19 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from "react";
 
-import { Image } from "react-native";
 import { useNavigate } from "react-router-native";
 
+import RegisterIllustration from "./registerIllustation";
 import { BottomText } from "./styles";
 import Form from "~/Components/Form";
 import Button from "~/Components/Ui-kit/Button";
 import Text from "~/Components/Ui-kit/Text";
-import { ImageStyle } from "~/Styles/mixins.styles";
 import FormPageTemplate from "~/Views/Account/FormPageTemplate";
 
 export default function Register(): JSX.Element {
   const navigate = useNavigate();
 
-  const ImageComponent = (
-    <Image
-      style={ImageStyle.image}
-      source={require("~/../assets/images/Team_success_TwoColor.png")}
-    />
-  );
+  const Image = <RegisterIllustration />;
 
   const FormComponent = (
     <>
@@ -82,5 +76,5 @@ export default function Register(): JSX.Element {
     </>
   );
 
-  return <FormPageTemplate image={ImageComponent} form={FormComponent} />;
+  return <FormPageTemplate image={Image} form={FormComponent} />;
 }
