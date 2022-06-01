@@ -99,7 +99,7 @@ export default function Input({
       {type === "select" && options && options?.length > 0 ? (
         <Select>
           <Picker
-            selectedValue={options?.[0]?.value}
+            selectedValue={value}
             style={{
               backgroundColor: color?.primary?.white
             }}
