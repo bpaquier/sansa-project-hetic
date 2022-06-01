@@ -39,7 +39,7 @@ export default function Login(): JSX.Element {
         ]}
       />
       <BottomText>
-        <Text color="black40" textAlign="center">
+        <Text color="black40" textAlign="center" type="small">
           Pas encore de compte?
         </Text>
       </BottomText>

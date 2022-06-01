@@ -28,17 +28,17 @@ export const PageContentBorne = styled.View`
   width: ${getColumnWidth(21, false)};
   background-color: ${color?.primary?.white};
   margin-left: ${getColumnWidth(3, false)};
-
   padding: ${getColumnWidth(1, false)};
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const ImageWrapperMobile = styled.View`
   width: 100%;
   height: 150px;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 `;
 
 export const ImageWrapperBorne = styled.View`

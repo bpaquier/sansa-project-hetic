@@ -41,7 +41,7 @@ export default function Register(): JSX.Element {
             type: "tel",
             defaultValue: ""
           },
-          {
+          /*  {
             label: "Choisissez une question personnelle",
             type: "select",
             name: "question",
@@ -61,22 +61,24 @@ export default function Register(): JSX.Element {
             name: "answer",
             required: true,
             type: "text"
-          },
+          }, */
           {
             label: "Votre mot de passe",
             name: "password",
             type: "password",
-            required: true
+            required: true,
+            bottomText:
+              "Doit contenir 8 caractères avec une majuscule et un chiffre"
           }
         ]}
       />
       <BottomText>
-        <Text color="black40" textAlign="center">
-          Pas encore de compte?
+        <Text color="black40" textAlign="center" type="small">
+          Vous avez déja un compte?
         </Text>
       </BottomText>
       <Button
-        text="Vous avez déja un compte?"
+        text="Se connecter"
         type="tertiary"
         onPress={() => navigate("/login")}
       />

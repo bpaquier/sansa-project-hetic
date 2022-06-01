@@ -1,4 +1,5 @@
 import { StyledView } from "./styles";
+import { useGlobalContext } from "~/Contexts/globalContext";
 
 export interface SeparatorProps {
   theme?: "light" | "dark";
@@ -15,9 +16,10 @@ export default function Separator({
   height,
   margin
 }: SeparatorProps): JSX.Element {
+  const { isMobile } = useGlobalContext();
   return (
     <StyledView
-      {...{ theme, orientation, columnWidth, height, margin }}
+      {...{ theme, orientation, columnWidth, height, margin, isMobile }}
     ></StyledView>
   );
 }

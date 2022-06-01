@@ -9,6 +9,7 @@ import Theme from "~/Styles/theme.styles";
 const { color } = Theme;
 
 export interface InputProps {
+  bottomText?: string;
   name: string;
   placeholder?: string;
   label?: string;
@@ -23,8 +24,8 @@ export interface InputProps {
 }
 
 enum ErrorMessages {
-  empty = "ce champs est requis",
-  format = "format invalide"
+  empty = "Ce champs est requis",
+  format = "Format invalide"
 }
 
 interface ErrorType {
@@ -41,7 +42,8 @@ export default function Input({
   required,
   name,
   updateValue,
-  options
+  options,
+  bottomText
 }: InputProps): JSX.Element {
   const [value, setValue] = useState<string>(defaultValue ?? "");
   const [error, setError] = useState<ErrorType>({ status: false });
@@ -107,13 +109,17 @@ export default function Input({
         type === "tel" ? (
           <StyledInput error={error?.status}>
             <PhoneInput
+              placeholder={placeholder}
               containerStyle={{
-                width: "100%",
-                height: 50,
-                backgroundColor: "white"
+                width: "100%"
               }}
-              flagButtonStyle={{ width: "20%" }}
-              textContainerStyle={{ paddingVertical: 0 }}
+              flagButtonStyle={{
+                width: "20%",
+                backgroundColor: color?.primary?.white,
+                borderRightWidth: 1,
+                borderRightColor: color?.neutral?.black20
+              }}
+              textContainerStyle={{ paddingVertical: 10 }}
               ref={phoneInput}
               defaultValue={value}
               onChangeFormattedText={(value) => {
@@ -138,7 +144,7 @@ export default function Input({
                 }
               }}
               defaultCode="FR"
-              layout="second"
+              layout="first"
             />
           </StyledInput>
         ) : (
@@ -169,9 +175,18 @@ export default function Input({
           onEndEditing={checkValue}
         />
       )}
+      {bottomText && !error?.status && (
+        <Text color="black20" type="small">
+          {bottomText}
+        </Text>
+      )}
       {error?.status && error?.content && (
         <Text color="red" type="small">
-          {error?.content}
+          {type === "password" && error?.type !== "empty"
+            ? bottomText
+              ? bottomText
+              : error?.content
+            : error?.content}
         </Text>
       )}
     </InputWrapper>

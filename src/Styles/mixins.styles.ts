@@ -4,11 +4,6 @@ import Theme from "~/Styles/theme.styles";
 
 const { grid } = Theme;
 
-export const gridColumnWidth = (numberOfColumns: number) => `
-  width: ${(100 / grid.columns) * numberOfColumns}%;
-  max-width: ${(grid.maxWidth / grid.columns) * numberOfColumns}px;
-`;
-
 export const getColumnWidth = (
   columns: number,
   smallSreen: boolean

@@ -1,10 +1,14 @@
 import styled from "styled-components/native";
 
 import { SeparatorProps } from "./index";
-import { gridColumnWidth } from "~/Styles/mixins.styles";
+import { getColumnWidth } from "~/Styles/mixins.styles";
 import theme from "~/Styles/theme.styles";
 
 const { color, grid } = theme;
+
+interface SeparatorStyleProps extends SeparatorProps {
+  isMobile?: boolean;
+}
 
 export const StyledView = styled.View`
   background-color: ${({ theme }: SeparatorProps) => {
@@ -25,13 +29,16 @@ export const StyledView = styled.View`
         return "1px";
     }
   }};
-  ${({ orientation, columnWidth }: SeparatorProps) => {
+  width: ${({ orientation, columnWidth, isMobile }: SeparatorStyleProps) => {
     switch (orientation) {
       case "vertical":
-        return "width: 1px";
+        return "1px";
       case "horizontal":
       default:
-        return gridColumnWidth(columnWidth ?? grid?.columns / 2);
+        return getColumnWidth(
+          columnWidth ? columnWidth : grid?.columns / 2,
+          isMobile ? isMobile : true
+        );
     }
   }};
   ${({ orientation }: SeparatorProps) =>

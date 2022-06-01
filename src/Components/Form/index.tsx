@@ -11,6 +11,7 @@ import {
 import Button from "~/Components/Ui-kit/Button";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
+import theme from "~/Styles/theme.styles";
 
 export interface FormProps {
   title?: string;
@@ -55,6 +56,11 @@ export default function Form({
           </Text>
         </TitleWrapper>
       )}
+      <Separator
+        orientation="horizontal"
+        theme="dark"
+        columnWidth={theme?.grid?.columns}
+      />
       <FormWrapper>
         {items &&
           items?.map((item, i) => (
@@ -78,7 +84,11 @@ export default function Form({
           </InlineButton>
         )}
       </FormWrapper>
-      <Separator orientation="horizontal" theme="dark" columnWidth={8} />
+      <Separator
+        orientation="horizontal"
+        theme="dark"
+        columnWidth={theme?.grid?.columns}
+      />
     </Wrapper>
   );
 }

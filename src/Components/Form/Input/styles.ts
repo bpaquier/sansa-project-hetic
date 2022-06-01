@@ -5,10 +5,11 @@ const { color, shape } = Theme;
 
 interface InputStyleProps {
   error?: boolean;
+  isMobile?: boolean;
 }
 
 export const InputWrapper = styled.View`
-  margin-top: 16px;
+  margin-bottom: 16px;
 `;
 
 export const InputElement = styled.TextInput`
@@ -33,4 +34,5 @@ export const StyledInput = styled.View`
   margin: 10px 0 5px;
   border-color: ${({ error }: InputStyleProps) =>
     error ? color?.semantic?.dangerText : color?.neutral?.black20};
+  align-items: flex-start;
 `;
