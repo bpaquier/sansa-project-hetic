@@ -41,7 +41,7 @@ const theme = {
     popin: `0px 8px 24px rgba(0, 0, 0, 0.1)`
   },
   grid: {
-    columns: 8,
+    columns: 24,
     mobileMAxWidth: 500,
     borneMaxWidth: 1000
   },

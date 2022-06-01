@@ -43,7 +43,7 @@ export default function Form({
   };
 
   const onSubmit = () => {
-    !ctaDisabled && alert(JSON.stringify(formData));
+    !ctaDisabled && console.log(formData);
   };
 
   return (

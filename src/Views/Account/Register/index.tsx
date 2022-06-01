@@ -36,6 +36,12 @@ export default function Register(): JSX.Element {
             type: "email"
           },
           {
+            label: "Téléphone",
+            name: "tel",
+            type: "tel",
+            defaultValue: ""
+          },
+          /*        {
             label: "Choisissez une question personnelle",
             type: "select",
             name: "question",
@@ -55,11 +61,12 @@ export default function Register(): JSX.Element {
             name: "answer",
             required: true,
             type: "text"
-          },
+          }, */
           {
             label: "Votre mot de passe",
             name: "password",
-            type: "password"
+            type: "password",
+            required: true
           }
         ]}
       />

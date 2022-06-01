@@ -43,7 +43,7 @@ export const ContentWrapperBorne = styled.View`
 `;
 
 export const ImageWrapperMobile = styled.View`
-  ${gridColumnWidth(5)}
+  width: 100%;
   height: 150px;
   align-items: center;
   margin-bottom: 50px;
