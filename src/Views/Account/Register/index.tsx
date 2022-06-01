@@ -41,7 +41,7 @@ export default function Register(): JSX.Element {
             type: "tel",
             defaultValue: ""
           },
-          /*        {
+          {
             label: "Choisissez une question personnelle",
             type: "select",
             name: "question",
@@ -61,7 +61,7 @@ export default function Register(): JSX.Element {
             name: "answer",
             required: true,
             type: "text"
-          }, */
+          },
           {
             label: "Votre mot de passe",
             name: "password",

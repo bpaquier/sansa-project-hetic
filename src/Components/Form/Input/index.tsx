@@ -107,6 +107,13 @@ export default function Input({
         type === "tel" ? (
           <StyledInput error={error?.status}>
             <PhoneInput
+              containerStyle={{
+                width: "100%",
+                height: 50,
+                backgroundColor: "white"
+              }}
+              flagButtonStyle={{ width: "20%" }}
+              textContainerStyle={{ paddingVertical: 0 }}
               ref={phoneInput}
               defaultValue={value}
               onChangeFormattedText={(value) => {
@@ -131,7 +138,7 @@ export default function Input({
                 }
               }}
               defaultCode="FR"
-              layout="first"
+              layout="second"
             />
           </StyledInput>
         ) : (

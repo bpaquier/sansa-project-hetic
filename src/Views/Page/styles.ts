@@ -17,10 +17,13 @@ export const SafeArea = styled.View`
 
 export const PageContainerMobile = styled.ScrollView`
   ${globalStyle?.pageMobile}
-  width: 100%;
 `;
 
 export const PageContainerBorne = styled.View`
+  ${globalStyle?.pageBorne}
+`;
+
+export const PageContent = styled.View`
   width: 100%;
   height: 100%;
 `;
