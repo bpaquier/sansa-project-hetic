@@ -2,13 +2,15 @@ import { useMemo } from "react";
 
 import {
   StyledView,
-  StyledBox,
-  StyledTextContainer,
-  StyledCheckContainer
+  CheckboxBorne,
+  CheckboxMobile,
+  TextContainer,
+  CheckContainerMobile,
+  CheckContainerBorne
 } from "./styles";
 import Check from "~/Components/Icons/System/System/Check";
-import Minus from "~/Components/Icons/System/System/Minus";
 import Text from "~/Components/Ui-kit/Text";
+import { useGlobalContext } from "~/Contexts/globalContext";
 import theme from "~/Styles/theme.styles";
 
 type CheckBoxProps = {
@@ -23,9 +25,10 @@ export default function Checkbox({
   label,
   onChange,
   disabled,
-  checked = false,
-  indeterminate
+  checked = false
 }: CheckBoxProps): JSX.Element {
+  const { isMobile } = useGlobalContext();
+
   const handleChange = () => {
     !disabled && onChange();
   };
@@ -39,17 +42,26 @@ export default function Checkbox({
     }
   }, [checked, disabled]);
 
+  const CheckSize = isMobile ? 16 : 24;
+
+  const Checkbox = (
+    isMobile ? CheckboxMobile : CheckboxBorne
+  ) as React.ElementType;
+
+  const CheckContainer = (
+    isMobile ? CheckContainerMobile : CheckContainerBorne
+  ) as React.ElementType;
+
   return (
     <StyledView disabled={disabled} onPress={handleChange}>
-      <StyledBox disabled={disabled} checked={checked} onPress={handleChange}>
-        <StyledCheckContainer>
-          {!indeterminate && <Check width={16} color={colorIcon} />}
-          {indeterminate && <Minus width={16} color={colorIcon} />}
-        </StyledCheckContainer>
-      </StyledBox>
-      <StyledTextContainer>
+      <Checkbox disabled={disabled} checked={checked} onPress={handleChange}>
+        <CheckContainer>
+          <Check width={CheckSize} color={colorIcon} />
+        </CheckContainer>
+      </Checkbox>
+      <TextContainer>
         <Text>{label}</Text>
-      </StyledTextContainer>
+      </TextContainer>
     </StyledView>
   );
 }
