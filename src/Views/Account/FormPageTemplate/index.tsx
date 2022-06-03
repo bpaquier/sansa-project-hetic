@@ -9,9 +9,7 @@ import {
   PageContent,
   PageContentBorne,
   FormWrapperMobile,
-  FormWrapperBorne,
-  ContentWrapperBorne,
-  ContentWrapperMobile
+  FormWrapperBorne
 } from "./styles";
 import { useGlobalContext } from "~/Contexts/globalContext";
 
@@ -34,10 +32,6 @@ export default function FormPageTemplate({
     isMobile ? PageContent : PageContentBorne
   ) as React.ElementType;
 
-  const ContentWrapper = (
-    isMobile ? ContentWrapperMobile : ContentWrapperBorne
-  ) as React.ElementType;
-
   const FormWrapper = (
     isMobile ? FormWrapperMobile : FormWrapperBorne
   ) as React.ElementType;
@@ -49,10 +43,8 @@ export default function FormPageTemplate({
   return (
     <GlobalWrapper>
       <Content>
-        <ContentWrapper>
-          <ImageWrapper>{image}</ImageWrapper>
-          <FormWrapper>{form}</FormWrapper>
-        </ContentWrapper>
+        <FormWrapper>{form}</FormWrapper>
+        <ImageWrapper>{image}</ImageWrapper>
       </Content>
     </GlobalWrapper>
   );

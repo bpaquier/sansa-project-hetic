@@ -2,7 +2,12 @@ import React, { ReactElement, useEffect } from "react";
 
 import { Dimensions } from "react-native";
 
-import { SafeArea, PageContainerMobile, PageContainerBorne } from "./styles";
+import {
+  SafeArea,
+  PageContainerMobile,
+  PageContainerBorne,
+  PageContent
+} from "./styles";
 import Navigation from "~/Components/Navigation";
 import { useGlobalContext } from "~/Contexts/globalContext";
 
@@ -25,7 +30,9 @@ export default function Page({ children }: PageProps) {
 
   return (
     <SafeArea {...{ height, width }}>
-      <PageContainer>{children}</PageContainer>
+      <PageContainer>
+        <PageContent>{children}</PageContent>
+      </PageContainer>
       <Navigation />
     </SafeArea>
   );
