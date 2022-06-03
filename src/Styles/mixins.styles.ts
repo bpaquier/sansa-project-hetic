@@ -1,23 +1,33 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 import Theme from "~/Styles/theme.styles";
 
 const { grid } = Theme;
 
-export const gridColumnWidth = (numberOfColumns: number) => `
-  width: ${(100 / grid.columns) * numberOfColumns}%;
-  max-width: ${(grid.mobileMAxWidth / grid.columns) * numberOfColumns}px;
-`;
+export const getColumnWidth = (
+  columns: number,
+  smallSreen: boolean
+): string => {
+  const { width } = Dimensions.get("window");
+  const gutter = smallSreen ? grid.mobileGutter : grid.borneGutter;
+  const computedWidth = width - gutter * 2;
+  const columnRatio = 100 / grid.columns;
 
-export const bornMaxWidth = (numberOfColumns: number) => `
-  max-width: ${(grid?.borneMaxWidth / grid.columns) * numberOfColumns}px;
-`;
+  return `${((columnRatio * computedWidth) / 100) * columns}px`;
+};
 
 export const globalStyle = {
+  pageBorne: () => `
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: ${grid.borneGutter}px
+  `,
   pageMobile: () => `
     position: relative;
-    padding: 50px 20px;
+    padding: 50px ${grid.mobileGutter}px;
     width: 100%;
+    height: 100%;
     min-height: 100%;
   `
 };

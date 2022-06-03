@@ -15,6 +15,7 @@ export interface TextComponentProps {
     | "grey"
     | "darkBlue"
     | "black40"
+    | "black20"
     | "red";
   children?: React.ReactNode | ReactNode[];
   textAlign?: "left" | "center" | "right";

@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 
-import { gridColumnWidth } from "~/Styles/mixins.styles";
+import { getColumnWidth } from "~/Styles/mixins.styles";
 import Theme from "~/Styles/theme.styles";
 const { sizes, color, shape } = Theme;
 
@@ -12,56 +12,48 @@ export const PageWrapper = styled.View`
 export const PageWrapperBorne = styled.View`
   width: 100%;
   height: 100%;
-  padding: 2% 0 2% ${sizes?.navBorneWidth + 10}px;
   justify-content: center;
   align-items: center;
 `;
 
 export const PageContent = styled.View`
+  flex-direction: column-reverse;
   align-items: center;
   width: 100%;
+  margin-bottom: ${sizes?.mobilePageMarginBottom}px;
 `;
 
 export const PageContentBorne = styled.View`
   border-radius: ${shape?.radius?.input}px;
-  width: 90%;
+  width: ${getColumnWidth(21, false)};
   background-color: ${color?.primary?.white};
-  padding: 40px 80px;
-`;
-
-export const ContentWrapperMobile = styled.View`
-  width: 100%;
-  align-items: center;
-  margin-bottom: ${sizes?.mobilePageMarginBottom}px;
-`;
-
-export const ContentWrapperBorne = styled.View`
-  width: 100%;
-  flex-direction: row-reverse;
-  align-items: center;
+  margin-left: ${getColumnWidth(3, false)};
+  padding: ${getColumnWidth(1, false)};
+  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const ImageWrapperMobile = styled.View`
-  ${gridColumnWidth(5)}
+  width: 100%;
   height: 150px;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 `;
 
 export const ImageWrapperBorne = styled.View`
-  width: 50%;
   align-items: center;
   justify-content: flex-start;
   aspect-ratio: 1;
+  width: ${getColumnWidth(10, false)};
+  margin-left: ${getColumnWidth(2, false)}; ;
 `;
 
 export const FormWrapperMobile = styled.View`
   width: 100%;
 `;
-export const FormWrapperBorne = styled.ScrollView`
-  margin-right: 100px;
-`;
+
+export const FormWrapperBorne = styled.ScrollView``;
 
 export const BottomText = styled.View`
   margin: 16px 0 10px;
