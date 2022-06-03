@@ -6,8 +6,8 @@ import {
   StyledTextContainer,
   StyledCheckContainer
 } from "./styles";
-import Check from "~/Components/Icons/System/Check";
-import Minus from "~/Components/Icons/System/Minus";
+import Check from "~/Components/Icons/System/System/Check";
+import Minus from "~/Components/Icons/System/System/Minus";
 import Text from "~/Components/Ui-kit/Text";
 import theme from "~/Styles/theme.styles";
 

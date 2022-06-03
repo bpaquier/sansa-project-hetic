@@ -31,8 +31,8 @@ export const StyledBox = styled.Pressable<StyledBoxProps>`
 
 export const StyledTextContainer = styled.View`
   align-self: center;
-  padding-bottom: 2px;
-  margin-left: ${theme.spacing(2)}px;
+  margin-top: 3px;
+  margin-left: 8px;
 `;
 
 export const StyledCheckContainer = styled.View`
