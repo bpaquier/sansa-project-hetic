@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 
 import {
   StyledView,
@@ -8,29 +8,42 @@ import {
   CheckContainerMobile,
   CheckContainerBorne
 } from "./styles";
+import { InputProps } from "~/Components/Form/Input";
 import Check from "~/Components/Icons/System/System/Check";
 import Text from "~/Components/Ui-kit/Text";
 import { useGlobalContext } from "~/Contexts/globalContext";
 import theme from "~/Styles/theme.styles";
 
-type CheckBoxProps = {
-  label: string;
-  checked: boolean;
+export interface CheckBoxProps extends InputProps {
+  label?: string;
+  forceChecked?: boolean;
   disabled?: boolean;
-  onChange: () => void;
+  onChange?: () => void;
   indeterminate?: boolean;
-};
+}
 
 export default function Checkbox({
   label,
-  onChange,
   disabled,
-  checked = false
+  forceChecked = false,
+  updateValue,
+  required,
+  name
 }: CheckBoxProps): JSX.Element {
   const { isMobile } = useGlobalContext();
+  const [checked, setChecked] = useState(forceChecked);
+
+  useEffect(() => {
+    required && updateValue && updateValue({ [name]: null });
+  }, [required]);
+
+  useEffect(() => {
+    checked && updateValue && updateValue({ [name]: true });
+    !checked && updateValue && updateValue({ [name]: required ? null : false });
+  }, [checked]);
 
   const handleChange = () => {
-    !disabled && onChange();
+    setChecked((prev) => !prev);
   };
 
   const colorIcon = useMemo(() => {
@@ -60,7 +73,7 @@ export default function Checkbox({
         </CheckContainer>
       </Checkbox>
       <TextContainer>
-        <Text>{label}</Text>
+        <Text type="small">{label}</Text>
       </TextContainer>
     </StyledView>
   );

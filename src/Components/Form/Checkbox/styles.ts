@@ -58,7 +58,8 @@ export const CheckboxBorne = styled.Pressable<StyledBoxProps>`
 
 export const TextContainer = styled.View`
   align-self: center;
-  margin-left: 8px;
+  padding-left: 8px;
+  width: 95%;
 `;
 
 export const CheckContainerMobile = styled.View`
