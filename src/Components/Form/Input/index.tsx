@@ -17,6 +17,7 @@ export interface InputProps {
   updateValue?(value: any): void;
   type?: "text" | "password" | "tel" | "email" | "select";
   required?: boolean;
+  checkPwd?: boolean;
   options?: {
     label: string;
     value: string;
@@ -43,13 +44,15 @@ export default function Input({
   name,
   updateValue,
   options,
-  bottomText
+  bottomText,
+  checkPwd
 }: InputProps): JSX.Element {
   const [value, setValue] = useState<string>(defaultValue ?? "");
   const [error, setError] = useState<ErrorType>({ status: false });
   const phoneInput = useRef<PhoneInput>(null);
-  const re =
+  const mailRe =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const pwdRe = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/;
 
   useEffect(() => {
     if (type === "select") {
@@ -68,7 +71,19 @@ export default function Input({
       setError({ status: true, type: "empty", content: ErrorMessages?.empty });
       updateValue && updateValue({ [name]: null });
     } else if (type === "email") {
-      if (re.test(value)) {
+      if (mailRe.test(value)) {
+        setError({ status: false });
+        updateValue && updateValue({ [name]: value });
+      } else {
+        setError({
+          status: true,
+          type: "format",
+          content: ErrorMessages?.format
+        });
+        updateValue && updateValue({ [name]: null });
+      }
+    } else if (type === "password" && checkPwd) {
+      if (pwdRe.test(value)) {
         setError({ status: false });
         updateValue && updateValue({ [name]: value });
       } else {
