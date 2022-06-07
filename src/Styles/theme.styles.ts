@@ -40,6 +40,16 @@ const theme = {
         primary: `#808080`,
         secondary: `#282828`
       }
+    },
+    categories: {
+      home: `#3B4E3C`,
+      food: `#E09E9C`,
+      health: `#99BC96`,
+      medicine: `#527A9A`,
+      hygiene: `#51A6B9`,
+      advice: `#DE945C`,
+      activities: `#D4494C`,
+      technology: `#233454`
     }
   },
   size: {
