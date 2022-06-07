@@ -37,7 +37,7 @@ export default function NavigationMobile() {
     }
 
     Animated.spring(NavIndicatorOpacity, {
-      toValue: index !== 1 ? 1 : 0,
+      toValue: Math.abs(index) === 1 ? 0 : 1,
       velocity: 0,
       useNativeDriver: true
     }).start();
