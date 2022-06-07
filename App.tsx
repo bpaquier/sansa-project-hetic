@@ -5,6 +5,8 @@ import Login from "~/Views/Account/Login";
 import Register from "~/Views/Account/Register";
 import Home from "~/Views/Home";
 import Page from "~/Views/Page";
+import Plus from "~/Views/Plus";
+import Search from "~/Views/Search";
 
 export default function App() {
   return (
@@ -15,6 +17,8 @@ export default function App() {
             <Route index element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/plus" element={<Plus />} />
           </Routes>
         </Page>
       </GlobalProvider>

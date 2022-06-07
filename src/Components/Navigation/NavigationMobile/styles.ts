@@ -1,17 +1,6 @@
 import styled from "styled-components/native";
 
-import { getColumnWidth } from "~/Styles/mixins.styles";
 import Theme from "~/Styles/theme.styles";
-const { shape, grid } = Theme;
-
-export const ActivePageIndicator = styled.View`
-  position: absolute;
-  top: 0;
-  border-radius: 4px;
-  width: 16%;
-  height: 4px;
-  background-color: ${Theme.color.primary.blue};
-`;
 
 export const Nav = styled.View`
   position: absolute;
@@ -79,15 +68,4 @@ export const NavButtonText = styled.Text<NavButtonTextProps>`
     font-weight: bold;
     color: ${Theme.color.primary.blue};
   `}
-`;
-
-export const NavBorne = styled.View`
-  position: absolute;
-  bottom: ${grid.borneGutter}px;
-  top: ${grid.borneGutter}px;
-  width: ${getColumnWidth(2, false)};
-  left: ${grid.borneGutter}px;
-  justify-content: space-around;
-  background-color: grey;
-  border-radius: ${shape?.radius?.input}px;
 `;
