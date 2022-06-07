@@ -1,5 +1,6 @@
 import { Fragment, useState, useEffect } from "react";
 
+import Checkbox, { CheckBoxProps } from "./Checkbox";
 import Input, { InputProps } from "./Input";
 import {
   SubmitButton,
@@ -17,7 +18,7 @@ export interface FormProps {
   title?: string;
   submitCtaLabel?: string;
   inlineCtaLabel?: string;
-  items?: InputProps[];
+  items?: InputProps[] | CheckBoxProps[];
 }
 
 export default function Form({
@@ -65,7 +66,11 @@ export default function Form({
         {items &&
           items?.map((item, i) => (
             <Fragment key={i}>
-              <Input {...item} updateValue={updateData} />
+              {item?.type === "checkbox" ? (
+                <Checkbox {...item} updateValue={updateData} />
+              ) : (
+                <Input {...item} updateValue={updateData} />
+              )}
             </Fragment>
           ))}
         <SubmitButton>

@@ -15,7 +15,7 @@ export interface InputProps {
   label?: string;
   defaultValue?: string;
   updateValue?(value: any): void;
-  type?: "text" | "password" | "tel" | "email" | "select";
+  type?: "text" | "password" | "tel" | "email" | "select" | "checkbox";
   required?: boolean;
   options?: {
     label: string;
