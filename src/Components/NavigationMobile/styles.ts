@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+
 import Theme from "~/Styles/theme.styles";
 
 export const Nav = styled.View`
@@ -13,20 +14,23 @@ export const Nav = styled.View`
 `;
 
 interface NavButtonProps {
-  primary?: Boolean;
+  primary?: boolean;
 }
 
 export const NavButton = styled.TouchableOpacity<NavButtonProps>`
   flex: 1;
   align-items: center;
 
-  ${({ primary }: any) => primary && `
+  ${({ primary }: any) =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    primary &&
+    `
     margin-top: -16px;
   `};
 `;
 
 interface PrimaryIconContainerProps {
-  active?: Boolean;
+  active?: boolean;
 }
 
 export const PrimaryIconContainer = styled.View<PrimaryIconContainerProps>`
@@ -39,14 +43,17 @@ export const PrimaryIconContainer = styled.View<PrimaryIconContainerProps>`
   border: 2px solid ${Theme.color.neutral.black60};
   background-color: ${Theme.color.primary.white};
 
-  ${({ active }: any) => active && `
+  ${({ active }: any) =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    active &&
+    `
     border-color: ${Theme.color.primary.white};
     background-color: ${Theme.color.primary.blue};
   `}
 `;
 
 interface NavButtonTextProps {
-  active?: Boolean;
+  active?: boolean;
 }
 
 export const NavButtonText = styled.Text<NavButtonTextProps>`
@@ -54,7 +61,10 @@ export const NavButtonText = styled.Text<NavButtonTextProps>`
   font-size: 16px;
   color: ${Theme.color.neutral.black60};
 
-  ${({ active }: any) => active && `
+  ${({ active }: any) =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    active &&
+    `
     font-weight: bold;
     color: ${Theme.color.primary.blue};
   `}

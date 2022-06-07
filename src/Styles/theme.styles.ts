@@ -85,7 +85,6 @@ const theme = {
   },
   sizes: {
     breakPoint: 800,
-
     mobilePageMarginBottom: 200
   }
 };

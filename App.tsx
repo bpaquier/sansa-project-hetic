@@ -4,9 +4,9 @@ import GlobalProvider from "~/Contexts/globalContext";
 import Login from "~/Views/Account/Login";
 import Register from "~/Views/Account/Register";
 import Home from "~/Views/Home";
-import Search from "~/Views/Search";
 import Page from "~/Views/Page";
 import Plus from "~/Views/Plus";
+import Search from "~/Views/Search";
 
 export default function App() {
   return (
