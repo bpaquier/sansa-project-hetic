@@ -6,7 +6,8 @@ export const Wrapper = styled.View`
 
 export const FormWrapper = styled.View`
   width: 100%;
-  margin-bottom: 24px;
+  margin-top: 24px;
+  margin-bottom: 32px;
 `;
 
 export const TitleWrapper = styled.View`
@@ -14,8 +15,8 @@ export const TitleWrapper = styled.View`
 `;
 
 export const SubmitButton = styled.View`
-  margin-top: 24px;
+  margin-top: 16px;
 `;
 export const InlineButton = styled.View`
-  margin-top: 32px;
+  margin-top: 16px;
 `;

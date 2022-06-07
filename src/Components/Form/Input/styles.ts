@@ -5,10 +5,11 @@ const { color, shape } = Theme;
 
 interface InputStyleProps {
   error?: boolean;
+  isMobile?: boolean;
 }
 
 export const InputWrapper = styled.View`
-  margin-top: 16px;
+  margin-bottom: 16px;
 `;
 
 export const InputElement = styled.TextInput`
@@ -22,7 +23,7 @@ export const InputElement = styled.TextInput`
   margin: 10px 0 5px;
 `;
 
-export const Select = styled.View`
+export const StyledInput = styled.View`
   width: 100%;
   border: 1px solid;
   border-color: ${color?.neutral?.black20};
@@ -31,4 +32,7 @@ export const Select = styled.View`
   padding: 0 16px;
   background-color: ${color?.primary?.white};
   margin: 10px 0 5px;
+  border-color: ${({ error }: InputStyleProps) =>
+    error ? color?.semantic?.dangerText : color?.neutral?.black20};
+  align-items: flex-start;
 `;
