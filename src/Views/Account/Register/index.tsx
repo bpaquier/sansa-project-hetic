@@ -73,7 +73,7 @@ export default function Register(): JSX.Element {
           {
             type: "checkbox",
             label:
-              "J'ai lu et j'accepete les conditions générales d'utilisation",
+              "J'ai lu et j'accepte les conditions générales d'utilisation",
             forceChecked: false,
             name: "consent",
             required: true
