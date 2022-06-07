@@ -1,5 +1,5 @@
-import NavigationBorne from "~/Components/NavigationBorne";
-import NavigationMobile from "~/Components/NavigationMobile";
+import NavigationBorne from "./NavigationBorne";
+import NavigationMobile from "./NavigationMobile";
 import { useGlobalContext } from "~/Contexts/globalContext";
 
 export default function Navigation() {

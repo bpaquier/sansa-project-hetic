@@ -10,8 +10,9 @@ interface StyledViewProps {
 
 export const SafeArea = styled.View`
   width: ${(props: StyledViewProps) => props.width}px;
-  /* height: ${(props: StyledViewProps) => props.height}px; */
-  height: 100%;
+  height: ${(props: StyledViewProps) => props.height}px;
+  position: absolute;
+  bottom: 0;
   align-items: center;
   background-color: ${color?.neutral?.black5};
 `;

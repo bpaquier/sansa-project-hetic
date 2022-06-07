@@ -9,7 +9,7 @@ import Plus from "~/Components/Icons/System/System/Plus";
 import Separator from "~/Components/Ui-kit/Separator";
 import Theme from "~/Styles/theme.styles";
 
-export default function Navigation() {
+export default function NavigationBorne() {
   const navigate = useNavigate();
   const location = useLocation();
   const isCurrentPage = (page: string): boolean => location.pathname === page;
