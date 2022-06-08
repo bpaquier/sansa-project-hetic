@@ -88,7 +88,10 @@ export default function Plus(): JSX.Element {
           <Text type="titleL">Plus</Text>
           {plusContent.map((content) => {
             return (
-              <TextPlusWrapper key={content.title}>
+              <TextPlusWrapper
+                onPress={() => console.log("add a link")}
+                key={content.title}
+              >
                 <Text type="paragraph" color="grey">
                   {content.title}
                 </Text>

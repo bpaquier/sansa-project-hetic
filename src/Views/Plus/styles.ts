@@ -49,6 +49,6 @@ export const ImageWrapper = styled.View`
   margin-top: 24px;
 `;
 
-export const TextPlusWrapper = styled.View`
+export const TextPlusWrapper = styled.Pressable`
   margin-top: 24px;
 `;
