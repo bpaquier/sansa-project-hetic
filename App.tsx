@@ -14,10 +14,10 @@ export default function App() {
       <GlobalProvider>
         <Page>
           <Routes>
-            <Route index element={<Home />} />
+            <Route index element={<Search />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/search" element={<Search />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/plus" element={<Plus />} />
           </Routes>
         </Page>

@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "sansa",
+    "name": "app",
     "slug": "sans",
     "version": "1.0.0",
     "orientation": "landscape",
@@ -21,6 +21,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/Team_success_Two_Color.png",
         "backgroundColor": "#FFFFFF"
+      }, 
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDPoDTXy1eJsSlgFyGc4sIrf8kO8q6V4z8"
+        }
       }
     },
     "web": {
