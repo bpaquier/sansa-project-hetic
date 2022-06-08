@@ -12,7 +12,7 @@ export default function Home(): JSX.Element {
         <Text type="titleXL" textAlign="center">
           Home
         </Text>
-        <ButtonComponent text="hello" onPress={() => navigate("/login")} />
+        <ButtonComponent text="login" onPress={() => navigate("/login")} />
       </>
     </PageContentWrapper>
   );
