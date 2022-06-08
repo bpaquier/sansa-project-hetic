@@ -29,13 +29,14 @@ export default function Login(): JSX.Element {
             placeholder: "johndoe@gmail.com",
             label: "Votre email ou indentifiant",
             name: "ID",
-            required: false,
+            required: true,
             type: "email"
           },
           {
             label: "Votre mot de passe",
             name: "password",
-            type: "password"
+            type: "password",
+            required: true
           }
         ]}
       />
