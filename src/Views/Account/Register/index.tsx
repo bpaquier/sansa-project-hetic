@@ -67,6 +67,7 @@ export default function Register(): JSX.Element {
             name: "password",
             type: "password",
             required: true,
+            checkPwd: true,
             bottomText:
               "Doit contenir 8 caractères avec une majuscule et un chiffre"
           },
