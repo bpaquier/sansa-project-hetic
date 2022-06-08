@@ -3,20 +3,20 @@ import styled from "styled-components/native";
 import { getColumnWidth } from "~/Styles/mixins.styles";
 import Theme from "~/Styles/theme.styles";
 
-const { shape } = Theme;
+const { shape, grid } = Theme;
 
 export const Nav = styled.View`
   flex: 1;
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  bottom: 0;
-  top: 10px;
+  bottom: ${grid.borneGutter}px;
+  top: ${grid.borneGutter}px;
   padding: 20px 0;
   border-radius: ${shape?.radius?.input}px;
   border: 1px solid ${Theme.color.neutral.black10};
   width: ${getColumnWidth(2, false)};
-  left: 10px;
+  left: ${grid.borneGutter}px;
   background-color: ${Theme.color.primary.white};
 `;
 
