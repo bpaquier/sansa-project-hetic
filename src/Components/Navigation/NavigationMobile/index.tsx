@@ -20,11 +20,11 @@ export default function NavigationMobile() {
   const [NavIndicatorOpacity] = useState(new Animated.Value(1));
 
   useEffect(() => {
-    const index = isCurrentPage("/")
+    const index = isCurrentPage("/home")
       ? 0
       : isCurrentPage("/plus")
       ? 2
-      : isCurrentPage("/search")
+      : isCurrentPage("/")
       ? 1
       : -1;
 
@@ -73,33 +73,31 @@ export default function NavigationMobile() {
           backgroundColor: Theme.color.primary.blue
         }}
       />
-      <NavButton onPress={() => navigate("/")}>
+      <NavButton onPress={() => navigate("/home")}>
         <House
           width={36}
           height={36}
           color={
-            isCurrentPage("/")
+            isCurrentPage("/home")
               ? Theme.color.primary.blue
               : Theme.color.neutral.black60
           }
         />
-        <NavButtonText active={isCurrentPage("/")}>Accueil</NavButtonText>
+        <NavButtonText active={isCurrentPage("/home")}>Accueil</NavButtonText>
       </NavButton>
-      <NavButton primary onPress={() => navigate("/search")}>
-        <PrimaryIconContainer active={isCurrentPage("/search")}>
+      <NavButton primary onPress={() => navigate("/")}>
+        <PrimaryIconContainer active={isCurrentPage("/")}>
           <MapMarker
             width={36}
             height={36}
             color={
-              isCurrentPage("/search")
+              isCurrentPage("/")
                 ? Theme.color.primary.white
                 : Theme.color.neutral.black60
             }
           />
         </PrimaryIconContainer>
-        <NavButtonText active={isCurrentPage("/search")}>
-          Rechercher
-        </NavButtonText>
+        <NavButtonText active={isCurrentPage("/")}>Rechercher</NavButtonText>
       </NavButton>
       <NavButton onPress={() => navigate("/plus")}>
         <Plus

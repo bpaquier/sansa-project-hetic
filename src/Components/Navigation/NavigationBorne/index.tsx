@@ -19,19 +19,19 @@ export default function NavigationBorne() {
       <View
         style={{ flex: 1, justifyContent: "center", alignContent: "center" }}
       >
-        <NavButtonContainer active={isCurrentPage("/")}>
-          <NavButton onPress={() => navigate("/")} active={isCurrentPage("/")}>
+        <NavButtonContainer active={isCurrentPage("/home")}>
+          <NavButton
+            onPress={() => navigate("/home")}
+            active={isCurrentPage("/home")}
+          >
             <House width={36} height={36} color={Theme.color.primary.white} />
           </NavButton>
         </NavButtonContainer>
         <NavButtonContainer
-          active={isCurrentPage("/search")}
+          active={isCurrentPage("/")}
           style={{ marginTop: 28 }}
         >
-          <NavButton
-            onPress={() => navigate("/search")}
-            active={isCurrentPage("/search")}
-          >
+          <NavButton onPress={() => navigate("/")} active={isCurrentPage("/")}>
             <MapMarker
               width={36}
               height={36}
