@@ -3,6 +3,7 @@ import React, { ReactNode } from "react";
 import { useFonts } from "expo-font";
 
 import { TextContainer } from "./styles";
+import { useGlobalContext } from "~/Contexts/globalContext";
 
 export interface TextComponentProps {
   type?: "titleXL" | "titleL" | "titleM" | "paragraph" | "small";
@@ -37,12 +38,14 @@ const TextComponent = ({
     HelveticaBold: require("~/../assets/fonts/HelveticaNeueCyr-Bold.ttf")
   });
 
+  const { isMobile } = useGlobalContext();
+
   if (!loaded) {
     return null;
   }
 
   return (
-    <TextContainer {...{ type, weight, color, textAlign }}>
+    <TextContainer {...{ type, weight, color, textAlign }} isMobile={isMobile}>
       {children}
     </TextContainer>
   );

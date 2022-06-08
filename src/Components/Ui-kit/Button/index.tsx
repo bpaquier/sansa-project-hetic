@@ -21,6 +21,7 @@ export interface ButtonProps {
   type?: "primary" | "secondary" | "tertiary";
   fullWidth?: boolean;
   horizontalPosition?: "left" | "center" | "right";
+  noPadding?: boolean;
 }
 
 export default function ButtonComponent({
@@ -33,7 +34,8 @@ export default function ButtonComponent({
   type = "primary",
   isDisabled,
   isLoading,
-  horizontalPosition = "center"
+  horizontalPosition = "center",
+  noPadding = false
 }: ButtonProps): JSX.Element {
   const [isActive, setIsActive] = useState<boolean>(false);
 
@@ -54,7 +56,8 @@ export default function ButtonComponent({
           fullWidth,
           type,
           isActive,
-          isDisabled
+          isDisabled,
+          noPadding
         }}
         onPressIn={() => !isLoading && !isDisabled && setIsActive(true)}
         onPressOut={() => !isLoading && !isDisabled && setIsActive(false)}
