@@ -1,6 +1,5 @@
 import styled from "styled-components/native";
 
-import { globalStyle } from "~/Styles/mixins.styles";
 import Theme from "~/Styles/theme.styles";
 const { color } = Theme;
 interface StyledViewProps {
@@ -15,14 +14,6 @@ export const SafeArea = styled.View`
   bottom: 0;
   align-items: center;
   background-color: ${color?.neutral?.black5};
-`;
-
-export const PageContainerMobile = styled.ScrollView`
-  ${globalStyle?.pageMobile}
-`;
-
-export const PageContainerBorne = styled.View`
-  ${globalStyle?.pageBorne}
 `;
 
 export const PageContent = styled.View`

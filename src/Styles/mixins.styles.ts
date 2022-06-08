@@ -16,22 +16,6 @@ export const getColumnWidth = (
   return `${((columnRatio * computedWidth) / 100) * columns}px`;
 };
 
-export const globalStyle = {
-  pageBorne: () => `
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: ${grid.borneGutter}px
-  `,
-  pageMobile: () => `
-    position: relative;
-    padding: 50px ${grid.mobileGutter}px;
-    width: 100%;
-    height: 100%;
-    min-height: 100%;
-  `
-};
-
 export const ImageStyle = StyleSheet.create({
   image: {
     width: "100%",

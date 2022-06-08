@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-native";
 import LoginIllustration from "./loginIllustation";
 import { BottomText } from "./styles";
 import Form from "~/Components/Form";
+import PageContentWrapper from "~/Components/PageContentWrapper";
 import Button from "~/Components/Ui-kit/Button";
 import Text from "~/Components/Ui-kit/Text";
 //import { ImageStyle } from "~/Styles/mixins.styles";
@@ -51,5 +52,9 @@ export default function Login(): JSX.Element {
     </>
   );
 
-  return <FormPageTemplate image={Image} form={FormComponent} />;
+  return (
+    <PageContentWrapper>
+      <FormPageTemplate image={Image} form={FormComponent} />
+    </PageContentWrapper>
+  );
 }
