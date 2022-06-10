@@ -21,7 +21,8 @@ export const PageWrapper = styled.View`
 `;
 
 export const PageWrapperBorne = styled.View`
-  width: 100%;
+  width: ${getColumnWidth(21, false)};
+  margin-left: ${getColumnWidth(3, false)};
 `;
 
 export const TitleWrapper = styled.View<TitleWrapperProps>`
