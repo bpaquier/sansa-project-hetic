@@ -64,7 +64,7 @@ export default function Form({
       />
       <FormWrapper>
         {items &&
-          items?.map((item, i) => (
+          items?.map((item: InputProps | CheckBoxProps, i: number) => (
             <Fragment key={i}>
               {item?.type === "checkbox" ? (
                 <Checkbox {...item} updateValue={updateData} />
