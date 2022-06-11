@@ -1,5 +1,15 @@
-import { StyledView } from "./styles";
+import React from "react";
 
-export default function BaseComponent(): JSX.Element {
-  return <StyledView></StyledView>;
+import { Content } from "./styles";
+import TopBar from "./TopBar";
+import PageContentWrapper from "~/Components/PageContentWrapper";
+
+export default function BornContent(): JSX.Element {
+  return (
+    <PageContentWrapper>
+      <Content>
+        <TopBar></TopBar>
+      </Content>
+    </PageContentWrapper>
+  );
 }

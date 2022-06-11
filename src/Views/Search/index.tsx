@@ -1,3 +1,4 @@
+import BornContent from "./BorneContent";
 import Map from "./Map";
 import { useGlobalContext } from "~/Contexts/globalContext";
 
@@ -6,6 +7,7 @@ export default function Search(): JSX.Element {
   return (
     <>
       <Map {...{ isMobile }} />
+      <BornContent />
     </>
   );
 }
