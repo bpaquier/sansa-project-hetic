@@ -8,7 +8,7 @@ import React, {
 
 import { Animated, Easing, View } from "react-native";
 
-import { AccordionWrapper, Head, TextWrapper } from "./styles";
+import { AccordionWrapper, Head, TextWrapper, ContentWrapper } from "./styles";
 import ArrowDown from "~/Components/Icons/System/Arrows/ArrowDown";
 import ArrowUp from "~/Components/Icons/System/Arrows/ArrowUp";
 import Text from "~/Components/Ui-kit/Text";
@@ -101,7 +101,7 @@ export default function Accordion({
             !contentHeight && setContentHeight(height);
           }}
         >
-          {content}
+          <ContentWrapper>{content}</ContentWrapper>
         </View>
       </Animated.View>
     </AccordionWrapper>
