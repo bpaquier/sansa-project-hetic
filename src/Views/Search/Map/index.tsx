@@ -7,11 +7,11 @@ import { StyleSheet, Dimensions } from "react-native";
 import MapView, { PROVIDER_GOOGLE, Camera, Marker } from "react-native-maps";
 
 import { PlaceProps } from "..";
-import Ping from "./Ping";
 import { ControlsBorne, ControlsMobile, Button } from "./styles";
 import PositionIcon from "~/Components/Icons/System/Map/Position";
 import Minus from "~/Components/Icons/System/System/Minus";
 import Plus from "~/Components/Icons/System/System/Plus";
+import Ping from "~/Components/Ping";
 import theme from "~/Styles/theme.styles";
 
 const styles = StyleSheet.create({

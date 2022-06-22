@@ -17,17 +17,11 @@ export const ListWrapper = styled.View`
   background-color: ${color.primary.white};
 `;
 
-export const Head = styled.View`
-  width: 100%;
-  height: 70px;
-  background-color: ${color.primary.blue};
-`;
-
 export const Content = styled.ScrollView`
   height: ${globalHeight -
   grid?.borneGutter * 2 -
   (size?.bornContent?.topBarHeight + 8) -
   (size?.bornContent?.tagsHeight + 8) -
   70}px;
-  background-color: ${color.primary.white};
+  background-color: ${color.primary.orange};
 `;
