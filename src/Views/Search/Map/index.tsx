@@ -6,7 +6,7 @@ import { StyleSheet, Dimensions } from "react-native";
 // eslint-disable-next-line import/named
 import MapView, { PROVIDER_GOOGLE, Camera, Marker } from "react-native-maps";
 
-import { PlaceProps } from "..";
+import { PlaceIndexProps, PlaceProps } from "..";
 import { ControlsBorne, ControlsMobile, Button } from "./styles";
 import PositionIcon from "~/Components/Icons/System/Map/Position";
 import Minus from "~/Components/Icons/System/System/Minus";
@@ -21,9 +21,9 @@ const styles = StyleSheet.create({
   }
 });
 
-interface MapProps {
+interface MapProps extends PlaceIndexProps {
   isMobile?: boolean;
-  selectedPlaces?: PlaceProps[];
+  filteredPlaces?: PlaceProps[];
 }
 
 interface LocationProps {
@@ -35,7 +35,8 @@ interface LocationProps {
 
 export default function Map({
   isMobile,
-  selectedPlaces
+  filteredPlaces,
+  selectedPlaceIndex
 }: MapProps): JSX.Element {
   const initialDelta = 0.05;
 
@@ -82,6 +83,26 @@ export default function Map({
     );
   };
 
+  useEffect(() => {
+    selectedPlaceIndex !== null &&
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      mapRef?.current?.animateToRegion(
+        {
+          latitudeDelta: initialDelta,
+          longitudeDelta: initialDelta,
+          latitude: parseFloat(
+            filteredPlaces?.[selectedPlaceIndex]?.position?.latitude
+          ),
+          longitude: parseFloat(
+            filteredPlaces?.[selectedPlaceIndex]?.position?.longitude
+          )
+        },
+        1000
+      );
+  }, [selectedPlaceIndex]);
+
   const zoom = (arg: "in" | "out") => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
@@ -109,7 +130,7 @@ export default function Map({
         showsMyLocationButton={false}
         initialRegion={{ ...location }}
       >
-        {selectedPlaces?.map((place, index) => (
+        {filteredPlaces?.map((place, index) => (
           <Marker
             key={index}
             coordinate={{

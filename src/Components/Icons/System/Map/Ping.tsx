@@ -1,19 +1,15 @@
 import Svg, { Path } from "react-native-svg";
 
 export interface PingIconProps {
-  width?: number;
-  height?: number;
+  small?: boolean;
 }
 
-export default function PingIcon({
-  width = 40,
-  height = 54
-}: PingIconProps): JSX.Element {
+export default function PingIcon({ small }: PingIconProps): JSX.Element {
   return (
     <Svg
-      width={width}
-      height={height}
-      viewBox={`0 0 ${width} ${height}`}
+      width={small ? 32 : 40}
+      height={small ? 43 : 54}
+      viewBox={`0 0 40 54`}
       fill="none"
     >
       <Path

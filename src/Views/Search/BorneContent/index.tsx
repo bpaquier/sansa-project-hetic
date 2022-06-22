@@ -1,23 +1,29 @@
 import React from "react";
 
-import { PlaceProps } from "..";
+import { PlaceIndexProps, PlaceProps } from "..";
 import PlacesList from "./PlacesList";
 import { Content } from "./styles";
 import TopBar from "./TopBar";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 
-export interface BornContentProps {
-  selectedList?: PlaceProps[];
+export interface BornContentProps extends PlaceIndexProps {
+  filteredPlaces?: PlaceProps[];
 }
 
 export default function BornContent({
-  selectedList
+  filteredPlaces,
+  selectedPlaceIndex,
+  setSelectedPlaceIndex
 }: BornContentProps): JSX.Element {
   return (
     <PageContentWrapper>
       <Content>
         <TopBar />
-        <PlacesList {...{ selectedList }} />
+        {filteredPlaces && (
+          <PlacesList
+            {...{ filteredPlaces, selectedPlaceIndex, setSelectedPlaceIndex }}
+          />
+        )}
       </Content>
     </PageContentWrapper>
   );

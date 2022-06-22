@@ -7,6 +7,10 @@ import theme from "~/Styles/theme.styles";
 const { height: globalHeight } = Dimensions.get("window");
 const { color, shape, size, grid } = theme;
 
+interface StyleProps {
+  selected?: boolean;
+}
+
 export const ListWrapper = styled.View`
   position: absolute;
   left: ${getColumnWidth(3, false)};
@@ -23,5 +27,9 @@ export const Content = styled.ScrollView`
   (size?.bornContent?.topBarHeight + 8) -
   (size?.bornContent?.tagsHeight + 8) -
   70}px;
-  background-color: ${color.primary.orange};
+`;
+
+export const Item = styled.TouchableOpacity`
+  background-color: ${({ selected }: StyleProps) =>
+    selected ? "rgba(0,0,0,0.02)" : "transparent"};
 `;
