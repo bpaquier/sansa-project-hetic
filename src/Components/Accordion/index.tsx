@@ -70,7 +70,7 @@ export default function Accordion({
     inputRange: [0, 1],
     outputRange: ["0deg", "180deg"]
   });
-
+  console.log({ contentHeight });
   return (
     <AccordionWrapper>
       <Head onPress={() => setIsOpen((prev) => !prev)} activeOpacity={0.7}>

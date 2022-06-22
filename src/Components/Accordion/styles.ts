@@ -20,7 +20,4 @@ export const TextWrapper = styled.View`
   flex: 1 1;
 `;
 
-export const ContentWrapper = styled.View`
-  padding: 20px 32px;
-  padding-top: 0;
-`;
+export const ContentWrapper = styled.View``;
