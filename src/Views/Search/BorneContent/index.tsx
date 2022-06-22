@@ -1,14 +1,23 @@
 import React from "react";
 
+import { PlaceProps } from "..";
+import PlacesList from "./PlacesList";
 import { Content } from "./styles";
 import TopBar from "./TopBar";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 
-export default function BornContent(): JSX.Element {
+export interface BornContentProps {
+  selectedList?: PlaceProps[];
+}
+
+export default function BornContent({
+  selectedList
+}: BornContentProps): JSX.Element {
   return (
     <PageContentWrapper>
       <Content>
-        <TopBar></TopBar>
+        <TopBar />
+        <PlacesList {...{ selectedList }} />
       </Content>
     </PageContentWrapper>
   );

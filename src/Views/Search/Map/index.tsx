@@ -4,8 +4,10 @@ import React, { useEffect, useState, useRef } from "react";
 import * as Location from "expo-location";
 import { StyleSheet, Dimensions } from "react-native";
 // eslint-disable-next-line import/named
-import MapView, { PROVIDER_GOOGLE, Camera } from "react-native-maps";
+import MapView, { PROVIDER_GOOGLE, Camera, Marker } from "react-native-maps";
 
+import { PlaceProps } from "..";
+import Ping from "./Ping";
 import { ControlsBorne, ControlsMobile, Button } from "./styles";
 import PositionIcon from "~/Components/Icons/System/Map/Position";
 import Minus from "~/Components/Icons/System/System/Minus";
@@ -21,6 +23,7 @@ const styles = StyleSheet.create({
 
 interface MapProps {
   isMobile?: boolean;
+  selectedPlaces?: PlaceProps[];
 }
 
 interface LocationProps {
@@ -30,7 +33,10 @@ interface LocationProps {
   longitudeDelta: number;
 }
 
-export default function Map({ isMobile }: MapProps): JSX.Element {
+export default function Map({
+  isMobile,
+  selectedPlaces
+}: MapProps): JSX.Element {
   const initialDelta = 0.05;
 
   const mapRef = useRef();
@@ -79,7 +85,6 @@ export default function Map({ isMobile }: MapProps): JSX.Element {
   const zoom = (arg: "in" | "out") => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     mapRef?.current?.getCamera().then((cam: Camera) => {
       arg === "in" ? (cam.zoom += 1) : (cam.zoom -= 1);
@@ -103,8 +108,19 @@ export default function Map({ isMobile }: MapProps): JSX.Element {
         showsUserLocation={true}
         showsMyLocationButton={false}
         initialRegion={{ ...location }}
-      />
-
+      >
+        {selectedPlaces?.map((place, index) => (
+          <Marker
+            key={index}
+            coordinate={{
+              latitude: parseFloat(place?.position?.latitude),
+              longitude: parseFloat(place?.position?.longitude)
+            }}
+          >
+            <Ping {...{ index }} name={place?.name} />
+          </Marker>
+        ))}
+      </MapView>
       <Controls>
         <Button
           // eslint-disable-next-line @typescript-eslint/no-misused-promises

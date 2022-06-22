@@ -29,7 +29,7 @@ export interface IconsDisplay {
 export default function TopBar(): JSX.Element {
   const [searchValue, setSearchValue] = useState<string>("");
 
-  const iconsWidth = 58;
+  const iconsWidth = 48;
   const Icons: IconsDisplay[] = [
     {
       Icon: Home,

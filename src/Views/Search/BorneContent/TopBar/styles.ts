@@ -3,16 +3,17 @@ import styled from "styled-components/native";
 import { getColumnWidth } from "~/Styles/mixins.styles";
 import theme from "~/Styles/theme.styles";
 
-const { color, shape } = theme;
+const { color, shape, size } = theme;
 
 export const TopBarWrapper = styled.View`
   position: absolute;
   top: 0;
   right: 0;
   width: ${getColumnWidth(21, false)};
+  height: ${size?.bornContent?.topBarHeight}px;
   background-color: ${color.primary.white};
   border-radius: ${shape?.radius?.input}px;
-  padding: 13px 24px;
+  padding: 0 24px;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;

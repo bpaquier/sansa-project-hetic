@@ -56,6 +56,10 @@ const theme = {
     icon: {
       system: 24,
       categories: 16
+    },
+    bornContent: {
+      topBarHeight: 90,
+      tagsHeight: 60
     }
   },
   boxShadow: {
