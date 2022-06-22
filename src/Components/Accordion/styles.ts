@@ -18,4 +18,5 @@ export const Head = styled.TouchableOpacity`
 
 export const TextWrapper = styled.View`
   flex: 1 1;
+  padding: 20px 32px;
 `;
