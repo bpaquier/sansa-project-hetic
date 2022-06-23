@@ -6,12 +6,13 @@ import { StyleSheet, Dimensions } from "react-native";
 // eslint-disable-next-line import/named
 import MapView, { PROVIDER_GOOGLE, Camera, Marker } from "react-native-maps";
 
-import { PlaceIndexProps, PlaceProps } from "..";
 import { ControlsBorne, ControlsMobile, Button } from "./styles";
 import PositionIcon from "~/Components/Icons/System/Map/Position";
 import Minus from "~/Components/Icons/System/System/Minus";
 import Plus from "~/Components/Icons/System/System/Plus";
 import Ping from "~/Components/Ping";
+import { useGlobalContext } from "~/Contexts/globalContext";
+import { useSearchContext } from "~/Contexts/searchContext";
 import theme from "~/Styles/theme.styles";
 
 const styles = StyleSheet.create({
@@ -20,12 +21,6 @@ const styles = StyleSheet.create({
     height: Dimensions.get("window").height
   }
 });
-
-interface MapProps extends PlaceIndexProps {
-  isMobile?: boolean;
-  filteredPlaces?: PlaceProps[];
-}
-
 interface LocationProps {
   latitude: number;
   longitude: number;
@@ -33,12 +28,11 @@ interface LocationProps {
   longitudeDelta: number;
 }
 
-export default function Map({
-  isMobile,
-  filteredPlaces,
-  selectedPlaceIndex
-}: MapProps): JSX.Element {
+export default function Map(): JSX.Element {
   const initialDelta = 0.05;
+
+  const { isMobile } = useGlobalContext();
+  const { selectedPlaceIndex, filteredPlaces } = useSearchContext();
 
   const mapRef = useRef();
   const [location, setLocation] = useState<LocationProps>({
