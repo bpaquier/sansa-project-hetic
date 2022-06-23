@@ -20,7 +20,7 @@ export const TopBarWrapper = styled.View`
 `;
 
 export const InputWrapper = styled.View`
-  flex: 1 1;
+  width: ${getColumnWidth(7, false)};
   flex-direction: row;
   margin-right: 24px;
   align-items: center;
@@ -40,8 +40,7 @@ export const Input = styled.TextInput`
 
 export const IconsWrapper = styled.View`
   flex-direction: row;
-  width: 63%;
-  max-width: 1100px;
+  flex: 1 1;
   justify-content: space-between;
   margin-left: 24px;
 `;

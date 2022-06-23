@@ -1,4 +1,4 @@
-import React from "react";
+import { useMemo } from "react";
 
 import ListItem from "./ListItem";
 import { ListWrapper, Content, Item } from "./styles";
@@ -8,8 +8,9 @@ import { useSearchContext, PlaceProps } from "~/Contexts/searchContext";
 
 export default function PlacesList(): JSX.Element {
   // eslint-disable-next-line @typescript-eslint/unbound-method
-  const { setSelectedPlaceIndex, filteredPlaces } = useSearchContext();
-  const List = () => {
+  const { selectedPlaceIndex, setSelectedPlaceIndex, filteredPlaces } =
+    useSearchContext();
+  const List = useMemo(() => {
     return (
       <Content>
         {filteredPlaces?.map(({ name, adress }: PlaceProps, index) => (
@@ -17,6 +18,7 @@ export default function PlacesList(): JSX.Element {
             activeOpacity={0.8}
             // eslint-disable-next-line @typescript-eslint/no-unsafe-return
             onPress={() => setSelectedPlaceIndex(index)}
+            selected={selectedPlaceIndex === index}
             key={index}
           >
             <ListItem
@@ -31,13 +33,13 @@ export default function PlacesList(): JSX.Element {
         ))}
       </Content>
     );
-  };
+  }, [filteredPlaces, selectedPlaceIndex, setSelectedPlaceIndex]);
 
   return (
     <ListWrapper>
       <Accordion
         headText="Afficher la liste"
-        content={<List />}
+        content={List}
         initialState="open"
       />
     </ListWrapper>

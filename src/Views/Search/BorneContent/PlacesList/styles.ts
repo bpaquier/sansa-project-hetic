@@ -15,7 +15,7 @@ export const ListWrapper = styled.View`
   position: absolute;
   left: ${getColumnWidth(3, false)};
   top: ${size?.bornContent?.topBarHeight + 8}px;
-  width: ${getColumnWidth(8, false)};
+  width: ${getColumnWidth(7.5, false)};
   border-radius: ${shape?.radius?.input}px;
   overflow: hidden;
   background-color: ${color.primary.white};

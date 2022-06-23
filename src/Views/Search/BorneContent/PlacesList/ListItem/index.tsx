@@ -2,7 +2,7 @@ import { ItemWrapper, InfoWrapper, TextWrapper, TextStyled } from "./styles";
 import Ping from "~/Components/Ping";
 import Button from "~/Components/Ui-kit/Button";
 import Text from "~/Components/Ui-kit/Text";
-import { PlaceProps } from "~/Views/Search";
+import { PlaceProps } from "~/Contexts/searchContext";
 
 export interface ListItemProps extends PlaceProps {
   index?: number;
