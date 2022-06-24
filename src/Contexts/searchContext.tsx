@@ -11,7 +11,7 @@ export interface PlaceProps {
 
 interface ContextProps {
   selectedPlaceIndex?: number;
-  setSelectedPlaceIndex?(index?: number): void;
+  setSelectedPlaceIndex?: (index?: number) => void;
   filteredPlaces?: PlaceProps[] | null;
   setFilteredPlaces?: (list: any) => void;
 }

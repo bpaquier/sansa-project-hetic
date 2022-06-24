@@ -32,7 +32,8 @@ export default function Map(): JSX.Element {
   const initialDelta = 0.05;
 
   const { isMobile } = useGlobalContext();
-  const { selectedPlaceIndex, filteredPlaces } = useSearchContext();
+  const { selectedPlaceIndex, filteredPlaces, setSelectedPlaceIndex } =
+    useSearchContext();
 
   const mapRef = useRef();
   const [location, setLocation] = useState<LocationProps>({
@@ -127,6 +128,7 @@ export default function Map(): JSX.Element {
         {filteredPlaces?.map((place, index) => (
           <Marker
             key={index}
+            onPress={() => setSelectedPlaceIndex(index)}
             coordinate={{
               latitude: parseFloat(place?.position?.latitude),
               longitude: parseFloat(place?.position?.longitude)

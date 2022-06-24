@@ -21,8 +21,8 @@ export const ListWrapper = styled.View`
   background-color: ${color.primary.white};
 `;
 
-export const Content = styled.ScrollView`
-  height: ${globalHeight -
+export const ListContent = styled.ScrollView`
+  max-height: ${globalHeight -
   grid?.borneGutter * 2 -
   (size?.bornContent?.topBarHeight + 8) -
   (size?.bornContent?.tagsHeight + 8) -

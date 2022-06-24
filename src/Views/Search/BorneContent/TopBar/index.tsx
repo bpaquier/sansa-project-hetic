@@ -65,19 +65,16 @@ export default function TopBar(): JSX.Element {
     }
   ];
 
-  const renderIcons = (): any => {
-    return Icons.map(({ Icon, label }: IconsDisplay, i) => (
-      <IconWrapper key={i}>
-        <Button>
-          <Icon width={iconsWidth} height={iconsWidth} />
-        </Button>
-        <Label>
-          <Text type="small">{label}</Text>
-        </Label>
-      </IconWrapper>
-    ));
-  };
-
+  const renderIcons = Icons.map(({ Icon, label }: IconsDisplay, i) => (
+    <IconWrapper key={i}>
+      <Button>
+        <Icon width={iconsWidth} height={iconsWidth} />
+      </Button>
+      <Label>
+        <Text type="small">{label}</Text>
+      </Label>
+    </IconWrapper>
+  ));
   return (
     <TopBarWrapper>
       <InputWrapper>
@@ -91,7 +88,7 @@ export default function TopBar(): JSX.Element {
         </Button>
       </InputWrapper>
       <Separator orientation="vertical" height="64px" />
-      <IconsWrapper>{renderIcons()}</IconsWrapper>
+      <IconsWrapper>{renderIcons}</IconsWrapper>
     </TopBarWrapper>
   );
 }

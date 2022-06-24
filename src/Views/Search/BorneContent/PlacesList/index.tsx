@@ -1,25 +1,44 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
+
+//import { useAnimatedRef, useSharedValue } from "react-native-reanimated";
 
 import ListItem from "./ListItem";
-import { ListWrapper, Content, Item } from "./styles";
+import { ListWrapper, ListContent, Item } from "./styles";
 import Accordion from "~/Components/Accordion";
 import Separator from "~/Components/Ui-kit/Separator";
 import { useSearchContext, PlaceProps } from "~/Contexts/searchContext";
 
 export default function PlacesList(): JSX.Element {
-  // eslint-disable-next-line @typescript-eslint/unbound-method
   const { selectedPlaceIndex, setSelectedPlaceIndex, filteredPlaces } =
     useSearchContext();
+  const itemsTopPositions = useRef<number[]>([]);
+  const scrollRef = useRef();
+
+  useEffect(() => {
+    const scrollValue = itemsTopPositions?.current?.[selectedPlaceIndex];
+    (scrollValue || scrollValue === 0) && scrollTo(scrollValue);
+  }, [selectedPlaceIndex]);
+
+  const scrollTo = (value: number) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    scrollRef?.current?.scrollTo({ y: value });
+  };
+
   const List = useMemo(() => {
     return (
-      <Content>
+      <ListContent ref={scrollRef}>
         {filteredPlaces?.map(({ name, adress }: PlaceProps, index) => (
           <Item
             activeOpacity={0.8}
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-return
             onPress={() => setSelectedPlaceIndex(index)}
             selected={selectedPlaceIndex === index}
             key={index}
+            onLayout={(e) => {
+              const { y } = e.nativeEvent.layout;
+              itemsTopPositions.current[index] = y;
+            }}
           >
             <ListItem
               {...{
@@ -31,7 +50,7 @@ export default function PlacesList(): JSX.Element {
             <Separator orientation="horizontal" columnWidth={6.5} />
           </Item>
         ))}
-      </Content>
+      </ListContent>
     );
   }, [filteredPlaces, selectedPlaceIndex, setSelectedPlaceIndex]);
 
