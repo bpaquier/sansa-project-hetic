@@ -10,7 +10,8 @@ const theme = {
       orangeLight: `#FFB678`,
       orangeDark: `#CF7D38`,
       paper: `#F7F3EA`,
-      white: `#FBFBFB`
+      white: `#FBFBFB`,
+      yellow: `#FFD200`
     },
     semantic: {
       success: `#D4EDDA`,
@@ -88,7 +89,7 @@ const theme = {
       checkbox: 4
     }
   },
-  spacing: (numerator: number) => `calc(${numerator} * 4);`,
+  spacing: (numerator: number) => `calc(${numerator} * 4)px;`,
   globalSpacing: {
     small: "32px",
     medium: "48px",

@@ -4,31 +4,36 @@ import {
   PageWrapper,
   PageWrapperBorne,
   TitleWrapper,
-  PlusContainers,
+  PlusContainersBorne,
   ImageWrapper,
-  TextPlusWrapper
+  TextPlusWrapper,
+  PlusContainersMobile,
+  ButtonsContainerBorne,
+  LogoWrappers,
+  TextMissionsPlusWrapper
 } from "./styles";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 import Button from "~/Components/Ui-kit/Button";
+import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import { useGlobalContext } from "~/Contexts/globalContext";
 
 export default function Plus(): JSX.Element {
   const { isMobile } = useGlobalContext();
 
-  const isConnected = true;
+  const isConnected = false;
 
   const GlobalWrapper = (
     isMobile ? PageWrapper : PageWrapperBorne
   ) as React.ElementType;
 
-  const plusContent = [
-    { title: "Nous contacter" },
-    { title: "Langues" },
-    { title: "Politique de confidentialité" },
-    { title: "Mentions légales" },
-    { title: "CGU" }
-  ];
+  const PlusContainers = (
+    isMobile ? PlusContainersMobile : PlusContainersBorne
+  ) as React.ElementType;
+
+  const ButtonContainer = (
+    isMobile ? ButtonsContainerMobile : ButtonsContainerBorne
+  ) as React.ElementType;
 
   const connectedContent = [
     { title: "Mes notes" },
@@ -46,23 +51,60 @@ export default function Plus(): JSX.Element {
             </Text>
           </TitleWrapper>
         )}
+
         {!isConnected && (
-          <PlusContainers marginBottom paddingTop>
+          <PlusContainers marginBottom columnWidth={!isMobile && 10}>
             <TitleWrapper marginBottom={8}>
-              <Text type="titleL">SANSA</Text>
+              {isMobile ? (
+                <Text type="titleL">SANSA</Text>
+              ) : (
+                <Text textAlign="center" type="titleL">
+                  {"SANSA, c'est quoi ?"}
+                </Text>
+              )}
             </TitleWrapper>
-            <Text type="paragraph" color="black20">
+            <Text type="paragraph" color="black20" textAlign="center">
               Sansa c’est la plateforme qui référence les lieux et les services
               utiles aux personnes en difficultés.
             </Text>
-            <ButtonsContainerMobile>
+            {!isMobile && (
+              <>
+                <TextPlusWrapper marginTop={32}>
+                  <Text color="grey" textAlign="center" weight="bold">
+                    Ses missions
+                  </Text>
+                </TextPlusWrapper>
+                <TextMissionsPlusWrapper>
+                  <LogoWrappers />
+                  <Text type="paragraph" color="black40">
+                    Orienter toutes les personnes en situation difficile vers
+                    les structures qui pourraient les aider.
+                  </Text>
+                </TextMissionsPlusWrapper>
+                <TextMissionsPlusWrapper>
+                  <LogoWrappers />
+                  <Text type="paragraph" color="black40">
+                    Mettre à disposition un outil ouvert à tous, ergonomique,
+                    simple et rapide d’utilisation.
+                  </Text>
+                </TextMissionsPlusWrapper>
+                <TextMissionsPlusWrapper>
+                  <LogoWrappers />
+                  <Text type="paragraph" color="black40">
+                    Permettre l’accès à un espace privé contenant un coffre fort
+                    numérique et la liste de vos lieux favoris.
+                  </Text>
+                </TextMissionsPlusWrapper>
+              </>
+            )}
+            <ButtonContainer>
               <Button text="Se connecter" fullWidth={isMobile} />
-              <Button type="tertiary" text="S'inscrire" fullWidth={isMobile} />
-            </ButtonsContainerMobile>
+              <Button type="secondary" text="S'inscrire" fullWidth={isMobile} />
+            </ButtonContainer>
           </PlusContainers>
         )}
         {isConnected && (
-          <PlusContainers marginBottom paddingTop>
+          <PlusContainers marginBottom paddingTop columnWidth={!isMobile && 5}>
             <Text type="titleL">Bonjour Timothé !</Text>
             {connectedContent.map((content) => {
               return (
@@ -75,7 +117,7 @@ export default function Plus(): JSX.Element {
             })}
           </PlusContainers>
         )}
-        <PlusContainers border marginBottom>
+        <PlusContainers border columnWidth={!isMobile && 7}>
           <Text type="paragraph" color="black20">
             Consulter la liste
           </Text>
@@ -84,20 +126,44 @@ export default function Plus(): JSX.Element {
             <SpotlightHelpIllustration />
           </ImageWrapper>
         </PlusContainers>
-        <PlusContainers paddingTop>
+        <PlusContainers
+          paddingTop={24}
+          paddingX={24}
+          paddingBottom={28}
+          columnWidth={!isMobile && 7}
+        >
           <Text type="titleL">Plus</Text>
-          {plusContent.map((content) => {
-            return (
-              <TextPlusWrapper
-                onPress={() => console.log("add a link")}
-                key={content.title}
-              >
-                <Text type="paragraph" color="grey">
-                  {content.title}
-                </Text>
-              </TextPlusWrapper>
-            );
-          })}
+          <Separator
+            orientation="horizontal"
+            theme="dark"
+            columnWidth={6}
+            margin={16}
+          />
+          <Text type="paragraph" color="grey">
+            Nous contacter
+          </Text>
+          {isMobile && (
+            <TextPlusWrapper marginTop={16}>
+              <Text type="paragraph" color="grey">
+                Langue
+              </Text>
+            </TextPlusWrapper>
+          )}
+          <TextPlusWrapper marginTop={16}>
+            <Text type="paragraph" color="grey">
+              Politique de confidentialité
+            </Text>
+          </TextPlusWrapper>
+          <TextPlusWrapper marginTop={16}>
+            <Text type="paragraph" color="grey">
+              Mention légales
+            </Text>
+          </TextPlusWrapper>
+          <TextPlusWrapper marginTop={16}>
+            <Text type="paragraph" color="grey">
+              CGU
+            </Text>
+          </TextPlusWrapper>
         </PlusContainers>
       </GlobalWrapper>
     </PageContentWrapper>
