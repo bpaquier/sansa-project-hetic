@@ -29,13 +29,13 @@ export const StyledView = styled.View`
         return "1px";
     }
   }};
-  width: ${({ orientation, columnWidth, isMobile }: SeparatorStyleProps) => {
+  width: ${({ orientation, width, columnWidth, isMobile }: SeparatorStyleProps) => {
     switch (orientation) {
       case "vertical":
         return "1px";
       case "horizontal":
       default:
-        return getColumnWidth(
+        return width || getColumnWidth(
           columnWidth ? columnWidth : grid?.columns / 2,
           isMobile ? isMobile : true
         );

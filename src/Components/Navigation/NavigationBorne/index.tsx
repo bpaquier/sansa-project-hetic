@@ -55,9 +55,7 @@ export default function NavigationBorne() {
         <Separator
           orientation="horizontal"
           margin={20}
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          //@ts-ignore
-          style={{ width: "100%" }}
+          width="100%"
         />
         <France />
       </View>
