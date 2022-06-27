@@ -52,11 +52,7 @@ export default function NavigationBorne() {
         </NavButtonContainer>
       </View>
       <View>
-        <Separator
-          orientation="horizontal"
-          margin={20}
-          width="100%"
-        />
+        <Separator orientation="horizontal" margin={20} width="100%" />
         <France />
       </View>
     </Nav>
