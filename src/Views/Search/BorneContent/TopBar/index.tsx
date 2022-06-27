@@ -9,17 +9,11 @@ import {
   InputWrapper,
   Input
 } from "./styles";
-import Activities from "~/Components/Icons/Categories/Activities";
-import Advice from "~/Components/Icons/Categories/Advice";
-import Food from "~/Components/Icons/Categories/Food";
-import Health from "~/Components/Icons/Categories/Health";
-import Home from "~/Components/Icons/Categories/Home";
-import Hygiene from "~/Components/Icons/Categories/Hygiene";
-import Medicine from "~/Components/Icons/Categories/Medicine";
-import Technology from "~/Components/Icons/Categories/Technology";
 import SearchBig from "~/Components/Icons/System/System/SearchBig";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
+import { useSearchContext } from "~/Contexts/searchContext";
+import { getIconByCategory, mainCategoriesToDisplay } from "~/utils/catgories";
 
 export interface IconsDisplay {
   Icon: any;
@@ -28,53 +22,23 @@ export interface IconsDisplay {
 
 export default function TopBar(): JSX.Element {
   const [searchValue, setSearchValue] = useState<string>("");
+  const { setDisplayFilters } = useSearchContext();
 
   const iconsWidth = 48;
-  const Icons: IconsDisplay[] = [
-    {
-      Icon: Home,
-      label: "Acceuil"
-    },
-    {
-      Icon: Food,
-      label: "Allimentation"
-    },
-    {
-      Icon: Health,
-      label: "Santé"
-    },
-    {
-      Icon: Medicine,
-      label: "Médecine"
-    },
-    {
-      Icon: Hygiene,
-      label: "Hygiène"
-    },
-    {
-      Icon: Advice,
-      label: "Conseil"
-    },
-    {
-      Icon: Activities,
-      label: "Activités"
-    },
-    {
-      Icon: Technology,
-      label: "Technologie"
-    }
-  ];
 
-  const renderIcons = Icons.map(({ Icon, label }: IconsDisplay, i) => (
-    <IconWrapper key={i}>
-      <Button>
-        <Icon width={iconsWidth} height={iconsWidth} />
-      </Button>
-      <Label>
-        <Text type="small">{label}</Text>
-      </Label>
-    </IconWrapper>
-  ));
+  const renderIcons = mainCategoriesToDisplay.map((category, i) => {
+    const Icon = getIconByCategory(category);
+    return (
+      <IconWrapper key={i}>
+        <Button onPress={() => setDisplayFilters(category)}>
+          <Icon width={iconsWidth} height={iconsWidth} />
+        </Button>
+        <Label>
+          <Text type="small">{category}</Text>
+        </Label>
+      </IconWrapper>
+    );
+  });
   return (
     <TopBarWrapper>
       <InputWrapper>

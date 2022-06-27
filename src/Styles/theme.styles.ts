@@ -58,7 +58,7 @@ const theme = {
       categories: 16
     },
     bornContent: {
-      topBarHeight: 90,
+      topBarHeight: 100,
       tagsHeight: 60
     }
   },

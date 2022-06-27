@@ -40,7 +40,7 @@ export const Input = styled.TextInput`
 
 export const IconsWrapper = styled.View`
   flex-direction: row;
-  flex: 1 1;
+  width: ${getColumnWidth(12, false)};
   justify-content: space-between;
   margin-left: 24px;
 `;

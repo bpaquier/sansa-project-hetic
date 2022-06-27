@@ -7,6 +7,7 @@ export interface PlaceProps {
     longitude: string;
   };
   adress?: string;
+  categories?: string[];
 }
 
 interface ContextProps {
@@ -14,6 +15,10 @@ interface ContextProps {
   setSelectedPlaceIndex?: (index?: number) => void;
   filteredPlaces?: PlaceProps[] | null;
   setFilteredPlaces?: (list: any) => void;
+  filters?: string[];
+  setFilters?: (filter: any) => void;
+  displayFilters?: string | null;
+  setDisplayFilters?: (arg: string | null) => void;
 }
 
 export const Context = createContext<ContextProps>({});
@@ -31,12 +36,22 @@ function SearchProvider({ children }: SearchProviderProps) {
     null
   );
   const [filteredPlaces, setFilteredPlaces] = useState(fakePlaces);
+  const [filters, setFilters] = useState<string[]>([
+    "Espace de Repos",
+    "Activité physique",
+    "Fontaine à eau"
+  ]);
+  const [displayFilters, setDisplayFilters] = useState<string | null>(null);
 
   const providerValue = {
     selectedPlaceIndex,
     setSelectedPlaceIndex,
     filteredPlaces,
-    setFilteredPlaces
+    setFilteredPlaces,
+    filters,
+    setFilters,
+    displayFilters,
+    setDisplayFilters
   };
 
   return <Context.Provider value={providerValue}>{children}</Context.Provider>;
@@ -51,7 +66,16 @@ const fakePlaces = [
       latitude: "48.8558",
       longitude: "2.4281"
     },
-    adress: "1 rue Random"
+    hours: "8h - 22h",
+    adress: "1 rue Random",
+    categories: [
+      "Espace de Repos",
+      "Halte de nuit",
+      "Activité physique",
+      "Wifi Gratuite",
+      "Administratif",
+      "Matériel informatique"
+    ]
   },
   {
     name: "Lieu 2",
@@ -59,7 +83,16 @@ const fakePlaces = [
       latitude: "48.8644",
       longitude: "2.4047"
     },
-    adress: "2 rue Random"
+    hours: "8h - 22h",
+    adress: "2 rue Random",
+    categories: [
+      "Espace de Repos",
+      "Halte de nuit",
+      "Activité physique",
+      "Wifi Gratuite",
+      "Protections périodiques",
+      "Cardiologie"
+    ]
   },
   {
     name: "Lieu 3",
@@ -67,7 +100,18 @@ const fakePlaces = [
       latitude: "48.8567",
       longitude: "2.4198"
     },
-    adress: "3 rue Random"
+    hours: "8h - 22h",
+    adress: "3 rue Random",
+    categories: [
+      "Espace de Repos",
+      "Halte de nuit",
+      "Activité physique",
+      "Wifi Gratuite",
+      "Protections périodiques",
+      "Cardiologie",
+      "Administratif",
+      "Matériel informatique"
+    ]
   },
   {
     name: "Lieu 4",
@@ -75,7 +119,16 @@ const fakePlaces = [
       latitude: "48.8549",
       longitude: "2.4562"
     },
-    adress: "4 rue Random"
+    hours: "8h - 22h",
+    adress: "4 rue Random",
+    categories: [
+      "Espace de Repos",
+      "Halte de nuit",
+      "Activité physique",
+      "Wifi Gratuite",
+      "Protections périodiques",
+      "Cardiologie"
+    ]
   },
   {
     name: "Lieu 5",
@@ -83,7 +136,14 @@ const fakePlaces = [
       latitude: "48.8635",
       longitude: "2.4384"
     },
-    adress: "5 rue Random"
+    hours: "8h - 22h",
+    adress: "5 rue Random",
+    categories: [
+      "Wifi Gratuite",
+      "Distribution de repas",
+      "Réparation mobile",
+      "Fontaine à eau"
+    ]
   },
   {
     name: "Lieu 6",
@@ -91,7 +151,15 @@ const fakePlaces = [
       latitude: "48.8427",
       longitude: "2.4391"
     },
-    adress: "6 rue Random"
+    hours: "8h - 22h",
+    adress: "6 rue Random",
+    categories: [
+      "Wifi Gratuite",
+      "Distribution de repas",
+      "Réparation mobile",
+      "Fontaine à eau",
+      "Administratif"
+    ]
   },
   {
     name: "Lieu 7",
@@ -99,7 +167,14 @@ const fakePlaces = [
       latitude: "48.8572",
       longitude: "2.3992"
     },
-    adress: "7 rue Random"
+    hours: "8h - 22h",
+    adress: "7 rue Random",
+    categories: [
+      "Wifi Gratuite",
+      "Distribution de repas",
+      "Réparation mobile",
+      "Fontaine à eau"
+    ]
   },
   {
     name: "Lieu 8",
@@ -107,6 +182,14 @@ const fakePlaces = [
       latitude: "48.8757",
       longitude: "2.4445"
     },
-    adress: "8 rue Random"
+    hours: "8h - 22h",
+    adress: "8 rue Random",
+    categories: [
+      "Wifi Gratuite",
+      "Distribution de repas",
+      "Réparation mobile",
+      "Fontaine à eau",
+      "Administratif"
+    ]
   }
 ];

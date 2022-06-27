@@ -18,8 +18,9 @@ export interface CheckBoxProps extends InputProps {
   label?: string;
   forceChecked?: boolean;
   disabled?: boolean;
-  onChange?: () => void;
+  onChange?: (state: boolean) => void;
   indeterminate?: boolean;
+  width?: number;
 }
 
 export default function Checkbox({
@@ -28,10 +29,16 @@ export default function Checkbox({
   forceChecked = false,
   updateValue,
   required,
-  name
+  name,
+  width,
+  onChange
 }: CheckBoxProps): JSX.Element {
   const { isMobile } = useGlobalContext();
   const [checked, setChecked] = useState(forceChecked);
+
+  useEffect(() => {
+    setChecked(forceChecked);
+  }, [forceChecked]);
 
   useEffect(() => {
     required && updateValue && updateValue({ [name]: null });
@@ -40,6 +47,7 @@ export default function Checkbox({
   useEffect(() => {
     checked && updateValue && updateValue({ [name]: true });
     !checked && updateValue && updateValue({ [name]: required ? null : false });
+    onChange && onChange(checked);
   }, [checked]);
 
   const handleChange = () => {
@@ -55,7 +63,7 @@ export default function Checkbox({
     }
   }, [checked, disabled]);
 
-  const CheckSize = isMobile ? 16 : 24;
+  const CheckSize = width ? width : isMobile ? 16 : 24;
 
   const Checkbox = (
     isMobile ? CheckboxMobile : CheckboxBorne

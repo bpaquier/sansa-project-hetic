@@ -18,3 +18,12 @@ export const TextWrapper = styled.View`
 export const TextStyled = styled.View`
   margin-bottom: 4px;
 `;
+
+export const IconWrapper = styled.View`
+  margin-right: 12px;
+`;
+
+export const IconsWrapper = styled.View`
+  flex-direction: row;
+  margin-bottom: 16px;
+`;

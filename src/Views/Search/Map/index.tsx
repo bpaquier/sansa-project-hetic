@@ -30,7 +30,7 @@ interface LocationProps {
 
 export default function Map(): JSX.Element {
   const initialDelta = 0.05;
-
+  const { displayFilters, setDisplayFilters } = useSearchContext();
   const { isMobile } = useGlobalContext();
   const { selectedPlaceIndex, filteredPlaces, setSelectedPlaceIndex } =
     useSearchContext();
@@ -118,6 +118,9 @@ export default function Map(): JSX.Element {
   return (
     <>
       <MapView
+        onPress={() => {
+          !isMobile && displayFilters && setDisplayFilters(null);
+        }}
         ref={mapRef}
         style={styles.map}
         provider={PROVIDER_GOOGLE}

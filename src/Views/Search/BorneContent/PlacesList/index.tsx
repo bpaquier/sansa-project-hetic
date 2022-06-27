@@ -29,27 +29,30 @@ export default function PlacesList(): JSX.Element {
   const List = useMemo(() => {
     return (
       <ListContent ref={scrollRef}>
-        {filteredPlaces?.map(({ name, adress }: PlaceProps, index) => (
-          <Item
-            activeOpacity={0.8}
-            onPress={() => setSelectedPlaceIndex(index)}
-            selected={selectedPlaceIndex === index}
-            key={index}
-            onLayout={(e) => {
-              const { y } = e.nativeEvent.layout;
-              itemsTopPositions.current[index] = y;
-            }}
-          >
-            <ListItem
-              {...{
-                name,
-                adress,
-                index
+        {filteredPlaces?.map(
+          ({ name, adress, categories }: PlaceProps, index) => (
+            <Item
+              activeOpacity={0.8}
+              onPress={() => setSelectedPlaceIndex(index)}
+              selected={selectedPlaceIndex === index}
+              key={index}
+              onLayout={(e) => {
+                const { y } = e.nativeEvent.layout;
+                itemsTopPositions.current[index] = y;
               }}
-            />
-            <Separator orientation="horizontal" columnWidth={6.5} />
-          </Item>
-        ))}
+            >
+              <ListItem
+                {...{
+                  name,
+                  adress,
+                  index,
+                  categories
+                }}
+              />
+              <Separator orientation="horizontal" columnWidth={6.5} />
+            </Item>
+          )
+        )}
       </ListContent>
     );
   }, [filteredPlaces, selectedPlaceIndex, setSelectedPlaceIndex]);
