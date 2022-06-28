@@ -1,7 +1,7 @@
-import BuildingIllustration from "./buildingIllustration";
-import CommentIllustration from "./commentIllustration";
-import FileIllustration from "./fileIllustration";
+import DisconnectIllustration from "./DisconnectIllustration";
+import HeartIllustration from "./HeartIllustration";
 import PagePlusBorneIllustration from "./pagePlusBorneIllustration";
+import SafeIllustration from "./SafeIllustration";
 import SpotlightHelpIllustration from "./spotlightHelpIllustration";
 import {
   ButtonsContainerMobile,
@@ -15,18 +15,27 @@ import {
   ButtonsContainerBorne,
   LogoWrappers,
   TextMissionsPlusWrapper,
-  PagePlusBorneIllustrationWrapper
+  PagePlusBorneIllustrationWrapper,
+  ButtonWrapperBorne,
+  ButtonWrapperMobile,
+  ConnectedIllustrationsWrapper,
+  ConnectedIllustrationWrapper
 } from "./styles";
+import TakeNotesIllustration from "./TakeNotesIllustration";
+import Comment from "~/Components/Icons/System/Communication/Comment";
+import File from "~/Components/Icons/System/File/File";
+import Building from "~/Components/Icons/System/Map/Building";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 import Button from "~/Components/Ui-kit/Button";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import { useGlobalContext } from "~/Contexts/globalContext";
+import theme from "~/Styles/theme.styles";
 
 export default function Plus(): JSX.Element {
   const { isMobile } = useGlobalContext();
 
-  const isConnected = false;
+  const isConnected = true;
 
   const GlobalWrapper = (
     isMobile ? PageWrapper : PageWrapperBorne
@@ -36,14 +45,19 @@ export default function Plus(): JSX.Element {
     isMobile ? PlusContainersMobile : PlusContainersBorne
   ) as React.ElementType;
 
-  const ButtonContainer = (
+  const ButtonsContainer = (
     isMobile ? ButtonsContainerMobile : ButtonsContainerBorne
   ) as React.ElementType;
 
+  const ButtonWrapper = (
+    isMobile ? ButtonWrapperMobile : ButtonWrapperBorne
+  ) as React.ElementType;
+
   const connectedContent = [
-    { title: "Mes notes" },
-    { title: "Coffre-fort numérique" },
-    { title: "Mes lieux favoris" }
+    { title: "Nouvelle note", illustration: <TakeNotesIllustration /> },
+    { title: "Coffre-fort numérique", illustration: <SafeIllustration /> },
+    { title: "Mes lieux favoris", illustration: <HeartIllustration /> },
+    { title: "Disconnected", illustration: <DisconnectIllustration /> }
   ];
 
   return (
@@ -68,7 +82,11 @@ export default function Plus(): JSX.Element {
                 </Text>
               )}
             </TitleWrapper>
-            <Text type="paragraph" color="black20" textAlign="center">
+            <Text
+              type="paragraph"
+              color="black20"
+              textAlign={isMobile ? "left" : "center"}
+            >
               Sansa c’est la plateforme qui référence les lieux et les services
               utiles aux personnes en difficultés.
             </Text>
@@ -81,7 +99,11 @@ export default function Plus(): JSX.Element {
                 </TextPlusWrapper>
                 <TextMissionsPlusWrapper>
                   <LogoWrappers>
-                    <BuildingIllustration />
+                    <Building
+                      width={14}
+                      height={17}
+                      color={theme.color.primary.white}
+                    />
                   </LogoWrappers>
                   <Text type="paragraph" color="black40">
                     Orienter toutes les personnes en situation difficile vers
@@ -90,7 +112,11 @@ export default function Plus(): JSX.Element {
                 </TextMissionsPlusWrapper>
                 <TextMissionsPlusWrapper>
                   <LogoWrappers>
-                    <FileIllustration />
+                    <File
+                      width={12}
+                      height={17}
+                      color={theme.color.primary.white}
+                    />
                   </LogoWrappers>
                   <Text type="paragraph" color="black40">
                     Mettre à disposition un outil ouvert à tous, ergonomique,
@@ -99,7 +125,11 @@ export default function Plus(): JSX.Element {
                 </TextMissionsPlusWrapper>
                 <TextMissionsPlusWrapper>
                   <LogoWrappers>
-                    <CommentIllustration />
+                    <Comment
+                      width={17}
+                      height={15}
+                      color={theme.color.primary.white}
+                    />
                   </LogoWrappers>
                   <Text type="paragraph" color="black40">
                     Permettre l’accès à un espace privé contenant un coffre fort
@@ -108,27 +138,63 @@ export default function Plus(): JSX.Element {
                 </TextMissionsPlusWrapper>
               </>
             )}
-            <ButtonContainer>
+            <ButtonsContainer>
               <Button text="Se connecter" fullWidth={isMobile} />
-              <Button type="secondary" text="S'inscrire" fullWidth={isMobile} />
-            </ButtonContainer>
+              <ButtonWrapper>
+                <Button
+                  type={isMobile ? "tertiary" : "secondary"}
+                  text="S'inscrire"
+                  fullWidth={isMobile}
+                />
+              </ButtonWrapper>
+            </ButtonsContainer>
           </PlusContainers>
         )}
         {isConnected && (
-          <PlusContainers marginBottom paddingTop columnWidth={!isMobile && 5}>
-            <Text type="titleL">Bonjour Timothé !</Text>
-            {connectedContent.map((content) => {
-              return (
-                <TextPlusWrapper key={content.title}>
-                  <Text type="paragraph" color="grey">
-                    {content.title}
-                  </Text>
-                </TextPlusWrapper>
-              );
-            })}
+          <PlusContainers marginBottom columnWidth={!isMobile && 10}>
+            <Text type={isMobile ? "titleL" : "titleM"}>Bonjour Timothé !</Text>
+            {isMobile && (
+              <>
+                <Separator
+                  orientation="horizontal"
+                  columnWidth={22}
+                  margin={16}
+                />
+                {connectedContent.map(
+                  (content, index) =>
+                    index !== connectedContent.length && (
+                      <TextPlusWrapper
+                        marginTop={index !== 0 ? 16 : 0}
+                        key={content.title}
+                      >
+                        <Text type="paragraph" color="grey">
+                          {content.title}
+                        </Text>
+                      </TextPlusWrapper>
+                    )
+                )}
+              </>
+            )}
+            {!isMobile && (
+              <ConnectedIllustrationsWrapper>
+                {connectedContent.map((content) => {
+                  return (
+                    <ConnectedIllustrationWrapper key={content.title}>
+                      {content.illustration}
+                      <Text>toto</Text>
+                    </ConnectedIllustrationWrapper>
+                  );
+                })}
+              </ConnectedIllustrationsWrapper>
+            )}
           </PlusContainers>
         )}
-        <PlusContainers border columnWidth={!isMobile && 7} adminHelp>
+        <PlusContainers
+          border
+          columnWidth={!isMobile && 7}
+          adminHelp
+          marginBottom={isMobile}
+        >
           <Text type="paragraph" color="black20">
             Consulter la liste
           </Text>
@@ -147,8 +213,8 @@ export default function Plus(): JSX.Element {
           <Separator
             orientation="horizontal"
             theme="dark"
-            columnWidth={4}
-            /** aligner séparateur */
+            columnWidth={isMobile ? 22 : 4}
+            /** TODO aligner séparateur */
             margin={16}
           />
           <Text type="paragraph" color="grey">

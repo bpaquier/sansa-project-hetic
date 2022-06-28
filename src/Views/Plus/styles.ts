@@ -92,8 +92,7 @@ export const ButtonsContainerBorne = styled.View`
   margin-top: 56px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  padding: 0 30px;
+  justify-content: center;
 `;
 
 export const ImageWrapper = styled.View`
@@ -103,7 +102,7 @@ export const ImageWrapper = styled.View`
 `;
 
 export const TextPlusWrapper = styled.Pressable<TextPlusWrapperProps>`
-  margin-top: ${({ marginTop }) => marginTop ?? 24}px;
+  margin-top: ${({ marginTop }) => marginTop ?? 0}px;
 `;
 
 export const TextMissionsPlusWrapper = styled.Pressable<TextPlusWrapperProps>`
@@ -118,4 +117,27 @@ export const PagePlusBorneIllustrationWrapper = styled.View`
   position: absolute;
   right: 0;
   bottom: -90px;
+`;
+
+export const ButtonWrapperBorne = styled.View`
+  margin-left: 16px;
+`;
+
+export const ButtonWrapperMobile = styled.View`
+  width: 100%;
+`;
+
+export const ConnectedIllustrationsWrapper = styled.View`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+`;
+
+export const ConnectedIllustrationWrapper = styled.View`
+  width: ${getColumnWidth(3, false)};
+  border: 1px solid ${color.neutral.black5};
+  border-radius: ${shape.radius.input}px;
+  justify-content: space-between;
+  align-content: space-between;
 `;
