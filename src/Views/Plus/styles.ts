@@ -22,6 +22,10 @@ type TextPlusWrapperProps = {
   marginTop?: number;
 };
 
+type ConnectedIllustrationWrapperProps = {
+  isDisabled?: boolean;
+};
+
 const { boxShadow, color, shape, sizes, grid } = Theme;
 
 export const PageWrapper = styled.View`
@@ -132,12 +136,17 @@ export const ConnectedIllustrationsWrapper = styled.View`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  justify-content: space-between;
+  margin-top: 48px;
 `;
 
-export const ConnectedIllustrationWrapper = styled.View`
-  width: ${getColumnWidth(3, false)};
+export const ConnectedIllustrationWrapper = styled.Pressable`
+  width: ${getColumnWidth(4, false)};
   border: 1px solid ${color.neutral.black5};
   border-radius: ${shape.radius.input}px;
-  justify-content: space-between;
-  align-content: space-between;
+  height: 165px;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 `;
