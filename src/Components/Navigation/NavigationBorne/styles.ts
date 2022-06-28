@@ -20,8 +20,14 @@ export const Nav = styled.View`
   background-color: ${Theme.color.primary.white};
 `;
 
+export const NavButtonsContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+`;
+
 interface NavButtonContainerProps {
   active?: boolean;
+  spaceTop?: boolean;
 }
 
 export const NavButtonContainer = styled.View<NavButtonContainerProps>`
@@ -29,12 +35,9 @@ export const NavButtonContainer = styled.View<NavButtonContainerProps>`
   border-radius: 500px;
   border: 2px solid ${Theme.color.primary.white};
 
-  ${({ active }: any) =>
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    active &&
-    `
-    border-color: ${Theme.color.primary.blueExtraDark};
-  `};
+  ${({ active }) =>
+    active && `border-color: ${Theme.color.primary.blueExtraDark};`};
+  ${({ spaceTop }) => spaceTop && `margin-top: 28px;`};
 `;
 
 interface NavButtonProps {
@@ -49,10 +52,13 @@ export const NavButton = styled.TouchableOpacity<NavButtonProps>`
   border-radius: 500px;
   background-color: ${Theme.color.primary.blue};
 
-  ${({ active }: any) =>
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    active &&
-    `
-    background-color: ${Theme.color.primary.blueExtraDark};
-  `};
+  ${({ active }) =>
+    active && `background-color: ${Theme.color.primary.blueExtraDark};`};
+`;
+
+export const LanguageSection = styled.View`
+  display: flex;
+  padding: 20px;
+  width: 100%;
+  align-items: center;
 `;
