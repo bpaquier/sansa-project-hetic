@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 import { FilterWrapper, TextWrapper, CheckboxWrapper } from "./styles";
 import Checkbox from "~/Components/Form/Checkbox";
-import Icon from "~/Components/Icon";
 import Text from "~/Components/Ui-kit/Text";
 
 interface FlterProps {
@@ -19,10 +18,6 @@ export default function Filter({ filter, checked }: FlterProps): JSX.Element {
 
   return (
     <FilterWrapper onPress={() => setIsChecked((prev) => !prev)}>
-      <Icon category={filter} />
-      <TextWrapper>
-        <Text>{filter}</Text>
-      </TextWrapper>
       <CheckboxWrapper>
         <Checkbox
           name={filter}
@@ -30,6 +25,9 @@ export default function Filter({ filter, checked }: FlterProps): JSX.Element {
           onChange={(state) => setIsChecked(state)}
         />
       </CheckboxWrapper>
+      <TextWrapper>
+        <Text>{filter}</Text>
+      </TextWrapper>
     </FilterWrapper>
   );
 }

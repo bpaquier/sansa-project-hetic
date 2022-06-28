@@ -5,6 +5,11 @@ import theme from "~/Styles/theme.styles";
 
 const { color, shape, size } = theme;
 
+interface UnderlineIndicatorProps {
+  bgColor?: string;
+  width?: number;
+}
+
 export const TopBarWrapper = styled.View`
   position: absolute;
   top: 0;
@@ -17,6 +22,7 @@ export const TopBarWrapper = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  z-index: 100;
 `;
 
 export const InputWrapper = styled.View`
@@ -47,10 +53,36 @@ export const IconsWrapper = styled.View`
 
 export const IconWrapper = styled.View`
   align-items: center;
+  justify-content: center;
+  height: ${size?.bornContent?.topBarHeight}px;
 `;
 
-export const Button = styled.TouchableOpacity``;
+export const Button = styled.Pressable`
+  position: relative;
+`;
 
 export const Label = styled.View`
   margin-top: 10px;
+`;
+
+export const UnderlineIndicator = styled.View`
+  position: absolute;
+  width: ${({ width }: UnderlineIndicatorProps) =>
+    width ? `${width}px` : "100%"};
+  height: 8px;
+  background-color: ${({ bgColor }: UnderlineIndicatorProps) =>
+    bgColor ? bgColor : color?.neutral?.black20};
+  bottom: -16px;
+  border-bottom-left-radius: ${shape?.radius?.checkbox}px;
+  border-bottom-right-radius: ${shape?.radius?.checkbox}px;
+`;
+
+export const RoundedIndicator = styled.View`
+  position: absolute;
+  width: ${({ width }: UnderlineIndicatorProps) => `${width + 8}px`};
+  height: ${({ width }: UnderlineIndicatorProps) => `${width + 8}px`};
+  top: -4px;
+  left: -4px;
+  border-radius: 50px;
+  border: 2px solid ${color?.primary?.blueExtraDark};
 `;

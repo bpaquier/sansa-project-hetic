@@ -116,22 +116,27 @@ export default function Map(): JSX.Element {
   ) as React.ElementType;
 
   return (
+    /*  <Pressable
+      
+    > */
     <>
       <MapView
-        onPress={() => {
-          !isMobile && displayFilters && setDisplayFilters(null);
-        }}
         ref={mapRef}
         style={styles.map}
         provider={PROVIDER_GOOGLE}
         showsUserLocation={true}
         showsMyLocationButton={false}
         initialRegion={{ ...location }}
+        onPress={() => {
+          !isMobile && displayFilters && setDisplayFilters(null);
+        }}
       >
         {filteredPlaces?.map((place, index) => (
           <Marker
             key={index}
-            onPress={() => setSelectedPlaceIndex(index)}
+            onPress={() => {
+              setSelectedPlaceIndex(index);
+            }}
             coordinate={{
               latitude: parseFloat(place?.position?.latitude),
               longitude: parseFloat(place?.position?.longitude)
@@ -182,5 +187,6 @@ export default function Map(): JSX.Element {
         )}
       </Controls>
     </>
+    /*  </Pressable> */
   );
 }

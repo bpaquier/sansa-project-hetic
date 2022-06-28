@@ -6,8 +6,8 @@ export const FilterWrapper = styled.Pressable`
 `;
 
 export const TextWrapper = styled.View`
-  width: 60%;
-  margin-left: 10px;
+  width: 90%;
+  margin: 0 10px;
 `;
 
 export const CheckboxWrapper = styled.View`

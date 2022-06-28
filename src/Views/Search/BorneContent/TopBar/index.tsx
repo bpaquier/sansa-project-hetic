@@ -7,13 +7,19 @@ import {
   Label,
   Button,
   InputWrapper,
-  Input
+  Input,
+  UnderlineIndicator,
+  RoundedIndicator
 } from "./styles";
 import SearchBig from "~/Components/Icons/System/System/SearchBig";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import { useSearchContext } from "~/Contexts/searchContext";
-import { getIconByCategory, mainCategoriesToDisplay } from "~/utils/catgories";
+import {
+  getCategoryColor,
+  getIconByCategory,
+  mainCategoriesToDisplay
+} from "~/utils/catgories";
 
 export interface IconsDisplay {
   Icon: any;
@@ -22,20 +28,30 @@ export interface IconsDisplay {
 
 export default function TopBar(): JSX.Element {
   const [searchValue, setSearchValue] = useState<string>("");
-  const { setDisplayFilters } = useSearchContext();
+  const { setDisplayFilters, displayFilters } = useSearchContext();
 
   const iconsWidth = 48;
 
   const renderIcons = mainCategoriesToDisplay.map((category, i) => {
     const Icon = getIconByCategory(category);
+    const bgColor = getCategoryColor(category, true);
+    const isSelected = category === displayFilters;
     return (
       <IconWrapper key={i}>
-        <Button onPress={() => setDisplayFilters(category)}>
+        <Button
+          onPress={() => {
+            isSelected ? setDisplayFilters(null) : setDisplayFilters(category);
+          }}
+        >
+          {isSelected && <RoundedIndicator width={iconsWidth} />}
           <Icon width={iconsWidth} height={iconsWidth} />
         </Button>
         <Label>
           <Text type="small">{category}</Text>
         </Label>
+        {displayFilters && isSelected && (
+          <UnderlineIndicator {...{ bgColor }} width={iconsWidth} />
+        )}
       </IconWrapper>
     );
   });

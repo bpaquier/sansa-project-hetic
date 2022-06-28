@@ -9,12 +9,13 @@ import { useSearchContext } from "~/Contexts/searchContext";
 
 export default function BornContent(): JSX.Element {
   const { filteredPlaces, displayFilters } = useSearchContext();
+
   return (
     <PageContentWrapper>
       <Content>
-        <TopBar />
         {filteredPlaces && <PlacesList />}
         {displayFilters && <Filters />}
+        <TopBar />
       </Content>
     </PageContentWrapper>
   );

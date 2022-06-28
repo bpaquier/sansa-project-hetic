@@ -9,8 +9,12 @@ import Separator from "~/Components/Ui-kit/Separator";
 import { useSearchContext, PlaceProps } from "~/Contexts/searchContext";
 
 export default function PlacesList(): JSX.Element {
-  const { selectedPlaceIndex, setSelectedPlaceIndex, filteredPlaces } =
-    useSearchContext();
+  const {
+    selectedPlaceIndex,
+    setSelectedPlaceIndex,
+    filteredPlaces,
+    setDisplayFilters
+  } = useSearchContext();
   const itemsTopPositions = useRef<number[]>([]);
   const scrollRef = useRef();
 
@@ -33,7 +37,10 @@ export default function PlacesList(): JSX.Element {
           ({ name, adress, categories }: PlaceProps, index) => (
             <Item
               activeOpacity={0.8}
-              onPress={() => setSelectedPlaceIndex(index)}
+              onPress={() => {
+                setSelectedPlaceIndex(index);
+                setDisplayFilters(null);
+              }}
               selected={selectedPlaceIndex === index}
               key={index}
               onLayout={(e) => {

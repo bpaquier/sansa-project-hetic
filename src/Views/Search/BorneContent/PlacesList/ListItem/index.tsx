@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+
 import {
   ItemWrapper,
   InfoWrapper,
@@ -27,7 +29,7 @@ export default function ListItem({
   const moreCategories = categories?.length - 5;
   const { filters } = useSearchContext();
 
-  const formatedCategories = () => {
+  const formatedCategories = useMemo(() => {
     const response: string[] = categories;
     categories?.forEach((cat, i) => {
       if (filters?.includes(cat)) {
@@ -36,7 +38,7 @@ export default function ListItem({
       }
     });
     return response;
-  };
+  }, [filters]);
 
   return (
     <ItemWrapper>
@@ -54,19 +56,17 @@ export default function ListItem({
         </TextWrapper>
         {categories && (
           <IconsWrapper>
-            {formatedCategories()
-              ?.slice(0, 5)
-              ?.map((category, index) => {
-                const isSelected = filters?.includes(category);
-                const backgroundColor = isSelected
-                  ? getCategoryColor(category)
-                  : theme?.color?.neutral?.black20;
-                return (
-                  <IconWrapper key={index}>
-                    <Icon {...{ category, backgroundColor }} withBackground />
-                  </IconWrapper>
-                );
-              })}
+            {formatedCategories?.slice(0, 5)?.map((category, index) => {
+              const isSelected = filters?.includes(category);
+              const backgroundColor = isSelected
+                ? getCategoryColor(category, false)
+                : theme?.color?.neutral?.black20;
+              return (
+                <IconWrapper key={index}>
+                  <Icon {...{ category, backgroundColor }} withBackground />
+                </IconWrapper>
+              );
+            })}
             {moreCategories > 0 && (
               <Icon
                 withBackground

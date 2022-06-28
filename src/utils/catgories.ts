@@ -12,6 +12,7 @@ import Eat from "~/Components/Icons/Categories/Food/Eat";
 import FoodPackage from "~/Components/Icons/Categories/Food/FoodPackage";
 import FoodTruck from "~/Components/Icons/Categories/Food/FoodTruck";
 import Vegetables from "~/Components/Icons/Categories/Food/Vegetables";
+import Health from "~/Components/Icons/Categories/Health";
 import Cardiology from "~/Components/Icons/Categories/Health/Cardiology";
 import Clinic from "~/Components/Icons/Categories/Health/Clinic";
 import Dermatho from "~/Components/Icons/Categories/Health/Dermatho";
@@ -100,13 +101,13 @@ export enum Categories {
 }
 
 export const mainCategoriesToDisplay = [
-  MainCategories?.ACTIVITY,
-  MainCategories?.ADVICE,
+  MainCategories?.HOME,
   MainCategories?.FOOD,
   MainCategories?.HEALTH,
-  MainCategories?.HOME,
-  MainCategories?.HYGIENE,
   MainCategories?.MEDICINE,
+  MainCategories?.HYGIENE,
+  MainCategories?.ADVICE,
+  MainCategories?.ACTIVITY,
   MainCategories?.TECHNOLOGY
 ];
 
@@ -180,7 +181,7 @@ export function getIconByCategory(catgory: string) {
     case MainCategories?.FOOD:
       return Food;
     case MainCategories?.HEALTH:
-      return Advice;
+      return Health;
     case MainCategories?.HYGIENE:
       return Hygiene;
     case MainCategories?.MEDICINE:
@@ -263,6 +264,8 @@ export function getIconByCategory(catgory: string) {
       return Cardiology;
     case Categories?.RADIOLOGY:
       return Radiology;
+    case Categories?.ADDICTOLOGY:
+      return ShootingRoom;
     default:
       return null;
   }
@@ -281,10 +284,16 @@ export function getMainCategory(category: string): MainCategories | null {
   return response;
 }
 
-export function getCategoryColor(category: string): string | null {
+export function getCategoryColor(
+  category: string,
+  isMainCatefory: boolean
+): string | null {
   const colors = theme?.color.categories;
-  const mainCategory = getMainCategory(category);
-  switch (mainCategory) {
+  const computedCategory = isMainCatefory
+    ? category
+    : getMainCategory(category);
+
+  switch (computedCategory) {
     case MainCategories?.ACTIVITY:
       return colors?.activities;
     case MainCategories?.ADVICE:

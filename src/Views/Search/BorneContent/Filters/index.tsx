@@ -1,5 +1,7 @@
 import Filter from "./Filter";
-import { FiltersWrapper, CheckboxWrapper, Content } from "./styles";
+import { FiltersWrapper, CheckboxWrapper, Content, Title } from "./styles";
+import Separator from "~/Components/Ui-kit/Separator";
+import Text from "~/Components/Ui-kit/Text";
 import { useSearchContext } from "~/Contexts/searchContext";
 import { categoriesRepartition } from "~/utils/catgories";
 
@@ -13,6 +15,10 @@ export default function Filters(): JSX.Element {
 
   return (
     <FiltersWrapper>
+      <Title>
+        <Text type="titleL">{displayFilters}</Text>
+      </Title>
+      <Separator orientation="horizontal" />
       <Content>
         {selectedFilters &&
           selectedFilters?.map((filter, i) => {
