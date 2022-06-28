@@ -177,11 +177,23 @@ export default function Plus(): JSX.Element {
             )}
             {!isMobile && (
               <ConnectedIllustrationsWrapper>
-                {connectedContent.map((content) => {
+                {connectedContent.map((content, index) => {
+                  const isDisabled = connectedContent.length - 1 !== index;
                   return (
-                    <ConnectedIllustrationWrapper key={content.title}>
+                    <ConnectedIllustrationWrapper
+                      onPress={() => {
+                        //TODO
+                      }}
+                      key={content.title}
+                    >
                       {content.illustration}
-                      <Text>toto</Text>
+                      <Text
+                        type="paragraph"
+                        weight="bold"
+                        color={isDisabled ? "black40" : "black"}
+                      >
+                        {content.title}
+                      </Text>
                     </ConnectedIllustrationWrapper>
                   );
                 })}
