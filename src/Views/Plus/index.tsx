@@ -1,41 +1,38 @@
-import DisconnectIllustration from "./DisconnectIllustration";
-import HeartIllustration from "./HeartIllustration";
-import PagePlusBorneIllustration from "./pagePlusBorneIllustration";
-import SafeIllustration from "./SafeIllustration";
-import SpotlightHelpIllustration from "./SpotlightHelpIllustration";
+import { useNavigate } from "react-router-native";
+
+import AdministrativeHelpSection from "./AdministrativeHelpSection";
+import DisconnectIllustration from "./Illustrations/DisconnectIllustration";
+import HeartIllustration from "./Illustrations/HeartIllustration";
+import PagePlusBorneIllustration from "./Illustrations/PagePlusBorneIllustration";
+import SafeIllustration from "./Illustrations/SafeIllustration";
+import TakeNotesIllustration from "./Illustrations/TakeNotesIllustration";
+import PlusSection from "./PlusSection";
+import SansaBorneDescription from "./SansaBorneDescription";
 import {
   ButtonsContainerMobile,
   PageWrapper,
   PageWrapperBorne,
-  TitleWrapper,
   PlusContainersBorne,
-  ImageWrapper,
-  TextPlusWrapper,
   PlusContainersMobile,
   ButtonsContainerBorne,
-  LogoWrappers,
-  TextMissionsPlusWrapper,
   PagePlusBorneIllustrationWrapper,
   ButtonWrapperBorne,
   ButtonWrapperMobile,
   ConnectedIllustrationsWrapper,
   ConnectedIllustrationWrapper
 } from "./styles";
-import TakeNotesIllustration from "./TakeNotesIllustration";
-import Comment from "~/Components/Icons/System/Communication/Comment";
-import File from "~/Components/Icons/System/File/File";
-import Building from "~/Components/Icons/System/Map/Building";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 import Button from "~/Components/Ui-kit/Button";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
+import TextWrapper from "~/Components/Ui-kit/TextWrapper";
 import { useGlobalContext } from "~/Contexts/globalContext";
-import theme from "~/Styles/theme.styles";
 
 export default function Plus(): JSX.Element {
   const { isMobile } = useGlobalContext();
+  const navigate = useNavigate();
 
-  const isConnected = true;
+  const isConnected = false;
 
   const GlobalWrapper = (
     isMobile ? PageWrapper : PageWrapperBorne
@@ -64,24 +61,22 @@ export default function Plus(): JSX.Element {
     <PageContentWrapper>
       <GlobalWrapper>
         {isMobile && (
-          <TitleWrapper marginBottom={16}>
-            <Text type="titleL" textAlign="left" color="black20">
-              Plus
-            </Text>
-          </TitleWrapper>
+          <TextWrapper
+            marginBottom={16}
+            type="titleL"
+            textAlign="left"
+            color="black20"
+            title="Plus"
+          />
         )}
-
         {!isConnected && (
           <PlusContainers marginBottom columnWidth={!isMobile && 10}>
-            <TitleWrapper marginBottom={8}>
-              {isMobile ? (
-                <Text type="titleL">SANSA</Text>
-              ) : (
-                <Text textAlign="center" type="titleL">
-                  {"SANSA, c'est quoi ?"}
-                </Text>
-              )}
-            </TitleWrapper>
+            <TextWrapper
+              marginBottom={8}
+              type="titleL"
+              textAlign={isMobile ? "left" : "center"}
+              title={isMobile ? "SANSA" : "SANSA, c'est quoi ?"}
+            />
             <Text
               type="paragraph"
               color="black20"
@@ -90,61 +85,19 @@ export default function Plus(): JSX.Element {
               Sansa c’est la plateforme qui référence les lieux et les services
               utiles aux personnes en difficultés.
             </Text>
-            {!isMobile && (
-              <>
-                <TextPlusWrapper marginTop={32}>
-                  <Text color="grey" textAlign="center" weight="bold">
-                    Ses missions
-                  </Text>
-                </TextPlusWrapper>
-                <TextMissionsPlusWrapper>
-                  <LogoWrappers>
-                    <Building
-                      width={14}
-                      height={17}
-                      color={theme.color.primary.white}
-                    />
-                  </LogoWrappers>
-                  <Text type="paragraph" color="black40">
-                    Orienter toutes les personnes en situation difficile vers
-                    les structures qui pourraient les aider.
-                  </Text>
-                </TextMissionsPlusWrapper>
-                <TextMissionsPlusWrapper>
-                  <LogoWrappers>
-                    <File
-                      width={12}
-                      height={17}
-                      color={theme.color.primary.white}
-                    />
-                  </LogoWrappers>
-                  <Text type="paragraph" color="black40">
-                    Mettre à disposition un outil ouvert à tous, ergonomique,
-                    simple et rapide d’utilisation.
-                  </Text>
-                </TextMissionsPlusWrapper>
-                <TextMissionsPlusWrapper>
-                  <LogoWrappers>
-                    <Comment
-                      width={17}
-                      height={15}
-                      color={theme.color.primary.white}
-                    />
-                  </LogoWrappers>
-                  <Text type="paragraph" color="black40">
-                    Permettre l’accès à un espace privé contenant un coffre fort
-                    numérique et la liste de vos lieux favoris.
-                  </Text>
-                </TextMissionsPlusWrapper>
-              </>
-            )}
+            {!isMobile && <SansaBorneDescription />}
             <ButtonsContainer>
-              <Button text="Se connecter" fullWidth={isMobile} />
+              <Button
+                text="Se connecter"
+                fullWidth={isMobile}
+                onPress={() => navigate("/login")}
+              />
               <ButtonWrapper>
                 <Button
                   type={isMobile ? "tertiary" : "secondary"}
                   text="S'inscrire"
                   fullWidth={isMobile}
+                  onPress={() => navigate("/register")}
                 />
               </ButtonWrapper>
             </ButtonsContainer>
@@ -163,14 +116,15 @@ export default function Plus(): JSX.Element {
                 {connectedContent.map(
                   (content, index) =>
                     index !== connectedContent.length && (
-                      <TextPlusWrapper
+                      <TextWrapper
+                        link
+                        to="#"
                         marginTop={index !== 0 ? 16 : 0}
                         key={content.title}
-                      >
-                        <Text type="paragraph" color="grey">
-                          {content.title}
-                        </Text>
-                      </TextPlusWrapper>
+                        type="paragraph"
+                        color="grey"
+                        title={content.title}
+                      />
                     )
                 )}
               </>
@@ -208,13 +162,7 @@ export default function Plus(): JSX.Element {
           marginBottom={isMobile}
           height={325}
         >
-          <Text type="paragraph" color="black20">
-            Consulter la liste
-          </Text>
-          <Text type="titleL">Aides administratives</Text>
-          <ImageWrapper>
-            <SpotlightHelpIllustration width={"100%"} />
-          </ImageWrapper>
+          <AdministrativeHelpSection />
         </PlusContainers>
         <PlusContainers
           paddingTop={24}
@@ -222,38 +170,7 @@ export default function Plus(): JSX.Element {
           paddingBottom={28}
           columnWidth={!isMobile && 5}
         >
-          <Text type="titleL">Plus</Text>
-          <Separator
-            orientation="horizontal"
-            theme="dark"
-            width="100%"
-            margin={16}
-          />
-          <Text type="paragraph" color="grey">
-            Nous contacter
-          </Text>
-          {isMobile && (
-            <TextPlusWrapper marginTop={16}>
-              <Text type="paragraph" color="grey">
-                Langue
-              </Text>
-            </TextPlusWrapper>
-          )}
-          <TextPlusWrapper marginTop={16}>
-            <Text type="paragraph" color="grey">
-              Politique de confidentialité
-            </Text>
-          </TextPlusWrapper>
-          <TextPlusWrapper marginTop={16}>
-            <Text type="paragraph" color="grey">
-              Mention légales
-            </Text>
-          </TextPlusWrapper>
-          <TextPlusWrapper marginTop={16}>
-            <Text type="paragraph" color="grey">
-              CGU
-            </Text>
-          </TextPlusWrapper>
+          <PlusSection isMobile={isMobile} />
         </PlusContainers>
         {!isMobile && (
           <PagePlusBorneIllustrationWrapper>
