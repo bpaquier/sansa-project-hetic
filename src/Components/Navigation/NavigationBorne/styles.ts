@@ -42,12 +42,8 @@ export const NavButtonContainer = styled.View<NavButtonContainerProps>`
     border-color: ${Theme.color.primary.blueExtraDark};
   `};
 
-  ${({ spaceTop }: any) =>
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    spaceTop &&
-    `
-    margin-top: 28px;
-  `};
+  ${({ active }) =>
+    active && `background-color: ${Theme.color.primary.blueExtraDark};`};
 `;
 
 interface NavButtonProps {
