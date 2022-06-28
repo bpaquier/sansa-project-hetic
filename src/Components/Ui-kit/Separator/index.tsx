@@ -6,6 +6,7 @@ export interface SeparatorProps {
   orientation: "horizontal" | "vertical";
   columnWidth?: number;
   height?: string;
+  width?: string;
   margin?: number;
 }
 
@@ -14,12 +15,13 @@ export default function Separator({
   orientation,
   columnWidth,
   height,
+  width,
   margin
 }: SeparatorProps): JSX.Element {
   const { isMobile } = useGlobalContext();
   return (
     <StyledView
-      {...{ theme, orientation, columnWidth, height, margin, isMobile }}
+      {...{ theme, orientation, columnWidth, height, width, margin, isMobile }}
     ></StyledView>
   );
 }
