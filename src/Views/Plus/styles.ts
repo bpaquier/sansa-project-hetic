@@ -14,6 +14,7 @@ type PlusContainersProps = {
   paddingTop?: number;
   paddingX?: number;
   paddingBottom?: number;
+  adminHelp?: boolean;
   alignSelf?: "stretch" | "flex-start";
 };
 
@@ -78,6 +79,9 @@ export const LogoWrappers = styled.View`
   border-radius: 100px;
   background-color: ${Theme.color.primary.yellow};
   margin-right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ButtonsContainerMobile = styled.View`
@@ -103,9 +107,15 @@ export const TextPlusWrapper = styled.Pressable<TextPlusWrapperProps>`
 `;
 
 export const TextMissionsPlusWrapper = styled.Pressable<TextPlusWrapperProps>`
-  margin-top: 16px;
+  margin-top: 24px;
   display: flex;
   flex-direction: row;
   align-items: center;
   width: ${getColumnWidth(7, false)};
+`;
+
+export const PagePlusBorneIllustrationWrapper = styled.View`
+  position: absolute;
+  right: 0;
+  bottom: -90px;
 `;
