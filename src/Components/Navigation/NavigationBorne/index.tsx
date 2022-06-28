@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import { useNavigate, useLocation } from "react-router-native";
 
-import { Nav, NavButtonContainer, NavButton } from "./styles";
+import { Nav, NavButtonsContainer, NavButtonContainer, NavButton, LanguageSection } from "./styles";
 import France from "~/Components/Icons/Flags/France";
 import MapMarker from "~/Components/Icons/System/Map/MapMarker";
 import House from "~/Components/Icons/System/System/House";
@@ -16,9 +16,7 @@ export default function NavigationBorne() {
 
   return (
     <Nav>
-      <View
-        style={{ flex: 1, justifyContent: "center", alignContent: "center" }}
-      >
+      <NavButtonsContainer>
         <NavButtonContainer active={isCurrentPage("/home")}>
           <NavButton
             onPress={() => navigate("/home")}
@@ -29,7 +27,7 @@ export default function NavigationBorne() {
         </NavButtonContainer>
         <NavButtonContainer
           active={isCurrentPage("/")}
-          style={{ marginTop: 28 }}
+          spaceTop
         >
           <NavButton onPress={() => navigate("/")} active={isCurrentPage("/")}>
             <MapMarker
@@ -41,7 +39,7 @@ export default function NavigationBorne() {
         </NavButtonContainer>
         <NavButtonContainer
           active={isCurrentPage("/plus")}
-          style={{ marginTop: 28 }}
+          spaceTop
         >
           <NavButton
             onPress={() => navigate("/plus")}
@@ -50,11 +48,11 @@ export default function NavigationBorne() {
             <Plus width={36} height={36} color={Theme.color.primary.white} />
           </NavButton>
         </NavButtonContainer>
-      </View>
-      <View>
+      </NavButtonsContainer>
+      <LanguageSection>
         <Separator orientation="horizontal" margin={20} width="100%" />
         <France />
-      </View>
+      </LanguageSection>
     </Nav>
   );
 }
