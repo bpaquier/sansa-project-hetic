@@ -2,7 +2,7 @@ import DisconnectIllustration from "./DisconnectIllustration";
 import HeartIllustration from "./HeartIllustration";
 import PagePlusBorneIllustration from "./pagePlusBorneIllustration";
 import SafeIllustration from "./SafeIllustration";
-import SpotlightHelpIllustration from "./spotlightHelpIllustration";
+import SpotlightHelpIllustration from "./SpotlightHelpIllustration";
 import {
   ButtonsContainerMobile,
   PageWrapper,
@@ -57,7 +57,7 @@ export default function Plus(): JSX.Element {
     { title: "Nouvelle note", illustration: <TakeNotesIllustration /> },
     { title: "Coffre-fort numérique", illustration: <SafeIllustration /> },
     { title: "Mes lieux favoris", illustration: <HeartIllustration /> },
-    { title: "Disconnected", illustration: <DisconnectIllustration /> }
+    { title: "Se déconnecter", illustration: <DisconnectIllustration /> }
   ];
 
   return (
@@ -206,13 +206,14 @@ export default function Plus(): JSX.Element {
           columnWidth={!isMobile && 7}
           adminHelp
           marginBottom={isMobile}
+          height={325}
         >
           <Text type="paragraph" color="black20">
             Consulter la liste
           </Text>
           <Text type="titleL">Aides administratives</Text>
           <ImageWrapper>
-            <SpotlightHelpIllustration />
+            <SpotlightHelpIllustration width={"100%"} />
           </ImageWrapper>
         </PlusContainers>
         <PlusContainers
@@ -225,8 +226,7 @@ export default function Plus(): JSX.Element {
           <Separator
             orientation="horizontal"
             theme="dark"
-            columnWidth={isMobile ? 22 : 4}
-            /** TODO aligner séparateur */
+            width="100%"
             margin={16}
           />
           <Text type="paragraph" color="grey">
@@ -255,7 +255,7 @@ export default function Plus(): JSX.Element {
             </Text>
           </TextPlusWrapper>
         </PlusContainers>
-        {!isMobile && !isConnected && (
+        {!isMobile && (
           <PagePlusBorneIllustrationWrapper>
             <PagePlusBorneIllustration />
           </PagePlusBorneIllustrationWrapper>
