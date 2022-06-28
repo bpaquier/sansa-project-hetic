@@ -1,3 +1,7 @@
+import BuildingIllustration from "./buildingIllustration";
+import CommentIllustration from "./commentIllustration";
+import FileIllustration from "./fileIllustration";
+import PagePlusBorneIllustration from "./pagePlusBorneIllustration";
 import SpotlightHelpIllustration from "./spotlightHelpIllustration";
 import {
   ButtonsContainerMobile,
@@ -10,7 +14,8 @@ import {
   PlusContainersMobile,
   ButtonsContainerBorne,
   LogoWrappers,
-  TextMissionsPlusWrapper
+  TextMissionsPlusWrapper,
+  PagePlusBorneIllustrationWrapper
 } from "./styles";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 import Button from "~/Components/Ui-kit/Button";
@@ -75,21 +80,27 @@ export default function Plus(): JSX.Element {
                   </Text>
                 </TextPlusWrapper>
                 <TextMissionsPlusWrapper>
-                  <LogoWrappers />
+                  <LogoWrappers>
+                    <BuildingIllustration />
+                  </LogoWrappers>
                   <Text type="paragraph" color="black40">
                     Orienter toutes les personnes en situation difficile vers
                     les structures qui pourraient les aider.
                   </Text>
                 </TextMissionsPlusWrapper>
                 <TextMissionsPlusWrapper>
-                  <LogoWrappers />
+                  <LogoWrappers>
+                    <FileIllustration />
+                  </LogoWrappers>
                   <Text type="paragraph" color="black40">
                     Mettre à disposition un outil ouvert à tous, ergonomique,
                     simple et rapide d’utilisation.
                   </Text>
                 </TextMissionsPlusWrapper>
                 <TextMissionsPlusWrapper>
-                  <LogoWrappers />
+                  <LogoWrappers>
+                    <CommentIllustration />
+                  </LogoWrappers>
                   <Text type="paragraph" color="black40">
                     Permettre l’accès à un espace privé contenant un coffre fort
                     numérique et la liste de vos lieux favoris.
@@ -117,7 +128,7 @@ export default function Plus(): JSX.Element {
             })}
           </PlusContainers>
         )}
-        <PlusContainers border columnWidth={!isMobile && 7}>
+        <PlusContainers border columnWidth={!isMobile && 7} adminHelp>
           <Text type="paragraph" color="black20">
             Consulter la liste
           </Text>
@@ -130,13 +141,14 @@ export default function Plus(): JSX.Element {
           paddingTop={24}
           paddingX={24}
           paddingBottom={28}
-          columnWidth={!isMobile && 7}
+          columnWidth={!isMobile && 5}
         >
           <Text type="titleL">Plus</Text>
           <Separator
             orientation="horizontal"
             theme="dark"
-            columnWidth={6}
+            columnWidth={4}
+            /** aligner séparateur */
             margin={16}
           />
           <Text type="paragraph" color="grey">
@@ -165,6 +177,11 @@ export default function Plus(): JSX.Element {
             </Text>
           </TextPlusWrapper>
         </PlusContainers>
+        {!isMobile && !isConnected && (
+          <PagePlusBorneIllustrationWrapper>
+            <PagePlusBorneIllustration />
+          </PagePlusBorneIllustrationWrapper>
+        )}
       </GlobalWrapper>
     </PageContentWrapper>
   );
