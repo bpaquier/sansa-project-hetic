@@ -16,14 +16,11 @@ type PlusContainersProps = {
   paddingBottom?: number;
   adminHelp?: boolean;
   alignSelf?: "stretch" | "flex-start";
+  height?: number;
 };
 
 type TextPlusWrapperProps = {
   marginTop?: number;
-};
-
-type ConnectedIllustrationWrapperProps = {
-  isDisabled?: boolean;
 };
 
 const { boxShadow, color, shape, sizes, grid } = Theme;
@@ -65,6 +62,8 @@ export const PlusContainersBorne = styled.View<PlusContainersProps>`
     columnWidth
       ? getColumnWidth(columnWidth, false)
       : getColumnWidth(grid.columns / 2, false)};
+  ${({ height }) => height && `height: ${height}px`};
+  overflow: hidden;
 `;
 
 export const PlusContainersMobile = styled.View<PlusContainersProps>`
@@ -103,6 +102,9 @@ export const ImageWrapper = styled.View`
   width: 100%;
   height: 184px;
   margin-top: 24px;
+  position: absolute;
+  bottom: -10px;
+  left: -10px;
 `;
 
 export const TextPlusWrapper = styled.Pressable<TextPlusWrapperProps>`

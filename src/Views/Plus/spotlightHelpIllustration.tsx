@@ -1,8 +1,16 @@
 import Svg, { Path } from "react-native-svg";
 
-export default function SpotlightHelpIllustration() {
+export interface CommentProps {
+  width?: number | string;
+  height?: number;
+}
+
+export default function SpotlightHelpIllustration({
+  width = 361,
+  height = 184
+}: CommentProps): JSX.Element {
   return (
-    <Svg width="100%" height="100%" viewBox="0 0 361 184" fill="none">
+    <Svg width={width} height={height} viewBox="0 0 361 184" fill="none">
       <Path
         opacity="0.3"
         d="M241.827 13.8625C277.409 25.3883 311.248 57.1416 312.174 98.2507C313.1 139.36 301.196 181.287 236.261 197.676C175.27 213.073 23.1719 223.279 -7.84672 167.951C-38.8653 112.623 -32.3305 41.6248 31.2859 16.4468C75.886 -1.19628 172.329 -8.633 241.827 13.8625Z"
