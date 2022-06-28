@@ -1,3 +1,4 @@
+import { View } from "react-native";
 import { useNavigate } from "react-router-native";
 
 import PageContentWrapper from "~/Components/PageContentWrapper";
@@ -8,12 +9,7 @@ export default function Home(): JSX.Element {
   const navigate = useNavigate();
   return (
     <PageContentWrapper>
-      <>
-        <Text type="titleXL" textAlign="center">
-          Home
-        </Text>
-        <ButtonComponent text="login" onPress={() => navigate("/login")} />
-      </>
+      <View style={{ backgroundColor: 'red', width: '200px', height: '200px' }}></View>
     </PageContentWrapper>
   );
 }
