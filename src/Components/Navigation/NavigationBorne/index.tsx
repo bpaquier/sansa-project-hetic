@@ -1,7 +1,12 @@
-import { View } from "react-native";
 import { useNavigate, useLocation } from "react-router-native";
 
-import { Nav, NavButtonsContainer, NavButtonContainer, NavButton, LanguageSection } from "./styles";
+import {
+  Nav,
+  NavButtonsContainer,
+  NavButtonContainer,
+  NavButton,
+  LanguageSection
+} from "./styles";
 import France from "~/Components/Icons/Flags/France";
 import MapMarker from "~/Components/Icons/System/Map/MapMarker";
 import House from "~/Components/Icons/System/System/House";
@@ -25,10 +30,7 @@ export default function NavigationBorne() {
             <House width={36} height={36} color={Theme.color.primary.white} />
           </NavButton>
         </NavButtonContainer>
-        <NavButtonContainer
-          active={isCurrentPage("/")}
-          spaceTop
-        >
+        <NavButtonContainer active={isCurrentPage("/")} spaceTop>
           <NavButton onPress={() => navigate("/")} active={isCurrentPage("/")}>
             <MapMarker
               width={36}
@@ -37,10 +39,7 @@ export default function NavigationBorne() {
             />
           </NavButton>
         </NavButtonContainer>
-        <NavButtonContainer
-          active={isCurrentPage("/plus")}
-          spaceTop
-        >
+        <NavButtonContainer active={isCurrentPage("/plus")} spaceTop>
           <NavButton
             onPress={() => navigate("/plus")}
             active={isCurrentPage("/plus")}
