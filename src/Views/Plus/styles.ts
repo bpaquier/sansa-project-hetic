@@ -7,6 +7,10 @@ type TitleWrapperProps = {
   marginBottom: number;
 };
 
+export type TextPlusWrapperProps = {
+  marginTop?: number;
+};
+
 type PlusContainersProps = {
   marginBottom?: boolean;
   border?: boolean;
@@ -17,10 +21,6 @@ type PlusContainersProps = {
   adminHelp?: boolean;
   alignSelf?: "stretch" | "flex-start";
   height?: number;
-};
-
-type TextPlusWrapperProps = {
-  marginTop?: number;
 };
 
 const { boxShadow, color, shape, sizes, grid } = Theme;
@@ -76,17 +76,6 @@ export const PlusContainersMobile = styled.View<PlusContainersProps>`
   ${({ border }) => border && `border: 1px solid ${color.primary.blueDark}`};
 `;
 
-export const LogoWrappers = styled.View`
-  height: 48px;
-  width: 48px;
-  border-radius: 100px;
-  background-color: ${Theme.color.primary.yellow};
-  margin-right: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 export const ButtonsContainerMobile = styled.View`
   margin-top: 40px;
 `;
@@ -109,14 +98,6 @@ export const ImageWrapper = styled.View`
 
 export const TextPlusWrapper = styled.Pressable<TextPlusWrapperProps>`
   margin-top: ${({ marginTop }) => marginTop ?? 0}px;
-`;
-
-export const TextMissionsPlusWrapper = styled.Pressable<TextPlusWrapperProps>`
-  margin-top: 24px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: ${getColumnWidth(7, false)};
 `;
 
 export const PagePlusBorneIllustrationWrapper = styled.View`
