@@ -18,13 +18,15 @@ export interface AccordionProps {
   headText: string;
   content: ReactElement;
   initialState?: "open" | "closed";
+  freeze?: boolean;
 }
 
 export default function Accordion({
   forceOpen,
   headText,
   content,
-  initialState = "closed"
+  initialState = "closed",
+  freeze = false
 }: AccordionProps): JSX.Element {
   const [isOpen, setIsOpen] = useState<boolean>(
     initialState === "open" ? true : false
@@ -73,13 +75,18 @@ export default function Accordion({
 
   return (
     <AccordionWrapper>
-      <Head onPress={() => setIsOpen((prev) => !prev)} activeOpacity={0.7}>
+      <Head
+        onPress={() => !freeze && setIsOpen((prev) => !prev)}
+        activeOpacity={0.7}
+      >
         <TextWrapper>
           <Text>{headText}</Text>
         </TextWrapper>
-        <Animated.View style={[{ transform: [{ rotate: rotateAnimation }] }]}>
-          {initialState === "open" ? <ArrowUp /> : <ArrowDown />}
-        </Animated.View>
+        {!freeze && (
+          <Animated.View style={[{ transform: [{ rotate: rotateAnimation }] }]}>
+            {initialState === "open" ? <ArrowUp /> : <ArrowDown />}
+          </Animated.View>
+        )}
       </Head>
       <Animated.View
         style={[

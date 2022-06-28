@@ -1,4 +1,10 @@
-import { useContext, createContext, useState, ReactElement } from "react";
+import {
+  useContext,
+  createContext,
+  useState,
+  ReactElement,
+  useEffect
+} from "react";
 
 export interface PlaceProps {
   name?: string;
@@ -16,10 +22,16 @@ interface ContextProps {
   filteredPlaces?: PlaceProps[] | null;
   setFilteredPlaces?: (list: any) => void;
   filters?: string[];
-  setFilters?: (filter: any) => void;
+  setFilters?: (filter?: string[]) => void;
   displayFilters?: string | null;
   setDisplayFilters?: (arg: string | null) => void;
+  updateFilters?: ({ action, filterName }: updateFiltersProps) => void;
 }
+
+type updateFiltersProps = {
+  action: "add" | "remove";
+  filterName: string;
+};
 
 export const Context = createContext<ContextProps>({});
 
@@ -35,13 +47,36 @@ function SearchProvider({ children }: SearchProviderProps) {
   const [selectedPlaceIndex, setSelectedPlaceIndex] = useState<number | null>(
     null
   );
-  const [filteredPlaces, setFilteredPlaces] = useState(fakePlaces);
-  const [filters, setFilters] = useState<string[]>([
-    "Espace de Repos",
-    "Activité physique",
-    "Fontaine à eau"
-  ]);
+  const [filteredPlaces, setFilteredPlaces] = useState<PlaceProps[] | null>(
+    null
+  );
+  const [filters, setFilters] = useState<string[] | null>(null);
   const [displayFilters, setDisplayFilters] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (filters && filters?.length > 0) {
+      const selectedPlaces = fakePlaces?.filter((place) =>
+        place?.categories?.some((cat) => filters?.includes(cat))
+      );
+      setFilteredPlaces(selectedPlaces);
+    } else {
+      setFilteredPlaces(null);
+      setFilters(null);
+      setDisplayFilters(null);
+    }
+  }, [filters]);
+
+  const updateFilters = ({ action, filterName }: updateFiltersProps) => {
+    if (action === "add") {
+      filters && filters?.length > 0
+        ? !filters?.includes(filterName) && setFilters([...filters, filterName])
+        : setFilters([filterName]);
+    } else {
+      if (filters?.includes(filterName)) {
+        setFilters(filters?.filter((item) => item !== filterName));
+      }
+    }
+  };
 
   const providerValue = {
     selectedPlaceIndex,
@@ -51,7 +86,8 @@ function SearchProvider({ children }: SearchProviderProps) {
     filters,
     setFilters,
     displayFilters,
-    setDisplayFilters
+    setDisplayFilters,
+    updateFilters
   };
 
   return <Context.Provider value={providerValue}>{children}</Context.Provider>;
@@ -74,7 +110,12 @@ const fakePlaces = [
       "Activité physique",
       "Wifi Gratuite",
       "Administratif",
-      "Matériel informatique"
+      "Matériel informatique",
+      "Juridique",
+      "Conseilliers",
+      "Hébergement long terme",
+      "Hébèrgement d'urgence",
+      "Acceuil de jour"
     ]
   },
   {

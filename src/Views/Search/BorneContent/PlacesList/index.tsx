@@ -45,6 +45,7 @@ export default function PlacesList(): JSX.Element {
               key={index}
               onLayout={(e) => {
                 const { y } = e.nativeEvent.layout;
+
                 itemsTopPositions.current[index] = y;
               }}
             >
@@ -56,7 +57,9 @@ export default function PlacesList(): JSX.Element {
                   categories
                 }}
               />
-              <Separator orientation="horizontal" columnWidth={6.5} />
+              {index < filteredPlaces?.length - 1 && (
+                <Separator orientation="horizontal" columnWidth={6.5} />
+              )}
             </Item>
           )
         )}
@@ -67,9 +70,14 @@ export default function PlacesList(): JSX.Element {
   return (
     <ListWrapper>
       <Accordion
-        headText="Afficher la liste"
+        headText={
+          filteredPlaces?.length > 0
+            ? `Afficher la liste (${filteredPlaces?.length} résultats)`
+            : "Pas de résultats"
+        }
         content={List}
-        initialState="open"
+        forceOpen={filteredPlaces?.length > 0}
+        freeze={filteredPlaces?.length === 0}
       />
     </ListWrapper>
   );

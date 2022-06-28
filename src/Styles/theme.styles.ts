@@ -59,7 +59,7 @@ const theme = {
     },
     bornContent: {
       topBarHeight: 100,
-      tagsHeight: 60
+      tagsHeight: 50
     }
   },
   boxShadow: {

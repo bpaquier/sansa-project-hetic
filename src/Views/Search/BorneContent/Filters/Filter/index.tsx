@@ -1,33 +1,30 @@
 import { useEffect, useState } from "react";
 
-import { FilterWrapper, TextWrapper, CheckboxWrapper } from "./styles";
 import Checkbox from "~/Components/Form/Checkbox";
-import Text from "~/Components/Ui-kit/Text";
+import { useSearchContext } from "~/Contexts/searchContext";
 
 interface FlterProps {
   filter?: string;
-  checked?: boolean;
 }
 
-export default function Filter({ filter, checked }: FlterProps): JSX.Element {
-  const [isChecked, setIsChecked] = useState<boolean>();
+export default function Filter({ filter }: FlterProps): JSX.Element {
+  const { filters, updateFilters } = useSearchContext();
+  const [isSelected, setIsSeleted] = useState<boolean>(
+    filters?.includes(filter)
+  );
 
   useEffect(() => {
-    setIsChecked(checked);
-  }, [checked]);
-
+    setIsSeleted(filters?.includes(filter));
+  }, [filters]);
   return (
-    <FilterWrapper onPress={() => setIsChecked((prev) => !prev)}>
-      <CheckboxWrapper>
-        <Checkbox
-          name={filter}
-          forceChecked={isChecked}
-          onChange={(state) => setIsChecked(state)}
-        />
-      </CheckboxWrapper>
-      <TextWrapper>
-        <Text>{filter}</Text>
-      </TextWrapper>
-    </FilterWrapper>
+    <Checkbox
+      name={filter}
+      forceChecked={isSelected}
+      onChange={(state) =>
+        updateFilters({ action: state ? "add" : "remove", filterName: filter })
+      }
+      label={filter}
+      large
+    />
   );
 }

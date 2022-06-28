@@ -128,8 +128,7 @@ export const categoriesRepartition = {
     Categories?.GROCERY,
     Categories?.FOOD_PACKAGE,
     Categories?.RESTAURANT,
-    Categories?.MEAL_DSITRIBUTION,
-    Categories?.WATER_FOUNTAIN
+    Categories?.MEAL_DSITRIBUTION
   ],
   [MainCategories?.HEALTH]: [
     Categories?.DOCTOR,

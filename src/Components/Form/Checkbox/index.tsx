@@ -21,6 +21,7 @@ export interface CheckBoxProps extends InputProps {
   onChange?: (state: boolean) => void;
   indeterminate?: boolean;
   width?: number;
+  large?: boolean;
 }
 
 export default function Checkbox({
@@ -31,7 +32,8 @@ export default function Checkbox({
   required,
   name,
   width,
-  onChange
+  onChange,
+  large
 }: CheckBoxProps): JSX.Element {
   const { isMobile } = useGlobalContext();
   const [checked, setChecked] = useState(forceChecked);
@@ -80,8 +82,8 @@ export default function Checkbox({
           <Check width={CheckSize} color={colorIcon} />
         </CheckContainer>
       </Checkbox>
-      <TextContainer>
-        <Text type="small">{label}</Text>
+      <TextContainer {...{ large }}>
+        <Text type={large ? "paragraph" : "small"}>{label}</Text>
       </TextContainer>
     </StyledView>
   );

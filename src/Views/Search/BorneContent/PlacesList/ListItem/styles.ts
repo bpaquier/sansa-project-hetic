@@ -21,9 +21,10 @@ export const TextStyled = styled.View`
 
 export const IconWrapper = styled.View`
   margin-right: 12px;
+  margin-bottom: 16px;
 `;
 
 export const IconsWrapper = styled.View`
   flex-direction: row;
-  margin-bottom: 16px;
+  flex-wrap: wrap;
 `;

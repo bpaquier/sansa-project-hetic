@@ -22,7 +22,7 @@ export const ListWrapper = styled.View`
 `;
 
 export const ListContent = styled.ScrollView`
-  max-height: ${globalHeight -
+  height: ${globalHeight -
   grid?.borneGutter * 2 -
   (size?.bornContent?.topBarHeight + 8) -
   (size?.bornContent?.tagsHeight + 8) -

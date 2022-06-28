@@ -21,29 +21,33 @@ export const TextContainer = styled.Text`
   }};
   font-size: ${({ type }: TextComponentProps) =>
     type ? fontSize[type] : fontSize?.paragraph};
-  color: ${({ color }: TextComponentProps) => {
-    switch (color) {
-      case "white":
-        return themeColor?.primary?.white;
-      case "orange":
-        return themeColor?.primary?.orange;
-      case "blue":
-        return themeColor?.primary?.blue;
-      case "grey":
-        return themeColor?.neutral?.black60;
-      case "black40":
-        return themeColor?.neutral?.black40;
-      case "black20":
-        return themeColor?.neutral?.black20;
-      case "black60":
-        return themeColor?.neutral?.black60;
-      case "darkBlue":
-        return themeColor?.primary?.blueDark;
-      case "red":
-        return themeColor?.semantic?.dangerText;
-      case "black":
-      default:
-        return themeColor?.neutral?.black100;
+  color: ${({ color, customColor }: TextComponentProps) => {
+    if (customColor) {
+      return customColor;
+    } else {
+      switch (color) {
+        case "white":
+          return themeColor?.primary?.white;
+        case "orange":
+          return themeColor?.primary?.orange;
+        case "blue":
+          return themeColor?.primary?.blue;
+        case "grey":
+          return themeColor?.neutral?.black60;
+        case "black40":
+          return themeColor?.neutral?.black40;
+        case "black20":
+          return themeColor?.neutral?.black20;
+        case "black60":
+          return themeColor?.neutral?.black60;
+        case "darkBlue":
+          return themeColor?.primary?.blueDark;
+        case "red":
+          return themeColor?.semantic?.dangerText;
+        case "black":
+        default:
+          return themeColor?.neutral?.black100;
+      }
     }
   }};
   text-align: ${({ textAlign }: TextComponentProps) => textAlign};

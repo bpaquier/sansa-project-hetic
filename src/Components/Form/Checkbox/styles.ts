@@ -7,6 +7,10 @@ type StyledBoxProps = {
   disabled?: boolean;
 };
 
+type TextContainerProps = {
+  large?: boolean;
+};
+
 export const StyledView = styled.Pressable`
   flex-direction: row;
   align-items: center;
@@ -58,7 +62,7 @@ export const CheckboxBorne = styled.Pressable<StyledBoxProps>`
 
 export const TextContainer = styled.View`
   align-self: center;
-  padding-left: 8px;
+  padding-left: ${({ large }: TextContainerProps) => (large ? "16px" : "8px")};
   width: 95%;
 `;
 
