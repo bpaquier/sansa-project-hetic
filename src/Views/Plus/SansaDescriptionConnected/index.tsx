@@ -24,13 +24,16 @@ type SansaDescriptionConnectedProps = {
 export default function SansaDescriptionConnected({
   isMobile
 }: SansaDescriptionConnectedProps): JSX.Element {
+  const connectedContentToDisplay = isMobile
+    ? connectedContent.filter(({ title }) => title !== "Se déconnecter")
+    : connectedContent;
   return (
     <>
       <Text type={isMobile ? "titleL" : "titleM"}>Bonjour Timothé !</Text>
       {isMobile && (
         <>
           <Separator orientation="horizontal" columnWidth={22} margin={16} />
-          {connectedContent.map(
+          {connectedContentToDisplay.map(
             (content, index) =>
               index !== connectedContent.length && (
                 <TextWrapper
