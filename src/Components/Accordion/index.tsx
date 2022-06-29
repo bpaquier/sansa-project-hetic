@@ -40,23 +40,43 @@ export default function Accordion({
   );
 
   useEffect(() => {
-    Animated.timing(heightAnimationValueHolder?.current, {
-      toValue: isOpen ? 1 : 0,
-      duration: 300,
-      useNativeDriver: false,
-      easing: Easing?.circle
-    }).start();
-    Animated.timing(rotateAnimationValueHolder?.current, {
-      toValue: isOpen ? 1 : 0,
-      duration: 400,
-      useNativeDriver: false,
-      easing: Easing?.linear
-    }).start();
+    isOpen && open();
+    !isOpen && close();
   }, [isOpen]);
 
   useEffect(() => {
     setIsOpen(forceOpen);
   }, [forceOpen]);
+
+  const open = () => {
+    Animated.timing(heightAnimationValueHolder?.current, {
+      toValue: 1,
+      duration: 300,
+      useNativeDriver: false,
+      easing: Easing?.linear
+    }).start();
+    Animated.timing(rotateAnimationValueHolder?.current, {
+      toValue: 1,
+      duration: 300,
+      useNativeDriver: false,
+      easing: Easing?.linear
+    }).start();
+  };
+
+  const close = () => {
+    Animated.timing(heightAnimationValueHolder?.current, {
+      toValue: 0,
+      duration: 300,
+      useNativeDriver: false,
+      easing: Easing?.linear
+    }).start();
+    Animated.timing(rotateAnimationValueHolder?.current, {
+      toValue: 0,
+      duration: 300,
+      useNativeDriver: false,
+      easing: Easing?.linear
+    }).start();
+  };
 
   const heightAnimation = useMemo(
     () =>

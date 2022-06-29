@@ -1,3 +1,4 @@
+import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 
 import { getColumnWidth } from "~/Styles/mixins.styles";
@@ -13,7 +14,10 @@ export const TagsWrapper = styled.View`
   position: absolute;
   bottom: 0;
   left: ${getColumnWidth(3, false)};
+  right: 0;
   flex-direction: row;
+  align-items: flex-end;
+  z-index: 102;
 `;
 
 export const Tag = styled.TouchableOpacity`
@@ -29,23 +33,30 @@ export const Tag = styled.TouchableOpacity`
   border: ${({ borderColor }: TagProps) =>
     borderColor ? `2px solid ${borderColor}` : "none"};
   flex-grow: 0;
-  margin-bottom: ${({ marginBottom }: TagProps) =>
-    marginBottom ? `${marginBottom}px` : "0"};
+  margin-top: 8px;
 `;
 
 export const TagListContainer = styled.View`
-  align-items: flex-start;
-  position: absolute;
-  bottom: ${theme?.size?.bornContent?.tagsHeight + 8}px;
-  right: 0;
-  background-color: ${theme?.color?.primary?.white};
-  border-radius: ${theme?.shape?.radius?.input}px;
-  padding: 20px;
-  max-height: 300px;
+  flex: 1 1;
+  max-height: ${Dimensions.get("window").height -
+  theme?.grid?.borneGutter * 2}px;
+  max-width: 100%;
 `;
 
 export const TagList = styled.ScrollView``;
 
 export const TagsListContent = styled.View`
-  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 100%;
+`;
+
+export const Overlay = styled.Pressable`
+  position: absolute;
+  left: ${-1 * theme?.grid?.borneGutter}px;
+  top: ${-1 * theme?.grid?.borneGutter}px;
+  height: ${Dimensions.get("window").height}px;
+  width: ${Dimensions.get("window").width}px;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 101;
 `;
