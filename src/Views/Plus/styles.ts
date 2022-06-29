@@ -3,10 +3,6 @@ import styled from "styled-components/native";
 import { getColumnWidth } from "~/Styles/mixins.styles";
 import Theme from "~/Styles/theme.styles";
 
-type TitleWrapperProps = {
-  marginBottom: number;
-};
-
 export type TextPlusWrapperProps = {
   marginTop?: number;
 };
@@ -18,14 +14,12 @@ type PlusContainersProps = {
   paddingTop?: number;
   paddingX?: number;
   paddingBottom?: number;
-  adminHelp?: boolean;
-  alignSelf?: "stretch" | "flex-start";
   height?: number;
 };
 
 const { boxShadow, color, shape, sizes, grid } = Theme;
 
-export const PageWrapper = styled.View`
+export const PageWrapperMobile = styled.View`
   width: 100%;
   margin-bottom: ${sizes?.mobilePageMarginBottom}px;
   display: flex;
@@ -43,57 +37,41 @@ export const PageWrapperBorne = styled.View`
   align-content: space-between;
 `;
 
-export const TitleWrapper = styled.View<TitleWrapperProps>`
-  margin-bottom: ${({ marginBottom }) => marginBottom}px;
-`;
-
-export const PlusContainersBorne = styled.View<PlusContainersProps>`
+const generalPlusContainer = `
   border-radius: ${shape.radius.input}px;
   background-color: ${color.primary.white};
   box-shadow: ${boxShadow.panel};
-  padding: ${({ paddingTop, paddingBottom, paddingX }) =>
-    `${paddingTop ?? 40}px ${paddingX ?? 48}px ${paddingBottom ?? 40}px ${
-      paddingX ?? 40
-    }px`};
-  margin-right: ${getColumnWidth(1, false)};
-  margin-bottom: ${({ marginBottom }) => (marginBottom ? 48 : 0)}px;
-  ${({ border }) => border && `border: 1px solid ${color.primary.blueDark}`};
+  overflow: hidden;
+`;
+
+const getBorderPlusContainer = (border?: boolean) =>
+  border && `border: 1px solid ${color.primary.blueDark}`;
+
+const getMarginBottom = (marginSize: number, marginBottom?: boolean) =>
+  `${marginBottom ? marginSize : 0}px`;
+
+export const PlusContainersBorne = styled.View<PlusContainersProps>`
+  ${generalPlusContainer}
+  ${({ border }) => getBorderPlusContainer(border)};
   width: ${({ columnWidth }) =>
     columnWidth
       ? getColumnWidth(columnWidth, false)
       : getColumnWidth(grid.columns / 2, false)};
   ${({ height }) => height && `height: ${height}px`};
-  overflow: hidden;
+  padding: ${({ paddingTop, paddingBottom, paddingX }) =>
+    `${paddingTop ?? 40}px ${paddingX ?? 48}px ${paddingBottom ?? 40}px ${
+      paddingX ?? 40
+    }px`};
+  margin-right: ${getColumnWidth(1, false)};
+  margin-bottom: ${({ marginBottom }) => getMarginBottom(48, marginBottom)};
 `;
 
 export const PlusContainersMobile = styled.View<PlusContainersProps>`
-  border-radius: ${shape.radius.input}px;
-  background-color: ${color.primary.white};
-  box-shadow: ${boxShadow.panel};
+  ${generalPlusContainer}
+  ${({ border }) => getBorderPlusContainer(border)};
+  width: 100%;
   padding: 24px ${getColumnWidth(1, true)};
-  width: 100%;
-  margin-bottom: ${({ marginBottom }) => (marginBottom ? 24 : 0)}px;
-  ${({ border }) => border && `border: 1px solid ${color.primary.blueDark}`};
-`;
-
-export const ButtonsContainerMobile = styled.View`
-  margin-top: 40px;
-`;
-
-export const ButtonsContainerBorne = styled.View`
-  margin-top: 56px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`;
-
-export const ImageWrapper = styled.View`
-  width: 100%;
-  height: 184px;
-  margin-top: 24px;
-  position: absolute;
-  bottom: -10px;
-  left: -10px;
+  margin-bottom: ${({ marginBottom }) => getMarginBottom(24, marginBottom)};
 `;
 
 export const TextPlusWrapper = styled.Pressable<TextPlusWrapperProps>`
@@ -104,32 +82,4 @@ export const PagePlusBorneIllustrationWrapper = styled.View`
   position: absolute;
   right: 0;
   bottom: -90px;
-`;
-
-export const ButtonWrapperBorne = styled.View`
-  margin-left: 16px;
-`;
-
-export const ButtonWrapperMobile = styled.View`
-  width: 100%;
-`;
-
-export const ConnectedIllustrationsWrapper = styled.View`
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 48px;
-`;
-
-export const ConnectedIllustrationWrapper = styled.Pressable`
-  width: ${getColumnWidth(4, false)};
-  border: 1px solid ${color.neutral.black5};
-  border-radius: ${shape.radius.input}px;
-  height: 165px;
-  margin-bottom: 32px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
 `;
