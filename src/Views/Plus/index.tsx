@@ -14,7 +14,7 @@ import PlusSection from "~/Views/Plus/PlusSection";
 import SansaDescriptionConnected from "~/Views/Plus/SansaDescriptionConnected";
 import SansaDescriptionNotConnected from "~/Views/Plus/SansaDescriptionNotConnected";
 
-const isConnected = false;
+const isConnected = true;
 
 export default function Plus(): JSX.Element {
   const { isMobile } = useGlobalContext();
@@ -62,7 +62,7 @@ export default function Plus(): JSX.Element {
           paddingBottom={28}
           columnWidth={!isMobile && 5}
         >
-          <PlusSection isMobile={isMobile} />
+          <PlusSection isMobile={isMobile} isConnected={isConnected} />
         </PlusContainers>
         {!isMobile && (
           <PagePlusBorneIllustrationWrapper>
