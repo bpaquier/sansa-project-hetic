@@ -37,7 +37,7 @@ export default function TopBar(): JSX.Element {
     const bgColor = getCategoryColor(category, true);
     const isSelected = category === displayFilters;
     return (
-      <IconWrapper key={i}>
+      <IconWrapper key={`${category}-${i}`}>
         <Button
           onPress={() => {
             isSelected ? setDisplayFilters(null) : setDisplayFilters(category);

@@ -6,16 +6,13 @@ import { Content } from "./styles";
 import Tags from "./Tags";
 import TopBar from "./TopBar";
 import PageContentWrapper from "~/Components/PageContentWrapper";
-import { useSearchContext } from "~/Contexts/searchContext";
 
 export default function BornContent(): JSX.Element {
-  const { displayFilters } = useSearchContext();
-
   return (
     <PageContentWrapper>
       <Content>
         <PlacesList />
-        {displayFilters && <Filters />}
+        <Filters />
         <TopBar />
         <Tags />
       </Content>

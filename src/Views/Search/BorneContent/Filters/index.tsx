@@ -14,21 +14,23 @@ export default function Filters(): JSX.Element {
     : null;
 
   return (
-    <FiltersWrapper>
-      <Title>
-        <Text type="titleL">{displayFilters}</Text>
-      </Title>
-      <Separator orientation="horizontal" />
-      <Content>
-        {selectedFilters &&
-          selectedFilters?.map((filter, i) => {
-            return (
-              <CheckboxWrapper key={`${filter}-${i}`}>
-                <Filter {...{ filter }} />
-              </CheckboxWrapper>
-            );
-          })}
-      </Content>
-    </FiltersWrapper>
+    displayFilters && (
+      <FiltersWrapper>
+        <Title>
+          <Text type="titleL">{displayFilters}</Text>
+        </Title>
+        <Separator orientation="horizontal" />
+        <Content>
+          {selectedFilters &&
+            selectedFilters?.map((filter, i) => {
+              return (
+                <CheckboxWrapper key={`${filter}-${i}`}>
+                  <Filter {...{ filter }} />
+                </CheckboxWrapper>
+              );
+            })}
+        </Content>
+      </FiltersWrapper>
+    )
   );
 }

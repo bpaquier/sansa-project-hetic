@@ -133,7 +133,7 @@ export default function Map(): JSX.Element {
       >
         {filteredPlaces?.map((place, index) => (
           <Marker
-            key={index}
+            key={`${index}-${place?.name}`}
             onPress={() => {
               setSelectedPlaceIndex(index);
             }}
@@ -142,7 +142,11 @@ export default function Map(): JSX.Element {
               longitude: parseFloat(place?.position?.longitude)
             }}
           >
-            <Ping {...{ index }} name={place?.name} />
+            <Ping
+              {...{ index }}
+              isSelected={index === selectedPlaceIndex}
+              name={place?.name}
+            />
           </Marker>
         ))}
       </MapView>

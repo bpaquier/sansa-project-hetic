@@ -33,6 +33,7 @@ export default function ListItem({
     return debouncedFilters && debouncedFilters?.length > 0
       ? categories?.filter((categoty) => debouncedFilters?.includes(categoty))
       : categories?.slice(0, 5);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedFilters]);
 
   return (
@@ -57,7 +58,7 @@ export default function ListItem({
                 ? getCategoryColor(category, false)
                 : theme?.color?.neutral?.black20;
               return (
-                <IconWrapper key={index}>
+                <IconWrapper key={`${category}-${index}`}>
                   <Icon {...{ category, backgroundColor }} withBackground />
                 </IconWrapper>
               );

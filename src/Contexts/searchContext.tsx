@@ -57,7 +57,7 @@ function SearchProvider({ children }: SearchProviderProps) {
   const [filters, setFilters] = useState<string[] | null>(null);
   const [displayFilters, setDisplayFilters] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const debouncedFilters = useDebounce(filters, 5000);
+  const debouncedFilters = useDebounce(filters, 1000);
 
   useEffect(() => {
     if (debouncedFilters && debouncedFilters?.length > 0) {

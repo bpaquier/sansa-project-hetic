@@ -6,21 +6,27 @@ interface PingProps {
   index?: number;
   name?: string;
   small?: boolean;
+  isSelected?: boolean;
 }
 
-export default function Ping({ index, name, small }: PingProps): JSX.Element {
+export default function Ping({
+  index,
+  name,
+  small,
+  isSelected
+}: PingProps): JSX.Element {
   return (
     <StyledView>
       <IndexWrapper>
         <Text
           textAlign="center"
-          color="white"
+          color={isSelected ? "darkBlue" : "white"}
           type={small ? "small" : "paragraph"}
         >
           {index + 1}
         </Text>
       </IndexWrapper>
-      <PingIcon {...{ small }} />
+      <PingIcon {...{ small, isSelected }} />
       <Text color="black40" weight="bold" type={small ? "small" : "paragraph"}>
         {name}
       </Text>
