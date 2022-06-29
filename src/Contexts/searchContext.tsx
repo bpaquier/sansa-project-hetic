@@ -6,6 +6,8 @@ import {
   useEffect
 } from "react";
 
+import { useDebounce } from "~/hooks/useDebounce";
+
 export interface PlaceProps {
   name?: string;
   position?: {
@@ -26,6 +28,8 @@ interface ContextProps {
   displayFilters?: string | null;
   setDisplayFilters?: (arg: string | null) => void;
   updateFilters?: ({ action, filterName }: updateFiltersProps) => void;
+  isLoading?: boolean;
+  debouncedFilters?: string[];
 }
 
 type updateFiltersProps = {
@@ -52,15 +56,32 @@ function SearchProvider({ children }: SearchProviderProps) {
   );
   const [filters, setFilters] = useState<string[] | null>(null);
   const [displayFilters, setDisplayFilters] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const debouncedFilters = useDebounce(filters, 5000);
 
   useEffect(() => {
-    if (filters && filters?.length > 0) {
+    if (debouncedFilters && debouncedFilters?.length > 0) {
+      /**
+       * /////////////////////////////////////////////////////////////
+       * !replace by API call
+       */
       const selectedPlaces = fakePlaces?.filter((place) =>
-        place?.categories?.some((cat) => filters?.includes(cat))
+        place?.categories?.some((cat) => debouncedFilters?.includes(cat))
       );
+      /**
+       * /////////////////////////////////////////////////////////////
+       */
+      setIsLoading(false);
       setFilteredPlaces(selectedPlaces);
     } else {
       setFilteredPlaces(null);
+      setIsLoading(false);
+    }
+  }, [debouncedFilters]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    if (!filters || filters?.length === 0) {
       setFilters(null);
       setDisplayFilters(null);
     }
@@ -87,7 +108,9 @@ function SearchProvider({ children }: SearchProviderProps) {
     setFilters,
     displayFilters,
     setDisplayFilters,
-    updateFilters
+    updateFilters,
+    debouncedFilters,
+    isLoading
   };
 
   return <Context.Provider value={providerValue}>{children}</Context.Provider>;

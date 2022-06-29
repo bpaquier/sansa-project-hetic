@@ -27,13 +27,13 @@ export default function ListItem({
   categories
 }: ListItemProps): JSX.Element {
   //const moreCategories = categories?.length - 5;
-  const { filters } = useSearchContext();
+  const { debouncedFilters } = useSearchContext();
 
   const formatedCategories = useMemo(() => {
-    return filters && filters?.length > 0
-      ? categories?.filter((categoty) => filters?.includes(categoty))
+    return debouncedFilters && debouncedFilters?.length > 0
+      ? categories?.filter((categoty) => debouncedFilters?.includes(categoty))
       : categories?.slice(0, 5);
-  }, [filters]);
+  }, [debouncedFilters]);
 
   return (
     <ItemWrapper>
@@ -52,7 +52,7 @@ export default function ListItem({
         {categories && (
           <IconsWrapper>
             {formatedCategories?.map((category, index) => {
-              const isSelected = filters?.includes(category);
+              const isSelected = debouncedFilters?.includes(category);
               const backgroundColor = isSelected
                 ? getCategoryColor(category, false)
                 : theme?.color?.neutral?.black20;

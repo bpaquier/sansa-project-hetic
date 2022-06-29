@@ -3,30 +3,32 @@ import React, {
   useEffect,
   useState,
   useRef,
-  useMemo
+  useMemo,
+  ReactNode
 } from "react";
 
 import { Animated, Easing, View } from "react-native";
 
-import { AccordionWrapper, Head, TextWrapper, ContentWrapper } from "./styles";
+import { AccordionWrapper, Head, HeadContent, ContentWrapper } from "./styles";
 import ArrowDown from "~/Components/Icons/System/Arrows/ArrowDown";
 import ArrowUp from "~/Components/Icons/System/Arrows/ArrowUp";
-import Text from "~/Components/Ui-kit/Text";
 
 export interface AccordionProps {
   forceOpen?: boolean;
-  headText: string;
   content: ReactElement;
   initialState?: "open" | "closed";
   freeze?: boolean;
+  headContent?: ReactNode | ReactNode[];
+  getStatus?: (status: "open" | "closed") => void;
 }
 
 export default function Accordion({
   forceOpen,
-  headText,
+  headContent,
   content,
   initialState = "closed",
-  freeze = false
+  freeze = false,
+  getStatus
 }: AccordionProps): JSX.Element {
   const [isOpen, setIsOpen] = useState<boolean>(
     initialState === "open" ? true : false
@@ -42,7 +44,8 @@ export default function Accordion({
   useEffect(() => {
     isOpen && open();
     !isOpen && close();
-  }, [isOpen]);
+    getStatus && getStatus(isOpen ? "open" : "closed");
+  }, [isOpen, getStatus]);
 
   useEffect(() => {
     setIsOpen(forceOpen);
@@ -99,9 +102,7 @@ export default function Accordion({
         onPress={() => !freeze && setIsOpen((prev) => !prev)}
         activeOpacity={0.7}
       >
-        <TextWrapper>
-          <Text>{headText}</Text>
-        </TextWrapper>
+        <HeadContent>{headContent}</HeadContent>
         {!freeze && (
           <Animated.View style={[{ transform: [{ rotate: rotateAnimation }] }]}>
             {initialState === "open" ? <ArrowUp /> : <ArrowDown />}
