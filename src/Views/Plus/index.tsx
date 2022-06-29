@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next/";
+
 import {
   PageWrapperMobile,
   PageWrapperBorne,
@@ -15,10 +17,11 @@ import PlusSection from "~/Views/Plus/PlusSection";
 import SansaDescriptionConnected from "~/Views/Plus/SansaDescriptionConnected";
 import SansaDescriptionNotConnected from "~/Views/Plus/SansaDescriptionNotConnected";
 
-const isConnected = true;
+const isConnected = false;
 
 export default function Plus(): JSX.Element {
   const { isMobile } = useGlobalContext();
+  const { t } = useTranslation();
 
   const PageWrapper = (
     isMobile ? PageWrapperMobile : PageWrapperBorne
@@ -38,7 +41,7 @@ export default function Plus(): JSX.Element {
             textAlign="left"
             color="black20"
           >
-            Plus
+            {t("plus")}
           </TextWrapper>
         )}
         <PlusContainers

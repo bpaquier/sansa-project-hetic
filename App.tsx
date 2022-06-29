@@ -7,6 +7,7 @@ import Home from "~/Views/Home";
 import Page from "~/Views/Page";
 import Plus from "~/Views/Plus";
 import Search from "~/Views/Search";
+import "~/locales/i18n";
 
 export default function App() {
   return (
