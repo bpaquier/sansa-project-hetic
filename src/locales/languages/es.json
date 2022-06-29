@@ -21,7 +21,7 @@
     "languages": "Lenguas",
     "privacyPolicy": "Política de privacidad",
     "legals": "Información jurídica",
-    "tcu": "tcu",
+    "tcu": "TCU",
     "consultList": "Ver la lista",
     "administrativeAssistance": "Ayudas administrativas"
   },
@@ -39,5 +39,11 @@
     "requiredField": "Este campo es obligatorio",
     "invalidFormat": "Formato inválido",
     "forgotPassword": "¿Ha olvidado su contraseña?"
+  },
+  "search": {
+    "search": "Buscar"
+  },
+  "home": {
+    "home": "Hogar"
   }
 }

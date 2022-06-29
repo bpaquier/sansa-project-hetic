@@ -39,5 +39,11 @@
     "noAccountYet": "No account yet?",
     "requiredField": "This field is required",
     "invalidFormat": "Invalid format"
+  },
+  "search": {
+    "search": "Search"
+  },
+  "home": {
+    "home": "Home"
   }
 }
