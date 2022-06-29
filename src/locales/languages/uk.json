@@ -21,7 +21,7 @@
     "languages": "Мови",
     "privacyPolicy": "Політика конфіденційності",
     "legals": "Юридичний",
-    "tcu": "tcu",
+    "tcu": "TCU",
     "consultList": "Зверніться до списку",
     "administrativeAssistance": "Адміністративна допомога"
   },
@@ -39,5 +39,11 @@
     "requiredField": "Це поле є обов'язковим",
     "invalidFormat": "Недійсний формат",
     "forgotPassword": "Забули свій пароль?"
+  },
+  "search": {
+    "search": "Вишукувати"
+  },
+  "home": {
+    "home": "додому"
   }
 }

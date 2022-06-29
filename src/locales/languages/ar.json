@@ -21,7 +21,7 @@
     "languages": "اللغات",
     "privacyPolicy": "سياسة الخصوصية",
     "legals": "قانوني",
-    "tcu": "tcu",
+    "tcu": "TCU",
     "consultList": "استشر القائمة",
     "administrativeAssistance": "المساعدة الإدارية"
   },
@@ -39,5 +39,11 @@
     "requiredField": "هذه الخانة مطلوبه",
     "invalidFormat": "تنسيق غير صالح",
     "iReadAndAcceptPrompt": "لقد قرأت وقبلت شروط الاستخدام العامة"
+  },
+  "search": {
+    "search": "يبحث"
+  },
+  "home": {
+    "home": "مسكن"
   }
 }

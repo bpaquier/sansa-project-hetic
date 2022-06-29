@@ -3,7 +3,8 @@
     "sansa": "sansa",
     "login": "Se connecter",
     "register": "S'inscrire",
-    "logout": "Se déconnecter"
+    "logout": "Se déconnecter",
+    "search": "Rechercher"
   },
   "plus": {
     "plus": "Plus",
@@ -18,10 +19,10 @@
     "missionsPrompt2": "Mettre à disposition un outil ouvert à tous, ergonomique, simple et rapide d’utilisation.",
     "missionsPrompt3": "Permettre l’accès à un espace privé contenant un coffre fort numérique et la liste de vos lieux favoris.",
     "contactUs": "Nous contacter",
-    "languages": "languages",
+    "languages": "Langues",
     "privacyPolicy": "Politique de confidentialité",
     "legals": "Mentions légales",
-    "tcu": "tcu",
+    "tcu": "CGU",
     "consultList": "Consulter la liste",
     "administrativeAssistance": "Aides administratives"
   },
@@ -39,5 +40,11 @@
     "requiredField": "Ce champs est requis",
     "invalidFormat": "Format invalide",
     "forgotPassword": "Mot de passe oublié"
+  },
+  "search": {
+    "search": "Rechercher"
+  },
+  "home": {
+    "home": "Acceuil"
   }
 }
