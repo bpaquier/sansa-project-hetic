@@ -9,13 +9,9 @@ import theme from "~/Styles/theme.styles";
 export default function SansaBorneDescription(): JSX.Element {
   return (
     <>
-      <TextWrapper
-        marginTop={32}
-        color="grey"
-        textAlign="center"
-        weight="bold"
-        title="Ses missions"
-      />
+      <TextWrapper marginTop={32} color="grey" textAlign="center" weight="bold">
+        Ses missions
+      </TextWrapper>
       <TextMissionsPlusWrapper>
         <LogoWrappers>
           <Building width={14} height={17} color={theme.color.primary.white} />

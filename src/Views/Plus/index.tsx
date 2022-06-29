@@ -36,8 +36,9 @@ export default function Plus(): JSX.Element {
             type="titleL"
             textAlign="left"
             color="black20"
-            title="Plus"
-          />
+          >
+            Plus
+          </TextWrapper>
         )}
         <PlusContainers marginBottom columnWidth={!isMobile && 10}>
           {isConnected ? (
