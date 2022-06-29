@@ -1,7 +1,12 @@
-import { View } from "react-native";
 import { useNavigate, useLocation } from "react-router-native";
 
-import { Nav, NavButtonContainer, NavButton } from "./styles";
+import {
+  Nav,
+  NavButtonsContainer,
+  NavButtonContainer,
+  NavButton,
+  LanguageSection
+} from "./styles";
 import France from "~/Components/Icons/Flags/France";
 import MapMarker from "~/Components/Icons/System/Map/MapMarker";
 import House from "~/Components/Icons/System/System/House";
@@ -16,9 +21,7 @@ export default function NavigationBorne() {
 
   return (
     <Nav>
-      <View
-        style={{ flex: 1, justifyContent: "center", alignContent: "center" }}
-      >
+      <NavButtonsContainer>
         <NavButtonContainer active={isCurrentPage("/home")}>
           <NavButton
             onPress={() => navigate("/home")}
@@ -27,10 +30,7 @@ export default function NavigationBorne() {
             <House width={36} height={36} color={Theme.color.primary.white} />
           </NavButton>
         </NavButtonContainer>
-        <NavButtonContainer
-          active={isCurrentPage("/")}
-          style={{ marginTop: 28 }}
-        >
+        <NavButtonContainer active={isCurrentPage("/")} spaceTop>
           <NavButton onPress={() => navigate("/")} active={isCurrentPage("/")}>
             <MapMarker
               width={36}
@@ -39,10 +39,7 @@ export default function NavigationBorne() {
             />
           </NavButton>
         </NavButtonContainer>
-        <NavButtonContainer
-          active={isCurrentPage("/plus")}
-          style={{ marginTop: 28 }}
-        >
+        <NavButtonContainer active={isCurrentPage("/plus")} spaceTop>
           <NavButton
             onPress={() => navigate("/plus")}
             active={isCurrentPage("/plus")}
@@ -50,17 +47,11 @@ export default function NavigationBorne() {
             <Plus width={36} height={36} color={Theme.color.primary.white} />
           </NavButton>
         </NavButtonContainer>
-      </View>
-      <View>
-        <Separator
-          orientation="horizontal"
-          margin={20}
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          //@ts-ignore
-          style={{ width: "100%" }}
-        />
+      </NavButtonsContainer>
+      <LanguageSection>
+        <Separator orientation="horizontal" margin={20} width="100%" />
         <France />
-      </View>
+      </LanguageSection>
     </Nav>
   );
 }
