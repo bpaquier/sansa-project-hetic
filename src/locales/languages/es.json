@@ -20,5 +20,12 @@
   "mentionsLegales": "Información jurídica",
   "cgu": "CGU",
   "consulterLaListe": "Ver la lista",
-  "aidesAdministratives": "Ayudas administrativas"
+  "aidesAdministratives": "Ayudas administrativas",
+  "jAiLuEtJaccepte": "He leído y acepto las condiciones generales de uso",
+  "vousAvezDejaUnCompte": "¿Ya tiene una cuenta?",
+  "identifiant": "Identificador",
+  "adresseMail": "Dirección de correo",
+  "telephone": "Teléfono",
+  "motDePasse": "Contraseña",
+  "motDePasseCaracteresPrompt": "Debe contener 8 caracteres con una letra mayúscula y un número"
 }

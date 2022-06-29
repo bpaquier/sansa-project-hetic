@@ -1,7 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import React from "react";
-
-//import { Image } from "react-native";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-native";
 
 import LoginIllustration from "./loginIllustation";
@@ -10,19 +7,19 @@ import Form from "~/Components/Form";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 import Button from "~/Components/Ui-kit/Button";
 import Text from "~/Components/Ui-kit/Text";
-//import { ImageStyle } from "~/Styles/mixins.styles";
 import FormPageTemplate from "~/Views/Account/FormPageTemplate";
 
 export default function Login(): JSX.Element {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const Image = <LoginIllustration />;
 
   const FormComponent = (
     <>
       <Form
-        title="Se connecter"
-        submitCtaLabel="Se connecter"
+        title={t("seConnecter")}
+        submitCtaLabel={t("seConnecter")}
         inlineCtaLabel="Mot de passe oublié"
         items={[
           {
@@ -46,7 +43,7 @@ export default function Login(): JSX.Element {
         </Text>
       </BottomText>
       <Button
-        text="S'incrire"
+        text={t("sInscrire")}
         type="tertiary"
         onPress={() => navigate("/register")}
       />
