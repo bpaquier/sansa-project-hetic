@@ -20,5 +20,12 @@
   "mentionsLegales": "Legal",
   "cgu": "TCU",
   "consulterLaListe": "Consult the list",
-  "aidesAdministratives": "Administrative assistance"
+  "aidesAdministratives": "Administrative assistance",
+  "jAiLuEtJaccepte": "I have read and accept the general conditions of use",
+  "vousAvezDejaUnCompte": "Do you already have an account?",
+  "identifiant": "Identifier",
+  "adresseMail": "Email Adress",
+  "telephone": "Phone",
+  "motDePasse": "Password",
+  "motDePasseCaracteresPrompt": "Must contain 8 characters with one capital letter and one number"
 }

@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import React from "react";
-
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-native";
 
 import RegisterIllustration from "./registerIllustation";
@@ -13,31 +11,32 @@ import FormPageTemplate from "~/Views/Account/FormPageTemplate";
 
 export default function Register(): JSX.Element {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const Image = <RegisterIllustration />;
 
   const FormComponent = (
     <>
       <Form
-        title="S'inscrire"
-        submitCtaLabel="S'inscrire"
+        title={t("sInscrire")}
+        submitCtaLabel={t("sInscrire")}
         items={[
           {
             placeholder: "John Doe",
-            label: "Identifiant",
+            label: t("identifiant"),
             name: "ID",
             required: true,
             type: "text"
           },
           {
             placeholder: "johndoe@gmail.com",
-            label: "Adresse Mail",
+            label: t("adresseMail"),
             name: "email",
             required: true,
             type: "email"
           },
           {
-            label: "Téléphone",
+            label: t("telephone"),
             name: "tel",
             type: "tel",
             defaultValue: ""
@@ -64,18 +63,16 @@ export default function Register(): JSX.Element {
             type: "text"
           }, */
           {
-            label: "Votre mot de passe",
+            label: t("motDePasse"),
             name: "password",
             type: "password",
             required: true,
             checkPwd: true,
-            bottomText:
-              "Doit contenir 8 caractères avec une majuscule et un chiffre"
+            bottomText: t("motDePasseCaracteresPrompt")
           },
           {
             type: "checkbox",
-            label:
-              "J'ai lu et j'accepte les conditions générales d'utilisation",
+            label: t("jAiLuEtJaccepte"),
             forceChecked: false,
             name: "consent",
             required: true
@@ -84,11 +81,11 @@ export default function Register(): JSX.Element {
       />
       <BottomText>
         <Text color="black40" textAlign="center" type="small">
-          Vous avez déja un compte?
+          {t("vousAvezDejaUnCompte")}
         </Text>
       </BottomText>
       <Button
-        text="Se connecter"
+        text={t("seConnecter")}
         type="tertiary"
         onPress={() => navigate("/login")}
       />

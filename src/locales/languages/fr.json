@@ -20,5 +20,12 @@
   "mentionsLegales": "Mentions légales",
   "cgu": "CGU",
   "consulterLaListe": "Consulter la liste",
-  "aidesAdministratives": "Aides administratives"
+  "aidesAdministratives": "Aides administratives",
+  "jAiLuEtJaccepte": "J'ai lu et j'accepte les conditions générales d'utilisation",
+  "vousAvezDejaUnCompte": "Vous avez déjà un compte ?",
+  "identifiant": "Identifiant",
+  "adresseMail": "Adresse Mail",
+  "telephone": "Téléphone",
+  "motDePasse": "Mot de passe",
+  "motDePasseCaracteresPrompt": "Doit contenir 8 caractères avec une majuscule et un chiffre"
 }
