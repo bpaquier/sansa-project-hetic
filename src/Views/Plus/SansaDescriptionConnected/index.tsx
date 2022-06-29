@@ -40,8 +40,9 @@ export default function SansaDescriptionConnected({
                   key={content.title}
                   type="paragraph"
                   color="grey"
-                  title={content.title}
-                />
+                >
+                  {content.title}
+                </TextWrapper>
               )
           )}
         </>

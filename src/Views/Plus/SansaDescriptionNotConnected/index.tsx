@@ -34,8 +34,9 @@ export default function SansaDescriptionNotConnected({
         marginBottom={8}
         type="titleL"
         textAlign={isMobile ? "left" : "center"}
-        title={isMobile ? "SANSA" : "SANSA, c'est quoi ?"}
-      />
+      >
+        {isMobile ? "SANSA" : "SANSA, c'est quoi ?"}
+      </TextWrapper>
       <Text
         type="paragraph"
         color="black20"

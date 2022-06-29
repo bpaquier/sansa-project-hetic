@@ -1,24 +1,10 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
 import { Link as RouterLink } from "react-router-native";
 
-import Text from "~/Components/Ui-kit/Text";
+import Text, { TextComponentProps } from "~/Components/Ui-kit/Text";
 
-export interface LinkProps {
-  type?: "titleXL" | "titleL" | "titleM" | "paragraph" | "small";
-  weight?: "bold" | "regular" | "medium";
-  color?:
-    | "black"
-    | "white"
-    | "orange"
-    | "blue"
-    | "grey"
-    | "darkBlue"
-    | "black40"
-    | "black20"
-    | "red";
-  children?: React.ReactNode | ReactNode[];
-  textAlign?: "left" | "center" | "right";
+export interface LinkProps extends TextComponentProps {
   to: string;
 }
 

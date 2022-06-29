@@ -5,21 +5,30 @@ import { useFonts } from "expo-font";
 import { TextContainer } from "./styles";
 import { useGlobalContext } from "~/Contexts/globalContext";
 
+export type TextTypeProps =
+  | "titleXL"
+  | "titleL"
+  | "titleM"
+  | "paragraph"
+  | "small";
+export type TextWeightProps = "bold" | "regular" | "medium";
+export type TextColorsProps =
+  | "black"
+  | "white"
+  | "orange"
+  | "blue"
+  | "grey"
+  | "darkBlue"
+  | "black40"
+  | "black20"
+  | "red";
+export type TextAlignementProps = "left" | "center" | "right";
 export interface TextComponentProps {
-  type?: "titleXL" | "titleL" | "titleM" | "paragraph" | "small";
-  weight?: "bold" | "regular" | "medium";
-  color?:
-    | "black"
-    | "white"
-    | "orange"
-    | "blue"
-    | "grey"
-    | "darkBlue"
-    | "black40"
-    | "black20"
-    | "red";
+  type?: TextTypeProps;
+  weight?: TextWeightProps;
+  color?: TextColorsProps;
+  textAlign?: TextAlignementProps;
   children?: React.ReactNode | ReactNode[];
-  textAlign?: "left" | "center" | "right";
 }
 
 const TextComponent = ({
