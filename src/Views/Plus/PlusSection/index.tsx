@@ -3,6 +3,7 @@ import TextWrapper from "~/Components/Ui-kit/TextWrapper";
 
 type PlusSectionProps = {
   isMobile?: boolean;
+  isConnected?: boolean;
 };
 
 const plusContent = [
@@ -15,12 +16,15 @@ const plusContent = [
 ];
 
 export default function PlusSection({
-  isMobile
+  isMobile,
+  isConnected
 }: PlusSectionProps): JSX.Element {
   const plusContentToDisplay = !isMobile
     ? plusContent.filter(
         ({ title }) => title !== "Langues" && title !== "Se déconnecter"
       )
+    : !isConnected
+    ? plusContent.filter(({ title }) => title !== "Se déconnecter")
     : plusContent;
 
   return (
