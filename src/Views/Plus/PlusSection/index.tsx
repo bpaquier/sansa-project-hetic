@@ -10,19 +10,24 @@ const plusContent = [
   { title: "Langues", link: "#" },
   { title: "Politique de confidentialité", link: "#" },
   { title: "Mentions Légales", link: "#" },
-  { title: "CGU", link: "#" }
+  { title: "CGU", link: "#" },
+  { title: "Se déconnecter", link: "#" }
 ];
 
 export default function PlusSection({
   isMobile
 }: PlusSectionProps): JSX.Element {
   const plusContentToDisplay = !isMobile
-    ? plusContent.filter((content) => content.title !== "Langues")
+    ? plusContent.filter(
+        ({ title }) => title !== "Langues" && title !== "Se déconnecter"
+      )
     : plusContent;
 
   return (
     <>
-      <TextWrapper title="Plus" marginBottom={16} type="titleL" />
+      <TextWrapper marginBottom={16} type="titleL">
+        Plus
+      </TextWrapper>
       <Separator orientation="horizontal" theme="dark" width="100%" />
       {plusContentToDisplay.map((content) => (
         <TextWrapper
@@ -32,8 +37,9 @@ export default function PlusSection({
           marginTop={16}
           type="paragraph"
           color="grey"
-          title={content.title}
-        />
+        >
+          {content.title}
+        </TextWrapper>
       ))}
     </>
   );
