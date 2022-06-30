@@ -17,7 +17,7 @@ type PlusContainersProps = {
   height?: number;
 };
 
-const { boxShadow, color, shape, sizes, grid } = Theme;
+const { color, shape, sizes, grid } = Theme;
 
 export const PageWrapperMobile = styled.View`
   width: 100%;
@@ -40,7 +40,6 @@ export const PageWrapperBorne = styled.View`
 const generalPlusContainer = `
   border-radius: ${shape.radius.input}px;
   background-color: ${color.primary.white};
-  box-shadow: ${boxShadow.panel};
   overflow: hidden;
 `;
 

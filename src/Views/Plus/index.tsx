@@ -27,6 +27,17 @@ export default function Plus(): JSX.Element {
     isMobile ? PlusContainersMobile : PlusContainersBorne
   ) as React.ElementType;
 
+  const shadows = {
+    shadowColor: "#242424",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 10,
+    elevation: 2
+  };
+
   return (
     <PageContentWrapper>
       <PageWrapper>
@@ -40,7 +51,11 @@ export default function Plus(): JSX.Element {
             Plus
           </TextWrapper>
         )}
-        <PlusContainers marginBottom columnWidth={!isMobile && 10}>
+        <PlusContainers
+          style={shadows}
+          marginBottom
+          columnWidth={!isMobile && 10}
+        >
           {isConnected ? (
             <SansaDescriptionConnected isMobile={isMobile} />
           ) : (
@@ -48,6 +63,7 @@ export default function Plus(): JSX.Element {
           )}
         </PlusContainers>
         <PlusContainers
+          style={shadows}
           border
           columnWidth={!isMobile && 7}
           adminHelp
@@ -57,6 +73,7 @@ export default function Plus(): JSX.Element {
           <AdministrativeHelpSection />
         </PlusContainers>
         <PlusContainers
+          style={shadows}
           paddingTop={24}
           paddingX={24}
           paddingBottom={28}
