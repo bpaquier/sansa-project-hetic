@@ -1,8 +1,6 @@
 import { View, TouchableOpacity } from "react-native";
 import { useNavigate } from "react-router-native";
 
-import NoEventIllustration from "~/Views/Home/Illustrations/NoEventIllustration";
-import SportIllustration from "~/Views/Home/Illustrations/SportIllustration";
 import {
   Card,
   EventCard,
@@ -26,6 +24,8 @@ import PageContentWrapper from "~/Components/PageContentWrapper";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import Theme from "~/Styles/theme.styles";
+import NoEventIllustration from "~/Views/Home/Illustrations/NoEventIllustration";
+import SportIllustration from "~/Views/Home/Illustrations/SportIllustration";
 const { color } = Theme;
 
 export default function HomeMobile(): JSX.Element {

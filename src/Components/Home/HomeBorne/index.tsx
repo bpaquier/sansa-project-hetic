@@ -2,8 +2,6 @@ import { View, TouchableOpacity } from "react-native";
 import { PROVIDER_GOOGLE } from "react-native-maps";
 import { useNavigate } from "react-router-native";
 
-import NoEventIllustration from "~/Views/Home/Illustrations/NoEventIllustration";
-import SportIllustration from "~/Views/Home/Illustrations/SportIllustration";
 import {
   PageContent,
   FirstRow,
@@ -35,6 +33,8 @@ import PageContentWrapper from "~/Components/PageContentWrapper";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import Theme from "~/Styles/theme.styles";
+import NoEventIllustration from "~/Views/Home/Illustrations/NoEventIllustration";
+import SportIllustration from "~/Views/Home/Illustrations/SportIllustration";
 const { color } = Theme;
 
 export default function HomeBorne(): JSX.Element {
