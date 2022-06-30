@@ -13,6 +13,7 @@ import PagePlusBorneIllustration from "~/Views/Plus/Illustrations/PagePlusBorneI
 import PlusSection from "~/Views/Plus/PlusSection";
 import SansaDescriptionConnected from "~/Views/Plus/SansaDescriptionConnected";
 import SansaDescriptionNotConnected from "~/Views/Plus/SansaDescriptionNotConnected";
+import theme from "~/Styles/theme.styles";
 
 const isConnected = true;
 
@@ -26,17 +27,6 @@ export default function Plus(): JSX.Element {
   const PlusContainers = (
     isMobile ? PlusContainersMobile : PlusContainersBorne
   ) as React.ElementType;
-
-  const shadows = {
-    shadowColor: "#242424",
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 10,
-    elevation: 2
-  };
 
   return (
     <PageContentWrapper>
@@ -52,7 +42,7 @@ export default function Plus(): JSX.Element {
           </TextWrapper>
         )}
         <PlusContainers
-          style={shadows}
+          style={theme.boxShadow.panelAndroid}
           marginBottom
           columnWidth={!isMobile && 10}
         >
@@ -63,7 +53,7 @@ export default function Plus(): JSX.Element {
           )}
         </PlusContainers>
         <PlusContainers
-          style={shadows}
+          style={theme.boxShadow.panelAndroid}
           border
           columnWidth={!isMobile && 7}
           adminHelp
@@ -73,7 +63,7 @@ export default function Plus(): JSX.Element {
           <AdministrativeHelpSection />
         </PlusContainers>
         <PlusContainers
-          style={shadows}
+          style={theme.boxShadow.panelAndroid}
           paddingTop={24}
           paddingX={24}
           paddingBottom={28}
