@@ -31,8 +31,8 @@ i18n.use(initReactI18next).init({
   //lng: "uk-UA",
   //lng: "ar-SA",
   //lng: "en-EN",
-  //lng: "fr-FR",
-  lng: "es-ES",
+  lng: "fr-FR",
+  //lng: "es-ES",
   fallbackLng: "fr-FR",
   interpolation: {
     escapeValue: false

@@ -27,5 +27,11 @@
   "adresseMail": "Dirección de correo",
   "telephone": "Teléfono",
   "motDePasse": "Contraseña",
-  "motDePasseCaracteresPrompt": "Debe contener 8 caracteres con una letra mayúscula y un número"
+  "motDePasseCaracteresPrompt": "Debe contener 8 caracteres con una letra mayúscula y un número",
+  "votreEmailOuIdentifiant": "Su correo electrónico o nombre de usuario",
+  "votreMotDePasse": "Su contraseña",
+  "pasEncoreDeCompte": "¿Aún no tiene cuenta?",
+  "champsRequis": "Este campo es obligatorio",
+  "formatInvalide": "Formato inválido",
+  "motDePasseOublie": "¿Ha olvidado su contraseña?"
 }

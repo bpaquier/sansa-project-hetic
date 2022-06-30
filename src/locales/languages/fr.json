@@ -27,5 +27,11 @@
   "adresseMail": "Adresse Mail",
   "telephone": "Téléphone",
   "motDePasse": "Mot de passe",
-  "motDePasseCaracteresPrompt": "Doit contenir 8 caractères avec une majuscule et un chiffre"
+  "motDePasseCaracteresPrompt": "Doit contenir 8 caractères avec une majuscule et un chiffre",
+  "votreEmailOuIdentifiant": "Votre email ou identifiant",
+  "votreMotDePasse": "Votre mot de passe",
+  "pasEncoreDeCompte": "Pas encore de compte ?",
+  "champsRequis": "Ce champs est requis",
+  "formatInvalide": "Format invalide",
+  "motDePasseOublie": "Mot de passe oublié"
 }
