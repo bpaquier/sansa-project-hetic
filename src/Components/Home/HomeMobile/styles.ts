@@ -1,16 +1,8 @@
-import MapView from "react-native-maps";
 import styled from "styled-components/native";
 
-import { getColumnWidth } from "~/Styles/mixins.styles";
 import Theme from "~/Styles/theme.styles";
 
 const { color } = Theme;
-
-export const PageContent = styled.View`
-  flex: 1;
-  left: ${getColumnWidth(3, false)};
-  width: ${getColumnWidth(21, false)};
-`;
 
 interface CardProps {
   columnWidth?: number;
@@ -18,6 +10,7 @@ interface CardProps {
 }
 
 export const Card = styled.View<CardProps>`
+  margin-bottom: 20px;
   padding: 20px;
   border-radius: 24px;
   overflow: hidden;
@@ -26,55 +19,47 @@ export const Card = styled.View<CardProps>`
     `background-color: ${color.primary[backgroundColor || "white"]}`};
 `;
 
-export const MapCard = styled(Card)`
-  margin-right: ${getColumnWidth(1, false)};
-  padding: 8px;
-  width: ${getColumnWidth(9, false)};
-`;
-
-export const MapWrapper = styled.View`
-  border-radius: 16px;
-  overflow: hidden;
-`;
-
-export const Map = styled(MapView)`
-  width: 100%;
-  height: 100%;
-`;
-
-export const AssociationsCard = styled(Card)`
-  margin-right: ${getColumnWidth(1, false)};
-  width: ${getColumnWidth(9, false)};
+export const AssociationsCardTitleWrapper = styled.View`
+  margin-top: 12px;
 `;
 
 export const NoEventIllustrationWrapper = styled.View`
-  margin: auto auto 0;
+  margin: 12px auto 0;
 `;
 
 export const EventCard = styled(Card)`
-  width: ${getColumnWidth(11, false)};
+  margin-top: 20px;
+`;
+
+export const EventCardTitleWrapper = styled.View`
+  margin-top: 8px;
 `;
 
 export const SanitaryCard = styled(Card)`
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 40px;
-  width: ${getColumnWidth(11, false)};
+`;
+
+export const SanitaryItemWrapper = styled.TouchableOpacity`
+  flex: 1;
+  flex-shrink: 1;
+  justify-content: space-between;
+  height: 100px;
 `;
 
 export const SanitaryIconWrapper = styled.View`
   justify-content: center;
   align-items: center;
-  margin: 20px auto 0;
+  margin: 0 auto;
   border: 1px solid ${color.primary.blue};
   border-radius: 50px;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
 `;
 
-export const SportCard = styled(Card)`
-  width: ${getColumnWidth(5, false)};
+export const SportTitleWrapper = styled.View`
+  margin-bottom: 20px;
 `;
 
 export const SportIllustrationWrapper = styled.View`
@@ -84,25 +69,21 @@ export const SportIllustrationWrapper = styled.View`
 `;
 
 export const HealthCard = styled(Card)`
-  margin-left: ${getColumnWidth(1, false)};
-  width: ${getColumnWidth(5, false)};
-`;
-
-export const HealthCardHeadlineWrapper = styled.View`
   flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: auto;
+  align-items: center;
+  margin-bottom: 168px;
 `;
 
 export const HealthCardTitleWrapper = styled.View`
-  margin-bottom: 8px;
+  margin-top: 4px;
 `;
 
 export const HealthIconWrapper = styled.View`
   align-self: flex-start;
   justify-content: center;
   align-items: center;
-  border-radius: 50px;
+  margin-right: 12px;
   padding: 16px;
+  border-radius: 50px;
   background-color: ${color.primary.blue};
 `;

@@ -26,6 +26,20 @@ export const Card = styled.View<CardProps>`
     `background-color: ${color.primary[backgroundColor || "white"]}`};
 `;
 
+export const FirstRow = styled.View`
+  flex-direction: row;
+  height: 72.5%;
+`;
+
+export const EmptyRow = styled.View`
+  height: 5%;
+`;
+
+export const SecondRow = styled.View`
+  flex-direction: row;
+  height: 22.5%;
+`;
+
 export const MapCard = styled(Card)`
   margin-right: ${getColumnWidth(1, false)};
   padding: 8px;
@@ -43,8 +57,13 @@ export const Map = styled(MapView)`
 `;
 
 export const AssociationsCard = styled(Card)`
+  flex: 1;
   margin-right: ${getColumnWidth(1, false)};
   width: ${getColumnWidth(9, false)};
+`;
+
+export const AssociationsCardTitleWrapper = styled.View`
+  margin: 16px 0 auto;
 `;
 
 export const NoEventIllustrationWrapper = styled.View`
@@ -52,10 +71,16 @@ export const NoEventIllustrationWrapper = styled.View`
 `;
 
 export const EventCard = styled(Card)`
+  flex: 2;
   width: ${getColumnWidth(11, false)};
 `;
 
+export const EventCardTitleWrapper = styled.View`
+  margin-top: 8px;
+`;
+
 export const SanitaryCard = styled(Card)`
+  flex: 1;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
@@ -74,7 +99,12 @@ export const SanitaryIconWrapper = styled.View`
 `;
 
 export const SportCard = styled(Card)`
+  flex: 1;
   width: ${getColumnWidth(5, false)};
+`;
+
+export const SportCardTitleWrapper = styled.View`
+  margin-bottom: 20px;
 `;
 
 export const SportIllustrationWrapper = styled.View`
