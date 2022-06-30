@@ -20,5 +20,18 @@
   "mentionsLegales": "قانوني",
   "cgu": "CGU",
   "consulterLaListe": "استشر القائمة",
-  "aidesAdministratives": "المساعدة الإدارية"
+  "aidesAdministratives": "المساعدة الإدارية",
+  "jAiLuEtJaccepte": "لقد قرأت وقبلت شروط الاستخدام العامة",
+  "vousAvezDejaUnCompte": "هل لديك حساب بالفعل؟",
+  "identifiant": "المعرف",
+  "adresseMail": "عنوان البريد الالكترونى",
+  "telephone": "هاتف",
+  "motDePasse": "كلمة المرور",
+  "motDePasseCaracteresPrompt": "يجب أن يحتوي على 8 أحرف مع حرف واحد كبير ورقم واحد",
+  "votreEmailOuIdentifiant": "بريدك الإلكتروني أو تسجيل الدخول",
+  "votreMotDePasse": "كلمة السر خاصتك",
+  "pasEncoreDeCompte": "لا يوجد حساب بعد؟",
+  "champsRequis": "هذه الخانة مطلوبه",
+  "formatInvalide": "تنسيق غير صالح",
+  "motDePasseOublie": "نسيت رقمك السري؟"
 }

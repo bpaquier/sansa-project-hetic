@@ -27,5 +27,11 @@
   "adresseMail": "Email Adress",
   "telephone": "Phone",
   "motDePasse": "Password",
-  "motDePasseCaracteresPrompt": "Must contain 8 characters with one capital letter and one number"
+  "motDePasseCaracteresPrompt": "Must contain 8 characters with one capital letter and one number",
+  "votreEmailOuIdentifiant": "Your email or login",
+  "votreMotDePasse": "Your password",
+  "pasEncoreDeCompte": "No account yet?",
+  "champsRequis": "This field is required",
+  "formatInvalide": "Invalid format",
+  "motDePasseOublie": "Forgot your password?"
 }

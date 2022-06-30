@@ -20,5 +20,18 @@
   "mentionsLegales": "Юридичний",
   "cgu": "CGU",
   "consulterLaListe": "Зверніться до списку",
-  "aidesAdministratives": "Адміністративна допомога"
+  "aidesAdministratives": "Адміністративна допомога",
+  "jAiLuEtJaccepte": "Я прочитав і приймаю загальні умови використання",
+  "vousAvezDejaUnCompte": "У вас вже є обліковий запис?",
+  "identifiant": "Ідентифікатор",
+  "adresseMail": "Адреса електронної пошти",
+  "telephone": "Телефон",
+  "motDePasse": "Пароль",
+  "motDePasseCaracteresPrompt": "Повинен містити 8 символів з однією великою літерою та однією цифрою",
+  "votreEmailOuIdentifiant": "Ваша електронна пошта або логін",
+  "votreMotDePasse": "Ваш пароль",
+  "pasEncoreDeCompte": "Ще немає облікового запису?",
+  "champsRequis": "Це поле є обов'язковим",
+  "formatInvalide": "Недійсний формат",
+  "motDePasseOublie": "Забули свій пароль?"
 }

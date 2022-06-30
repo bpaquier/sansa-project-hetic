@@ -20,17 +20,17 @@ export default function Login(): JSX.Element {
       <Form
         title={t("seConnecter")}
         submitCtaLabel={t("seConnecter")}
-        inlineCtaLabel="Mot de passe oublié"
+        inlineCtaLabel={t("motDePasseOublie")}
         items={[
           {
             placeholder: "johndoe@gmail.com",
-            label: "Votre email ou indentifiant",
+            label: t("votreEmailOuIdentifiant"),
             name: "ID",
             required: true,
             type: "email"
           },
           {
-            label: "Votre mot de passe",
+            label: t("votreMotDePasse"),
             name: "password",
             type: "password",
             required: true
@@ -39,7 +39,7 @@ export default function Login(): JSX.Element {
       />
       <BottomText>
         <Text color="black40" textAlign="center" type="small">
-          Pas encore de compte?
+          {t("pasEncoreDeCompte")}
         </Text>
       </BottomText>
       <Button

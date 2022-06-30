@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 
 import { useFonts } from "expo-font";
+import i18next from "i18next";
 
 import { TextContainer } from "./styles";
 import { useGlobalContext } from "~/Contexts/globalContext";
@@ -38,6 +39,7 @@ const TextComponent = ({
   weight,
   textAlign = "left"
 }: TextComponentProps) => {
+  const { language } = i18next;
   const [loaded] = useFonts({
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     Helvetica: require("~/../assets/fonts/HelveticaNeueCyr.ttf"),
@@ -54,7 +56,16 @@ const TextComponent = ({
   }
 
   return (
-    <TextContainer {...{ type, weight, color, textAlign }} isMobile={isMobile}>
+    <TextContainer
+      {...{
+        type,
+        weight,
+        color,
+        textAlign:
+          textAlign === "left" && language === "ar-SA" ? "right" : textAlign
+      }}
+      isMobile={isMobile}
+    >
       {children}
     </TextContainer>
   );
