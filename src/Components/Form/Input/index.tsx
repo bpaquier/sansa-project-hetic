@@ -64,7 +64,11 @@ export default function Input({
 
   const checkValue = () => {
     if (required && value?.length === 0) {
-      setError({ status: true, type: "empty", content: t("champsRequis") });
+      setError({
+        status: true,
+        type: "empty",
+        content: t("comptesFormulaires.champsRequis")
+      });
       updateValue && updateValue({ [name]: null });
     } else if (type === "email") {
       if (mailRe.test(value)) {
@@ -74,7 +78,7 @@ export default function Input({
         setError({
           status: true,
           type: "format",
-          content: t("formatInvalide")
+          content: t("comptesFormulaires.formatInvalide")
         });
         updateValue && updateValue({ [name]: null });
       }
@@ -86,7 +90,7 @@ export default function Input({
         setError({
           status: true,
           type: "format",
-          content: t("formatInvalide")
+          content: t("comptesFormulaires.formatInvalide")
         });
         updateValue && updateValue({ [name]: null });
       }
@@ -148,7 +152,7 @@ export default function Input({
                     setError({
                       status: true,
                       type: "format",
-                      content: t("formatInvalide")
+                      content: t("comptesFormulaires.formatInvalide")
                     });
                     updateValue && updateValue({ [name]: null });
                   }

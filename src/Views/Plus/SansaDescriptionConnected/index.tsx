@@ -24,22 +24,22 @@ export default function SansaDescriptionConnected({
   const connectedContent = [
     {
       id: "newNote",
-      title: t("nouvelleNote"),
+      title: t("plus.nouvelleNote"),
       illustration: <TakeNotesIllustration />
     },
     {
       id: "digitalSafe",
-      title: t("coffreFortNumerique"),
+      title: t("plus.coffreFortNumerique"),
       illustration: <SafeIllustration />
     },
     {
       id: "favoritePlaces",
-      title: t("mesLieuxFavoris"),
+      title: t("plus.mesLieuxFavoris"),
       illustration: <HeartIllustration />
     },
     {
       id: "logout",
-      title: t("seDeconnecter"),
+      title: t("plus.seDeconnecter"),
       illustration: <DisconnectIllustration />
     }
   ];
