@@ -8,12 +8,12 @@ import {
 import PageContentWrapper from "~/Components/PageContentWrapper";
 import TextWrapper from "~/Components/Ui-kit/TextWrapper";
 import { useGlobalContext } from "~/Contexts/globalContext";
+import theme from "~/Styles/theme.styles";
 import AdministrativeHelpSection from "~/Views/Plus/AdministrativeHelpSection";
 import PagePlusBorneIllustration from "~/Views/Plus/Illustrations/PagePlusBorneIllustration";
 import PlusSection from "~/Views/Plus/PlusSection";
 import SansaDescriptionConnected from "~/Views/Plus/SansaDescriptionConnected";
 import SansaDescriptionNotConnected from "~/Views/Plus/SansaDescriptionNotConnected";
-import theme from "~/Styles/theme.styles";
 
 const isConnected = true;
 
