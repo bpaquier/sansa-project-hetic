@@ -1,8 +1,8 @@
 import { View, TouchableOpacity } from "react-native";
 import { useNavigate } from "react-router-native";
 
-import NoEventIllustration from "../../../Views/Home/NoEventIllustration";
-import SportIllustration from "../../../Views/Home/SportIllustration";
+import NoEventIllustration from "~/Views/Home/Illustrations/NoEventIllustration";
+import SportIllustration from "~/Views/Home/Illustrations/SportIllustration";
 import {
   Card,
   EventCard,
@@ -33,7 +33,7 @@ export default function HomeMobile(): JSX.Element {
   return (
     <PageContentWrapper>
       <View>
-        <Text color="black20" type="titleM" weight="bold">
+        <Text color="black20" type="titleL">
           Dashboard
         </Text>
         <EventCard>

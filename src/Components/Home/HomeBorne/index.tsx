@@ -2,8 +2,8 @@ import { View, TouchableOpacity } from "react-native";
 import { PROVIDER_GOOGLE } from "react-native-maps";
 import { useNavigate } from "react-router-native";
 
-import NoEventIllustration from "../../../Views/Home/NoEventIllustration";
-import SportIllustration from "../../../Views/Home/SportIllustration";
+import NoEventIllustration from "~/Views/Home/Illustrations/NoEventIllustration";
+import SportIllustration from "~/Views/Home/Illustrations/SportIllustration";
 import {
   PageContent,
   FirstRow,
