@@ -37,26 +37,26 @@ export default function SansaDescriptionNotConnected({
         type="titleL"
         textAlign={isMobile ? "left" : "center"}
       >
-        {isMobile ? t("sansa").toUpperCase() : t("SANSACestQuoi")}
+        {isMobile ? t("common.sansa").toUpperCase() : t("plus.SANSACestQuoi")}
       </TextWrapper>
       <Text
         type="paragraph"
         color="black20"
         textAlign={isMobile ? "left" : "center"}
       >
-        {t("sansaReferenceLesLieuxEtServices")}
+        {t("plus.sansaReferenceLesLieuxEtServices")}
       </Text>
       {!isMobile && <SansaBorneDescription />}
       <ButtonsContainer>
         <Button
-          text={t("seConnecter")}
+          text={t("common.seConnecter")}
           fullWidth={isMobile}
           onPress={() => navigate("/login")}
         />
         <ButtonWrapper>
           <Button
             type={isMobile ? "tertiary" : "secondary"}
-            text={t("sInscrire")}
+            text={t("common.sInscrire")}
             fullWidth={isMobile}
             onPress={() => navigate("/register")}
           />

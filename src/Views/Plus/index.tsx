@@ -41,7 +41,7 @@ export default function Plus(): JSX.Element {
             textAlign="left"
             color="black20"
           >
-            {t("plus")}
+            {t("plus.plus")}
           </TextWrapper>
         )}
         <PlusContainers

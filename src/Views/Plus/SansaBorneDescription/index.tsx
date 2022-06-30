@@ -14,14 +14,14 @@ export default function SansaBorneDescription(): JSX.Element {
   return (
     <>
       <TextWrapper marginTop={32} color="grey" textAlign="center" weight="bold">
-        {t("sesMissions")}
+        {t("plus.sesMissions")}
       </TextWrapper>
       <TextMissionsPlusWrapper>
         <LogoWrappers>
           <Building width={14} height={17} color={theme.color.primary.white} />
         </LogoWrappers>
         <Text type="paragraph" color="black40">
-          {t("missionsPrompt1")}
+          {t("plus.missionsPrompt1")}
         </Text>
       </TextMissionsPlusWrapper>
       <TextMissionsPlusWrapper>
@@ -29,7 +29,7 @@ export default function SansaBorneDescription(): JSX.Element {
           <File width={12} height={17} color={theme.color.primary.white} />
         </LogoWrappers>
         <Text type="paragraph" color="black40">
-          {t("missionsPrompt2")}
+          {t("plus.missionsPrompt2")}
         </Text>
       </TextMissionsPlusWrapper>
       <TextMissionsPlusWrapper>
@@ -37,7 +37,7 @@ export default function SansaBorneDescription(): JSX.Element {
           <Comment width={17} height={15} color={theme.color.primary.white} />
         </LogoWrappers>
         <Text type="paragraph" color="black40">
-          {t("missionsPrompt3")}
+          {t("plus.missionsPrompt3")}
         </Text>
       </TextMissionsPlusWrapper>
     </>
