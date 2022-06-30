@@ -61,6 +61,16 @@ const theme = {
   },
   boxShadow: {
     panel: `0px 1px 4px rgba(0, 0, 0, 0.15)`,
+    panelAndroid: {
+      shadowColor: "#242424",
+      shadowOffset: {
+        width: 0,
+        height: 2
+      },
+      shadowOpacity: 0.2,
+      shadowRadius: 10,
+      elevation: 2
+    },
     overlay: `0px 4px 12px rgba(0, 0, 0, 0.1)`,
     popin: `0px 8px 24px rgba(0, 0, 0, 0.1)`
   },
