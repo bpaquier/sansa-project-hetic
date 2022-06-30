@@ -27,6 +27,7 @@ export const Content = styled.View`
 `;
 
 export const CheckboxWrapper = styled.View`
-  width: 45%;
+  width: 47%;
   margin-bottom: 25px;
+  align-items: flex-start;
 `;
