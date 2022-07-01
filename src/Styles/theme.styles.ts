@@ -32,7 +32,8 @@ const theme = {
       black40: `#808080`,
       black20: `#AEAEAE`,
       black10: `#D6D6D6`,
-      black5: `#E8E8E8`
+      black5: `#E8E8E8`,
+      black2: `#F8F8F8`
     },
     icon: {
       system: `#808080`,

@@ -3,14 +3,15 @@ import styled from "styled-components/native";
 import { IconProps } from ".";
 
 interface IconStyledProps extends IconProps {
-  bgColor?: string;
+  backgroundColor?: string;
+  size?: number;
 }
 
 export const IconWrapper = styled.View`
-  width: ${({ withBackground }: IconStyledProps) =>
-    withBackground ? "30px" : "auto"};
-  height: ${({ withBackground }: IconStyledProps) =>
-    withBackground ? "30px" : "auto"};
+  width: ${({ withBackground, size }: IconStyledProps) =>
+    withBackground ? `${size * 1.5}px` : "auto"};
+  height: ${({ withBackground, size }: IconStyledProps) =>
+    withBackground ? `${size * 1.5}px` : "auto"};
   justify-content: center;
   align-items: center;
   ${({ withBackground, backgroundColor }: IconStyledProps) =>

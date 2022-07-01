@@ -44,7 +44,16 @@ export default function PlacesList(): JSX.Element {
     return (
       <ListContent ref={scrollRef}>
         {filteredPlaces?.map(
-          ({ name, adress, categories }: PlaceProps, index) => (
+          (
+            {
+              organization_name,
+              adress,
+              services_id,
+              hours_id,
+              id
+            }: PlaceProps,
+            index
+          ) => (
             <Item
               activeOpacity={0.8}
               onPress={() => {
@@ -61,10 +70,12 @@ export default function PlacesList(): JSX.Element {
             >
               <ListItem
                 {...{
-                  name,
+                  organization_name,
                   adress,
                   index,
-                  categories
+                  services_id,
+                  hours_id,
+                  id
                 }}
               />
               {index < filteredPlaces?.length - 1 && (

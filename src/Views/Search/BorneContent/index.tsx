@@ -1,6 +1,7 @@
 import React from "react";
 
 import Filters from "./Filters";
+import PlaceDescription from "./PlaceDescription";
 import PlacesList from "./PlacesList";
 import { Content } from "./styles";
 import Tags from "./Tags";
@@ -15,6 +16,7 @@ export default function BornContent(): JSX.Element {
         <Filters />
         <TopBar />
         <Tags />
+        <PlaceDescription />
       </Content>
     </PageContentWrapper>
   );

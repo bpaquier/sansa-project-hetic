@@ -133,7 +133,7 @@ export default function Map(): JSX.Element {
       >
         {filteredPlaces?.map((place, index) => (
           <Marker
-            key={`${index}-${place?.name}`}
+            key={`${index}-${place?.organization_name}`}
             onPress={() => {
               setSelectedPlaceIndex(index);
             }}
@@ -145,7 +145,7 @@ export default function Map(): JSX.Element {
             <Ping
               {...{ index }}
               isSelected={index === selectedPlaceIndex}
-              name={place?.name}
+              name={place?.organization_name}
             />
           </Marker>
         ))}

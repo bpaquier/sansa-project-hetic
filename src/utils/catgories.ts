@@ -109,7 +109,8 @@ export enum Categories {
   VETERINARY = "Vétérinaire",
   PHONE = "Téléphone",
   JOB_ADVICE = "Insertion par l'activité économique",
-  SHOP = "Boutique solidaire"
+  SHOP = "Boutique solidaire",
+  BAGS = "Bagagerie"
   //URGENCY_ACCOMMODATION = "Hébèrgement d'urgence",
   //URGENCY_CONTACT = "Contact urgent",
   //VACCINE = "Vaccination",
@@ -140,7 +141,8 @@ export const categoriesRepartition = {
     Categories?.DAY_HOSPITALITY,
     Categories?.CLOTHES,
     Categories?.PHONE,
-    Categories?.SHOP
+    Categories?.SHOP,
+    Categories?.BAGS
     // Categories?.URGENCY_ACCOMMODATION,
   ],
   [MainCategories?.ACTIVITY]: [
@@ -232,7 +234,6 @@ export function getIconByCategory(catgory: string) {
       return PhysicalActivity;
     case Categories?.LIBRARY:
       return FreeReading;
-
     case Categories?.GROCERY:
       return Vegetables;
     case Categories?.FOOD_PACKAGE:

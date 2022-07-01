@@ -1,29 +1,38 @@
 import { IconWrapper } from "./styles";
 import TextComponent from "~/Components/Ui-kit/Text";
 import theme from "~/Styles/theme.styles";
-import { getIconByCategory } from "~/utils/catgories";
+import { getCategoryColor, getIconByCategory } from "~/utils/catgories";
 
 export interface IconProps {
   category?: string;
   withBackground?: boolean;
   text?: string;
-  backgroundColor?: string;
+  backgroundType?: "colored" | "black";
+  mainIcon?: boolean;
+  size?: number;
 }
 
 export default function Icon({
   category,
   withBackground,
   text,
-  backgroundColor
+  backgroundType,
+  mainIcon = false,
+  size = 20
 }: IconProps): JSX.Element {
   const Icon = getIconByCategory(category);
 
+  const backgroundColor =
+    backgroundType === "black"
+      ? theme?.color?.neutral?.black20
+      : getCategoryColor(category, mainIcon);
+
   return (
-    <IconWrapper {...{ withBackground, backgroundColor }}>
+    <IconWrapper {...{ withBackground, backgroundColor, size }}>
       {Icon && (
         <Icon
-          width={20}
-          height={20}
+          width={size}
+          height={size}
           primaryColor={
             withBackground
               ? theme?.color?.primary?.white

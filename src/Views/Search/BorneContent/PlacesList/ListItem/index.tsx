@@ -13,26 +13,30 @@ import Ping from "~/Components/Ping";
 import Button from "~/Components/Ui-kit/Button";
 import Text from "~/Components/Ui-kit/Text";
 import { PlaceProps, useSearchContext } from "~/Contexts/searchContext";
+import getCurrentDay from "~/hooks/getCurrentDay";
 import theme from "~/Styles/theme.styles";
-import { getCategoryColor } from "~/utils/catgories";
 
 export interface ListItemProps extends PlaceProps {
   index?: number;
 }
 
 export default function ListItem({
-  name,
+  organization_name,
   adress,
   index,
-  categories
+  services_id,
+  hours_id,
+  id
 }: ListItemProps): JSX.Element {
-  //const moreCategories = categories?.length - 5;
-  const { debouncedFilters } = useSearchContext();
+  const { debouncedFilters, setDisplayPlaceDescription } = useSearchContext();
+  const currentDay = getCurrentDay();
 
   const formatedCategories = useMemo(() => {
     return debouncedFilters && debouncedFilters?.length > 0
-      ? categories?.filter((categoty) => debouncedFilters?.includes(categoty))
-      : categories?.slice(0, 5);
+      ? services_id?.filter(({ service_name }) =>
+          debouncedFilters?.includes(service_name)
+        )
+      : services_id?.slice(0, 5);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedFilters]);
 
@@ -43,31 +47,37 @@ export default function ListItem({
         <TextWrapper>
           <TextStyled>
             <Text color="black" weight="bold">
-              {name}
+              {organization_name}
             </Text>
           </TextStyled>
           <TextStyled>
             <Text color="black60">{adress}</Text>
           </TextStyled>
+          <TextStyled>
+            <Text color="black60">{`Ouvert de ${hours_id[0][currentDay]} - ${hours_id[0][currentDay]}`}</Text>
+          </TextStyled>
         </TextWrapper>
-        {categories && (
+        {services_id && (
           <IconsWrapper>
             {formatedCategories?.map((category, index) => {
-              const isSelected = debouncedFilters?.includes(category);
-              const backgroundColor = isSelected
-                ? getCategoryColor(category, false)
-                : theme?.color?.neutral?.black20;
+              const isSelected = debouncedFilters?.includes(
+                category?.service_name
+              );
               return (
-                <IconWrapper key={`${category}-${index}`}>
-                  <Icon {...{ category, backgroundColor }} withBackground />
+                <IconWrapper key={`${category?.service_name}-${index}`}>
+                  <Icon
+                    category={category?.service_name}
+                    withBackground
+                    backgroundType={isSelected ? "colored" : "black"}
+                  />
                 </IconWrapper>
               );
             })}
-            {categories?.length - formatedCategories?.length > 0 && (
+            {services_id?.length - formatedCategories?.length > 0 && (
               <Icon
                 withBackground
                 backgroundColor={theme?.color?.neutral?.black20}
-                text={`+${categories?.length - formatedCategories?.length}`}
+                text={`+${services_id?.length - formatedCategories?.length}`}
               />
             )}
           </IconsWrapper>
@@ -76,6 +86,7 @@ export default function ListItem({
           type="tertiary"
           text="En savoir plus"
           horizontalPosition="left"
+          onPress={() => setDisplayPlaceDescription(id)}
         />
       </InfoWrapper>
     </ItemWrapper>

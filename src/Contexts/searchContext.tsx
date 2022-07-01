@@ -9,13 +9,36 @@ import {
 import { useDebounce } from "~/hooks/useDebounce";
 
 export interface PlaceProps {
-  name?: string;
-  position?: {
-    latitude: string;
-    longitude: string;
+  id?: number;
+  organization_owner?: {
+    email?: string;
+    tel?: string;
   };
+  organization_name?: string;
   adress?: string;
-  categories?: string[];
+  description?: string;
+  last_updata?: string;
+  phone_number?: string;
+  website?: string;
+  spoken_language?: string;
+  importante_information?: string;
+  services_id?: {
+    service_name?: string;
+    subscribe?: boolean;
+  }[];
+  hours_id?: {
+    monday: string;
+    tuesday: string;
+    wednesday: string;
+    thurday: string;
+    friday: string;
+    saturday: string;
+    sunday: string;
+  }[];
+  position?: {
+    latitude?: string;
+    longitude?: string;
+  };
 }
 
 interface ContextProps {
@@ -30,6 +53,8 @@ interface ContextProps {
   updateFilters?: ({ action, filterName }: updateFiltersProps) => void;
   isLoading?: boolean;
   debouncedFilters?: string[];
+  displayPlaceDescription?: number | null;
+  setDisplayPlaceDescription?: (id: number) => void;
 }
 
 type updateFiltersProps = {
@@ -56,6 +81,9 @@ function SearchProvider({ children }: SearchProviderProps) {
   );
   const [filters, setFilters] = useState<string[] | null>(null);
   const [displayFilters, setDisplayFilters] = useState<string | null>(null);
+  const [displayPlaceDescription, setDisplayPlaceDescription] = useState<
+    number | null
+  >(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const debouncedFilters = useDebounce(filters, 1000);
 
@@ -63,10 +91,12 @@ function SearchProvider({ children }: SearchProviderProps) {
     if (debouncedFilters && debouncedFilters?.length > 0) {
       /**
        * /////////////////////////////////////////////////////////////
-       * !replace by API call
+       * !replace realPlaces by API response
        */
-      const selectedPlaces = fakePlaces?.filter((place) =>
-        place?.categories?.some((cat) => debouncedFilters?.includes(cat))
+      const selectedPlaces = realPlaces?.filter((place) =>
+        place?.services_id?.some((cat) =>
+          debouncedFilters?.includes(cat?.service_name)
+        )
       );
       /**
        * /////////////////////////////////////////////////////////////
@@ -84,6 +114,7 @@ function SearchProvider({ children }: SearchProviderProps) {
     if (!filters || filters?.length === 0) {
       setFilters(null);
       setDisplayFilters(null);
+      setIsLoading(false);
     }
   }, [filters]);
 
@@ -110,7 +141,9 @@ function SearchProvider({ children }: SearchProviderProps) {
     setDisplayFilters,
     updateFilters,
     debouncedFilters,
-    isLoading
+    isLoading,
+    displayPlaceDescription,
+    setDisplayPlaceDescription
   };
 
   return <Context.Provider value={providerValue}>{children}</Context.Provider>;
@@ -118,7 +151,140 @@ function SearchProvider({ children }: SearchProviderProps) {
 
 export default SearchProvider;
 
-const fakePlaces = [
+export const realPlaces = [
+  {
+    id: 1,
+    organization_owner: {
+      email: "conroy.octavia@hotmail.com",
+      tel: "0787632712"
+    },
+    organization_name: "PAJ (Permanence Accueil Jeunes) ",
+    adress: "24 Rue Ramponeau, 75020 Paris, France",
+    description:
+      "La PAJ est un accueil de jour qui s’adresse à des jeunes hommes et jeunes femmes en situation d’errance sur le territoire parisien   Ce lieu d’écoute a pour objectif d’aider les jeunes à renouer les liens sociaux et de leur permettre d’accéder aux dispositifs de droit commun   Les équipes de la PAJ proposent un temps de pause et d’écoute afin   - de permettre à chaque jeune de reconnaître ses ressources personnelles   - de ralentir le processus d’errance, d’offrir la possibilité de « rebondir »   - de rendre alors possible l’accès aux structures d’aide et au dispositif de droit commun   Permanences infirmières le Mardi et le Vendredi.",
+    last_updata: "2021-12-21T00:00:00+00:00",
+    phone_number: " 01 48 05 01 01",
+    website:
+      "https://anrs.asso.fr/etablissements-services/insertion/permanence-accueil-ecoute-jeunes-paej/",
+    spoken_language: "Français",
+    importante_information: "Warning",
+    services_id: [
+      {
+        service_name: "Laverie",
+        subscribe: false
+      },
+      {
+        service_name: "Douche",
+        subscribe: false
+      },
+      {
+        service_name: "Bagagerie",
+        subscribe: false
+      },
+      {
+        service_name: "Restauration assise",
+        subscribe: false
+      },
+      {
+        service_name: "Accueil de jour",
+        subscribe: false
+      },
+      {
+        service_name: "Prise",
+        subscribe: false
+      },
+      {
+        service_name: "Toilettes",
+        subscribe: false
+      },
+      {
+        service_name: "Infirmerie",
+        subscribe: false
+      },
+      {
+        service_name: "Laverie",
+        subscribe: false
+      },
+      {
+        service_name: "Douche",
+        subscribe: false
+      },
+      {
+        service_name: "Bagagerie",
+        subscribe: false
+      },
+      {
+        service_name: "Restauration assise",
+        subscribe: false
+      },
+      {
+        service_name: "Accueil de jour",
+        subscribe: false
+      },
+      {
+        service_name: "Prise",
+        subscribe: false
+      },
+      {
+        service_name: "Toilettes",
+        subscribe: false
+      },
+      {
+        service_name: "Infirmerie",
+        subscribe: false
+      },
+      {
+        service_name: "Laverie",
+        subscribe: false
+      },
+      {
+        service_name: "Douche",
+        subscribe: false
+      },
+      {
+        service_name: "Bagagerie",
+        subscribe: false
+      },
+      {
+        service_name: "Restauration assise",
+        subscribe: false
+      },
+      {
+        service_name: "Accueil de jour",
+        subscribe: false
+      },
+      {
+        service_name: "Prise",
+        subscribe: false
+      },
+      {
+        service_name: "Toilettes",
+        subscribe: false
+      },
+      {
+        service_name: "Infirmerie",
+        subscribe: false
+      }
+    ],
+    hours_id: [
+      {
+        monday: "8h - 12h30 / 13h - 17h",
+        tuesday: "8h - 12h30 / 13h - 17h",
+        wednesday: "8h - 12h30 / 13h - 17h",
+        thurday: "8h - 12h30 / 13h - 17h0",
+        friday: "8h - 12h30 / 13h - 17h",
+        saturday: "Fermé",
+        sunday: "Fermé"
+      }
+    ],
+    position: {
+      latitude: "48.8644",
+      longitude: "2.4047"
+    }
+  }
+];
+
+/* const fakePlaces = [
   {
     name: "Lieu 1",
     position: {
@@ -256,4 +422,4 @@ const fakePlaces = [
       "Administratif"
     ]
   }
-];
+]; */

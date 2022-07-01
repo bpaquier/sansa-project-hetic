@@ -12,7 +12,7 @@ export const InfoWrapper = styled.View`
 `;
 
 export const TextWrapper = styled.View`
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 `;
 
 export const TextStyled = styled.View`
@@ -21,7 +21,7 @@ export const TextStyled = styled.View`
 
 export const IconWrapper = styled.View`
   margin-right: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 `;
 
 export const IconsWrapper = styled.View`

@@ -51,4 +51,5 @@ export const TextContainer = styled.Text`
     }
   }};
   text-align: ${({ textAlign }: TextComponentProps) => textAlign};
+  ${({ lineHeight }) => (lineHeight ? `line-height: ${lineHeight}px` : "20px")}
 `;

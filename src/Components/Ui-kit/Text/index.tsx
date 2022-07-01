@@ -21,6 +21,8 @@ export interface TextComponentProps {
   children?: React.ReactNode | ReactNode[];
   textAlign?: "left" | "center" | "right";
   customColor?: string;
+  lineHeight?: number;
+  onLayout?: (e: any) => void;
 }
 
 const TextComponent = ({
@@ -29,7 +31,9 @@ const TextComponent = ({
   color,
   weight,
   textAlign = "left",
-  customColor
+  customColor,
+  lineHeight,
+  onLayout
 }: TextComponentProps) => {
   const [loaded] = useFonts({
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -45,7 +49,9 @@ const TextComponent = ({
   }
 
   return (
-    <TextContainer {...{ type, weight, color, textAlign, customColor }}>
+    <TextContainer
+      {...{ type, weight, color, textAlign, customColor, lineHeight, onLayout }}
+    >
       {children}
     </TextContainer>
   );
