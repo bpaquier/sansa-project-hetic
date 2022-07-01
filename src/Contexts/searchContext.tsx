@@ -22,10 +22,7 @@ export interface PlaceProps {
   website?: string;
   spoken_language?: string;
   importante_information?: string;
-  services_id?: {
-    service_name?: string;
-    subscribe?: boolean;
-  }[];
+  services_id?: string[];
   hours_id?: {
     monday: string;
     tuesday: string;
@@ -35,10 +32,9 @@ export interface PlaceProps {
     saturday: string;
     sunday: string;
   }[];
-  position?: {
-    latitude?: string;
-    longitude?: string;
-  };
+  latitude?: string;
+  longitude?: string;
+  place?: number;
 }
 
 interface ContextProps {
@@ -83,7 +79,7 @@ function SearchProvider({ children }: SearchProviderProps) {
   const [displayFilters, setDisplayFilters] = useState<string | null>(null);
   const [displayPlaceDescription, setDisplayPlaceDescription] = useState<
     number | null
-  >(1);
+  >(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const debouncedFilters = useDebounce(filters, 1000);
 
@@ -93,9 +89,9 @@ function SearchProvider({ children }: SearchProviderProps) {
        * /////////////////////////////////////////////////////////////
        * !replace realPlaces by API response
        */
-      const selectedPlaces = realPlaces?.filter((place) =>
-        place?.services_id?.some((cat) =>
-          debouncedFilters?.includes(cat?.service_name)
+      const selectedPlaces = Places?.filter((place) =>
+        place?.services_id?.some((service) =>
+          debouncedFilters?.includes(service)
         )
       );
       /**
@@ -151,275 +147,43 @@ function SearchProvider({ children }: SearchProviderProps) {
 
 export default SearchProvider;
 
-export const realPlaces = [
+export const Places = [
   {
     id: 1,
-    organization_owner: {
-      email: "conroy.octavia@hotmail.com",
-      tel: "0787632712"
-    },
-    organization_name: "PAJ (Permanence Accueil Jeunes) ",
+    organization_owner: { email: "haag.susana@hotmail.com", tel: "0787632712" },
+    organization_name: " PAJ (Permanence Accueil Jeunes) ",
     adress: "24 Rue Ramponeau, 75020 Paris, France",
     description:
-      "La PAJ est un accueil de jour qui s’adresse à des jeunes hommes et jeunes femmes en situation d’errance sur le territoire parisien   Ce lieu d’écoute a pour objectif d’aider les jeunes à renouer les liens sociaux et de leur permettre d’accéder aux dispositifs de droit commun   Les équipes de la PAJ proposent un temps de pause et d’écoute afin   - de permettre à chaque jeune de reconnaître ses ressources personnelles   - de ralentir le processus d’errance, d’offrir la possibilité de « rebondir »   - de rendre alors possible l’accès aux structures d’aide et au dispositif de droit commun   Permanences infirmières le Mardi et le Vendredi.",
+      "La PAJ est un accueil de jour qui s\u2019adresse \u00e0 des jeunes hommes et jeunes femmes en situation d\u2019errance sur le territoire parisien   Ce lieu d\u2019\u00e9coute a pour objectif d\u2019aider les jeunes \u00e0 renouer les liens sociaux et de leur permettre d\u2019acc\u00e9der aux dispositifs de droit commun   Les \u00e9quipes de la PAJ proposent un temps de pause et d\u2019\u00e9coute afin   - de permettre \u00e0 chaque jeune de reconna\u00eetre ses ressources personnelles   - de ralentir le processus d\u2019errance, d\u2019offrir la possibilit\u00e9 de \u00ab rebondir \u00bb   - de rendre alors possible l\u2019acc\u00e8s aux structures d\u2019aide et au dispositif de droit commun   Permanences infirmi\u00e8res le Mardi et le Vendredi.",
     last_updata: "2021-12-21T00:00:00+00:00",
     phone_number: " 01 48 05 01 01",
     website:
       "https://anrs.asso.fr/etablissements-services/insertion/permanence-accueil-ecoute-jeunes-paej/",
-    spoken_language: "Français",
+    spoken_language: "Fran\u00e7ais",
     importante_information: "Warning",
+    longitude: "2.379976",
+    latitude: "48.871202",
     services_id: [
-      {
-        service_name: "Laverie",
-        subscribe: false
-      },
-      {
-        service_name: "Douche",
-        subscribe: false
-      },
-      {
-        service_name: "Bagagerie",
-        subscribe: false
-      },
-      {
-        service_name: "Restauration assise",
-        subscribe: false
-      },
-      {
-        service_name: "Accueil de jour",
-        subscribe: false
-      },
-      {
-        service_name: "Prise",
-        subscribe: false
-      },
-      {
-        service_name: "Toilettes",
-        subscribe: false
-      },
-      {
-        service_name: "Infirmerie",
-        subscribe: false
-      },
-      {
-        service_name: "Laverie",
-        subscribe: false
-      },
-      {
-        service_name: "Douche",
-        subscribe: false
-      },
-      {
-        service_name: "Bagagerie",
-        subscribe: false
-      },
-      {
-        service_name: "Restauration assise",
-        subscribe: false
-      },
-      {
-        service_name: "Accueil de jour",
-        subscribe: false
-      },
-      {
-        service_name: "Prise",
-        subscribe: false
-      },
-      {
-        service_name: "Toilettes",
-        subscribe: false
-      },
-      {
-        service_name: "Infirmerie",
-        subscribe: false
-      },
-      {
-        service_name: "Laverie",
-        subscribe: false
-      },
-      {
-        service_name: "Douche",
-        subscribe: false
-      },
-      {
-        service_name: "Bagagerie",
-        subscribe: false
-      },
-      {
-        service_name: "Restauration assise",
-        subscribe: false
-      },
-      {
-        service_name: "Accueil de jour",
-        subscribe: false
-      },
-      {
-        service_name: "Prise",
-        subscribe: false
-      },
-      {
-        service_name: "Toilettes",
-        subscribe: false
-      },
-      {
-        service_name: "Infirmerie",
-        subscribe: false
-      }
+      "Laverie",
+      "Douche",
+      "Bagagerie",
+      "Restauration assise",
+      "Accueil de jour",
+      "Prise",
+      "Toilettes",
+      "Infirmerie"
     ],
     hours_id: [
       {
-        monday: "8h - 12h30 / 13h - 17h",
-        tuesday: "8h - 12h30 / 13h - 17h",
-        wednesday: "8h - 12h30 / 13h - 17h",
-        thurday: "8h - 12h30 / 13h - 17h0",
-        friday: "8h - 12h30 / 13h - 17h",
-        saturday: "Fermé",
-        sunday: "Fermé"
+        monday: "9h30 \u00e0 16h00",
+        tuesday: "9h30 \u00e0 16h00",
+        wednesday: "9h30 \u00e0 13h30",
+        thurday: "9h30 \u00e0 12h30",
+        friday: "9h30 \u00e0 16h00",
+        saturday: "Ferm\u00e9",
+        sunday: "Ferm\u00e9"
       }
     ],
-    position: {
-      latitude: "48.8644",
-      longitude: "2.4047"
-    }
+    place: 2
   }
 ];
-
-/* const fakePlaces = [
-  {
-    name: "Lieu 1",
-    position: {
-      latitude: "48.8558",
-      longitude: "2.4281"
-    },
-    hours: "8h - 22h",
-    adress: "1 rue Random",
-    categories: [
-      "Espace de Repos",
-      "Halte de nuit",
-      "Activité physique",
-      "Wifi Gratuite",
-      "Administratif",
-      "Matériel informatique",
-      "Juridique",
-      "Conseilliers",
-      "Hébergement long terme",
-      "Hébèrgement d'urgence",
-      "Acceuil de jour"
-    ]
-  },
-  {
-    name: "Lieu 2",
-    position: {
-      latitude: "48.8644",
-      longitude: "2.4047"
-    },
-    hours: "8h - 22h",
-    adress: "2 rue Random",
-    categories: [
-      "Espace de Repos",
-      "Halte de nuit",
-      "Activité physique",
-      "Wifi Gratuite",
-      "Protections périodiques",
-      "Cardiologie"
-    ]
-  },
-  {
-    name: "Lieu 3",
-    position: {
-      latitude: "48.8567",
-      longitude: "2.4198"
-    },
-    hours: "8h - 22h",
-    adress: "3 rue Random",
-    categories: [
-      "Espace de Repos",
-      "Halte de nuit",
-      "Activité physique",
-      "Wifi Gratuite",
-      "Protections périodiques",
-      "Cardiologie",
-      "Administratif",
-      "Matériel informatique"
-    ]
-  },
-  {
-    name: "Lieu 4",
-    position: {
-      latitude: "48.8549",
-      longitude: "2.4562"
-    },
-    hours: "8h - 22h",
-    adress: "4 rue Random",
-    categories: [
-      "Espace de Repos",
-      "Halte de nuit",
-      "Activité physique",
-      "Wifi Gratuite",
-      "Protections périodiques",
-      "Cardiologie"
-    ]
-  },
-  {
-    name: "Lieu 5",
-    position: {
-      latitude: "48.8635",
-      longitude: "2.4384"
-    },
-    hours: "8h - 22h",
-    adress: "5 rue Random",
-    categories: [
-      "Wifi Gratuite",
-      "Distribution de repas",
-      "Réparation mobile",
-      "Fontaine à eau"
-    ]
-  },
-  {
-    name: "Lieu 6",
-    position: {
-      latitude: "48.8427",
-      longitude: "2.4391"
-    },
-    hours: "8h - 22h",
-    adress: "6 rue Random",
-    categories: [
-      "Wifi Gratuite",
-      "Distribution de repas",
-      "Réparation mobile",
-      "Fontaine à eau",
-      "Administratif"
-    ]
-  },
-  {
-    name: "Lieu 7",
-    position: {
-      latitude: "48.8572",
-      longitude: "2.3992"
-    },
-    hours: "8h - 22h",
-    adress: "7 rue Random",
-    categories: [
-      "Wifi Gratuite",
-      "Distribution de repas",
-      "Réparation mobile",
-      "Fontaine à eau"
-    ]
-  },
-  {
-    name: "Lieu 8",
-    position: {
-      latitude: "48.8757",
-      longitude: "2.4445"
-    },
-    hours: "8h - 22h",
-    adress: "8 rue Random",
-    categories: [
-      "Wifi Gratuite",
-      "Distribution de repas",
-      "Réparation mobile",
-      "Fontaine à eau",
-      "Administratif"
-    ]
-  }
-]; */

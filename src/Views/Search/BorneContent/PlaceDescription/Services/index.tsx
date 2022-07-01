@@ -28,12 +28,12 @@ export default function Services({
         </Text>
       </SmallTitleWrapper>
       <ServicesList>
-        {services_id?.slice(0, dispalyMax)?.map(({ service_name }, i) => (
-          <Service key={`${service_name}-${i}`}>
+        {services_id?.slice(0, dispalyMax)?.map((service, i) => (
+          <Service key={`${service}-${i}`}>
             <IconWrapper>
-              <Icon category={service_name} withBackground />
+              <Icon category={service} withBackground />
             </IconWrapper>
-            <Text>{service_name}</Text>
+            <Text>{service}</Text>
           </Service>
         ))}
         {services_id?.length > dispalyMax && (

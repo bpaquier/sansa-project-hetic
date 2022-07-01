@@ -14,7 +14,6 @@ import Button from "~/Components/Ui-kit/Button";
 import Text from "~/Components/Ui-kit/Text";
 import { PlaceProps, useSearchContext } from "~/Contexts/searchContext";
 import getCurrentDay from "~/hooks/getCurrentDay";
-import theme from "~/Styles/theme.styles";
 
 export interface ListItemProps extends PlaceProps {
   index?: number;
@@ -33,9 +32,7 @@ export default function ListItem({
 
   const formatedCategories = useMemo(() => {
     return debouncedFilters && debouncedFilters?.length > 0
-      ? services_id?.filter(({ service_name }) =>
-          debouncedFilters?.includes(service_name)
-        )
+      ? services_id?.filter((service) => debouncedFilters?.includes(service))
       : services_id?.slice(0, 5);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedFilters]);
@@ -60,13 +57,11 @@ export default function ListItem({
         {services_id && (
           <IconsWrapper>
             {formatedCategories?.map((category, index) => {
-              const isSelected = debouncedFilters?.includes(
-                category?.service_name
-              );
+              const isSelected = debouncedFilters?.includes(category);
               return (
-                <IconWrapper key={`${category?.service_name}-${index}`}>
+                <IconWrapper key={`${category}-${index}`}>
                   <Icon
-                    category={category?.service_name}
+                    category={category}
                     withBackground
                     backgroundType={isSelected ? "colored" : "black"}
                   />
@@ -76,7 +71,7 @@ export default function ListItem({
             {services_id?.length - formatedCategories?.length > 0 && (
               <Icon
                 withBackground
-                backgroundColor={theme?.color?.neutral?.black20}
+                backgroundType="black"
                 text={`+${services_id?.length - formatedCategories?.length}`}
               />
             )}

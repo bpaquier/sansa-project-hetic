@@ -19,11 +19,7 @@ import {
 import Cross from "~/Components/Icons/System/System/Cross";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
-import {
-  PlaceProps,
-  realPlaces,
-  useSearchContext
-} from "~/Contexts/searchContext";
+import { PlaceProps, Places, useSearchContext } from "~/Contexts/searchContext";
 import theme from "~/Styles/theme.styles";
 
 export default function PlaceDescription(): JSX.Element {
@@ -42,9 +38,7 @@ export default function PlaceDescription(): JSX.Element {
      * ! replace by API call
      */
     displayPlaceDescription
-      ? setPlace(
-          realPlaces?.find((place) => place?.id === displayPlaceDescription)
-        )
+      ? setPlace(Places?.find((place) => place?.id === displayPlaceDescription))
       : setPlace(null);
   }, [displayPlaceDescription, filteredPlaces]);
 

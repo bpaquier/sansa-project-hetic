@@ -26,12 +26,12 @@ export default function PanelContent({
       )}
       {type === "services" && services_id && (
         <ServicesList>
-          {services_id?.map(({ service_name }, i) => (
-            <Service key={`${service_name}-${i}`}>
+          {services_id?.map((service, i) => (
+            <Service key={`${service}-${i}`}>
               <IconWrapper>
-                <Icon category={service_name} withBackground size={30} />
+                <Icon category={service} withBackground size={30} />
               </IconWrapper>
-              <Text>{service_name}</Text>
+              <Text>{service}</Text>
             </Service>
           ))}
         </ServicesList>

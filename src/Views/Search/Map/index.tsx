@@ -87,12 +87,8 @@ export default function Map(): JSX.Element {
         {
           latitudeDelta: initialDelta,
           longitudeDelta: initialDelta,
-          latitude: parseFloat(
-            filteredPlaces?.[selectedPlaceIndex]?.position?.latitude
-          ),
-          longitude: parseFloat(
-            filteredPlaces?.[selectedPlaceIndex]?.position?.longitude
-          )
+          latitude: parseFloat(filteredPlaces?.[selectedPlaceIndex]?.latitude),
+          longitude: parseFloat(filteredPlaces?.[selectedPlaceIndex]?.longitude)
         },
         1000
       );
@@ -138,8 +134,8 @@ export default function Map(): JSX.Element {
               setSelectedPlaceIndex(index);
             }}
             coordinate={{
-              latitude: parseFloat(place?.position?.latitude),
-              longitude: parseFloat(place?.position?.longitude)
+              latitude: parseFloat(place?.latitude),
+              longitude: parseFloat(place?.longitude)
             }}
           >
             <Ping
