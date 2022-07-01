@@ -24,6 +24,7 @@ import Hospital from "~/Components/Icons/Categories/Health/Hospital";
 import Nurse from "~/Components/Icons/Categories/Health/Nurse";
 import ShootingRoom from "~/Components/Icons/Categories/Health/ShootingRoom";
 import Home from "~/Components/Icons/Categories/Home";
+import Bags from "~/Components/Icons/Categories/Home/Bags";
 import ChildCare3 from "~/Components/Icons/Categories/Home/ChildCare3";
 import DayCare from "~/Components/Icons/Categories/Home/DayCare";
 import Housing1 from "~/Components/Icons/Categories/Home/Housing1";
@@ -304,6 +305,8 @@ export function getIconByCategory(catgory: string) {
       return Phone;
     case Categories?.JOB_ADVICE:
       return Job;
+    case Categories?.BAGS:
+      return Bags;
     /* case Categories?.URGENCY_ACCOMMODATION:
       return Housing3; */
     /*     case Categories?.MUSEUM:
