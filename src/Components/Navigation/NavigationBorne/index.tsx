@@ -23,7 +23,10 @@ export default function NavigationBorne() {
   const { setMenuLanguagesOpen } = useGlobalContext();
 
   return (
-    <Nav style={{ elevation: 6, shadowColor: "transparent" }}>
+    <Nav
+      style={{ elevation: 6, shadowColor: "transparent" }}
+      onPress={() => setMenuLanguagesOpen && setMenuLanguagesOpen(false)}
+    >
       <NavButtonsContainer>
         <NavButtonContainer active={isCurrentPage("/home")}>
           <NavButton
@@ -40,6 +43,7 @@ export default function NavigationBorne() {
           <NavButton
             onPress={() => {
               navigate("/");
+              setMenuLanguagesOpen && setMenuLanguagesOpen(false);
             }}
             active={isCurrentPage("/")}
           >
