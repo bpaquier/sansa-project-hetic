@@ -1,5 +1,6 @@
 import { NativeRouter, Routes, Route } from "react-router-native";
 
+import LanguagesMenu from "~/Components/LanguagesMenu";
 import GlobalProvider from "~/Contexts/globalContext";
 import Login from "~/Views/Account/Login";
 import Register from "~/Views/Account/Register";
@@ -14,13 +15,16 @@ export default function App() {
     <NativeRouter>
       <GlobalProvider>
         <Page>
-          <Routes>
-            <Route index element={<Search />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/plus" element={<Plus />} />
-          </Routes>
+          <>
+            <Routes>
+              <Route index element={<Search />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/plus" element={<Plus />} />
+            </Routes>
+            <LanguagesMenu />
+          </>
         </Page>
       </GlobalProvider>
     </NativeRouter>
