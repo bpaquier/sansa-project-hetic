@@ -9,6 +9,7 @@ export interface TextWrapperProps extends TextComponentProps {
   marginRight?: number;
   link?: boolean;
   to?: string;
+  onPress?: () => void;
 }
 
 export default function TextWrapper({
@@ -22,7 +23,8 @@ export default function TextWrapper({
   link,
   children,
   to,
-  weight
+  weight,
+  onPress
 }: TextWrapperProps): JSX.Element {
   return (
     <Wrapper
@@ -30,6 +32,7 @@ export default function TextWrapper({
       marginTop={marginTop}
       marginRight={marginRight}
       marginLeft={marginLeft}
+      onPress={onPress}
     >
       {link && to ? (
         <Link {...{ type, weight, color, textAlign, to }}>{children}</Link>
