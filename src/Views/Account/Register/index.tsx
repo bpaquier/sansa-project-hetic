@@ -18,25 +18,25 @@ export default function Register(): JSX.Element {
   const FormComponent = (
     <>
       <Form
-        title={t("common.sInscrire")}
-        submitCtaLabel={t("common.sInscrire")}
+        title={t("common.register")}
+        submitCtaLabel={t("common.register")}
         items={[
           {
             placeholder: "John Doe",
-            label: t("comptesFormulaires.identifiant"),
+            label: t("forms.identifier"),
             name: "ID",
             required: true,
             type: "text"
           },
           {
             placeholder: "johndoe@gmail.com",
-            label: t("comptesFormulaires.adresseMail"),
+            label: t("forms.emailAdress"),
             name: "email",
             required: true,
             type: "email"
           },
           {
-            label: t("comptesFormulaires.telephone"),
+            label: t("forms.phone"),
             name: "tel",
             type: "tel",
             defaultValue: ""
@@ -63,16 +63,16 @@ export default function Register(): JSX.Element {
             type: "text"
           }, */
           {
-            label: t("comptesFormulaires.motDePasse"),
+            label: t("forms.password"),
             name: "password",
             type: "password",
             required: true,
             checkPwd: true,
-            bottomText: t("comptesFormulaires.motDePasseCaracteresPrompt")
+            bottomText: t("forms.passwordCharactersPrompt")
           },
           {
             type: "checkbox",
-            label: t("comptesFormulaires.jAiLuEtJaccepte"),
+            label: t("forms.iReadAndAcceptPrompt"),
             forceChecked: false,
             name: "consent",
             required: true
@@ -81,11 +81,11 @@ export default function Register(): JSX.Element {
       />
       <BottomText>
         <Text color="black40" textAlign="center" type="small">
-          {t("comptesFormulaires.vousAvezDejaUnCompte")}
+          {t("forms.alreadyHaveAnAccount")}
         </Text>
       </BottomText>
       <Button
-        text={t("common.seConnecter")}
+        text={t("common.login")}
         type="tertiary"
         onPress={() => navigate("/login")}
       />
