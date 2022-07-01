@@ -5,7 +5,7 @@ import Theme from "~/Styles/theme.styles";
 
 const { shape, grid } = Theme;
 
-export const Nav = styled.View`
+export const Nav = styled.Pressable`
   flex: 1;
   justify-content: space-between;
   align-items: center;

@@ -7,6 +7,8 @@ import translationES from "./languages/es.json";
 import translationFR from "./languages/fr.json";
 import translationUK from "./languages/uk.json";
 
+export type LanguagesType = "fr-FR" | "es-ES" | "en-EN" | "uk-UA" | "ar-SA";
+
 const resources = {
   "en-EN": {
     translation: translationEN
