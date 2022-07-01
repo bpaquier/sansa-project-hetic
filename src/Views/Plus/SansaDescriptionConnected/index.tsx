@@ -24,22 +24,22 @@ export default function SansaDescriptionConnected({
   const connectedContent = [
     {
       id: "newNote",
-      title: t("plus.nouvelleNote"),
+      title: t("plus.newNote"),
       illustration: <TakeNotesIllustration />
     },
     {
       id: "digitalSafe",
-      title: t("plus.coffreFortNumerique"),
+      title: t("plus.digitalSafe"),
       illustration: <SafeIllustration />
     },
     {
       id: "favoritePlaces",
-      title: t("plus.mesLieuxFavoris"),
+      title: t("plus.favouritePlaces"),
       illustration: <HeartIllustration />
     },
     {
       id: "logout",
-      title: t("plus.seDeconnecter"),
+      title: t("plus.logout"),
       illustration: <DisconnectIllustration />
     }
   ];
@@ -50,7 +50,7 @@ export default function SansaDescriptionConnected({
   return (
     <>
       <Text type={isMobile ? "titleL" : "titleM"}>
-        {t("bonjourName", { name: "Baswel" })}
+        {t("helloWithName", { name: "Baswel" })}
       </Text>
       {isMobile && (
         <>

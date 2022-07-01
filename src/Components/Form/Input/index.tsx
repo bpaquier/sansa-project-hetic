@@ -67,7 +67,7 @@ export default function Input({
       setError({
         status: true,
         type: "empty",
-        content: t("comptesFormulaires.champsRequis")
+        content: t("forms.requiredField")
       });
       updateValue && updateValue({ [name]: null });
     } else if (type === "email") {
@@ -78,7 +78,7 @@ export default function Input({
         setError({
           status: true,
           type: "format",
-          content: t("comptesFormulaires.formatInvalide")
+          content: t("forms.invalidFormat")
         });
         updateValue && updateValue({ [name]: null });
       }
@@ -90,7 +90,7 @@ export default function Input({
         setError({
           status: true,
           type: "format",
-          content: t("comptesFormulaires.formatInvalide")
+          content: t("forms.invalidFormat")
         });
         updateValue && updateValue({ [name]: null });
       }
@@ -152,7 +152,7 @@ export default function Input({
                     setError({
                       status: true,
                       type: "format",
-                      content: t("comptesFormulaires.formatInvalide")
+                      content: t("forms.invalidFormat")
                     });
                     updateValue && updateValue({ [name]: null });
                   }

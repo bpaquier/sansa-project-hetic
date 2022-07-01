@@ -18,19 +18,19 @@ export default function Login(): JSX.Element {
   const FormComponent = (
     <>
       <Form
-        title={t("common.seConnecter")}
-        submitCtaLabel={t("common.seConnecter")}
-        inlineCtaLabel={t("comptesFormulaires.motDePasseOublie")}
+        title={t("common.login")}
+        submitCtaLabel={t("common.login")}
+        inlineCtaLabel={t("forms.forgotPassword")}
         items={[
           {
             placeholder: "johndoe@gmail.com",
-            label: t("comptesFormulaires.votreEmailOuIdentifiant"),
+            label: t("forms.emailOrIdentifier"),
             name: "ID",
             required: true,
             type: "email"
           },
           {
-            label: t("comptesFormulaires.votreMotDePasse"),
+            label: t("forms.yourPassword"),
             name: "password",
             type: "password",
             required: true
@@ -39,11 +39,11 @@ export default function Login(): JSX.Element {
       />
       <BottomText>
         <Text color="black40" textAlign="center" type="small">
-          {t("comptesFormulaires.pasEncoreDeCompte")}
+          {t("forms.noAccountYet")}
         </Text>
       </BottomText>
       <Button
-        text={t("common.sInscrire")}
+        text={t("common.register")}
         type="tertiary"
         onPress={() => navigate("/register")}
       />

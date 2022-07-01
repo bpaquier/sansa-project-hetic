@@ -15,16 +15,16 @@ export default function PlusSection({
   const { t } = useTranslation();
 
   const plusContent = [
-    { id: "contact", title: t("plus.nousContacter"), link: "#" },
-    { id: "langues", title: t("plus.langues"), link: "#" },
-    { id: "politique", title: t("plus.politiqueDeConfidentialite"), link: "#" },
-    { id: "mentionsLegales", title: t("plus.mentionsLegales"), link: "#" },
-    { id: "cgu", title: t("plus.CGU"), link: "#" },
-    { id: "deconnecter", title: t("plus.seDeconnecter"), link: "#" }
+    { id: "contact", title: t("plus.contactUs"), link: "#" },
+    { id: "languages", title: t("plus.languages"), link: "#" },
+    { id: "politics", title: t("plus.privacyPolicy"), link: "#" },
+    { id: "legals", title: t("plus.legals"), link: "#" },
+    { id: "tcu", title: t("plus.tcu"), link: "#" },
+    { id: "logout", title: t("plus.logout"), link: "#" }
   ];
 
   const plusContentToDisplay = !isMobile
-    ? plusContent.filter(({ id }) => id !== "langues" && id !== "deconnecter")
+    ? plusContent.filter(({ id }) => id !== "languages" && id !== "logout")
     : !isConnected
     ? plusContent.filter(({ id }) => id !== "deconnecter")
     : plusContent;

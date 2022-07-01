@@ -14,7 +14,7 @@ export default function SansaBorneDescription(): JSX.Element {
   return (
     <>
       <TextWrapper marginTop={32} color="grey" textAlign="center" weight="bold">
-        {t("plus.sesMissions")}
+        {t("plus.itsMissions")}
       </TextWrapper>
       <TextMissionsPlusWrapper>
         <LogoWrappers>

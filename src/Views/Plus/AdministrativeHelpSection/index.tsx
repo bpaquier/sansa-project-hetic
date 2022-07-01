@@ -9,9 +9,9 @@ export default function AdministrativeHelpSection(): JSX.Element {
   return (
     <>
       <Text type="paragraph" color="black20">
-        {t("plus.consulterLaListe")}
+        {t("plus.consultList")}
       </Text>
-      <Text type="titleL">{t("plus.aidesAdministratives")}</Text>
+      <Text type="titleL">{t("plus.administrativeAssistance")}</Text>
       <FlashlightIllustrationWrapper>
         <SpotlightHelpIllustration width="100%" />
       </FlashlightIllustrationWrapper>
