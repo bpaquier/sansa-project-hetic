@@ -24,6 +24,7 @@ export const PageWrapperMobile = styled.View`
   margin-bottom: ${sizes?.mobilePageMarginBottom}px;
   display: flex;
   flex-direction: column;
+  position: relative;
 `;
 
 export const PageWrapperBorne = styled.View`
@@ -35,12 +36,14 @@ export const PageWrapperBorne = styled.View`
   height: 100%;
   align-items: flex-start;
   align-content: space-between;
+  position: relative;
 `;
 
 const generalPlusContainer = `
   border-radius: ${shape.radius.input}px;
   background-color: ${color.primary.white};
   overflow: hidden;
+  z-index: 0;
 `;
 
 const getBorderPlusContainer = (border?: boolean) =>
