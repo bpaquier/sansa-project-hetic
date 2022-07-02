@@ -1,7 +1,7 @@
 import { IconWrapper } from "./styles";
 import TextComponent from "~/Components/Ui-kit/Text";
 import theme from "~/Styles/theme.styles";
-import { getCategoryColor, getIconByCategory } from "~/utils/catgories";
+import { getServiceColor, getIconByService } from "~/utils/getServices";
 
 export interface IconProps {
   category?: string;
@@ -20,12 +20,12 @@ export default function Icon({
   mainIcon = false,
   size = 20
 }: IconProps): JSX.Element {
-  const Icon = getIconByCategory(category);
+  const Icon = getIconByService(category);
 
   const backgroundColor =
     backgroundType === "black"
       ? theme?.color?.neutral?.black20
-      : getCategoryColor(category, mainIcon);
+      : getServiceColor(category, mainIcon);
 
   return (
     <IconWrapper {...{ withBackground, backgroundColor, size }}>

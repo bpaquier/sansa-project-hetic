@@ -16,10 +16,10 @@ import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import { useSearchContext } from "~/Contexts/searchContext";
 import {
-  getCategoryColor,
-  getIconByCategory,
-  mainCategoriesToDisplay
-} from "~/utils/catgories";
+  getServiceColor,
+  getIconByService,
+  MainServicesToDisplay
+} from "~/utils/getServices";
 
 export interface IconsDisplay {
   Icon: any;
@@ -32,9 +32,9 @@ export default function TopBar(): JSX.Element {
 
   const iconsWidth = 48;
 
-  const renderIcons = mainCategoriesToDisplay.map((category, i) => {
-    const Icon = getIconByCategory(category);
-    const bgColor = getCategoryColor(category, true);
+  const renderIcons = MainServicesToDisplay.map((category, i) => {
+    const Icon = getIconByService(category);
+    const bgColor = getServiceColor(category, true);
     const isSelected = category === displayFilters;
     return (
       <IconWrapper key={`${category}-${i}`}>

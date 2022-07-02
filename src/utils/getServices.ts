@@ -57,7 +57,7 @@ import theme from "~/Styles/theme.styles";
 //import Housing3 from "~/Components/Icons/Categories/Home/Housing3";
 //import Library from "~/Components/Icons/Categories/Activities/Library";
 
-export enum MainCategories {
+export enum MainServices {
   HOME = "Acceuil",
   FOOD = "Alimentation",
   HEALTH = "Santé",
@@ -68,7 +68,7 @@ export enum MainCategories {
   ACTIVITY = "Activités"
 }
 
-export enum Categories {
+export enum Services {
   REST_SPACE = "Espace de repos",
   NIGHT_CARE = "Halte de nuit",
   HOUSE_ACCOMMODATION = "Domiciliation",
@@ -123,218 +123,218 @@ export enum Categories {
   //MUSEUM = "Musée",
 }
 
-export const mainCategoriesToDisplay = [
-  MainCategories?.HOME,
-  MainCategories?.FOOD,
-  MainCategories?.HEALTH,
-  MainCategories?.MEDICINE,
-  MainCategories?.HYGIENE,
-  MainCategories?.ADVICE,
-  MainCategories?.ACTIVITY,
-  MainCategories?.TECHNOLOGY
+export const MainServicesToDisplay = [
+  MainServices?.HOME,
+  MainServices?.FOOD,
+  MainServices?.HEALTH,
+  MainServices?.MEDICINE,
+  MainServices?.HYGIENE,
+  MainServices?.ADVICE,
+  MainServices?.ACTIVITY,
+  MainServices?.TECHNOLOGY
 ];
 
-export const categoriesRepartition = {
-  [MainCategories?.HOME]: [
-    Categories?.REST_SPACE,
-    Categories?.NIGHT_CARE,
-    Categories?.HOUSE_ACCOMMODATION,
-    Categories?.DAY_HOSPITALITY,
-    Categories?.CLOTHES,
-    Categories?.PHONE,
-    Categories?.SHOP,
-    Categories?.BAGS
-    // Categories?.URGENCY_ACCOMMODATION,
+export const servicesRepartition = {
+  [MainServices?.HOME]: [
+    Services?.REST_SPACE,
+    Services?.NIGHT_CARE,
+    Services?.HOUSE_ACCOMMODATION,
+    Services?.DAY_HOSPITALITY,
+    Services?.CLOTHES,
+    Services?.PHONE,
+    Services?.SHOP,
+    Services?.BAGS
+    // Services?.URGENCY_ACCOMMODATION,
   ],
-  [MainCategories?.ACTIVITY]: [
-    Categories?.PHYSICAL_ACTIVITY,
-    Categories?.LIBRARY,
-    Categories?.FRENCH_CLASS,
-    Categories?.CLASSES
-    //Categories?.MUSEUM
+  [MainServices?.ACTIVITY]: [
+    Services?.PHYSICAL_ACTIVITY,
+    Services?.LIBRARY,
+    Services?.FRENCH_CLASS,
+    Services?.CLASSES
+    //Services?.MUSEUM
   ],
-  [MainCategories?.FOOD]: [
-    Categories?.GROCERY,
-    Categories?.FOOD_PACKAGE,
-    Categories?.RESTAURANT,
-    Categories?.MEAL_DSITRIBUTION
+  [MainServices?.FOOD]: [
+    Services?.GROCERY,
+    Services?.FOOD_PACKAGE,
+    Services?.RESTAURANT,
+    Services?.MEAL_DSITRIBUTION
   ],
-  [MainCategories?.HEALTH]: [
-    Categories?.DOCTOR,
-    Categories?.CHILD_CARE,
-    Categories?.TESTING,
-    Categories?.NURSE,
-    Categories?.PREGNANCY_MONITORING
-    //Categories?.VACCINE,
-    //Categories?.URGENCY_CONTACT,
+  [MainServices?.HEALTH]: [
+    Services?.DOCTOR,
+    Services?.CHILD_CARE,
+    Services?.TESTING,
+    Services?.NURSE,
+    Services?.PREGNANCY_MONITORING
+    //Services?.VACCINE,
+    //Services?.URGENCY_CONTACT,
   ],
-  [MainCategories?.HYGIENE]: [
-    Categories?.SHOWER,
-    Categories?.MENSTRUAL_PROTECTION,
-    Categories?.WATER_FOUNTAIN,
-    Categories?.TOILETS,
-    Categories?.WELLNESS,
-    Categories?.WASHING_MACHINE
+  [MainServices?.HYGIENE]: [
+    Services?.SHOWER,
+    Services?.MENSTRUAL_PROTECTION,
+    Services?.WATER_FOUNTAIN,
+    Services?.TOILETS,
+    Services?.WELLNESS,
+    Services?.WASHING_MACHINE
   ],
-  [MainCategories?.ADVICE]: [
-    Categories?.JURIDICAL,
-    Categories?.ADVISORS,
-    Categories?.ADMINISTRATIVE,
-    Categories?.HOUSING,
-    Categories?.SOCIAL_ADVICE,
-    Categories?.JOB_ADVICE
-    //Categories?.HANDICAP
+  [MainServices?.ADVICE]: [
+    Services?.JURIDICAL,
+    Services?.ADVISORS,
+    Services?.ADMINISTRATIVE,
+    Services?.HOUSING,
+    Services?.SOCIAL_ADVICE,
+    Services?.JOB_ADVICE
+    //Services?.HANDICAP
   ],
-  [MainCategories?.MEDICINE]: [
-    Categories?.DERMATOLOGIST,
-    Categories?.ADDICTOLOGY,
-    Categories?.PSYCHOLOGY,
-    Categories?.CHIROPODIST,
-    Categories?.DENTIST,
-    Categories?.VETERINARY
-    // Categories?.CARDIOLOGY,
-    //Categories?.PULMONOLOGIST,
-    //Categories?.GYNECOLOGIST,
-    //Categories?.RADIOLOGY
+  [MainServices?.MEDICINE]: [
+    Services?.DERMATOLOGIST,
+    Services?.ADDICTOLOGY,
+    Services?.PSYCHOLOGY,
+    Services?.CHIROPODIST,
+    Services?.DENTIST,
+    Services?.VETERINARY
+    // Services?.CARDIOLOGY,
+    //Services?.PULMONOLOGIST,
+    //Services?.GYNECOLOGIST,
+    //Services?.RADIOLOGY
   ],
-  [MainCategories?.TECHNOLOGY]: [
-    Categories?.FREE_WIFI,
-    Categories?.ELECTRIC_PLUG,
-    Categories?.COMPUTER_EQUIPMENT,
-    Categories?.NUMERIC_ANIMATION
+  [MainServices?.TECHNOLOGY]: [
+    Services?.FREE_WIFI,
+    Services?.ELECTRIC_PLUG,
+    Services?.COMPUTER_EQUIPMENT,
+    Services?.NUMERIC_ANIMATION
   ]
 };
 
-export function getIconByCategory(catgory: string) {
+export function getIconByService(catgory: string) {
   switch (catgory) {
-    case MainCategories?.ACTIVITY:
+    case MainServices?.ACTIVITY:
       return Activities;
-    case MainCategories?.HOME:
+    case MainServices?.HOME:
       return Home;
-    case MainCategories?.ADVICE:
+    case MainServices?.ADVICE:
       return Advice;
-    case MainCategories?.FOOD:
+    case MainServices?.FOOD:
       return Food;
-    case MainCategories?.HEALTH:
+    case MainServices?.HEALTH:
       return Health;
-    case MainCategories?.HYGIENE:
+    case MainServices?.HYGIENE:
       return Hygiene;
-    case MainCategories?.MEDICINE:
+    case MainServices?.MEDICINE:
       return Medicine;
-    case MainCategories?.TECHNOLOGY:
+    case MainServices?.TECHNOLOGY:
       return Technology;
-    case Categories?.REST_SPACE:
+    case Services?.REST_SPACE:
       return RestingSpace;
-    case Categories?.NIGHT_CARE:
+    case Services?.NIGHT_CARE:
       return NightCare;
-    case Categories?.HOUSE_ACCOMMODATION:
+    case Services?.HOUSE_ACCOMMODATION:
       return Housing2;
-    case Categories?.DAY_HOSPITALITY:
+    case Services?.DAY_HOSPITALITY:
       return DayCare;
-    case Categories?.PHYSICAL_ACTIVITY:
+    case Services?.PHYSICAL_ACTIVITY:
       return PhysicalActivity;
-    case Categories?.LIBRARY:
+    case Services?.LIBRARY:
       return FreeReading;
-    case Categories?.GROCERY:
+    case Services?.GROCERY:
       return Vegetables;
-    case Categories?.FOOD_PACKAGE:
+    case Services?.FOOD_PACKAGE:
       return FoodPackage;
-    case Categories?.RESTAURANT:
+    case Services?.RESTAURANT:
       return Eat;
-    case Categories?.MEAL_DSITRIBUTION:
+    case Services?.MEAL_DSITRIBUTION:
       return FoodTruck;
-    case Categories?.WATER_FOUNTAIN:
+    case Services?.WATER_FOUNTAIN:
       return WaterFountain;
-    case Categories?.DOCTOR:
-    case Categories?.PSYCHOLOGY:
+    case Services?.DOCTOR:
+    case Services?.PSYCHOLOGY:
       return Clinic;
-    case Categories?.CHILD_CARE:
+    case Services?.CHILD_CARE:
       return ChildCare3;
-    case Categories?.TESTING:
+    case Services?.TESTING:
       return Hospital;
-    case Categories?.NURSE:
+    case Services?.NURSE:
       return Nurse;
-    case Categories?.PREGNANCY_MONITORING:
+    case Services?.PREGNANCY_MONITORING:
       return Gynecology;
-    case Categories?.SHOWER:
+    case Services?.SHOWER:
       return Shower;
-    case Categories?.MENSTRUAL_PROTECTION:
+    case Services?.MENSTRUAL_PROTECTION:
       return Drop;
-    case Categories?.TOILETS:
+    case Services?.TOILETS:
       return Toilets;
-    case Categories?.WELLNESS:
+    case Services?.WELLNESS:
       return Wellness;
-    case Categories?.JURIDICAL:
+    case Services?.JURIDICAL:
       return Legal;
-    case Categories?.ADVISORS:
+    case Services?.ADVISORS:
       return AdvisorsM;
-    case Categories?.ADMINISTRATIVE:
+    case Services?.ADMINISTRATIVE:
       return Administrative;
-    case Categories?.HOUSING:
-    case Categories?.SHOP:
+    case Services?.HOUSING:
+    case Services?.SHOP:
       return Housing1;
-    case Categories?.FREE_WIFI:
+    case Services?.FREE_WIFI:
       return FreeWifi;
-    case Categories?.ELECTRIC_PLUG:
+    case Services?.ELECTRIC_PLUG:
       return ElectricPlug;
-    case Categories?.COMPUTER_EQUIPMENT:
+    case Services?.COMPUTER_EQUIPMENT:
       return ComputerEquipment;
-    case Categories?.NUMERIC_ANIMATION:
+    case Services?.NUMERIC_ANIMATION:
       return MobileRepairing;
-    case Categories?.DERMATOLOGIST:
+    case Services?.DERMATOLOGIST:
       return Dermatho;
-    case Categories?.ADDICTOLOGY:
+    case Services?.ADDICTOLOGY:
       return ShootingRoom;
-    case Categories?.WASHING_MACHINE:
+    case Services?.WASHING_MACHINE:
       return WashingMachine;
-    case Categories?.SOCIAL_ADVICE:
+    case Services?.SOCIAL_ADVICE:
       return Social;
-    case Categories?.CLOTHES:
+    case Services?.CLOTHES:
       return Clothes;
-    case Categories?.FRENCH_CLASS:
+    case Services?.FRENCH_CLASS:
       return Library;
-    case Categories?.CLASSES:
+    case Services?.CLASSES:
       return Education;
-    case Categories?.CHIROPODIST:
+    case Services?.CHIROPODIST:
       return Wellness;
-    case Categories?.DENTIST:
+    case Services?.DENTIST:
       return Dentist;
-    case Categories?.VETERINARY:
+    case Services?.VETERINARY:
       return Animals;
-    case Categories?.PHONE:
+    case Services?.PHONE:
       return Phone;
-    case Categories?.JOB_ADVICE:
+    case Services?.JOB_ADVICE:
       return Job;
-    case Categories?.BAGS:
+    case Services?.BAGS:
       return Bags;
-    /* case Categories?.URGENCY_ACCOMMODATION:
+    /* case Services?.URGENCY_ACCOMMODATION:
       return Housing3; */
-    /*     case Categories?.MUSEUM:
+    /*     case Services?.MUSEUM:
       return Library; */
-    //case Categories?.URGENCY_CONTACT:
+    //case Services?.URGENCY_CONTACT:
     //return EmergencyContact;
-    //case Categories?.VACCINE:
+    //case Services?.VACCINE:
     //return ShootingRoom;
-    //case Categories?.HANDICAP:
+    //case Services?.HANDICAP:
     // return Disability;
-    //case Categories?.GYNECOLOGIST:
+    //case Services?.GYNECOLOGIST:
     // return Gynecologist;
-    //case Categories?.PULMONOLOGIST:
+    //case Services?.PULMONOLOGIST:
     // return Pulmonologist;
-    //case Categories?.CARDIOLOGY:
+    //case Services?.CARDIOLOGY:
     // return Cardiology;
-    // case Categories?.RADIOLOGY:
+    // case Services?.RADIOLOGY:
     //return Radiology;
     default:
       return null;
   }
 }
 
-export function getMainCategory(category: string): MainCategories | null {
-  let response: MainCategories | null = null;
-  for (const mainCategory in categoriesRepartition) {
+export function getMainService(category: string): MainServices | null {
+  let response: MainServices | null = null;
+  for (const mainCategory in servicesRepartition) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    if (categoriesRepartition?.[mainCategory]?.includes(category)) {
+    if (servicesRepartition?.[mainCategory]?.includes(category)) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
       response = mainCategory;
@@ -343,31 +343,29 @@ export function getMainCategory(category: string): MainCategories | null {
   return response;
 }
 
-export function getCategoryColor(
-  category: string,
-  isMainCatefory: boolean
+export function getServiceColor(
+  service: string,
+  isMainService: boolean
 ): string | null {
   const colors = theme?.color.categories;
-  const computedCategory = isMainCatefory
-    ? category
-    : getMainCategory(category);
+  const computedCategory = isMainService ? service : getMainService(service);
 
   switch (computedCategory) {
-    case MainCategories?.ACTIVITY:
+    case MainServices?.ACTIVITY:
       return colors?.activities;
-    case MainCategories?.ADVICE:
+    case MainServices?.ADVICE:
       return colors?.advice;
-    case MainCategories?.FOOD:
+    case MainServices?.FOOD:
       return colors?.food;
-    case MainCategories?.HEALTH:
+    case MainServices?.HEALTH:
       return colors?.health;
-    case MainCategories?.HOME:
+    case MainServices?.HOME:
       return colors?.home;
-    case MainCategories?.HYGIENE:
+    case MainServices?.HYGIENE:
       return colors?.hygiene;
-    case MainCategories?.MEDICINE:
+    case MainServices?.MEDICINE:
       return colors?.medicine;
-    case MainCategories?.TECHNOLOGY:
+    case MainServices?.TECHNOLOGY:
       return colors?.technology;
     default:
       return theme?.color?.neutral?.black20;

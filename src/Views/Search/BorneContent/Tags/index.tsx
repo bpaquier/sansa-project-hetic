@@ -12,7 +12,7 @@ import Cross from "~/Components/Icons/System/System/Cross";
 import Text from "~/Components/Ui-kit/Text";
 import { useSearchContext } from "~/Contexts/searchContext";
 import theme from "~/Styles/theme.styles";
-import { getCategoryColor } from "~/utils/catgories";
+import { getServiceColor } from "~/utils/getServices";
 
 export default function Tags(): JSX.Element {
   const { filters, setFilters, updateFilters } = useSearchContext();
@@ -25,7 +25,7 @@ export default function Tags(): JSX.Element {
   const FilterList = useMemo(
     () =>
       filters?.map((filter, i) => {
-        const color = getCategoryColor(filter, false);
+        const color = getServiceColor(filter, false);
         return (
           <Tag
             borderColor={color}
