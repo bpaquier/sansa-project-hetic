@@ -13,6 +13,6 @@ export const Filters = styled.ScrollView`
 `;
 
 export const BottomButton = styled.TouchableOpacity`
-  padding: 20px 0;
+  padding: 06px 0;
   align-items: center;
 `;

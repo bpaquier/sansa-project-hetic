@@ -27,7 +27,6 @@ export type TextAlignementProps = "left" | "center" | "right";
 export interface TextComponentProps {
   children?: React.ReactNode | ReactNode[];
   customColor?: string;
-  lineHeight?: number;
   onLayout?: (e: any) => void;
   type?: TextTypeProps;
   weight?: TextWeightProps;
@@ -42,7 +41,6 @@ const TextComponent = ({
   weight,
   textAlign = "left",
   customColor,
-  lineHeight,
   onLayout
 }: TextComponentProps) => {
   const [loaded] = useFonts({
@@ -62,7 +60,7 @@ const TextComponent = ({
 
   return (
     <TextContainer
-      {...{ type, weight, color, textAlign, customColor, lineHeight, onLayout }}
+      {...{ type, weight, color, textAlign, customColor, onLayout }}
       isMobile={isMobile}
     >
       {children}

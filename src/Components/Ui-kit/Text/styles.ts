@@ -56,7 +56,6 @@ export const TextContainer = styled.Text`
     }
   }};
   text-align: ${({ textAlign }: TextComponentProps) => textAlign};
-  ${({ lineHeight }) => (lineHeight ? `line-height: ${lineHeight}px` : "20px")}
   ${({ type, isMobile }: TextComponentProps) => {
     if (type === "paragraph") return "line-height: 24px";
     if (type === "small" && !isMobile) return "line-height: 24px";

@@ -26,7 +26,7 @@ export default function Description({
   const formatedDate = `${date.getDate()}/${
     date.getMonth() + 1
   }/${date.getFullYear()}`;
-  const lineHeight = 20;
+  const lineHeight = 24;
 
   const [textWrapperHeight, setTextWrapperHeight] = useState<number>(null);
   const [textHeight, setTextHeight] = useState<number>(null);
@@ -73,7 +73,6 @@ export default function Description({
               // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
               setTextHeight(height);
             }}
-            {...{ lineHeight }}
           >
             {description}
             {description}
