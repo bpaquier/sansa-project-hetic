@@ -6709,6 +6709,11 @@ react-native-dotenv@^3.3.1:
   dependencies:
     dotenv "^10.0.0"
 
+react-native-draggable-panel@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/react-native-draggable-panel/-/react-native-draggable-panel-1.2.3.tgz#75f90932f5bbfaff9e5a97b91d84714990525a75"
+  integrity sha512-t7fbleUswHcad4dgD18q/DCXZFkvv48qLTspjrhhpWEzOcc5oGGNX9Pg3BvpjALA/t6n+xPdZcuY8g/ZbJurlQ==
+
 react-native-geolocation-service@^5.3.0-beta.4:
   version "5.3.0-beta.4"
   resolved "https://registry.yarnpkg.com/react-native-geolocation-service/-/react-native-geolocation-service-5.3.0-beta.4.tgz#8061396f734028b0ecbf8316a2cda9179df19210"

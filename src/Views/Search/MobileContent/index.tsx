@@ -1,4 +1,5 @@
 import Filters from "./Filters";
+import FiltersPanel from "./FiltersPanel";
 import { Wrapper, Content } from "./styles";
 
 export default function MobileContent(): JSX.Element {
@@ -6,6 +7,7 @@ export default function MobileContent(): JSX.Element {
     <Wrapper>
       <Content>
         <Filters />
+        <FiltersPanel />
       </Content>
     </Wrapper>
   );

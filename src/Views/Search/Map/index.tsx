@@ -29,7 +29,7 @@ interface LocationProps {
 }
 
 export default function Map(): JSX.Element {
-  const initialDelta = 0.05;
+  const initialDelta = 0.2;
   const { displayFilters, setDisplayFilters } = useSearchContext();
   const { isMobile } = useGlobalContext();
   const { selectedPlaceIndex, filteredPlaces, setSelectedPlaceIndex } =
@@ -49,14 +49,16 @@ export default function Map(): JSX.Element {
       if (status !== "granted") {
         return;
       }
-      const currentLocation = await Location.getCurrentPositionAsync({});
+      //const currentLocation = await Location.getCurrentPositionAsync({});
 
-      setLocation({
+      setLocation(
+        location /* {
         latitudeDelta: initialDelta,
         longitudeDelta: initialDelta,
         latitude: currentLocation?.coords?.latitude,
         longitude: currentLocation?.coords?.longitude
-      });
+      } */
+      );
     })();
   }, []);
 

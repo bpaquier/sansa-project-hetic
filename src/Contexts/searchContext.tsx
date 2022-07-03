@@ -88,6 +88,7 @@ function SearchProvider({ children }: SearchProviderProps) {
 
   useEffect(() => {
     if (debouncedFilters && debouncedFilters?.length > 0) {
+      setIsLoading(true);
       /**
        * !replace realPlaces by API response
        */
@@ -99,18 +100,18 @@ function SearchProvider({ children }: SearchProviderProps) {
 
       setIsLoading(false);
       setFilteredPlaces(selectedPlaces);
-    } else {
-      setFilteredPlaces(null);
-      setIsLoading(false);
     }
   }, [debouncedFilters]);
 
   useEffect(() => {
-    setIsLoading(true);
-    if (!filters || filters?.length === 0) {
+    if (filters?.length === 0) {
       setFilters(null);
+    }
+
+    if (!filters) {
       setDisplayFilters(null);
       setIsLoading(false);
+      setFilteredPlaces(null);
     }
   }, [filters]);
 

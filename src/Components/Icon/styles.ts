@@ -15,6 +15,8 @@ export const IconWrapper = styled.View`
   justify-content: center;
   align-items: center;
   ${({ withBackground, backgroundColor }: IconStyledProps) =>
-    withBackground ? `background-color: ${backgroundColor} ` : ""}
+    withBackground
+      ? `background-color: ${backgroundColor} `
+      : "background-color: transparent"}
   border-radius: 50px;
 `;
