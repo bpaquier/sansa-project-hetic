@@ -10,7 +10,7 @@ export const FiltersWrapper = styled.ScrollView`
   background-color: ${theme?.color?.primary?.white};
   position: absolute;
   right: 0;
-  top: ${theme?.size?.bornContent?.topBarHeight + 8}px;
+  top: ${theme?.sizes?.bornContent?.topBarHeight + 8}px;
   z-index: 1;
 `;
 

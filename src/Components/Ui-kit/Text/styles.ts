@@ -20,7 +20,7 @@ export const TextContainer = styled.Text`
     }
   }};
   font-size: ${({ type }: TextComponentProps) =>
-    type ? fontSize[type] : fontSize?.paragraph};
+    type ? fontSize[type] : fontsizes?.paragraph};
   color: ${({ color, customColor }: TextComponentProps) => {
     if (customColor) {
       return customColor;

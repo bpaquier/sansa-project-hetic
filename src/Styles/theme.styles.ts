@@ -53,7 +53,9 @@ const theme = {
       technology: `#233454`
     }
   },
-  size: {
+  sizes: {
+    breakPoint: 800,
+    mobilePageMarginBottom: 200,
     icon: {
       system: 24,
       categories: 16
@@ -61,6 +63,9 @@ const theme = {
     bornContent: {
       topBarHeight: 100,
       tagsHeight: 50
+    },
+    navigation: {
+      mobileHeight: 92
     }
   },
   boxShadow: {
@@ -98,10 +103,6 @@ const theme = {
     small: "32px",
     medium: "48px",
     large: "72px"
-  },
-  sizes: {
-    breakPoint: 800,
-    mobilePageMarginBottom: 200
   }
 };
 

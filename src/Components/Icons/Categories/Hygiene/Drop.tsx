@@ -11,8 +11,8 @@ export interface DropProps {
 
 export default function Drop({
   primaryColor = theme?.color?.icon?.categories?.primary,
-  width = theme?.size?.icon?.categories,
-  height = theme?.size?.icon?.categories
+  width = theme?.sizes?.icon?.categories,
+  height = theme?.sizes?.icon?.categories
 }: DropProps): JSX.Element {
   return (
     <Svg {...{ width, height }} viewBox="0 0 8 14" fill="none">

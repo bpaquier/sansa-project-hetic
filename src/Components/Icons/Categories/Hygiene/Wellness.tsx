@@ -11,8 +11,8 @@ export interface WellnessProps {
 
 export default function Wellness({
   primaryColor = theme?.color?.icon?.categories?.primary,
-  width = theme?.size?.icon?.categories,
-  height = theme?.size?.icon?.categories
+  width = theme?.sizes?.icon?.categories,
+  height = theme?.sizes?.icon?.categories
 }: WellnessProps): JSX.Element {
   return (
     <Svg {...{ width, height }} viewBox="0 0 16 12" fill="none">

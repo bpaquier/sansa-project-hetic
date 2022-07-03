@@ -11,8 +11,8 @@ export interface PulmonologistProps {
 
 export default function Pulmonologist({
   primaryColor = theme?.color?.icon?.categories?.primary,
-  width = theme?.size?.icon?.categories,
-  height = theme?.size?.icon?.categories
+  width = theme?.sizes?.icon?.categories,
+  height = theme?.sizes?.icon?.categories
 }: PulmonologistProps): JSX.Element {
   return (
     <Svg {...{ width, height }} viewBox="0 0 14 12" fill="none">

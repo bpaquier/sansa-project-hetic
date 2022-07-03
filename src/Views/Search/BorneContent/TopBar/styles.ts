@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 import { getColumnWidth } from "~/Styles/mixins.styles";
 import theme from "~/Styles/theme.styles";
 
-const { color, shape, size } = theme;
+const { color, shape, sizes } = theme;
 
 interface UnderlineIndicatorProps {
   bgColor?: string;
@@ -15,7 +15,7 @@ export const TopBarWrapper = styled.View`
   top: 0;
   right: 0;
   width: ${getColumnWidth(21, false)};
-  height: ${size?.bornContent?.topBarHeight}px;
+  height: ${sizes?.bornContent?.topBarHeight}px;
   background-color: ${color.primary.white};
   border-radius: ${shape?.radius?.input}px;
   padding: 0 24px;
@@ -54,7 +54,7 @@ export const IconsWrapper = styled.View`
 export const IconWrapper = styled.View`
   align-items: center;
   justify-content: center;
-  height: ${size?.bornContent?.topBarHeight}px;
+  height: ${sizes?.bornContent?.topBarHeight}px;
 `;
 
 export const Button = styled.Pressable`

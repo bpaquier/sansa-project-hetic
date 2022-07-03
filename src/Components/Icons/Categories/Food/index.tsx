@@ -11,8 +11,8 @@ export interface ChildCare1Props {
 }
 
 export default function Food({
-  width = theme?.size?.icon?.categories,
-  height = theme?.size?.icon?.categories
+  width = theme?.sizes?.icon?.categories,
+  height = theme?.sizes?.icon?.categories
 }: ChildCare1Props): JSX.Element {
   return (
     <Svg width={width} height={height} viewBox="0 0 58 58" fill="none">

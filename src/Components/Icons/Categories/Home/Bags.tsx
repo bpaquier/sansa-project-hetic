@@ -11,8 +11,8 @@ export interface BagsProps {
 
 export default function Bags({
   primaryColor = theme?.color?.icon?.categories?.primary,
-  width = theme?.size?.icon?.categories,
-  height = theme?.size?.icon?.categories
+  width = theme?.sizes?.icon?.categories,
+  height = theme?.sizes?.icon?.categories
 }: BagsProps): JSX.Element {
   return (
     <Svg width={width} height={height} viewBox="0 0 14 12" fill="none">

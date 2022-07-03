@@ -10,6 +10,7 @@ import Plus from "~/Components/Icons/System/System/Plus";
 import Theme from "~/Styles/theme.styles";
 
 export default function NavigationMobile() {
+  const iconSize = 29;
   const navigate = useNavigate();
   const location = useLocation();
   const isCurrentPage = (page: string): boolean => location.pathname === page;
@@ -75,8 +76,8 @@ export default function NavigationMobile() {
       />
       <NavButton onPress={() => navigate("/home")}>
         <House
-          width={36}
-          height={36}
+          width={iconSize}
+          height={iconSize}
           color={
             isCurrentPage("/home")
               ? Theme.color.primary.blue
@@ -88,8 +89,8 @@ export default function NavigationMobile() {
       <NavButton primary onPress={() => navigate("/")}>
         <PrimaryIconContainer active={isCurrentPage("/")}>
           <MapMarker
-            width={36}
-            height={36}
+            width={iconSize}
+            height={iconSize}
             color={
               isCurrentPage("/")
                 ? Theme.color.primary.white
@@ -101,8 +102,8 @@ export default function NavigationMobile() {
       </NavButton>
       <NavButton onPress={() => navigate("/plus")}>
         <Plus
-          width={36}
-          height={36}
+          width={iconSize}
+          height={iconSize}
           color={
             isCurrentPage("/plus")
               ? Theme.color.primary.blue

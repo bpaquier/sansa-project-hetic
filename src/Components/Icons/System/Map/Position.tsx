@@ -10,8 +10,8 @@ export interface LocationProps {
 
 export default function Position({
   color = theme?.color?.neutral?.black40,
-  width = theme?.size?.icon?.system,
-  height = theme?.size?.icon?.system
+  width = theme?.sizes?.icon?.system,
+  height = theme?.sizes?.icon?.system
 }: LocationProps): JSX.Element {
   return (
     <Svg width={height} height={width} viewBox="0 0 32 32" fill="none">

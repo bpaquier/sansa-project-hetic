@@ -25,7 +25,7 @@ export const Tag = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   padding: 0 16px;
-  height: ${theme?.size?.bornContent?.tagsHeight}px;
+  height: ${theme?.sizes?.bornContent?.tagsHeight}px;
   background-color: ${({ bgColor }: TagProps) =>
     bgColor ? bgColor : theme?.color?.primary?.white};
   margin-right: 8px;
