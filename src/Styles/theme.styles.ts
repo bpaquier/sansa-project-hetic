@@ -79,7 +79,7 @@ const theme = {
     borneGutter: 32,
     mobileGutter: 20
   },
-  fontSize: {
+  fontSizes: {
     titleXL: "32px",
     titleL: "24px",
     titleM: "20px",

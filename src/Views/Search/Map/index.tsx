@@ -146,46 +146,39 @@ export default function Map(): JSX.Element {
           </Marker>
         ))}
       </MapView>
-      <Controls>
-        <Button
-          // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          onPress={async () => {
-            const currentLocation = await Location.getCurrentPositionAsync({});
-            goToLocation({
-              latitudeDelta: initialDelta,
-              longitudeDelta: initialDelta,
-              latitude: currentLocation?.coords?.latitude,
-              longitude: currentLocation?.coords?.longitude
-            });
-          }}
-          marginBottom={isMobile ? 0 : 48}
-          {...{ isMobile }}
-        >
-          <PositionIcon
-            width={isMobile ? 20 : 32}
-            height={isMobile ? 20 : 32}
-            color={theme?.color?.primary?.blue}
-          />
-        </Button>
-        {!isMobile && (
-          <>
-            <Button onPress={() => zoom("in")} marginBottom={8}>
-              <Plus
-                width={32}
-                height={32}
-                color={theme?.color?.primary?.blue}
-              />
-            </Button>
-            <Button onPress={() => zoom("out")} marginBottom={0}>
-              <Minus
-                width={32}
-                height={32}
-                color={theme?.color?.primary?.blue}
-              />
-            </Button>
-          </>
-        )}
-      </Controls>
+      {!isMobile && (
+        <Controls>
+          <Button
+            // eslint-disable-next-line @typescript-eslint/no-misused-promises
+            onPress={async () => {
+              const currentLocation = await Location.getCurrentPositionAsync(
+                {}
+              );
+              goToLocation({
+                latitudeDelta: initialDelta,
+                longitudeDelta: initialDelta,
+                latitude: currentLocation?.coords?.latitude,
+                longitude: currentLocation?.coords?.longitude
+              });
+            }}
+            marginBottom={isMobile ? 0 : 48}
+            {...{ isMobile }}
+          >
+            <PositionIcon
+              width={isMobile ? 20 : 32}
+              height={isMobile ? 20 : 32}
+              color={theme?.color?.primary?.blue}
+            />
+          </Button>
+
+          <Button onPress={() => zoom("in")} marginBottom={8}>
+            <Plus width={32} height={32} color={theme?.color?.primary?.blue} />
+          </Button>
+          <Button onPress={() => zoom("out")} marginBottom={0}>
+            <Minus width={32} height={32} color={theme?.color?.primary?.blue} />
+          </Button>
+        </Controls>
+      )}
     </>
     /*  </Pressable> */
   );

@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 import { TextComponentProps } from "./index";
 import theme from "~/Styles/theme.styles";
 
-const { fontSize, color: themeColor, fontFamily } = theme;
+const { fontSizes, color: themeColor, fontFamily } = theme;
 
 export const TextContainer = styled.Text`
   font-family: ${({ weight, type }: TextComponentProps) => {
@@ -20,7 +20,7 @@ export const TextContainer = styled.Text`
     }
   }};
   font-size: ${({ type }: TextComponentProps) =>
-    type ? fontSize[type] : fontsizes?.paragraph};
+    type ? fontSizes[type] : fontSizes?.paragraph};
   color: ${({ color, customColor }: TextComponentProps) => {
     if (customColor) {
       return customColor;

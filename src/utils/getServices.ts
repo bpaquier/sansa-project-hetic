@@ -332,6 +332,7 @@ export function getIconByService(catgory: string) {
 
 export function getMainService(category: string): MainServices | null {
   let response: MainServices | null = null;
+
   for (const mainCategory in servicesRepartition) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     if (servicesRepartition?.[mainCategory]?.includes(category)) {
