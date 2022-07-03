@@ -1,17 +1,22 @@
 import styled from "styled-components/native";
 
-import { TextComponentProps } from "./index";
+import { TextComponentProps as TextComponentPropsIndex } from "./index";
 import theme from "~/Styles/theme.styles";
+
+type TextComponentProps = TextComponentPropsIndex & {
+  isMobile?: boolean;
+};
 
 const { fontSizes, color: themeColor, fontFamily } = theme;
 
 export const TextContainer = styled.Text`
-  font-family: ${({ weight, type }: TextComponentProps) => {
+  font-family: ${({ weight, type, isMobile }: TextComponentProps) => {
     switch (type) {
       case "titleXL":
         return fontFamily?.bold;
-      case "titleM":
       case "titleL":
+        return isMobile ? fontFamily?.bold : fontFamily?.medium;
+      case "titleM":
         return fontFamily?.medium;
       case "paragraph":
       case "small":
@@ -52,4 +57,8 @@ export const TextContainer = styled.Text`
   }};
   text-align: ${({ textAlign }: TextComponentProps) => textAlign};
   ${({ lineHeight }) => (lineHeight ? `line-height: ${lineHeight}px` : "20px")}
+  ${({ type, isMobile }: TextComponentProps) => {
+    if (type === "paragraph") return "line-height: 24px";
+    if (type === "small" && !isMobile) return "line-height: 24px";
+  }}
 `;

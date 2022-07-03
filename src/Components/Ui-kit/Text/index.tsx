@@ -3,26 +3,36 @@ import React, { ReactNode } from "react";
 import { useFonts } from "expo-font";
 
 import { TextContainer } from "./styles";
+import { useGlobalContext } from "~/Contexts/globalContext";
 
+export type TextTypeProps =
+  | "titleXL"
+  | "titleL"
+  | "titleM"
+  | "paragraph"
+  | "small";
+export type TextWeightProps = "bold" | "regular" | "medium";
+export type TextColorsProps =
+  | "black"
+  | "white"
+  | "orange"
+  | "blue"
+  | "grey"
+  | "darkBlue"
+  | "black40"
+  | "black20"
+  | "black60"
+  | "red";
+export type TextAlignementProps = "left" | "center" | "right";
 export interface TextComponentProps {
-  type?: "titleXL" | "titleL" | "titleM" | "paragraph" | "small";
-  weight?: "bold" | "regular" | "medium";
-  color?:
-    | "black"
-    | "white"
-    | "orange"
-    | "blue"
-    | "grey"
-    | "darkBlue"
-    | "black40"
-    | "black20"
-    | "black60"
-    | "red";
   children?: React.ReactNode | ReactNode[];
-  textAlign?: "left" | "center" | "right";
   customColor?: string;
   lineHeight?: number;
   onLayout?: (e: any) => void;
+  type?: TextTypeProps;
+  weight?: TextWeightProps;
+  color?: TextColorsProps;
+  textAlign?: TextAlignementProps;
 }
 
 const TextComponent = ({
@@ -44,6 +54,8 @@ const TextComponent = ({
     HelveticaBold: require("~/../assets/fonts/HelveticaNeueCyr-Bold.ttf")
   });
 
+  const { isMobile } = useGlobalContext();
+
   if (!loaded) {
     return null;
   }
@@ -51,6 +63,7 @@ const TextComponent = ({
   return (
     <TextContainer
       {...{ type, weight, color, textAlign, customColor, lineHeight, onLayout }}
+      isMobile={isMobile}
     >
       {children}
     </TextContainer>
