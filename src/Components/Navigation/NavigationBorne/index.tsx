@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { TouchableOpacity } from "react-native";
 import { useLocation } from "react-router-native";
 
@@ -8,7 +9,11 @@ import {
   NavButton,
   LanguageSection
 } from "./styles";
+import Arabic from "~/Components/Icons/Flags/Arabic";
+import English from "~/Components/Icons/Flags/English";
 import France from "~/Components/Icons/Flags/France";
+import Spain from "~/Components/Icons/Flags/Spain";
+import Ukraine from "~/Components/Icons/Flags/Ukraine";
 import MapMarker from "~/Components/Icons/System/Map/MapMarker";
 import House from "~/Components/Icons/System/System/House";
 import Plus from "~/Components/Icons/System/System/Plus";
@@ -26,6 +31,23 @@ export default function NavigationBorne({
   const location = useLocation();
   const isCurrentPage = (page: string): boolean => location.pathname === page;
   const { setMenuLanguagesOpen } = useGlobalContext();
+  const { i18n } = useTranslation();
+
+  const Flag = (): JSX.Element => {
+    switch (i18n.language) {
+      case "en-EN":
+        return <English width={60} height={60} />;
+      case "es-ES":
+        return <Spain width={60} height={60} />;
+      case "ar-SA":
+        return <Arabic width={60} height={60} />;
+      case "uk-UA":
+        return <Ukraine width={60} height={60} />;
+      case "fr-FR":
+      default:
+        return <France width={60} height={60} />;
+    }
+  };
 
   return (
     <Nav
@@ -70,7 +92,7 @@ export default function NavigationBorne({
             setMenuLanguagesOpen && setMenuLanguagesOpen();
           }}
         >
-          <France />
+          <Flag />
         </TouchableOpacity>
       </LanguageSection>
     </Nav>
