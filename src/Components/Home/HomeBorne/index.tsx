@@ -46,10 +46,7 @@ export default function HomeBorne(): JSX.Element {
           <TouchableOpacity onPress={() => navigate("/")}>
             <MapCard>
               <MapWrapper>
-                <Map
-                  style={{ width: "100%", height: "100%" }}
-                  provider={PROVIDER_GOOGLE}
-                />
+                <Map provider={PROVIDER_GOOGLE} />
               </MapWrapper>
             </MapCard>
           </TouchableOpacity>

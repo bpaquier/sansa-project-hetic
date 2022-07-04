@@ -114,6 +114,7 @@ export const SportIllustrationWrapper = styled.View`
 `;
 
 export const HealthCard = styled(Card)`
+  flex: 1;
   margin-left: ${getColumnWidth(1, false)};
   width: ${getColumnWidth(5, false)};
 `;
@@ -133,6 +134,6 @@ export const HealthIconWrapper = styled.View`
   justify-content: center;
   align-items: center;
   border-radius: 50px;
-  padding: 16px;
+  padding: 12px;
   background-color: ${color.primary.blue};
 `;
