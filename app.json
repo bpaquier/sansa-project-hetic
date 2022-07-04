@@ -9,7 +9,7 @@
       [
         "expo-screen-orientation",
         {
-          "initialOrientation": "ALL" 
+          "initialOrientation": "ALL"
         }
       ]
     ],

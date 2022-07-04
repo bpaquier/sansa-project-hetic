@@ -17,7 +17,7 @@ import PlusSection from "~/Views/Plus/PlusSection";
 import SansaDescriptionConnected from "~/Views/Plus/SansaDescriptionConnected";
 import SansaDescriptionNotConnected from "~/Views/Plus/SansaDescriptionNotConnected";
 
-const isConnected = false;
+const isConnected = true;
 
 export default function Plus(): JSX.Element {
   const { isMobile } = useGlobalContext();
@@ -56,10 +56,11 @@ export default function Plus(): JSX.Element {
           )}
         </PlusContainers>
         <PlusContainers
+          paddingY={0}
+          paddingX={0}
           style={theme.boxShadow.panelAndroid}
           border
           columnWidth={!isMobile && 7}
-          adminHelp
           marginBottom={isMobile}
           height={325}
         >
