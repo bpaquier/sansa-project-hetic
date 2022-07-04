@@ -15,6 +15,4 @@ export const ButtonWrapperBorne = styled.View`
   margin-left: 16px;
 `;
 
-export const ButtonWrapperMobile = styled.View`
-  width: 100%;
-`;
+export const ButtonWrapperMobile = styled.View``;
