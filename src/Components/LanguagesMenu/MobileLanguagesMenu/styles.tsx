@@ -14,7 +14,7 @@ export const TitleWrapper = styled.TouchableOpacity`
 export const MenuMobile = styled.View`
   width: ${getColumnWidth(24, true)};
   margin-top: 24px;
-  border-radius: 10px;
+  border-radius: 12px;
   background-color: ${theme.color.primary.white};
 `;
 
@@ -22,5 +22,5 @@ export const WrapperMobileMenu = styled.View`
   position: absolute;
   width: ${Dimensions.get("window").width}px;
   height: ${Dimensions.get("window").height}px;
-  background-color: ${theme.color.neutral.white80};
+  background-color: ${theme.color.neutral.black5};
 `;
