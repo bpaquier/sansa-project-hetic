@@ -39,7 +39,7 @@ export default function SansaDescriptionConnected({
     },
     {
       id: "logout",
-      title: t("plus.logout"),
+      title: t("common.logout"),
       illustration: <DisconnectIllustration />
     }
   ];
