@@ -59,6 +59,7 @@ export const NavButton = styled.TouchableOpacity<NavButtonProps>`
 export const LanguageSection = styled.View`
   display: flex;
   padding: 20px;
+  padding-bottom: 0;
   width: 100%;
   align-items: center;
 `;
