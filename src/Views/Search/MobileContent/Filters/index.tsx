@@ -1,5 +1,3 @@
-import { KeyboardAvoidingView, Platform } from "react-native";
-
 import {
   FiltersWrapper,
   Input,

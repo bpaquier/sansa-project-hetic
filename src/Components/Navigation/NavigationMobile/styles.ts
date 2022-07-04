@@ -2,16 +2,20 @@ import styled from "styled-components/native";
 
 import Theme from "~/Styles/theme.styles";
 
-export const Nav = styled.View`
+export const NavWrapper = styled.View`
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: ${Theme?.sizes?.navigation?.mobileHeight}px;
+  background-color: ${Theme.color.primary.white};
+  box-shadow: ${Theme.boxShadow.panel};
+`;
+
+export const Nav = styled.View`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background-color: ${Theme.color.primary.white};
-  box-shadow: ${Theme.boxShadow.panel};
+  margin-bottom: 10px;
+  height: ${Theme?.sizes?.navigation?.mobileHeight}px;
 `;
 
 interface NavButtonProps {

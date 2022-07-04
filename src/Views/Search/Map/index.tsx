@@ -17,6 +17,9 @@ import theme from "~/Styles/theme.styles";
 
 const styles = StyleSheet.create({
   map: {
+    position: "absolute",
+    top: 0,
+    left: 0,
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height
   }

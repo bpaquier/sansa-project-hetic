@@ -66,7 +66,7 @@ const theme = {
       tagsHeight: 50
     },
     navigation: {
-      mobileHeight: 92
+      mobileHeight: 100
     }
   },
   boxShadow: {

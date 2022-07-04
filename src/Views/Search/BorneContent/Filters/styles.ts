@@ -9,8 +9,10 @@ export const FiltersWrapper = styled.ScrollView`
   border-radius: ${theme?.shape?.radius?.input}px;
   background-color: ${theme?.color?.primary?.white};
   position: absolute;
-  right: 0;
-  top: ${theme?.sizes?.bornContent?.topBarHeight + 8}px;
+  right: ${theme?.grid?.borneGutter}px;
+  top: ${theme?.sizes?.bornContent?.topBarHeight +
+  theme?.grid?.borneGutter +
+  8}px;
   z-index: 1;
 `;
 

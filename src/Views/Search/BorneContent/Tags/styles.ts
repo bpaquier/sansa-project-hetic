@@ -12,9 +12,10 @@ interface TagProps {
 
 export const TagsWrapper = styled.View`
   position: absolute;
-  bottom: 0;
+  bottom: ${theme?.grid?.borneGutter}px;
   left: ${getColumnWidth(3, false)};
-  right: 0;
+  margin-left: ${theme?.grid?.borneGutter}px;
+  right: ${theme?.grid?.borneGutter}px;
   flex-direction: row;
   align-items: flex-end;
   z-index: 102;
@@ -53,8 +54,8 @@ export const TagsListContent = styled.View`
 
 export const Overlay = styled.Pressable`
   position: absolute;
-  left: ${-1 * theme?.grid?.borneGutter}px;
-  top: ${-1 * theme?.grid?.borneGutter}px;
+  left: 0;
+  top: 0;
   height: ${Dimensions.get("window").height}px;
   width: ${Dimensions.get("window").width}px;
   background-color: rgba(0, 0, 0, 0.7);

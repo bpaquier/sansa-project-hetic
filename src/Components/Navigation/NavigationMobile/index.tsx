@@ -3,14 +3,20 @@ import { useEffect, useState } from "react";
 import { Animated, Dimensions } from "react-native";
 import { useNavigate, useLocation } from "react-router-native";
 
-import { Nav, NavButton, NavButtonText, PrimaryIconContainer } from "./styles";
+import {
+  NavWrapper,
+  Nav,
+  NavButton,
+  NavButtonText,
+  PrimaryIconContainer
+} from "./styles";
 import MapMarker from "~/Components/Icons/System/Map/MapMarker";
 import House from "~/Components/Icons/System/System/House";
 import Plus from "~/Components/Icons/System/System/Plus";
 import Theme from "~/Styles/theme.styles";
 
 export default function NavigationMobile() {
-  const iconSize = 29;
+  const iconSize = 36;
   const navigate = useNavigate();
   const location = useLocation();
   const isCurrentPage = (page: string): boolean => location.pathname === page;
@@ -63,55 +69,57 @@ export default function NavigationMobile() {
   };
 
   return (
-    <Nav>
-      <NavIndicator
-        style={{
-          position: "absolute",
-          top: 0,
-          borderRadius: 4,
-          width: 60,
-          height: 4,
-          backgroundColor: Theme.color.primary.blue
-        }}
-      />
-      <NavButton onPress={() => navigate("/home")}>
-        <House
-          width={iconSize}
-          height={iconSize}
-          color={
-            isCurrentPage("/home")
-              ? Theme.color.primary.blue
-              : Theme.color.neutral.black60
-          }
+    <NavWrapper>
+      <Nav>
+        <NavIndicator
+          style={{
+            position: "absolute",
+            top: 0,
+            borderRadius: 4,
+            width: 60,
+            height: 4,
+            backgroundColor: Theme.color.primary.blue
+          }}
         />
-        <NavButtonText active={isCurrentPage("/home")}>Accueil</NavButtonText>
-      </NavButton>
-      <NavButton primary onPress={() => navigate("/")}>
-        <PrimaryIconContainer active={isCurrentPage("/")}>
-          <MapMarker
+        <NavButton onPress={() => navigate("/home")}>
+          <House
             width={iconSize}
             height={iconSize}
             color={
-              isCurrentPage("/")
-                ? Theme.color.primary.white
+              isCurrentPage("/home")
+                ? Theme.color.primary.blue
                 : Theme.color.neutral.black60
             }
           />
-        </PrimaryIconContainer>
-        <NavButtonText active={isCurrentPage("/")}>Rechercher</NavButtonText>
-      </NavButton>
-      <NavButton onPress={() => navigate("/plus")}>
-        <Plus
-          width={iconSize}
-          height={iconSize}
-          color={
-            isCurrentPage("/plus")
-              ? Theme.color.primary.blue
-              : Theme.color.neutral.black60
-          }
-        />
-        <NavButtonText active={isCurrentPage("/plus")}>Plus</NavButtonText>
-      </NavButton>
-    </Nav>
+          <NavButtonText active={isCurrentPage("/home")}>Accueil</NavButtonText>
+        </NavButton>
+        <NavButton primary onPress={() => navigate("/")}>
+          <PrimaryIconContainer active={isCurrentPage("/")}>
+            <MapMarker
+              width={iconSize}
+              height={iconSize}
+              color={
+                isCurrentPage("/")
+                  ? Theme.color.primary.white
+                  : Theme.color.neutral.black60
+              }
+            />
+          </PrimaryIconContainer>
+          <NavButtonText active={isCurrentPage("/")}>Rechercher</NavButtonText>
+        </NavButton>
+        <NavButton onPress={() => navigate("/plus")}>
+          <Plus
+            width={iconSize}
+            height={iconSize}
+            color={
+              isCurrentPage("/plus")
+                ? Theme.color.primary.blue
+                : Theme.color.neutral.black60
+            }
+          />
+          <NavButtonText active={isCurrentPage("/plus")}>Plus</NavButtonText>
+        </NavButton>
+      </Nav>
+    </NavWrapper>
   );
 }

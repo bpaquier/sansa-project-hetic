@@ -9,8 +9,8 @@ interface IconProps {
 
 export const Wrapper = styled.View`
   position: absolute;
-  top: 0;
-  right: 0;
+  top: ${theme?.grid?.borneGutter}px;
+  right: ${theme?.grid?.borneGutter}px;
   height: 100%;
   width: ${getColumnWidth(21, false)};
   background-color: ${theme?.color?.primary?.white};

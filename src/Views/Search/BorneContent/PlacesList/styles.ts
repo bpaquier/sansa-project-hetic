@@ -23,7 +23,8 @@ export const SpinnerWrapper = styled.View`
 export const ListWrapper = styled.View`
   position: absolute;
   left: ${getColumnWidth(3, false)};
-  top: ${sizes?.bornContent?.topBarHeight + 8}px;
+  margin-left: ${grid?.borneGutter}px;
+  top: ${sizes?.bornContent?.topBarHeight + grid?.borneGutter + 8}px;
   width: ${getColumnWidth(7.5, false)};
   border-radius: ${shape?.radius?.input}px;
   overflow: hidden;

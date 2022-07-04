@@ -27,7 +27,8 @@
           "apiKey": "AIzaSyDPoDTXy1eJsSlgFyGc4sIrf8kO8q6V4z8"
         }
       },
-      "softwareKeyboardLayoutMode": "pan"
+      "softwareKeyboardLayoutMode": "pan",
+      "permissions": ["ACCESS_FINE_LOCATION"]
     },
     "web": {
       "favicon": "./assets/images/Team_success_Two_Color.png"

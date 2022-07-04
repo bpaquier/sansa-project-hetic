@@ -12,20 +12,25 @@ interface TagsProps {
 }
 
 export const FiltersWrapper = styled.View`
+  position: absolute;
+  left: 0;
   width: 100%;
   overflow: visible;
 `;
 
-export const InputWrapper = styled.View``;
+export const InputWrapper = styled.View`
+  padding: 12.5px ${theme?.grid?.mobileGutter}px 0;
+`;
 
 export const SearchIconWrapper = styled.View`
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 24.5px;
+  left: ${theme?.grid?.mobileGutter + 12}px;
 `;
 
 export const Input = styled.TextInput`
   width: ${getColumnWidth(theme?.grid?.columns, true)};
+
   border-radius: ${theme?.shape?.radius?.button};
   height: 40px;
   background-color: ${theme?.color?.primary?.white};
@@ -33,9 +38,8 @@ export const Input = styled.TextInput`
 `;
 
 export const FiltersSlider = styled.ScrollView`
-  width: ${Dimensions.get("screen").width}px;
+  width: ${Dimensions.get("window").width}px;
   padding: 10px 0;
-  left: ${-1 * theme?.grid?.mobileGutter}px;
 `;
 
 export const Tag = styled.TouchableOpacity`

@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 import { getColumnWidth } from "~/Styles/mixins.styles";
 import theme from "~/Styles/theme.styles";
 
-const { color, shape, sizes } = theme;
+const { color, shape, sizes, grid } = theme;
 
 interface UnderlineIndicatorProps {
   bgColor?: string;
@@ -12,8 +12,8 @@ interface UnderlineIndicatorProps {
 
 export const TopBarWrapper = styled.View`
   position: absolute;
-  top: 0;
-  right: 0;
+  top: ${grid.borneGutter}px;
+  right: ${grid.borneGutter}px;
   width: ${getColumnWidth(21, false)};
   height: ${sizes?.bornContent?.topBarHeight}px;
   background-color: ${color.primary.white};
