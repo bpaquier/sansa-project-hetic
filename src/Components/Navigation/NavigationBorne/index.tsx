@@ -1,4 +1,3 @@
-import { useNavigate, useLocation } from "react-router-native";
 import { useTranslation } from "react-i18next";
 import { TouchableOpacity } from "react-native";
 import { useLocation } from "react-router-native";
@@ -10,7 +9,6 @@ import {
   NavButton,
   LanguageSection
 } from "./styles";
-
 import Arabic from "~/Components/Icons/Flags/Arabic";
 import English from "~/Components/Icons/Flags/English";
 import France from "~/Components/Icons/Flags/France";

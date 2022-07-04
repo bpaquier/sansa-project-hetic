@@ -4,7 +4,7 @@ import styled from "styled-components/native";
 import { getColumnWidth } from "~/Styles/mixins.styles";
 import Theme from "~/Styles/theme.styles";
 
-const { color } = Theme;
+const { color, boxShadow } = Theme;
 
 export const PageContent = styled.View`
   flex: 1;
@@ -17,14 +17,13 @@ interface CardProps {
   backgroundColor?: "white" | "blue";
 }
 
-export const Card = styled.View<CardProps>`
-  padding: 20px;
-  border-radius: 24px;
-  overflow: hidden;
-
-  ${({ backgroundColor }) =>
-    `background-color: ${color.primary[backgroundColor || "white"]}`};
-`;
+export const Card = styled.View<CardProps>((props) => ({
+  padding: "20px",
+  borderRadius: "24px",
+  overflow: "hidden",
+  backgroundColor: color.primary[props.backgroundColor || "white"],
+  ...boxShadow.panelAndroid
+}));
 
 export const FirstRow = styled.View`
   flex-direction: row;
