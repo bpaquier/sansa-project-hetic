@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import { useTranslation } from "react-i18next";
 import { Animated, Dimensions } from "react-native";
 import { useNavigate, useLocation } from "react-router-native";
 
@@ -7,12 +8,15 @@ import { Nav, NavButton, NavButtonText, PrimaryIconContainer } from "./styles";
 import MapMarker from "~/Components/Icons/System/Map/MapMarker";
 import House from "~/Components/Icons/System/System/House";
 import Plus from "~/Components/Icons/System/System/Plus";
+import { useGlobalContext } from "~/Contexts/globalContext";
 import Theme from "~/Styles/theme.styles";
 
 export default function NavigationMobile() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
   const isCurrentPage = (page: string): boolean => location.pathname === page;
+  const { setMenuLanguagesOpen } = useGlobalContext();
 
   const NavWidth = Dimensions.get("window").width;
   const NavIndicatorWidth = 60;
@@ -61,8 +65,19 @@ export default function NavigationMobile() {
     );
   };
 
+  const onPressExitLanguagesMenu = () => {
+    setMenuLanguagesOpen && setMenuLanguagesOpen(false);
+  };
+  const onPressExitLanguagesMenuAndNavigate = (direction: string) => {
+    onPressExitLanguagesMenu();
+    navigate(direction);
+  };
+
   return (
-    <Nav style={{ elevation: 6, shadowColor: Theme.color.neutral.black100 }}>
+    <Nav
+      onPress={() => onPressExitLanguagesMenu()}
+      style={{ elevation: 6, shadowColor: Theme.color.neutral.black100 }}
+    >
       <NavIndicator
         style={{
           position: "absolute",
@@ -73,7 +88,7 @@ export default function NavigationMobile() {
           backgroundColor: Theme.color.primary.blue
         }}
       />
-      <NavButton onPress={() => navigate("/home")}>
+      <NavButton onPress={() => onPressExitLanguagesMenuAndNavigate("/home")}>
         <House
           width={36}
           height={36}
@@ -83,9 +98,14 @@ export default function NavigationMobile() {
               : Theme.color.neutral.black60
           }
         />
-        <NavButtonText active={isCurrentPage("/home")}>Accueil</NavButtonText>
+        <NavButtonText active={isCurrentPage("/home")}>
+          {t("home.home")}
+        </NavButtonText>
       </NavButton>
-      <NavButton primary onPress={() => navigate("/")}>
+      <NavButton
+        primary
+        onPress={() => onPressExitLanguagesMenuAndNavigate("/")}
+      >
         <PrimaryIconContainer active={isCurrentPage("/")}>
           <MapMarker
             width={36}
@@ -97,9 +117,11 @@ export default function NavigationMobile() {
             }
           />
         </PrimaryIconContainer>
-        <NavButtonText active={isCurrentPage("/")}>Rechercher</NavButtonText>
+        <NavButtonText active={isCurrentPage("/")}>
+          {t("search.search")}
+        </NavButtonText>
       </NavButton>
-      <NavButton onPress={() => navigate("/plus")}>
+      <NavButton onPress={() => onPressExitLanguagesMenuAndNavigate("/plus")}>
         <Plus
           width={36}
           height={36}
@@ -109,7 +131,9 @@ export default function NavigationMobile() {
               : Theme.color.neutral.black60
           }
         />
-        <NavButtonText active={isCurrentPage("/plus")}>Plus</NavButtonText>
+        <NavButtonText active={isCurrentPage("/plus")}>
+          {t("plus.plus")}
+        </NavButtonText>
       </NavButton>
     </Nav>
   );

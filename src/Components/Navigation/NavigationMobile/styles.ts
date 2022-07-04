@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 
 import Theme from "~/Styles/theme.styles";
 
-export const Nav = styled.View`
+export const Nav = styled.Pressable`
   position: absolute;
   bottom: 0;
   width: 100%;

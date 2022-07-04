@@ -22,18 +22,23 @@ export default function NavigationBorne() {
   const isCurrentPage = (page: string): boolean => location.pathname === page;
   const { setMenuLanguagesOpen } = useGlobalContext();
 
+  const onPressExitLanguagesMenu = () => {
+    setMenuLanguagesOpen && setMenuLanguagesOpen(false);
+  };
+  const onPressExitLanguagesMenuAndNavigate = (direction: string) => {
+    onPressExitLanguagesMenu();
+    navigate(direction);
+  };
+
   return (
     <Nav
       style={{ elevation: 6, shadowColor: "transparent" }}
-      onPress={() => setMenuLanguagesOpen && setMenuLanguagesOpen(false)}
+      onPress={() => onPressExitLanguagesMenu()}
     >
       <NavButtonsContainer>
         <NavButtonContainer active={isCurrentPage("/home")}>
           <NavButton
-            onPress={() => {
-              navigate("/home");
-              setMenuLanguagesOpen && setMenuLanguagesOpen(false);
-            }}
+            onPress={() => onPressExitLanguagesMenuAndNavigate("/home")}
             active={isCurrentPage("/home")}
           >
             <House width={36} height={36} color={Theme.color.primary.white} />
@@ -41,10 +46,7 @@ export default function NavigationBorne() {
         </NavButtonContainer>
         <NavButtonContainer active={isCurrentPage("/")} spaceTop>
           <NavButton
-            onPress={() => {
-              navigate("/");
-              setMenuLanguagesOpen && setMenuLanguagesOpen(false);
-            }}
+            onPress={() => onPressExitLanguagesMenuAndNavigate("/")}
             active={isCurrentPage("/")}
           >
             <MapMarker
@@ -56,10 +58,7 @@ export default function NavigationBorne() {
         </NavButtonContainer>
         <NavButtonContainer active={isCurrentPage("/plus")} spaceTop>
           <NavButton
-            onPress={() => {
-              navigate("/plus");
-              setMenuLanguagesOpen && setMenuLanguagesOpen(false);
-            }}
+            onPress={() => onPressExitLanguagesMenuAndNavigate("/plus")}
             active={isCurrentPage("/plus")}
           >
             <Plus width={36} height={36} color={Theme.color.primary.white} />
