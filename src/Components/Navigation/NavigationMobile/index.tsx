@@ -62,7 +62,7 @@ export default function NavigationMobile() {
   };
 
   return (
-    <Nav style={{ elevation: 6, shadowColor: "transparent" }}>
+    <Nav style={{ elevation: 6, shadowColor: Theme.color.neutral.black100 }}>
       <NavIndicator
         style={{
           position: "absolute",

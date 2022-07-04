@@ -9,10 +9,11 @@ import France from "../Icons/Flags/France";
 import Spain from "../Icons/Flags/Spain";
 import Ukraine from "../Icons/Flags/Ukraine";
 import TextWrapper from "../Ui-kit/TextWrapper";
-import { BackgroundLayer, LanguagesItemMenu, Menu } from "./styles";
+import BorneLanguagesMenu from "./BorneLanguagesMenu";
+import LanguagesMenuMobile from "./MobileLanguagesMenu";
+import { LanguagesItemMenu } from "./styles";
 import { useGlobalContext } from "~/Contexts/globalContext";
 import { LanguagesType } from "~/locales/i18n";
-import theme from "~/Styles/theme.styles";
 
 const languagesList: {
   id: LanguagesType;
@@ -49,16 +50,12 @@ const languagesList: {
 export default function LanguagesMenu(): JSX.Element {
   const { i18n } = useTranslation();
   const [isActive, setIsActive] = useState(i18n.language);
-  const { isMenuLanguagesOpen, setMenuLanguagesOpen } = useGlobalContext();
+  const { isMenuLanguagesOpen, setMenuLanguagesOpen, isMobile } =
+    useGlobalContext();
 
   const backgroundAnimationValueHolder = useRef(
     new Animated.Value(isMenuLanguagesOpen ? 1 : 0)
   ).current;
-
-  const backgroundColorAnimation = backgroundAnimationValueHolder.interpolate({
-    inputRange: [0, 1],
-    outputRange: ["transparent", "hsla(0, 0%, 0%, 0.2)"]
-  });
 
   useEffect(() => {
     setIsActive(i18n.language);
@@ -68,17 +65,6 @@ export default function LanguagesMenu(): JSX.Element {
     i18n.changeLanguage(language);
     setMenuLanguagesOpen && setMenuLanguagesOpen();
   };
-
-  const handleCloseBackground = () =>
-    setMenuLanguagesOpen && setMenuLanguagesOpen();
-
-  const animationStyle = [
-    {
-      width: "100%",
-      height: "100%",
-      backgroundColor: backgroundColorAnimation
-    }
-  ];
 
   useEffect(() => {
     isMenuLanguagesOpen &&
@@ -98,26 +84,32 @@ export default function LanguagesMenu(): JSX.Element {
       }).start();
   }, [backgroundAnimationValueHolder, isMenuLanguagesOpen]);
 
-  return isMenuLanguagesOpen ? (
+  const LanguagesItemsMenu = ({ size }: { size: number }): JSX.Element => (
     <>
-      <BackgroundLayer onPress={handleCloseBackground} style={{ elevation: 2 }}>
-        <Animated.View style={animationStyle}>
-          <Menu style={{ ...theme.boxShadow.panelAndroid }}>
-            {languagesList.map((language) => (
-              <LanguagesItemMenu
-                key={language.id}
-                activeOpacity={0.7}
-                isActive={isActive === language.id}
-                onPressOut={() => handleChooseLanguage(language.id)}
-              >
-                <language.flag width={27} height={27} />
-                <TextWrapper marginLeft={15.5}>{language.text}</TextWrapper>
-              </LanguagesItemMenu>
-            ))}
-          </Menu>
-        </Animated.View>
-      </BackgroundLayer>
+      {languagesList.map((language) => (
+        <LanguagesItemMenu
+          key={language.id}
+          activeOpacity={0.7}
+          isActive={isActive === language.id}
+          onPress={() => handleChooseLanguage(language.id)}
+        >
+          <language.flag width={size} height={size} />
+          <TextWrapper marginLeft={15.5}>{language.text}</TextWrapper>
+        </LanguagesItemMenu>
+      ))}
     </>
+  );
+
+  return isMenuLanguagesOpen ? (
+    isMobile ? (
+      <LanguagesMenuMobile>
+        <LanguagesItemsMenu size={36} />
+      </LanguagesMenuMobile>
+    ) : (
+      <BorneLanguagesMenu>
+        <LanguagesItemsMenu size={27} />
+      </BorneLanguagesMenu>
+    )
   ) : (
     <></>
   );
