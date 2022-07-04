@@ -1,10 +1,22 @@
+import { useNavigate } from "react-router-native";
+
 import NavigationBorne from "./NavigationBorne";
 import NavigationMobile from "./NavigationMobile";
 import { useGlobalContext } from "~/Contexts/globalContext";
 
 export default function Navigation() {
-  const { isMobile } = useGlobalContext();
+  const { isMobile, setMenuLanguagesOpen } = useGlobalContext();
   const Navigation = isMobile ? NavigationMobile : NavigationBorne;
+  const navigate = useNavigate();
 
-  return <Navigation />;
+  const onPressExitLanguagesMenuAndNavigate = (direction?: string) => {
+    setMenuLanguagesOpen && setMenuLanguagesOpen(false);
+    direction && navigate(direction);
+  };
+
+  return (
+    <Navigation
+      onPressExitLanguagesMenuAndNavigate={onPressExitLanguagesMenuAndNavigate}
+    />
+  );
 }

@@ -1,0 +1,49 @@
+{
+  "common": {
+    "sansa": "sansa",
+    "login": "Inicio de sesión",
+    "register": "Registrar",
+    "logout": "Desconexión"
+  },
+  "plus": {
+    "plus": "Màs",
+    "whatIsSansa": "Sansa, ¿qué es?",
+    "sansaDescription": "Sansa es la plataforma que hace referencia a lugares y servicios útiles para las personas con dificultades.",
+    "newNote": "Nueva nota",
+    "digitalSafe": "Caja fuerte digital",
+    "favouritePlaces": "Mis lugares favoritos",
+    "helloWithName": "Hola {{ name }} !",
+    "itsMissions": "Sus misiones",
+    "missionsPrompt1": "Remitir a todas las personas en situaciones difíciles a las estructuras que puedan ayudarlas.",
+    "missionsPrompt2": "Proporcionar una herramienta abierta a todos, ergonómica, sencilla y rápida de utilizar.",
+    "missionsPrompt3": "Una caja fuerte digital y una referencia de tus lugares favoritos.",
+    "contactUs": "Contacto con nosotros",
+    "languages": "Lenguas",
+    "privacyPolicy": "Política de privacidad",
+    "legals": "Información jurídica",
+    "tcu": "TCU",
+    "consultList": "Ver la lista",
+    "administrativeAssistance": "Ayudas administrativas"
+  },
+  "forms": {
+    "iReadAndAcceptPrompt": "He leído y acepto las condiciones generales de uso",
+    "alreadyHaveAnAccount": "¿Ya tiene una cuenta?",
+    "identifier": "Identificador",
+    "emailAdress": "Dirección de correo",
+    "phone": "Teléfono",
+    "password": "Contraseña",
+    "passwordCharactersPrompt": "Debe contener 8 caracteres con una letra mayúscula y un número",
+    "emailOrIdentifier": "Su correo electrónico o nombre de usuario",
+    "yourPassword": "Su contraseña",
+    "noAccountYet": "¿Aún no tiene cuenta?",
+    "requiredField": "Este campo es obligatorio",
+    "invalidFormat": "Formato inválido",
+    "forgotPassword": "¿Ha olvidado su contraseña?"
+  },
+  "search": {
+    "search": "Buscar"
+  },
+  "home": {
+    "home": "Hogar"
+  }
+}

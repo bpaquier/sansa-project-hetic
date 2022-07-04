@@ -38,6 +38,7 @@
       "error",
       { "argsIgnorePattern": "^_" }
     ],
+    "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/no-explicit-any": "off",
     // imports
     "import/no-unresolved": [2, { "ignore": ["~/*"] }],
