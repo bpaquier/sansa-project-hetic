@@ -22,5 +22,5 @@ export const WrapperMobileMenu = styled.View`
   position: absolute;
   width: ${Dimensions.get("window").width}px;
   height: ${Dimensions.get("window").height}px;
-  background-color: #f8f8f8;
+  background-color: ${theme.color.neutral.white80};
 `;
