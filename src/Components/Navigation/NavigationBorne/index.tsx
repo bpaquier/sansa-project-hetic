@@ -1,5 +1,5 @@
 import { TouchableOpacity } from "react-native";
-import { useNavigate, useLocation } from "react-router-native";
+import { useLocation } from "react-router-native";
 
 import {
   Nav,
@@ -16,24 +16,21 @@ import Separator from "~/Components/Ui-kit/Separator";
 import { useGlobalContext } from "~/Contexts/globalContext";
 import Theme from "~/Styles/theme.styles";
 
-export default function NavigationBorne() {
-  const navigate = useNavigate();
+type NavigationBorneProps = {
+  onPressExitLanguagesMenuAndNavigate: (direction?: string) => void;
+};
+
+export default function NavigationBorne({
+  onPressExitLanguagesMenuAndNavigate
+}: NavigationBorneProps) {
   const location = useLocation();
   const isCurrentPage = (page: string): boolean => location.pathname === page;
   const { setMenuLanguagesOpen } = useGlobalContext();
 
-  const onPressExitLanguagesMenu = () => {
-    setMenuLanguagesOpen && setMenuLanguagesOpen(false);
-  };
-  const onPressExitLanguagesMenuAndNavigate = (direction: string) => {
-    onPressExitLanguagesMenu();
-    navigate(direction);
-  };
-
   return (
     <Nav
       style={{ elevation: 6, shadowColor: "transparent" }}
-      onPress={() => onPressExitLanguagesMenu()}
+      onPress={() => onPressExitLanguagesMenuAndNavigate()}
     >
       <NavButtonsContainer>
         <NavButtonContainer active={isCurrentPage("/home")}>
