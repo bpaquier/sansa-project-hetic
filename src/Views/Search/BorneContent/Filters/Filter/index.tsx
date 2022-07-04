@@ -21,7 +21,10 @@ export default function Filter({ filter }: FlterProps): JSX.Element {
       name={filter}
       forceChecked={isSelected}
       onChange={(state) =>
-        updateFilters({ action: state ? "add" : "remove", filterName: filter })
+        updateFilters({
+          action: state ? "add" : "remove",
+          filtersName: [filter]
+        })
       }
       label={filter}
       large

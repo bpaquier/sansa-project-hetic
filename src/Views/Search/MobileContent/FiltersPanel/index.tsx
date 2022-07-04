@@ -9,12 +9,18 @@ import ButtonComponent from "~/Components/Ui-kit/Button";
 import Separator from "~/Components/Ui-kit/Separator";
 import { useSearchContext } from "~/Contexts/searchContext";
 import theme from "~/Styles/theme.styles";
+import { servicesRepartition } from "~/utils/getServices";
 
 //const SCREEN_HEIGHT = Dimensions?.get("window").height;
 
 export default function FiltersPanel(): JSX.Element {
-  const { displayFilters, setDisplayFilters, filters, setFilters } =
-    useSearchContext();
+  const {
+    displayFilters,
+    setDisplayFilters,
+    filters,
+    setFilters,
+    updateFilters
+  } = useSearchContext();
 
   return (
     <Draggable
@@ -35,13 +41,30 @@ export default function FiltersPanel(): JSX.Element {
               orientation="horizontal"
               width={`${Dimensions.get("window").width}px`}
             />
-            <BottomButton onPress={() => setFilters(null)}>
-              <ButtonComponent
-                type="tertiary"
-                text="Réinitialiser"
-                onPress={() => setFilters(null)}
-              />
-            </BottomButton>
+            {displayFilters === "all" ? (
+              <BottomButton onPress={() => setFilters(null)}>
+                <ButtonComponent
+                  type="tertiary"
+                  text="Supprimer le(s) filtre(s)"
+                  onPress={() => setFilters(null)}
+                />
+              </BottomButton>
+            ) : (
+              <BottomButton onPress={() => setFilters(null)}>
+                <ButtonComponent
+                  type="tertiary"
+                  text="Réinitialiser"
+                  onPress={() =>
+                    displayFilters &&
+                    updateFilters({
+                      action: "remove",
+                      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                      filtersName: servicesRepartition?.[displayFilters]
+                    })
+                  }
+                />
+              </BottomButton>
+            )}
           </>
         )}
       </PanelContent>

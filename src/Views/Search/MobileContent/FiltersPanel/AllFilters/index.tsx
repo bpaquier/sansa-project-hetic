@@ -27,7 +27,7 @@ export default function AllFilters(): JSX.Element {
                   {...{ color }}
                   activeOpacity={0.7}
                   onPress={() =>
-                    updateFilters({ action: "remove", filterName: filter })
+                    updateFilters({ action: "remove", filtersName: [filter] })
                   }
                 >
                   <Text customColor={color}>{filter}</Text>

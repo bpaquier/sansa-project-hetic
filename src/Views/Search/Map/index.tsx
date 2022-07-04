@@ -32,7 +32,7 @@ interface LocationProps {
 }
 
 export default function Map(): JSX.Element {
-  const initialDelta = 0.2;
+  const initialDelta = 0.1;
   const { displayFilters, setDisplayFilters } = useSearchContext();
   const { isMobile } = useGlobalContext();
   const { selectedPlaceIndex, filteredPlaces, setSelectedPlaceIndex } =
@@ -117,9 +117,6 @@ export default function Map(): JSX.Element {
   ) as React.ElementType;
 
   return (
-    /*  <Pressable
-      
-    > */
     <>
       <MapView
         ref={mapRef}
@@ -134,6 +131,11 @@ export default function Map(): JSX.Element {
       >
         {filteredPlaces?.map((place, index) => (
           <Marker
+            style={[
+              {
+                zIndex: index === selectedPlaceIndex ? 2 : 1
+              }
+            ]}
             key={`${index}-${place?.organization_name}`}
             onPress={() => {
               setSelectedPlaceIndex(index);
@@ -147,44 +149,52 @@ export default function Map(): JSX.Element {
               {...{ index }}
               isSelected={index === selectedPlaceIndex}
               name={place?.organization_name}
+              small={isMobile}
             />
           </Marker>
         ))}
       </MapView>
-      {!isMobile && (
-        <Controls>
-          <Button
-            // eslint-disable-next-line @typescript-eslint/no-misused-promises
-            onPress={async () => {
-              const currentLocation = await Location.getCurrentPositionAsync(
-                {}
-              );
-              goToLocation({
-                latitudeDelta: initialDelta,
-                longitudeDelta: initialDelta,
-                latitude: currentLocation?.coords?.latitude,
-                longitude: currentLocation?.coords?.longitude
-              });
-            }}
-            marginBottom={isMobile ? 0 : 48}
-            {...{ isMobile }}
-          >
-            <PositionIcon
-              width={isMobile ? 20 : 32}
-              height={isMobile ? 20 : 32}
-              color={theme?.color?.primary?.blue}
-            />
-          </Button>
 
-          <Button onPress={() => zoom("in")} marginBottom={8}>
-            <Plus width={32} height={32} color={theme?.color?.primary?.blue} />
-          </Button>
-          <Button onPress={() => zoom("out")} marginBottom={0}>
-            <Minus width={32} height={32} color={theme?.color?.primary?.blue} />
-          </Button>
-        </Controls>
-      )}
+      <Controls>
+        <Button
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
+          onPress={async () => {
+            const currentLocation = await Location.getCurrentPositionAsync({});
+            goToLocation({
+              latitudeDelta: initialDelta,
+              longitudeDelta: initialDelta,
+              latitude: currentLocation?.coords?.latitude,
+              longitude: currentLocation?.coords?.longitude
+            });
+          }}
+          marginBottom={isMobile ? 0 : 48}
+          {...{ isMobile }}
+        >
+          <PositionIcon
+            width={isMobile ? 20 : 32}
+            height={isMobile ? 20 : 32}
+            color={theme?.color?.primary?.blue}
+          />
+        </Button>
+        {!isMobile && (
+          <>
+            <Button onPress={() => zoom("in")} marginBottom={8}>
+              <Plus
+                width={32}
+                height={32}
+                color={theme?.color?.primary?.blue}
+              />
+            </Button>
+            <Button onPress={() => zoom("out")} marginBottom={0}>
+              <Minus
+                width={32}
+                height={32}
+                color={theme?.color?.primary?.blue}
+              />
+            </Button>
+          </>
+        )}
+      </Controls>
     </>
-    /*  </Pressable> */
   );
 }

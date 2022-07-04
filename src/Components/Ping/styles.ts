@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
+2;
 
-export const StyledView = styled.View`
+export const PingWrapper = styled.View`
   align-items: center;
 `;
 

@@ -30,7 +30,7 @@ export default function Tags(): JSX.Element {
           <Tag
             borderColor={color}
             onPress={() =>
-              updateFilters({ action: "remove", filterName: filter })
+              updateFilters({ action: "remove", filtersName: [filter] })
             }
             key={`${filter}-${i}`}
           >

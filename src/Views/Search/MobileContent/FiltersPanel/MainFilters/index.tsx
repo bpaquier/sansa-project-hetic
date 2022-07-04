@@ -27,7 +27,7 @@ export default function MainFilters(): JSX.Element {
               onPress={() =>
                 updateFilters({
                   action: isSelected ? "remove" : "add",
-                  filterName: filter
+                  filtersName: [filter]
                 })
               }
             >

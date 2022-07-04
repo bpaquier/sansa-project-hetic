@@ -49,7 +49,7 @@ interface ContextProps {
   setFilters?: (filter?: string[]) => void;
   displayFilters?: string | null;
   setDisplayFilters?: (arg: string | null) => void;
-  updateFilters?: ({ action, filterName }: updateFiltersProps) => void;
+  updateFilters?: ({ action, filtersName }: updateFiltersProps) => void;
   isLoading?: boolean;
   debouncedFilters?: string[];
   displayPlaceDescription?: number | null;
@@ -58,7 +58,7 @@ interface ContextProps {
 
 type updateFiltersProps = {
   action: "add" | "remove";
-  filterName: string;
+  filtersName: string[];
 };
 
 export const Context = createContext<ContextProps>({});
@@ -115,15 +115,22 @@ function SearchProvider({ children }: SearchProviderProps) {
     }
   }, [filters]);
 
-  const updateFilters = ({ action, filterName }: updateFiltersProps) => {
+  const updateFilters = ({ action, filtersName }: updateFiltersProps) => {
     if (action === "add") {
-      filters && filters?.length > 0
-        ? !filters?.includes(filterName) && setFilters([...filters, filterName])
-        : setFilters([filterName]);
+      setFilters((prev) =>
+        prev ? [...prev, ...filtersName] : [...filtersName]
+      );
     } else {
-      if (filters?.includes(filterName)) {
-        setFilters(filters?.filter((item) => item !== filterName));
-      }
+      setFilters(
+        (prev) =>
+          prev !== null &&
+          prev?.reduce((acc: string[], value: string) => {
+            if (!filtersName?.includes(value)) {
+              acc?.push(value);
+            }
+            return acc;
+          }, [])
+      );
     }
   };
 

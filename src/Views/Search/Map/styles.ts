@@ -20,7 +20,7 @@ export const ControlsBorne = styled.View`
 
 export const ControlsMobile = styled.View`
   position: absolute;
-  top: ${grid?.mobileGutter}px;
+  bottom: ${grid?.mobileGutter}px;
   right: ${grid?.mobileGutter}px;
 `;
 

@@ -1,8 +1,8 @@
-import { StyledView, IndexWrapper } from "./styles";
+import { PingWrapper, IndexWrapper } from "./styles";
 import PingIcon from "~/Components/Icons/System/Map/Ping";
 import Text from "~/Components/Ui-kit/Text";
 
-interface PingProps {
+export interface PingProps {
   index?: number;
   name?: string;
   small?: boolean;
@@ -11,12 +11,12 @@ interface PingProps {
 
 export default function Ping({
   index,
-  name,
+  //name,
   small,
   isSelected
 }: PingProps): JSX.Element {
   return (
-    <StyledView>
+    <PingWrapper>
       <IndexWrapper>
         <Text
           textAlign="center"
@@ -27,9 +27,9 @@ export default function Ping({
         </Text>
       </IndexWrapper>
       <PingIcon {...{ small, isSelected }} />
-      <Text color="black40" weight="bold" type={small ? "small" : "paragraph"}>
+      {/* <Text color="black40" weight="bold" type={small ? "small" : "paragraph"}>
         {name}
-      </Text>
-    </StyledView>
+      </Text> */}
+    </PingWrapper>
   );
 }
