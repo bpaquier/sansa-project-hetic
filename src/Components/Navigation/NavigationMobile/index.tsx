@@ -2,21 +2,24 @@ import { useEffect, useState } from "react";
 
 import { useTranslation } from "react-i18next";
 import { Animated, Dimensions } from "react-native";
-import { useNavigate, useLocation } from "react-router-native";
+import { useLocation } from "react-router-native";
 
 import { Nav, NavButton, NavButtonText, PrimaryIconContainer } from "./styles";
 import MapMarker from "~/Components/Icons/System/Map/MapMarker";
 import House from "~/Components/Icons/System/System/House";
 import Plus from "~/Components/Icons/System/System/Plus";
-import { useGlobalContext } from "~/Contexts/globalContext";
 import Theme from "~/Styles/theme.styles";
 
-export default function NavigationMobile() {
-  const navigate = useNavigate();
+type NavigationMobileProps = {
+  onPressExitLanguagesMenuAndNavigate: (direction?: string) => void;
+};
+
+export default function NavigationMobile({
+  onPressExitLanguagesMenuAndNavigate
+}: NavigationMobileProps) {
   const location = useLocation();
   const { t } = useTranslation();
   const isCurrentPage = (page: string): boolean => location.pathname === page;
-  const { setMenuLanguagesOpen } = useGlobalContext();
 
   const NavWidth = Dimensions.get("window").width;
   const NavIndicatorWidth = 60;
@@ -65,17 +68,9 @@ export default function NavigationMobile() {
     );
   };
 
-  const onPressExitLanguagesMenu = () => {
-    setMenuLanguagesOpen && setMenuLanguagesOpen(false);
-  };
-  const onPressExitLanguagesMenuAndNavigate = (direction: string) => {
-    onPressExitLanguagesMenu();
-    navigate(direction);
-  };
-
   return (
     <Nav
-      onPress={() => onPressExitLanguagesMenu()}
+      onPress={() => onPressExitLanguagesMenuAndNavigate()}
       style={{ elevation: 6, shadowColor: Theme.color.neutral.black100 }}
     >
       <NavIndicator
