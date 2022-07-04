@@ -19,7 +19,7 @@ import {
 } from "~/utils/getServices";
 
 export default function Filters(): JSX.Element {
-  const { setDisplayFilters } = useSearchContext();
+  const { setDisplayFilters, filters } = useSearchContext();
 
   return (
     <FiltersWrapper>
@@ -44,7 +44,7 @@ export default function Filters(): JSX.Element {
             />
           </TagIcon>
           <Text color="white" type="small">
-            Filtre(s)
+            {`${filters?.length > 0 ? `${filters?.length} ` : ""}Filtre(s)`}
           </Text>
         </Tag>
         {MainServicesToDisplay?.map((service, i) => {

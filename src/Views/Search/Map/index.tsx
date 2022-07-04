@@ -6,7 +6,7 @@ import { StyleSheet, Dimensions } from "react-native";
 // eslint-disable-next-line import/named
 import MapView, { PROVIDER_GOOGLE, Camera, Marker } from "react-native-maps";
 
-import { ControlsBorne, ControlsMobile, Button } from "./styles";
+import { Button, Controls } from "./styles";
 import PositionIcon from "~/Components/Icons/System/Map/Position";
 import Minus from "~/Components/Icons/System/System/Minus";
 import Plus from "~/Components/Icons/System/System/Plus";
@@ -35,8 +35,12 @@ export default function Map(): JSX.Element {
   const initialDelta = 0.1;
   const { displayFilters, setDisplayFilters } = useSearchContext();
   const { isMobile } = useGlobalContext();
-  const { selectedPlaceIndex, filteredPlaces, setSelectedPlaceIndex } =
-    useSearchContext();
+  const {
+    selectedPlaceIndex,
+    filteredPlaces,
+    setSelectedPlaceIndex,
+    triggerLocalization
+  } = useSearchContext();
 
   const mapRef = useRef();
   const [location, setLocation] = useState<LocationProps>({
@@ -69,20 +73,6 @@ export default function Map(): JSX.Element {
     goToLocation({ ...location });
   }, [location]);
 
-  const goToLocation = ({ latitude, longitude, ...rest }: LocationProps) => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    mapRef?.current?.animateToRegion(
-      {
-        ...rest,
-        latitude: latitude,
-        longitude: longitude
-      },
-      1000
-    );
-  };
-
   useEffect(() => {
     selectedPlaceIndex !== null &&
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -99,6 +89,10 @@ export default function Map(): JSX.Element {
       );
   }, [selectedPlaceIndex]);
 
+  useEffect(() => {
+    triggerLocalization !== null && goToCurrentPosition();
+  }, [triggerLocalization]);
+
   const zoom = (arg: "in" | "out") => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
@@ -112,9 +106,33 @@ export default function Map(): JSX.Element {
     });
   };
 
-  const Controls = (
+  const goToLocation = ({ latitude, longitude, ...rest }: LocationProps) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    mapRef?.current?.animateToRegion(
+      {
+        ...rest,
+        latitude: latitude,
+        longitude: longitude
+      },
+      1000
+    );
+  };
+
+  const goToCurrentPosition = async () => {
+    const currentLocation = await Location.getCurrentPositionAsync({});
+    goToLocation({
+      latitudeDelta: initialDelta,
+      longitudeDelta: initialDelta,
+      latitude: currentLocation?.coords?.latitude,
+      longitude: currentLocation?.coords?.longitude
+    });
+  };
+
+  /*   const Controls = (
     isMobile ? ControlsMobile : ControlsBorne
-  ) as React.ElementType;
+  ) as React.ElementType; */
 
   return (
     <>
@@ -154,29 +172,21 @@ export default function Map(): JSX.Element {
           </Marker>
         ))}
       </MapView>
+      {!isMobile && (
+        <Controls {...{ isMobile }}>
+          <Button
+            // eslint-disable-next-line @typescript-eslint/no-misused-promises
+            onPress={() => goToCurrentPosition()}
+            marginBottom={isMobile ? 0 : 48}
+            {...{ isMobile }}
+          >
+            <PositionIcon
+              width={isMobile ? 20 : 32}
+              height={isMobile ? 20 : 32}
+              color={theme?.color?.primary?.blue}
+            />
+          </Button>
 
-      <Controls>
-        <Button
-          // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          onPress={async () => {
-            const currentLocation = await Location.getCurrentPositionAsync({});
-            goToLocation({
-              latitudeDelta: initialDelta,
-              longitudeDelta: initialDelta,
-              latitude: currentLocation?.coords?.latitude,
-              longitude: currentLocation?.coords?.longitude
-            });
-          }}
-          marginBottom={isMobile ? 0 : 48}
-          {...{ isMobile }}
-        >
-          <PositionIcon
-            width={isMobile ? 20 : 32}
-            height={isMobile ? 20 : 32}
-            color={theme?.color?.primary?.blue}
-          />
-        </Button>
-        {!isMobile && (
           <>
             <Button onPress={() => zoom("in")} marginBottom={8}>
               <Plus
@@ -193,8 +203,8 @@ export default function Map(): JSX.Element {
               />
             </Button>
           </>
-        )}
-      </Controls>
+        </Controls>
+      )}
     </>
   );
 }

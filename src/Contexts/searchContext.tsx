@@ -54,6 +54,8 @@ interface ContextProps {
   debouncedFilters?: string[];
   displayPlaceDescription?: number | null;
   setDisplayPlaceDescription?: (id: number) => void;
+  triggerLocalization?: boolean | null;
+  setTriggerLocalization?: (arg: boolean) => void;
 }
 
 type updateFiltersProps = {
@@ -83,12 +85,12 @@ function SearchProvider({ children }: SearchProviderProps) {
   const [displayPlaceDescription, setDisplayPlaceDescription] = useState<
     number | null
   >(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const debouncedFilters = useDebounce(filters, 1000);
+  const [triggerLocalization, setTriggerLocalization] = useState<boolean>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const debouncedFilters = useDebounce(filters, 5000);
 
   useEffect(() => {
     if (debouncedFilters && debouncedFilters?.length > 0) {
-      setIsLoading(true);
       /**
        * !replace realPlaces by API response
        */
@@ -104,6 +106,7 @@ function SearchProvider({ children }: SearchProviderProps) {
   }, [debouncedFilters]);
 
   useEffect(() => {
+    setIsLoading(true);
     if (filters?.length === 0) {
       setFilters(null);
     }
@@ -147,7 +150,9 @@ function SearchProvider({ children }: SearchProviderProps) {
     debouncedFilters,
     isLoading,
     displayPlaceDescription,
-    setDisplayPlaceDescription
+    setDisplayPlaceDescription,
+    triggerLocalization,
+    setTriggerLocalization
   };
 
   return <Context.Provider value={providerValue}>{children}</Context.Provider>;

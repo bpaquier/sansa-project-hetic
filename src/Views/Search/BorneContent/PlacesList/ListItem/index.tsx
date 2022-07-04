@@ -43,16 +43,22 @@ export default function ListItem({
       <InfoWrapper>
         <TextWrapper>
           <TextStyled>
-            <Text color="black" weight="bold">
-              {organization_name}
-            </Text>
+            {organization_name && (
+              <Text color="black" weight="bold">
+                {organization_name}
+              </Text>
+            )}
           </TextStyled>
-          <TextStyled>
-            <Text color="black60">{adress}</Text>
-          </TextStyled>
-          <TextStyled>
-            <Text color="black60">{`Ouvert de ${hours_id[0][currentDay]} - ${hours_id[0][currentDay]}`}</Text>
-          </TextStyled>
+          {adress && (
+            <TextStyled>
+              <Text color="black60">{adress}</Text>
+            </TextStyled>
+          )}
+          {hours_id[0][currentDay] && (
+            <TextStyled>
+              <Text color="black60">{`Ouvert de ${hours_id[0][currentDay]}`}</Text>
+            </TextStyled>
+          )}
         </TextWrapper>
         {services_id && (
           <IconsWrapper>
