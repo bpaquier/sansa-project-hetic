@@ -18,7 +18,6 @@ import MapMarker from "~/Components/Icons/System/Map/MapMarker";
 import House from "~/Components/Icons/System/System/House";
 import Plus from "~/Components/Icons/System/System/Plus";
 import Separator from "~/Components/Ui-kit/Separator";
-import { useGlobalContext } from "~/Contexts/globalContext";
 import Theme from "~/Styles/theme.styles";
 
 type NavigationBorneProps = {
@@ -30,7 +29,6 @@ export default function NavigationBorne({
 }: NavigationBorneProps) {
   const location = useLocation();
   const isCurrentPage = (page: string): boolean => location.pathname === page;
-  const { setMenuLanguagesOpen } = useGlobalContext();
   const { i18n } = useTranslation();
 
   const Flag = (): JSX.Element => {
@@ -88,9 +86,7 @@ export default function NavigationBorne({
         <Separator orientation="horizontal" margin={20} width="100%" />
         <TouchableOpacity
           activeOpacity={0.7}
-          onPress={() => {
-            setMenuLanguagesOpen && setMenuLanguagesOpen();
-          }}
+          onPress={() => onPressExitLanguagesMenuAndNavigate()}
         >
           <Flag />
         </TouchableOpacity>
