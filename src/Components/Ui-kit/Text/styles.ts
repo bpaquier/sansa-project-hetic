@@ -59,6 +59,7 @@ export const TextContainer = styled.Text`
   ${({ type, isMobile }: TextComponentProps) => {
     if (type === "paragraph" || type === "titleM" || type === "titleL")
       return "line-height: 24px";
+    if (type === "titleXL") return "line-height: 40px";
     if (type === "small" && !isMobile) return "line-height: 24px";
   }}
 `;

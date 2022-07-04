@@ -9,6 +9,7 @@ import GlobalProvider from "~/Contexts/globalContext";
 import theme from "~/Styles/theme.styles";
 import Login from "~/Views/Account/Login";
 import Register from "~/Views/Account/Register";
+import FAQ from "~/Views/FAQ";
 import Home from "~/Views/Home";
 import Page from "~/Views/Page";
 import Plus from "~/Views/Plus";
@@ -35,6 +36,7 @@ export default function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/home" element={<Home />} />
               <Route path="/plus" element={<Plus />} />
+              <Route path="/faq" element={<FAQ />} />
             </Routes>
             <LanguagesMenu />
           </>

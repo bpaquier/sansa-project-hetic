@@ -15,6 +15,7 @@ type PlusContainersProps = {
   paddingX?: number;
   paddingBottom?: number;
   height?: number;
+  paddingY?: number;
 };
 
 const { color, shape, sizes, grid } = Theme;
@@ -72,7 +73,10 @@ export const PlusContainersMobile = styled.View<PlusContainersProps>`
   ${generalPlusContainer}
   ${({ border }) => getBorderPlusContainer(border)};
   width: 100%;
-  padding: 24px ${getColumnWidth(1, true)}px;
+  padding: ${({ paddingY, paddingX }) =>
+    `${paddingY ?? 24}px ${
+      paddingX !== undefined ? `${paddingX}px` : getColumnWidth(1, true)
+    }`};
   margin-bottom: ${({ marginBottom }) => getMarginBottom(24, marginBottom)};
 `;
 
