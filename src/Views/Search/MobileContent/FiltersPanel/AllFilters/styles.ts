@@ -13,7 +13,7 @@ export const TagsWrapper = styled.View`
   margin-top: 20px;
 `;
 
-export const Tag = styled.View`
+export const Tag = styled.TouchableOpacity`
   border-radius: ${theme?.shape?.radius?.button};
   border: ${({ color }: TagProps) => `1px solid ${color}`};
   height: 32px;

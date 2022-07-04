@@ -1,3 +1,5 @@
+import { KeyboardAvoidingView, Platform } from "react-native";
+
 import {
   FiltersWrapper,
   Input,
@@ -53,7 +55,7 @@ export default function Filters(): JSX.Element {
           return (
             <Tag
               key={`${service}-${i}`}
-              activeOpacity={0.7}
+              activeOpacity={0.9}
               borderColor={color}
               lastElement={i === MainServicesToDisplay?.length - 1}
               onPress={() => setDisplayFilters(service)}

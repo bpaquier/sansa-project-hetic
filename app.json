@@ -26,7 +26,8 @@
         "googleMaps": {
           "apiKey": "AIzaSyDPoDTXy1eJsSlgFyGc4sIrf8kO8q6V4z8"
         }
-      }
+      },
+      "softwareKeyboardLayoutMode": "pan"
     },
     "web": {
       "favicon": "./assets/images/Team_success_Two_Color.png"
