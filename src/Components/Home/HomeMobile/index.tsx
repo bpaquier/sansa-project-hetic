@@ -49,7 +49,7 @@ export default function HomeMobile(): JSX.Element {
             <NoEventIllustration width="305px" height="144px" />
           </NoEventIllustrationWrapper>
         </EventCard>
-        <SanitaryCard>
+        <SanitaryCard style={boxShadow.panelAndroid}>
           <SanitaryItemWrapper onPress={() => navigate("/")}>
             <Text type="paragraph" weight="bold" textAlign="center">
               32
