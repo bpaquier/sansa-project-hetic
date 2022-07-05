@@ -34,9 +34,26 @@ export const PageContentBorne = styled.View`
   align-items: center;
 `;
 
+export const BackButtonMobile = styled.TouchableOpacity`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+`;
+
+export const BackButtonBorne = styled.TouchableOpacity`
+  position: absolute;
+  top: ${getColumnWidth(1, false)};
+  left: ${(
+    parseFloat(getColumnWidth(0.5, false)) -
+    Theme.size.icon.system / 2
+  ).toString() + "px"};
+  z-index: 1;
+`;
+
 export const ImageWrapperMobile = styled.View`
   width: 100%;
-  height: 150px;
+  height: 120px;
   align-items: center;
   margin-bottom: 20px;
 `;
@@ -44,8 +61,8 @@ export const ImageWrapperMobile = styled.View`
 export const ImageWrapperBorne = styled.View`
   align-items: center;
   justify-content: flex-start;
-  aspect-ratio: 1;
   width: ${getColumnWidth(10, false)};
+  max-height: 480px;
   margin-left: ${getColumnWidth(2, false)}; ;
 `;
 
