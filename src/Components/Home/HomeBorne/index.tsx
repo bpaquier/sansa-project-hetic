@@ -151,7 +151,7 @@ export default function HomeBorne(): JSX.Element {
                 <Text type="titleXL">Rechercher un médecin</Text>
               </HealthCardTitleWrapper>
               <Text color="black20" type="small">
-                Où puis-je me rendre ?{" "}
+                Où puis-je me rendre ?
               </Text>
             </HealthCard>
           </TouchableOpacity>
