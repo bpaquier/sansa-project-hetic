@@ -140,7 +140,7 @@ export default function HomeBorne(): JSX.Element {
             </SportCard>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigate("/")}>
-            <HealthCard>
+            <HealthCard style={boxShadow.panelAndroid}>
               <HealthCardHeadlineWrapper>
                 <Text color="black20">Santé</Text>
                 <HealthIconWrapper>
