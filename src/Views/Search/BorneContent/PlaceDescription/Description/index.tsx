@@ -9,7 +9,6 @@ import {
   DateWrapper,
   ButtonWrapper
 } from "./styles";
-import Button from "~/Components/Ui-kit/Button";
 import Text from "~/Components/Ui-kit/Text";
 import { PlaceProps } from "~/Contexts/searchContext";
 
@@ -63,7 +62,7 @@ export default function Description({
           textWrapperHeight === null && setTextWrapperHeight(height);
         }}
       >
-        <ScrollView scrollEnabled={false}>
+        <ScrollView scrollEnabled={false} showsVerticalScrollIndicator={false}>
           <Text
             onLayout={(e) => {
               /* eslint-disable @typescript-eslint/no-unsafe-member-access */
@@ -79,16 +78,14 @@ export default function Description({
           </Text>
         </ScrollView>
       </DescriptionText>
-      {isTextLong && (
-        <ButtonWrapper>
-          <Button
-            type="tertiary"
-            text="... Voir plus"
-            horizontalPosition="left"
-            onPress={() => setDisplayPanel("description")}
-          />
+
+      {isTextLong ? (
+        <ButtonWrapper onPress={() => setDisplayPanel("description")}>
+          <Text color="blue" weight="bold">
+            ...Voir plus
+          </Text>
         </ButtonWrapper>
-      )}
+      ) : null}
       <DateWrapper>
         <Text
           type="small"

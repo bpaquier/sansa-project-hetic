@@ -13,24 +13,22 @@ export default function Filters(): JSX.Element {
     ? servicesRepartition?.[displayFilters]
     : null;
 
-  return (
-    displayFilters && (
-      <FiltersWrapper>
-        <Title>
-          <Text type="titleL">{displayFilters}</Text>
-        </Title>
-        <Separator orientation="horizontal" />
-        <Content>
-          {selectedFilters &&
-            selectedFilters?.map((filter, i) => {
-              return (
-                <CheckboxWrapper key={`${filter}-${i}`}>
-                  <Filter {...{ filter }} />
-                </CheckboxWrapper>
-              );
-            })}
-        </Content>
-      </FiltersWrapper>
-    )
-  );
+  return displayFilters ? (
+    <FiltersWrapper>
+      <Title>
+        <Text type="titleL">{displayFilters}</Text>
+      </Title>
+      <Separator orientation="horizontal" />
+      <Content>
+        {selectedFilters &&
+          selectedFilters?.map((filter, i) => {
+            return (
+              <CheckboxWrapper key={`${filter}-${i}`}>
+                <Filter {...{ filter }} />
+              </CheckboxWrapper>
+            );
+          })}
+      </Content>
+    </FiltersWrapper>
+  ) : null;
 }

@@ -86,10 +86,11 @@ function SearchProvider({ children }: SearchProviderProps) {
     number | null
   >(null);
   const [triggerLocalization, setTriggerLocalization] = useState<boolean>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const debouncedFilters = useDebounce(filters, 5000);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const debouncedFilters = useDebounce(filters, 10);
 
   useEffect(() => {
+    setIsLoading(true);
     if (debouncedFilters && debouncedFilters?.length > 0) {
       /**
        * !replace realPlaces by API response
@@ -102,19 +103,16 @@ function SearchProvider({ children }: SearchProviderProps) {
 
       setIsLoading(false);
       setFilteredPlaces(selectedPlaces);
+    } else {
+      setIsLoading(false);
+      setFilteredPlaces(null);
     }
   }, [debouncedFilters]);
 
   useEffect(() => {
     setIsLoading(true);
-    if (filters?.length === 0) {
-      setFilters(null);
-    }
-
-    if (!filters) {
-      setDisplayFilters(null);
+    if (!filters || filters?.length === 0) {
       setIsLoading(false);
-      setFilteredPlaces(null);
     }
   }, [filters]);
 
@@ -124,18 +122,23 @@ function SearchProvider({ children }: SearchProviderProps) {
         prev ? [...prev, ...filtersName] : [...filtersName]
       );
     } else {
-      setFilters(
-        (prev) =>
-          prev !== null &&
-          prev?.reduce((acc: string[], value: string) => {
-            if (!filtersName?.includes(value)) {
-              acc?.push(value);
-            }
-            return acc;
-          }, [])
-      );
+      filters !== null &&
+        setFilters(
+          (prev) =>
+            prev !== null &&
+            prev?.reduce((acc: string[], value: string) => {
+              if (!filtersName?.includes(value)) {
+                acc?.push(value);
+              }
+              return acc;
+            }, [])
+        );
     }
   };
+
+  useEffect(() => {
+    filteredPlaces?.length > 0 && setSelectedPlaceIndex(0);
+  }, [filteredPlaces]);
 
   const providerValue = {
     selectedPlaceIndex,

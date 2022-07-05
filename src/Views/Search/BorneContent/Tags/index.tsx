@@ -44,41 +44,37 @@ export default function Tags(): JSX.Element {
     [filters, updateFilters]
   );
 
-  return (
-    filters?.length > 0 && (
-      <>
+  return filters?.length > 0 ? (
+    <>
+      {displayTagsList && <Overlay onPress={() => setDisplayTagsList(false)} />}
+      <TagsWrapper>
+        <Tag
+          activeOpacity={0.8}
+          bgColor={theme?.color?.primary?.blue}
+          borderColor={theme?.color?.primary?.blue}
+          onPress={() => setFilters(null)}
+        >
+          <Text weight="bold" color="white">
+            {`Supprimer le(s) filtre(s)`}
+          </Text>
+        </Tag>
+        <Tag
+          borderColor={theme?.color?.primary?.blueDark}
+          onPress={() => setDisplayTagsList((prev) => !prev)}
+        >
+          <Text
+            color="black"
+            weight="bold"
+          >{`Voir tous le(s) filtre(s) (${filters?.length})`}</Text>
+        </Tag>
         {displayTagsList && (
-          <Overlay onPress={() => setDisplayTagsList(false)} />
+          <TagListContainer>
+            <TagList>
+              <TagsListContent>{FilterList}</TagsListContent>
+            </TagList>
+          </TagListContainer>
         )}
-        <TagsWrapper>
-          <Tag
-            activeOpacity={0.8}
-            bgColor={theme?.color?.primary?.blue}
-            borderColor={theme?.color?.primary?.blue}
-            onPress={() => setFilters(null)}
-          >
-            <Text weight="bold" color="white">
-              {`Supprimer le(s) filtre(s)`}
-            </Text>
-          </Tag>
-          <Tag
-            borderColor={theme?.color?.primary?.blueDark}
-            onPress={() => setDisplayTagsList((prev) => !prev)}
-          >
-            <Text
-              color="black"
-              weight="bold"
-            >{`Voir tous le(s) filtre(s) (${filters?.length})`}</Text>
-          </Tag>
-          {displayTagsList && (
-            <TagListContainer>
-              <TagList>
-                <TagsListContent>{FilterList}</TagsListContent>
-              </TagList>
-            </TagListContainer>
-          )}
-        </TagsWrapper>
-      </>
-    )
-  );
+      </TagsWrapper>
+    </>
+  ) : null;
 }

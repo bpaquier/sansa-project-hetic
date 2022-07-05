@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from "react";
 
 import * as Location from "expo-location";
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions, Alert } from "react-native";
 // eslint-disable-next-line import/named
 import MapView, { PROVIDER_GOOGLE, Camera, Marker } from "react-native-maps";
 
@@ -33,13 +33,15 @@ interface LocationProps {
 
 export default function Map(): JSX.Element {
   const initialDelta = 0.1;
-  const { displayFilters, setDisplayFilters } = useSearchContext();
+  const delta = 0.04;
   const { isMobile } = useGlobalContext();
   const {
     selectedPlaceIndex,
     filteredPlaces,
     setSelectedPlaceIndex,
-    triggerLocalization
+    triggerLocalization,
+    displayFilters,
+    setDisplayFilters
   } = useSearchContext();
 
   const mapRef = useRef();
@@ -56,16 +58,14 @@ export default function Map(): JSX.Element {
       if (status !== "granted") {
         return;
       }
-      //const currentLocation = await Location.getCurrentPositionAsync({});
+      const currentLocation = await Location.getCurrentPositionAsync({});
 
-      setLocation(
-        location /* {
+      setLocation({
         latitudeDelta: initialDelta,
         longitudeDelta: initialDelta,
         latitude: currentLocation?.coords?.latitude,
         longitude: currentLocation?.coords?.longitude
-      } */
-      );
+      });
     })();
   }, []);
 
@@ -80,8 +80,8 @@ export default function Map(): JSX.Element {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       mapRef?.current?.animateToRegion(
         {
-          latitudeDelta: initialDelta,
-          longitudeDelta: initialDelta,
+          latitudeDelta: delta,
+          longitudeDelta: delta,
           latitude: parseFloat(filteredPlaces?.[selectedPlaceIndex]?.latitude),
           longitude: parseFloat(filteredPlaces?.[selectedPlaceIndex]?.longitude)
         },
@@ -121,6 +121,15 @@ export default function Map(): JSX.Element {
   };
 
   const goToCurrentPosition = async () => {
+    const { status } = await Location.requestForegroundPermissionsAsync();
+    if (status !== "granted") {
+      Alert.alert(
+        "",
+        "Veuillez autoriser la géolocalisation dans vos paramettres",
+        [{ text: "OK" }]
+      );
+      return;
+    }
     const currentLocation = await Location.getCurrentPositionAsync({});
     goToLocation({
       latitudeDelta: initialDelta,
@@ -129,10 +138,6 @@ export default function Map(): JSX.Element {
       longitude: currentLocation?.coords?.longitude
     });
   };
-
-  /*   const Controls = (
-    isMobile ? ControlsMobile : ControlsBorne
-  ) as React.ElementType; */
 
   return (
     <>
@@ -172,7 +177,7 @@ export default function Map(): JSX.Element {
           </Marker>
         ))}
       </MapView>
-      {!isMobile && (
+      {!isMobile ? (
         <Controls {...{ isMobile }}>
           <Button
             // eslint-disable-next-line @typescript-eslint/no-misused-promises
@@ -204,7 +209,7 @@ export default function Map(): JSX.Element {
             </Button>
           </>
         </Controls>
-      )}
+      ) : null}
     </>
   );
 }

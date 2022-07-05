@@ -1,6 +1,6 @@
 import { CardWrapper, CardContent, IndexWrapper, Item } from "./styles";
 import Text from "~/Components/Ui-kit/Text";
-import { PlaceProps } from "~/Contexts/searchContext";
+import { PlaceProps, useSearchContext } from "~/Contexts/searchContext";
 import getCurrentDay from "~/hooks/getCurrentDay";
 
 export interface CardProps extends PlaceProps {
@@ -11,13 +11,19 @@ export default function Card({
   organization_name,
   index,
   adress,
-  hours_id
+  hours_id,
+  id
 }: CardProps): JSX.Element {
+  const { setDisplayPlaceDescription } = useSearchContext();
+
   const currentDay = getCurrentDay();
 
   return (
     <CardWrapper>
-      <CardContent>
+      <CardContent
+        activeOpacity={0.7}
+        onPress={() => setDisplayPlaceDescription(id)}
+      >
         {organization_name && (
           <Item>
             <IndexWrapper>

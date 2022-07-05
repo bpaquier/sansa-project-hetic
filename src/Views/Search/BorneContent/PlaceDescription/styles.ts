@@ -49,14 +49,14 @@ export const ContentWrapper = styled.View`
 
 export const FirstRow = styled.View`
   width: 100%;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
   height: 45%;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-height: 300px;
 `;
 
 export const SecondRow = styled.View`
-  height: 55%;
+  flex: 1 1;
   flex-direction: row;
   align-items: center;
   padding-top: 15px;

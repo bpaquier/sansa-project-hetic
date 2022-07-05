@@ -13,6 +13,7 @@ import {
 import MapMarker from "~/Components/Icons/System/Map/MapMarker";
 import House from "~/Components/Icons/System/System/House";
 import Plus from "~/Components/Icons/System/System/Plus";
+import Separator from "~/Components/Ui-kit/Separator";
 import Theme from "~/Styles/theme.styles";
 
 export default function NavigationMobile() {
@@ -70,6 +71,11 @@ export default function NavigationMobile() {
 
   return (
     <NavWrapper>
+      <Separator
+        orientation="horizontal"
+        width={`${Dimensions.get("window").width}px`}
+        customColor={Theme?.color?.neutral?.black5}
+      />
       <Nav>
         <NavIndicator
           style={{

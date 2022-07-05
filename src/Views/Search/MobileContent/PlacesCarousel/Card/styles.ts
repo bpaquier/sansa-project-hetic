@@ -10,7 +10,7 @@ export const CardWrapper = styled.View`
   border-radius: ${theme?.shape?.radius?.checkbox}px;
 `;
 
-export const CardContent = styled.View``;
+export const CardContent = styled.TouchableOpacity``;
 
 export const Item = styled.View`
   flex-direction: row;

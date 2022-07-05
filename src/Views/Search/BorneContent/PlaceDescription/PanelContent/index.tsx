@@ -20,9 +20,7 @@ export default function PanelContent({
   return (
     <PanelContentWrapper>
       {type === "description" && description && (
-        <Text type="titleM" lineHeight={29}>
-          {description}
-        </Text>
+        <Text type="titleM">{description}</Text>
       )}
       {type === "services" && services_id && (
         <ServicesList>

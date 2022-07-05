@@ -8,6 +8,7 @@ export interface SeparatorProps {
   height?: string;
   width?: string;
   margin?: number;
+  customColor?: string;
 }
 
 export default function Separator({
@@ -16,12 +17,22 @@ export default function Separator({
   columnWidth,
   height,
   width,
-  margin
+  margin,
+  customColor
 }: SeparatorProps): JSX.Element {
   const { isMobile } = useGlobalContext();
   return (
     <StyledView
-      {...{ theme, orientation, columnWidth, height, width, margin, isMobile }}
+      {...{
+        theme,
+        orientation,
+        columnWidth,
+        height,
+        width,
+        margin,
+        isMobile,
+        customColor
+      }}
     ></StyledView>
   );
 }

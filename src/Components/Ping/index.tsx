@@ -17,7 +17,7 @@ export default function Ping({
 }: PingProps): JSX.Element {
   return (
     <PingWrapper>
-      <IndexWrapper>
+      <IndexWrapper {...{ small }}>
         <Text
           textAlign="center"
           color={isSelected ? "darkBlue" : "white"}

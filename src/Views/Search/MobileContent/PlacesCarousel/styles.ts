@@ -6,7 +6,7 @@ import theme from "~/Styles/theme.styles";
 
 export const Wrapper = styled.View`
   position: absolute;
-  bottom: 18px;
+  bottom: 0;
   width: ${Dimensions?.get("window").width}px;
   align-items: center;
 `;
@@ -18,6 +18,11 @@ export const AlternativeCard = styled.View`
   justify-content: center;
   align-items: center;
   border-radius: ${theme?.shape?.radius?.checkbox}px;
+  margin-bottom: 18px;
+`;
+
+export const CarouselWrapper = styled.View`
+  margin-bottom: 18px;
 `;
 
 export const Logo = styled.View`
@@ -28,5 +33,5 @@ export const PositionIconWrapper = styled.TouchableOpacity`
   position: absolute;
   bottom: 100%;
   right: ${theme?.grid?.mobileGutter}px;
-  margin-bottom: 10px;
+  margin-bottom: ${theme?.grid?.mobileGutter}px;
 `;

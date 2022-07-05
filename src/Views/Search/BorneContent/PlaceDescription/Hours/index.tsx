@@ -25,8 +25,8 @@ export default function Hours({ hours_id }: PlaceProps): JSX.Element {
           ))}
         </HoursItemsWrapper>
         <HoursItemsWrapper>
-          {Object.values(hours_id?.[0])?.map((day, i) => (
-            <Text key={`${day}-${i}`}>{day}</Text>
+          {Object.values(hours_id?.[0])?.map((hours, i) => (
+            <Text key={`${hours}-${i}`}>{hours}</Text>
           ))}
         </HoursItemsWrapper>
       </HoursContentWrapper>

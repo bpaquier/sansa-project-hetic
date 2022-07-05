@@ -26,5 +26,5 @@ export default function getCurrentDay():
     "sunday"
   ];
 
-  return days[currentDayIndex];
+  return days[currentDayIndex - 1];
 }

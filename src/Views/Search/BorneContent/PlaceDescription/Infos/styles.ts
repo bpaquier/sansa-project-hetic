@@ -7,19 +7,19 @@ export const InfosWrapper = styled.View`
   background-color: ${theme?.color?.neutral?.black5};
   border-radius: ${theme?.shape?.radius?.input}px;
   padding: 32px;
+  height: 100%;
+  justify-content: space-between;
 `;
 
 export const InfoItem = styled.View`
   width: 90%;
   flex-direction: row;
-  align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 `;
 
 export const LastInfoItem = styled.View`
-  width: 100%;
+  width: 90%;
   flex-direction: row;
-  align-items: center;
 `;
 
 export const IconWrapper = styled.View`

@@ -1,5 +1,6 @@
 import Filters from "./Filters";
 import FiltersPanel from "./FiltersPanel";
+import PlaceDescriptionMobile from "./PlaceDescription";
 import PlacesCarousel from "./PlacesCarousel";
 
 export default function MobileContent(): JSX.Element {
@@ -8,6 +9,7 @@ export default function MobileContent(): JSX.Element {
       <Filters />
       <FiltersPanel />
       <PlacesCarousel />
+      <PlaceDescriptionMobile />
     </>
   );
 }

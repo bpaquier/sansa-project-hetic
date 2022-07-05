@@ -35,7 +35,7 @@ export default function FiltersPanel(): JSX.Element {
         <Filters>
           {displayFilters === "all" ? <AllFilters /> : <MainFilters />}
         </Filters>
-        {filters && filters?.length > 0 && (
+        {filters && filters?.length > 0 ? (
           <>
             <Separator
               orientation="horizontal"
@@ -66,7 +66,7 @@ export default function FiltersPanel(): JSX.Element {
               </BottomButton>
             )}
           </>
-        )}
+        ) : null}
       </PanelContent>
     </Draggable>
   );

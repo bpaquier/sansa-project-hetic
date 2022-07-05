@@ -1,5 +1,7 @@
 import { useMemo } from "react";
 
+import { TouchableOpacity } from "react-native";
+
 import {
   ItemWrapper,
   InfoWrapper,
@@ -10,10 +12,10 @@ import {
 } from "./styles";
 import Icon from "~/Components/Icon";
 import Ping from "~/Components/Ping";
-import Button from "~/Components/Ui-kit/Button";
 import Text from "~/Components/Ui-kit/Text";
 import { PlaceProps, useSearchContext } from "~/Contexts/searchContext";
 import getCurrentDay from "~/hooks/getCurrentDay";
+import theme from "~/Styles/theme.styles";
 
 export interface ListItemProps extends PlaceProps {
   index?: number;
@@ -56,7 +58,10 @@ export default function ListItem({
           )}
           {hours_id[0][currentDay] && (
             <TextStyled>
-              <Text color="black60">{`Ouvert de ${hours_id[0][currentDay]}`}</Text>
+              <Text
+                type="small"
+                color="black60"
+              >{`Ouvert de ${hours_id[0][currentDay]}`}</Text>
             </TextStyled>
           )}
         </TextWrapper>
@@ -83,12 +88,11 @@ export default function ListItem({
             )}
           </IconsWrapper>
         )}
-        <Button
-          type="tertiary"
-          text="En savoir plus"
-          horizontalPosition="left"
-          onPress={() => setDisplayPlaceDescription(id)}
-        />
+        <TouchableOpacity onPress={() => setDisplayPlaceDescription(id)}>
+          <Text customColor={theme?.color?.primary?.blue} weight="bold">
+            En savoir plus
+          </Text>
+        </TouchableOpacity>
       </InfoWrapper>
     </ItemWrapper>
   );

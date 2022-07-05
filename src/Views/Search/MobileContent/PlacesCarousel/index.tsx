@@ -1,7 +1,13 @@
 import Carousel from "react-native-carousel-control";
 
 import Card from "./Card";
-import { Wrapper, AlternativeCard, Logo, PositionIconWrapper } from "./styles";
+import {
+  Wrapper,
+  AlternativeCard,
+  Logo,
+  PositionIconWrapper,
+  CarouselWrapper
+} from "./styles";
 import Spinner from "~/Components/Icons/Spinner";
 import PositionIcon from "~/Components/Icons/System/Map/PositionMobile";
 import TextComponent from "~/Components/Ui-kit/Text";
@@ -12,9 +18,9 @@ export default function PlacesCarousel(): JSX.Element {
     filteredPlaces,
     setSelectedPlaceIndex,
     selectedPlaceIndex,
-    filters,
     isLoading,
-    setTriggerLocalization
+    setTriggerLocalization,
+    debouncedFilters
   } = useSearchContext();
   return (
     <Wrapper>
@@ -34,7 +40,7 @@ export default function PlacesCarousel(): JSX.Element {
           <TextComponent color="black40">Recherche en cours</TextComponent>
         </AlternativeCard>
       )}
-      {filters?.length > 0 &&
+      {debouncedFilters?.length > 0 &&
         (!filteredPlaces || filteredPlaces?.length === 0) &&
         !isLoading && (
           <AlternativeCard>
@@ -42,21 +48,23 @@ export default function PlacesCarousel(): JSX.Element {
           </AlternativeCard>
         )}
       {filteredPlaces && filteredPlaces?.length > 0 && !isLoading && (
-        <Carousel
-          swipeThreshold={0.1}
-          currentPage={selectedPlaceIndex}
-          sneak={30}
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-          onPageChange={(index) => setSelectedPlaceIndex(index)}
-        >
-          {filteredPlaces?.map((place, i) => (
-            <Card
-              {...place}
-              index={i}
-              key={`${place?.organization_name}-${i}`}
-            />
-          ))}
-        </Carousel>
+        <CarouselWrapper>
+          <Carousel
+            swipeThreshold={0.1}
+            currentPage={selectedPlaceIndex}
+            sneak={30}
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+            onPageChange={(index) => setSelectedPlaceIndex(index)}
+          >
+            {filteredPlaces?.map((place, i) => (
+              <Card
+                {...place}
+                index={i}
+                key={`${place?.organization_name}-${i}`}
+              />
+            ))}
+          </Carousel>
+        </CarouselWrapper>
       )}
     </Wrapper>
   );

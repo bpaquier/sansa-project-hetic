@@ -81,6 +81,17 @@ const theme = {
       shadowRadius: 10,
       elevation: 2
     },
+    navigationAndroid: {
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 4
+      },
+      shadowOpacity: 0.32,
+      shadowRadius: 5.46,
+
+      elevation: 9
+    },
     overlay: `0px 4px 12px rgba(0, 0, 0, 0.1)`,
     popin: `0px 8px 24px rgba(0, 0, 0, 0.1)`
   },
@@ -106,7 +117,8 @@ const theme = {
     radius: {
       input: 16,
       button: "36px",
-      checkbox: 4
+      checkbox: 4,
+      card: 8
     }
   },
   spacing: (numerator: number) => `calc(${numerator} * 4)px;`,
