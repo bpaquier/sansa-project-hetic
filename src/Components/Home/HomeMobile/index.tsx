@@ -109,7 +109,7 @@ export default function HomeMobile(): JSX.Element {
           </Card>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigate("/")}>
-          <Card backgroundColor="blue">
+          <Card backgroundColor="blue" style={boxShadow.panelAndroid}>
             <SportTitleWrapper>
               <Text color="white">Sport</Text>
             </SportTitleWrapper>
