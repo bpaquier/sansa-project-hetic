@@ -22,7 +22,6 @@ export const Card = styled.View<CardProps>((props) => ({
   borderRadius: "24px",
   overflow: "hidden",
   backgroundColor: color.primary[props.backgroundColor || "white"],
-  ...boxShadow.panelAndroid
 }));
 
 export const FirstRow = styled.View`
