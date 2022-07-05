@@ -4,7 +4,7 @@ import styled from "styled-components/native";
 import { getColumnWidth } from "~/Styles/mixins.styles";
 import Theme from "~/Styles/theme.styles";
 
-const { color, boxShadow } = Theme;
+const { color } = Theme;
 
 export const PageContent = styled.View`
   flex: 1;
