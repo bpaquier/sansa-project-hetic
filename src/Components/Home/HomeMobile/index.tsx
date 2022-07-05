@@ -26,7 +26,7 @@ import Text from "~/Components/Ui-kit/Text";
 import Theme from "~/Styles/theme.styles";
 import NoEventIllustration from "~/Views/Home/Illustrations/NoEventIllustration";
 import SportIllustration from "~/Views/Home/Illustrations/SportIllustration";
-const { color } = Theme;
+const { color, boxShadow } = Theme;
 
 export default function HomeMobile(): JSX.Element {
   const navigate = useNavigate();
