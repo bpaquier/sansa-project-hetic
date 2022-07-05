@@ -65,7 +65,7 @@ export default function HomeBorne(): JSX.Element {
                 <NoEventIllustration width="405px" height="244px" />
               </NoEventIllustrationWrapper>
             </EventCard>
-            <SanitaryCard>
+            <SanitaryCard style={boxShadow.panelAndroid}>
               <TouchableOpacity onPress={() => navigate("/")}>
                 <Text type="titleXL" textAlign="center">
                   32
