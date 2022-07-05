@@ -123,7 +123,7 @@ export default function HomeMobile(): JSX.Element {
           </Card>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigate("/")}>
-          <HealthCard>
+          <HealthCard style={boxShadow.panelAndroid}>
             <HealthIconWrapper>
               <MedicalCase color="white" />
             </HealthIconWrapper>
