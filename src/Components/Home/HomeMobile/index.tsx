@@ -99,7 +99,7 @@ export default function HomeMobile(): JSX.Element {
           </SanitaryItemWrapper>
         </SanitaryCard>
         <TouchableOpacity onPress={() => navigate("/")}>
-          <Card>
+          <Card style={boxShadow.panelAndroid}>
             <Text color="black20">Associations</Text>
             <AssociationsCardTitleWrapper>
               <Text type="titleM">
