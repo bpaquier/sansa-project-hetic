@@ -36,7 +36,7 @@ export default function HomeMobile(): JSX.Element {
         <Text color="black20" type="titleL">
           Dashboard
         </Text>
-        <EventCard>
+        <EventCard style={boxShadow.panelAndroid}>
           <Text color="black20" type="small" textAlign="center">
             Bientôt de nouveaux événements !
           </Text>
