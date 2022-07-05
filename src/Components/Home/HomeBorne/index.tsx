@@ -113,7 +113,7 @@ export default function HomeBorne(): JSX.Element {
         <EmptyRow />
         <SecondRow>
           <TouchableOpacity onPress={() => navigate("/")}>
-            <AssociationsCard>
+            <AssociationsCard style={boxShadow.panelAndroid}>
               <Text color="black20">Associations</Text>
               <AssociationsCardTitleWrapper>
                 <Text type="titleXL">
