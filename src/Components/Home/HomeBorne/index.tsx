@@ -44,7 +44,7 @@ export default function HomeBorne(): JSX.Element {
       <PageContent>
         <FirstRow>
           <TouchableOpacity onPress={() => navigate("/")}>
-            <MapCard>
+            <MapCard style={boxShadow.panelAndroid}>
               <MapWrapper>
                 <Map provider={PROVIDER_GOOGLE} />
               </MapWrapper>
