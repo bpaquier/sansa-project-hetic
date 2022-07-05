@@ -53,7 +53,7 @@ export const BackButtonBorne = styled.TouchableOpacity`
 
 export const ImageWrapperMobile = styled.View`
   width: 100%;
-  height: 120px;
+  height: 150px;
   align-items: center;
   margin-bottom: 20px;
 `;
