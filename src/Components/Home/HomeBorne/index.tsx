@@ -126,7 +126,7 @@ export default function HomeBorne(): JSX.Element {
             </AssociationsCard>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigate("/")}>
-            <SportCard backgroundColor="blue">
+            <SportCard style={boxShadow.panelAndroid} backgroundColor="blue">
               <SportCardTitleWrapper>
                 <Text color="white">Sport</Text>
               </SportCardTitleWrapper>
