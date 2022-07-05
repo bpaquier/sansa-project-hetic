@@ -1,9 +1,11 @@
+import { Fragment } from "react";
+
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-native";
 
 import {
   ButtonsContainerMobile,
   ButtonsContainerBorne,
-  ButtonWrapperMobile,
   ButtonWrapperBorne
 } from "./styles";
 import Button from "~/Components/Ui-kit/Button";
@@ -19,13 +21,14 @@ export default function SansaDescriptionNotConnected({
   isMobile
 }: SansaDescriptionNotConnectedProps): JSX.Element {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const ButtonsContainer = (
     isMobile ? ButtonsContainerMobile : ButtonsContainerBorne
   ) as React.ElementType;
 
   const ButtonWrapper = (
-    isMobile ? ButtonWrapperMobile : ButtonWrapperBorne
+    isMobile ? Fragment : ButtonWrapperBorne
   ) as React.ElementType;
 
   return (
@@ -35,28 +38,22 @@ export default function SansaDescriptionNotConnected({
         type="titleL"
         textAlign={isMobile ? "left" : "center"}
       >
-        {isMobile ? "SANSA" : "SANSA, c'est quoi ?"}
+        {isMobile ? t("common.sansa").toUpperCase() : t("plus.whatIsSansa")}
       </TextWrapper>
       <Text
         type="paragraph"
         color="black20"
         textAlign={isMobile ? "left" : "center"}
       >
-        Sansa c’est la plateforme qui référence les lieux et les services utiles
-        aux personnes en difficultés.
+        {t("plus.sansaDescription")}
       </Text>
       {!isMobile && <SansaBorneDescription />}
       <ButtonsContainer>
-        <Button
-          text="Se connecter"
-          fullWidth={isMobile}
-          onPress={() => navigate("/login")}
-        />
+        <Button text={t("common.login")} onPress={() => navigate("/login")} />
         <ButtonWrapper>
           <Button
             type={isMobile ? "tertiary" : "secondary"}
-            text="S'inscrire"
-            fullWidth={isMobile}
+            text={t("common.register")}
             onPress={() => navigate("/register")}
           />
         </ButtonWrapper>

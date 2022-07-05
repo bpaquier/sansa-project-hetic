@@ -1,25 +1,25 @@
 import { useEffect, useState } from "react";
 
+import { useTranslation } from "react-i18next";
 import { Animated, Dimensions } from "react-native";
-import { useNavigate, useLocation } from "react-router-native";
+import { useLocation } from "react-router-native";
 
-import {
-  NavWrapper,
-  Nav,
-  NavButton,
-  NavButtonText,
-  PrimaryIconContainer
-} from "./styles";
+import { Nav, NavButton, NavButtonText, PrimaryIconContainer } from "./styles";
 import MapMarker from "~/Components/Icons/System/Map/MapMarker";
 import House from "~/Components/Icons/System/System/House";
 import Plus from "~/Components/Icons/System/System/Plus";
-import Separator from "~/Components/Ui-kit/Separator";
 import Theme from "~/Styles/theme.styles";
 
-export default function NavigationMobile() {
-  const iconSize = 36;
-  const navigate = useNavigate();
+type NavigationMobileProps = {
+  onPressExitLanguagesMenuAndNavigate: (direction?: string) => void;
+};
+
+export default function NavigationMobile({
+  onPressExitLanguagesMenuAndNavigate
+}: NavigationMobileProps) {
   const location = useLocation();
+  const iconSize = 36;
+  const { t } = useTranslation();
   const isCurrentPage = (page: string): boolean => location.pathname === page;
 
   const NavWidth = Dimensions.get("window").width;
@@ -70,25 +70,40 @@ export default function NavigationMobile() {
   };
 
   return (
-    <NavWrapper>
-      <Separator
-        orientation="horizontal"
-        width={`${Dimensions.get("window").width}px`}
-        customColor={Theme?.color?.neutral?.black5}
+    <Nav
+      onPress={() => onPressExitLanguagesMenuAndNavigate()}
+      style={{ elevation: 6, shadowColor: Theme.color.neutral.black100 }}
+    >
+      <NavIndicator
+        style={{
+          position: "absolute",
+          top: 0,
+          borderRadius: 4,
+          width: 60,
+          height: 4,
+          backgroundColor: Theme.color.primary.blue
+        }}
       />
-      <Nav>
-        <NavIndicator
-          style={{
-            position: "absolute",
-            top: 0,
-            borderRadius: 4,
-            width: 60,
-            height: 4,
-            backgroundColor: Theme.color.primary.blue
-          }}
+      <NavButton onPress={() => onPressExitLanguagesMenuAndNavigate("/home")}>
+        <House
+          width={iconSize}
+          height={iconSize}
+          color={
+            isCurrentPage("/home")
+              ? Theme.color.primary.blue
+              : Theme.color.neutral.black60
+          }
         />
-        <NavButton onPress={() => navigate("/home")}>
-          <House
+        <NavButtonText active={isCurrentPage("/home")}>
+          {t("home.home")}
+        </NavButtonText>
+      </NavButton>
+      <NavButton
+        primary
+        onPress={() => onPressExitLanguagesMenuAndNavigate("/")}
+      >
+        <PrimaryIconContainer active={isCurrentPage("/")}>
+          <MapMarker
             width={iconSize}
             height={iconSize}
             color={
@@ -97,35 +112,25 @@ export default function NavigationMobile() {
                 : Theme.color.neutral.black60
             }
           />
-          <NavButtonText active={isCurrentPage("/home")}>Accueil</NavButtonText>
-        </NavButton>
-        <NavButton primary onPress={() => navigate("/")}>
-          <PrimaryIconContainer active={isCurrentPage("/")}>
-            <MapMarker
-              width={iconSize}
-              height={iconSize}
-              color={
-                isCurrentPage("/")
-                  ? Theme.color.primary.white
-                  : Theme.color.neutral.black60
-              }
-            />
-          </PrimaryIconContainer>
-          <NavButtonText active={isCurrentPage("/")}>Rechercher</NavButtonText>
-        </NavButton>
-        <NavButton onPress={() => navigate("/plus")}>
-          <Plus
-            width={iconSize}
-            height={iconSize}
-            color={
-              isCurrentPage("/plus")
-                ? Theme.color.primary.blue
-                : Theme.color.neutral.black60
-            }
-          />
-          <NavButtonText active={isCurrentPage("/plus")}>Plus</NavButtonText>
-        </NavButton>
-      </Nav>
-    </NavWrapper>
+        </PrimaryIconContainer>
+        <NavButtonText active={isCurrentPage("/")}>
+          {t("search.search")}
+        </NavButtonText>
+      </NavButton>
+      <NavButton onPress={() => onPressExitLanguagesMenuAndNavigate("/plus")}>
+        <Plus
+          width={36}
+          height={36}
+          color={
+            isCurrentPage("/plus")
+              ? Theme.color.primary.blue
+              : Theme.color.neutral.black60
+          }
+        />
+        <NavButtonText active={isCurrentPage("/plus")}>
+          {t("plus.plus")}
+        </NavButtonText>
+      </NavButton>
+    </Nav>
   );
 }

@@ -5,7 +5,7 @@ import Theme from "~/Styles/theme.styles";
 
 const { shape, grid } = Theme;
 
-export const Nav = styled.View`
+export const Nav = styled.Pressable`
   flex: 1;
   justify-content: space-between;
   align-items: center;
@@ -59,6 +59,7 @@ export const NavButton = styled.TouchableOpacity<NavButtonProps>`
 export const LanguageSection = styled.View`
   display: flex;
   padding: 20px;
+  padding-bottom: 0;
   width: 100%;
   align-items: center;
 `;

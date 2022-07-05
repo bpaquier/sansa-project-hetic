@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 import {
   ConnectedIllustrationsWrapper,
   ConnectedIllustrationWrapper
@@ -10,13 +12,6 @@ import HeartIllustration from "~/Views/Plus/Illustrations/HeartIllustration";
 import SafeIllustration from "~/Views/Plus/Illustrations/SafeIllustration";
 import TakeNotesIllustration from "~/Views/Plus/Illustrations/TakeNotesIllustration";
 
-const connectedContent = [
-  { title: "Nouvelle note", illustration: <TakeNotesIllustration /> },
-  { title: "Coffre-fort numérique", illustration: <SafeIllustration /> },
-  { title: "Mes lieux favoris", illustration: <HeartIllustration /> },
-  { title: "Se déconnecter", illustration: <DisconnectIllustration /> }
-];
-
 type SansaDescriptionConnectedProps = {
   isMobile?: boolean;
 };
@@ -24,12 +19,39 @@ type SansaDescriptionConnectedProps = {
 export default function SansaDescriptionConnected({
   isMobile
 }: SansaDescriptionConnectedProps): JSX.Element {
+  const { t } = useTranslation();
+
+  const connectedContent = [
+    {
+      id: "newNote",
+      title: t("plus.newNote"),
+      illustration: <TakeNotesIllustration />
+    },
+    {
+      id: "digitalSafe",
+      title: t("plus.digitalSafe"),
+      illustration: <SafeIllustration />
+    },
+    {
+      id: "favoritePlaces",
+      title: t("plus.favouritePlaces"),
+      illustration: <HeartIllustration />
+    },
+    {
+      id: "logout",
+      title: t("common.logout"),
+      illustration: <DisconnectIllustration />
+    }
+  ];
+
   const connectedContentToDisplay = isMobile
-    ? connectedContent.filter(({ title }) => title !== "Se déconnecter")
+    ? connectedContent.filter(({ id }) => id !== "logout")
     : connectedContent;
   return (
     <>
-      <Text type={isMobile ? "titleL" : "titleM"}>Bonjour Timothé !</Text>
+      <Text type={isMobile ? "titleL" : "titleM"}>
+        {t("helloWithName", { name: "Baswel" })}
+      </Text>
       {isMobile && (
         <>
           <Separator orientation="horizontal" columnWidth={22} margin={16} />

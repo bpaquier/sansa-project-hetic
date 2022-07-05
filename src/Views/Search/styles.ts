@@ -8,7 +8,7 @@ export const MobileWrapper = styled.View`
   position: absolute;
   top: 0;
   left: 0;
-  bottom: ${theme?.sizes?.navigation?.mobileHeight + 10}px;
+  bottom: ${theme?.sizes?.navigation?.mobileHeight}px;
   width: 100%;
   padding: 12.5px ${theme?.grid?.mobileGutter}px;
 `;

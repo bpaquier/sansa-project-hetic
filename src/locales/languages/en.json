@@ -1,0 +1,49 @@
+{
+  "common": {
+    "sansa": "sansa",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout"
+  },
+  "plus": {
+    "plus": "Plus",
+    "whatIsSansa": "SANSA, what is it ?",
+    "sansaDescription": "Sansa is the platform that references places and services useful to people in difficulty.",
+    "newNote": "New note",
+    "digitalSafe": "Digital safe",
+    "favouritePlaces": "My favourite places",
+    "helloWithName": "Hello {{ name }} !",
+    "itsMissions": "Its missions",
+    "missionsPrompt1": "Referring all people in difficult situations to the structures that could help them.",
+    "missionsPrompt2": "To provide a tool that is open to all, ergonomic, simple and quick to use.",
+    "missionsPrompt3": "Provide access to a private space containing a digital safe and a list of your favourite places.",
+    "contactUs": "Contact us",
+    "languages": "Languages",
+    "privacyPolicy": "Privacy Policy",
+    "legals": "Legals",
+    "tcu": "TCU",
+    "consultList": "Consult the list",
+    "administrativeAssistance": "Administrative assistance"
+  },
+  "forms": {
+    "iReadAndAcceptPrompt": "I have read and accept the general conditions of use",
+    "alreadyHaveAnAccount": "Do you already have an account?",
+    "identifier": "Identifier",
+    "emailOrIdentifier": "Your email or login",
+    "emailAdress": "Email Adress",
+    "phone": "Phone",
+    "password": "Password",
+    "passwordCharactersPrompt": "Must contain 8 characters with one capital letter and one number",
+    "yourPassword": "Your password",
+    "forgotPassword": "Forgot your password?",
+    "noAccountYet": "No account yet?",
+    "requiredField": "This field is required",
+    "invalidFormat": "Invalid format"
+  },
+  "search": {
+    "search": "Search"
+  },
+  "home": {
+    "home": "Home"
+  }
+}
