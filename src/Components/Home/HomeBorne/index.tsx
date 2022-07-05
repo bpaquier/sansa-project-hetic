@@ -51,7 +51,7 @@ export default function HomeBorne(): JSX.Element {
             </MapCard>
           </TouchableOpacity>
           <View>
-            <EventCard>
+            <EventCard style={boxShadow.panelAndroid}>
               <Text color="black20" type="small" textAlign="center">
                 Pas de panique ! Nous allons bientôt vous trouver de nouveaux
                 événements
