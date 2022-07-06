@@ -35,6 +35,7 @@ export const Input = styled.TextInput`
   height: 40px;
   background-color: ${theme?.color?.primary?.white};
   padding-left: 40px;
+  padding-right: 16px;
 `;
 
 export const FiltersSlider = styled.ScrollView`
