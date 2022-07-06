@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+import { useTranslation } from "react-i18next";
 import {
   Pressable,
   View,
@@ -44,6 +45,7 @@ interface ItemTitleProps {
 }
 
 export default function PlaceDescriptionMobile(): JSX.Element {
+  const { t } = useTranslation();
   const {
     filteredPlaces,
     displayPlaceDescription,
@@ -92,7 +94,7 @@ export default function PlaceDescriptionMobile(): JSX.Element {
           </TitleWrapper>
         ) : null}
         <Item>
-          <ItemTitle content="Informations" />
+          <ItemTitle content={t("search.informations")} />
           <InfosWrapper>
             {place?.adress ? (
               <InfoItem>
@@ -118,9 +120,7 @@ export default function PlaceDescriptionMobile(): JSX.Element {
                 <Pressable
                   onPress={() => {
                     Linking.openURL(place?.website).catch(() => {
-                      Alert.alert("", "Ce lien ne focntionne pas", [
-                        { text: "OK" }
-                      ]);
+                      Alert.alert("", t("alerts.link"), [{ text: "OK" }]);
                     });
                   }}
                 >
@@ -133,7 +133,9 @@ export default function PlaceDescriptionMobile(): JSX.Element {
                 <IconWrapper>
                   <Globe color={theme?.color?.primary?.blue} />
                 </IconWrapper>
-                <Text>{`Langues: ${place?.spoken_language}`}</Text>
+                <Text>{`${t("search.languages")}: ${
+                  place?.spoken_language
+                }`}</Text>
               </InfoItem>
             ) : null}
             <InfoItem>
@@ -150,7 +152,7 @@ export default function PlaceDescriptionMobile(): JSX.Element {
           </InfosWrapper>
         </Item>
         <Item>
-          <ItemTitle content="Horaires" />
+          <ItemTitle content={t("search.timetables")} />
           <HoursContentWrapper>
             <HoursItemsWrapper>
               {Object.keys(place?.hours_id?.[0])?.map((day, i) => (
@@ -160,7 +162,7 @@ export default function PlaceDescriptionMobile(): JSX.Element {
                       color="black60"
                       weight={day === currentDay ? "bold" : "regular"}
                     >
-                      {day}
+                      {t(`days.${day}`)}
                     </Text>
                   </Day>
                 </HoursItem>
@@ -181,20 +183,20 @@ export default function PlaceDescriptionMobile(): JSX.Element {
           </HoursContentWrapper>
         </Item>
         <Item>
-          <ItemTitle content="Services" />
+          <ItemTitle content={t("search.service")} />
           {place?.services_id?.map((service, i) => (
             <Service key={`${service}-${i}`}>
               <IconWrapper>
                 <Icon category={service} withBackground />
               </IconWrapper>
-              <Text>{service}</Text>
+              <Text>{t(`search.services.${service}`)}</Text>
             </Service>
           ))}
         </Item>
         <LastItem>
           {place?.description ? (
             <>
-              <ItemTitle content="Mission" />
+              <ItemTitle content={t("search.mission")} />
               <Text>{place?.description}</Text>
             </>
           ) : null}

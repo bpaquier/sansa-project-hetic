@@ -1,5 +1,7 @@
 import { useMemo, useState, useEffect } from "react";
 
+import i18next from "i18next";
+
 import {
   StyledView,
   CheckboxBorne,
@@ -22,6 +24,7 @@ export interface CheckBoxProps extends InputProps {
   indeterminate?: boolean;
   width?: number;
   large?: boolean;
+  controlled?: boolean;
 }
 
 export default function Checkbox({
@@ -33,8 +36,10 @@ export default function Checkbox({
   name,
   width,
   onChange,
-  large
+  large,
+  controlled
 }: CheckBoxProps): JSX.Element {
+  const { language } = i18next;
   const { isMobile } = useGlobalContext();
   const [checked, setChecked] = useState(forceChecked);
 
@@ -76,13 +81,17 @@ export default function Checkbox({
   ) as React.ElementType;
 
   return (
-    <StyledView disabled={disabled} onPress={handleChange}>
+    <StyledView
+      reversed={language === "ar-SA"}
+      disabled={disabled || controlled}
+      onPress={handleChange}
+    >
       <Checkbox disabled={disabled} checked={checked} onPress={handleChange}>
         <CheckContainer>
           <Check width={CheckSize} color={colorIcon} />
         </CheckContainer>
       </Checkbox>
-      <TextContainer {...{ large }}>
+      <TextContainer {...{ large }} reversed={language === "ar-SA"}>
         <Text type={large ? "paragraph" : "small"}>{label}</Text>
       </TextContainer>
     </StyledView>

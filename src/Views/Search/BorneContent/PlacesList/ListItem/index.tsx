@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 
+import { useTranslation } from "react-i18next";
 import { TouchableOpacity } from "react-native";
 
 import {
@@ -29,6 +30,7 @@ export default function ListItem({
   hours_id,
   id
 }: ListItemProps): JSX.Element {
+  const { t } = useTranslation();
   const { debouncedFilters, setDisplayPlaceDescription } = useSearchContext();
   const currentDay = getCurrentDay();
 
@@ -58,10 +60,9 @@ export default function ListItem({
           )}
           {hours_id[0][currentDay] && (
             <TextStyled>
-              <Text
-                type="small"
-                color="black60"
-              >{`Ouvert de ${hours_id[0][currentDay]}`}</Text>
+              <Text type="small" color="black60">{`${t(
+                "search.openingHours"
+              )}: ${hours_id[0][currentDay]}`}</Text>
             </TextStyled>
           )}
         </TextWrapper>
@@ -90,7 +91,7 @@ export default function ListItem({
         )}
         <TouchableOpacity onPress={() => setDisplayPlaceDescription(id)}>
           <Text customColor={theme?.color?.primary?.blue} weight="bold">
-            En savoir plus
+            {t("search.learnMore")}
           </Text>
         </TouchableOpacity>
       </InfoWrapper>

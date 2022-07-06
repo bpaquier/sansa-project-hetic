@@ -14,6 +14,7 @@ export default function Search(): JSX.Element {
   const Wrapper = (
     isMobile ? MobileWrapper : PageContentWrapper
   ) as React.ElementType;
+
   return (
     <SearchProvider>
       <Wrapper>

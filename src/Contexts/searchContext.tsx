@@ -104,6 +104,7 @@ function SearchProvider({ children }: SearchProviderProps) {
       setIsLoading(false);
       setFilteredPlaces(selectedPlaces);
     } else {
+      setFilters(null);
       setIsLoading(false);
       setFilteredPlaces(null);
     }
@@ -112,15 +113,23 @@ function SearchProvider({ children }: SearchProviderProps) {
   useEffect(() => {
     setIsLoading(true);
     if (!filters || filters?.length === 0) {
+      setFilters(null);
       setIsLoading(false);
+      setDisplayFilters(null);
     }
   }, [filters]);
 
   const updateFilters = ({ action, filtersName }: updateFiltersProps) => {
     if (action === "add") {
-      setFilters((prev) =>
-        prev ? [...prev, ...filtersName] : [...filtersName]
-      );
+      if (!filters || filters?.length === 0) {
+        setFilters([...filtersName]);
+      } else {
+        filtersName?.forEach((newFilter) => {
+          if (!filters?.includes(newFilter)) {
+            setFilters((prev) => [...prev, newFilter]);
+          }
+        });
+      }
     } else {
       filters !== null &&
         setFilters(

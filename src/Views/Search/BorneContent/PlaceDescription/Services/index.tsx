@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 import { SmallTitleWrapper } from "../styles";
 import {
   ServicesList,
@@ -7,7 +9,6 @@ import {
   ButtonWrapper
 } from "./styles";
 import Icon from "~/Components/Icon";
-import ButtonComponent from "~/Components/Ui-kit/Button";
 import Text from "~/Components/Ui-kit/Text";
 import { PlaceProps } from "~/Contexts/searchContext";
 
@@ -19,12 +20,13 @@ export default function Services({
   services_id,
   setDisplayPanel
 }: ServicesProps): JSX.Element {
+  const { t } = useTranslation();
   const dispalyMax = 16;
   return (
     <ServicesWrapper>
       <SmallTitleWrapper>
         <Text type="titleM" color="blue">
-          Services proposés
+          {t("search.servicesOffered")}
         </Text>
       </SmallTitleWrapper>
       <ServicesList>
@@ -33,16 +35,14 @@ export default function Services({
             <IconWrapper>
               <Icon category={service} withBackground />
             </IconWrapper>
-            <Text>{service}</Text>
+            <Text>{t(`search.services.${service}`)}</Text>
           </Service>
         ))}
         {services_id?.length > dispalyMax && (
-          <ButtonWrapper>
-            <ButtonComponent
-              type="tertiary"
-              text="Voir plus"
-              onPress={() => setDisplayPanel("services")}
-            />
+          <ButtonWrapper onPress={() => setDisplayPanel("services")}>
+            <Text color="blue" weight="bold">
+              {t("search.seeMore")}
+            </Text>
           </ButtonWrapper>
         )}
       </ServicesList>

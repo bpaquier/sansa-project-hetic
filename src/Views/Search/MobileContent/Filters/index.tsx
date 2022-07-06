@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 import {
   FiltersWrapper,
   Input,
@@ -19,12 +21,13 @@ import {
 } from "~/utils/getServices";
 
 export default function Filters(): JSX.Element {
+  const { t } = useTranslation();
   const { setDisplayFilters, filters } = useSearchContext();
 
   return (
     <FiltersWrapper>
       <InputWrapper>
-        <Input placeholder="Chercher pas nom d'association" />
+        <Input placeholder={t("search.searchPlaceholder")} />
         <SearchIconWrapper>
           <Search width={25} height={25} />
         </SearchIconWrapper>
@@ -44,7 +47,9 @@ export default function Filters(): JSX.Element {
             />
           </TagIcon>
           <Text color="white" type="small">
-            {`${filters?.length > 0 ? `${filters?.length} ` : ""}Filtre(s)`}
+            {`${filters?.length > 0 ? `${filters?.length} ` : ""}${t(
+              "search.filters"
+            )}`}
           </Text>
         </Tag>
         {MainServicesToDisplay?.map((service, i) => {
@@ -62,7 +67,7 @@ export default function Filters(): JSX.Element {
                 <Icon width={22} height={22} />
               </TagIcon>
               <Text customColor={color} type="small">
-                {service}
+                {t(`search.services.${service}`)}
               </Text>
             </Tag>
           );

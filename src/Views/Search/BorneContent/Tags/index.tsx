@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 
+import { useTranslation } from "react-i18next";
+
 import {
   TagsWrapper,
   Tag,
@@ -15,6 +17,7 @@ import theme from "~/Styles/theme.styles";
 import { getServiceColor } from "~/utils/getServices";
 
 export default function Tags(): JSX.Element {
+  const { t } = useTranslation();
   const { filters, setFilters, updateFilters } = useSearchContext();
   const [displayTagsList, setDisplayTagsList] = useState<boolean>(false);
 
@@ -35,7 +38,7 @@ export default function Tags(): JSX.Element {
             key={`${filter}-${i}`}
           >
             <Text weight="bold" customColor={color}>
-              {filter}
+              {t(`search.services.${filter}`)}
             </Text>
             <Cross color={color} />
           </Tag>
@@ -46,8 +49,13 @@ export default function Tags(): JSX.Element {
 
   return filters?.length > 0 ? (
     <>
-      {displayTagsList && <Overlay onPress={() => setDisplayTagsList(false)} />}
-      <TagsWrapper>
+      {displayTagsList && (
+        <Overlay
+          style={{ elevation: 7, shadowColor: "transparent" }}
+          onPress={() => setDisplayTagsList(false)}
+        />
+      )}
+      <TagsWrapper style={{ elevation: 7, shadowColor: "transparent" }}>
         <Tag
           activeOpacity={0.8}
           bgColor={theme?.color?.primary?.blue}
@@ -55,17 +63,16 @@ export default function Tags(): JSX.Element {
           onPress={() => setFilters(null)}
         >
           <Text weight="bold" color="white">
-            {`Supprimer le(s) filtre(s)`}
+            {t("search.deleteFilters")}
           </Text>
         </Tag>
         <Tag
           borderColor={theme?.color?.primary?.blueDark}
           onPress={() => setDisplayTagsList((prev) => !prev)}
         >
-          <Text
-            color="black"
-            weight="bold"
-          >{`Voir tous le(s) filtre(s) (${filters?.length})`}</Text>
+          <Text color="black" weight="bold">{`${t("search.seeFilters")} (${
+            filters?.length
+          })`}</Text>
         </Tag>
         {displayTagsList && (
           <TagListContainer>

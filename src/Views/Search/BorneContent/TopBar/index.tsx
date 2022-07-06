@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { useTranslation } from "react-i18next";
+
 import {
   TopBarWrapper,
   IconsWrapper,
@@ -27,6 +29,7 @@ export interface IconsDisplay {
 }
 
 export default function TopBar(): JSX.Element {
+  const { t } = useTranslation();
   const [searchValue, setSearchValue] = useState<string>("");
   const { setDisplayFilters, displayFilters } = useSearchContext();
 
@@ -47,7 +50,7 @@ export default function TopBar(): JSX.Element {
           <Icon width={iconsWidth} height={iconsWidth} />
         </Button>
         <Label>
-          <Text type="small">{category}</Text>
+          <Text type="small">{t(`search.services.${category}`)}</Text>
         </Label>
         {displayFilters && isSelected && (
           <UnderlineIndicator {...{ bgColor }} width={iconsWidth} />
@@ -61,7 +64,7 @@ export default function TopBar(): JSX.Element {
         <Input
           value={searchValue}
           onChangeText={(value) => setSearchValue(value)}
-          placeholder="Chercher par mot clé"
+          placeholder={t("search.searchPlaceholder")}
         />
         <Button>
           <SearchBig width={64} height={64} />

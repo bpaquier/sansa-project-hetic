@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 import {
   PanelContentWrapper,
   Service,
@@ -17,6 +19,7 @@ export default function PanelContent({
   description,
   type
 }: PanelContentprops): JSX.Element {
+  const { t } = useTranslation();
   return (
     <PanelContentWrapper>
       {type === "description" && description && (
@@ -29,7 +32,7 @@ export default function PanelContent({
               <IconWrapper>
                 <Icon category={service} withBackground size={30} />
               </IconWrapper>
-              <Text>{service}</Text>
+              <Text>{t(`search.services.${service}`)}</Text>
             </Service>
           ))}
         </ServicesList>

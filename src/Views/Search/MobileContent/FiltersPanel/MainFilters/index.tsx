@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 import { TagsWrapper, Tag, IconWrapper } from "./styles";
 import Icon from "~/Components/Icon";
 import Text from "~/Components/Ui-kit/Text";
@@ -5,6 +7,7 @@ import { useSearchContext } from "~/Contexts/searchContext";
 import { servicesRepartition } from "~/utils/getServices";
 
 export default function MainFilters(): JSX.Element {
+  const { t } = useTranslation();
   const { displayFilters, filters, updateFilters } = useSearchContext();
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -15,7 +18,7 @@ export default function MainFilters(): JSX.Element {
   return (
     <>
       <Text type="titleL" weight="bold">
-        {displayFilters}
+        {t(`search.services.${displayFilters}`)}
       </Text>
       <TagsWrapper>
         {selectedFilters?.map((filter, i) => {
@@ -34,7 +37,9 @@ export default function MainFilters(): JSX.Element {
               <IconWrapper>
                 <Icon category={filter} withBackground={false} />
               </IconWrapper>
-              <Text color={isSelected ? "black" : "black60"}>{filter}</Text>
+              <Text color={isSelected ? "black" : "black60"}>
+                {t(`search.services.${filter}`)}
+              </Text>
             </Tag>
           );
         })}

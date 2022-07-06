@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 
 interface IndexWrapperProps {
   small?: boolean;
+  mobile?: boolean;
 }
 
 export const PingWrapper = styled.View`
@@ -11,7 +12,8 @@ export const PingWrapper = styled.View`
 
 export const IndexWrapper = styled.View`
   position: absolute;
-  top: ${({ small }: IndexWrapperProps) => (small ? "5px" : "10px")};
+  top: ${({ small, mobile }: IndexWrapperProps) =>
+    mobile ? "10px" : small ? "5px" : "10px"};
   left: 0;
   width: 100%;
   align-items: center;

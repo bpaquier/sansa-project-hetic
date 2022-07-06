@@ -173,6 +173,7 @@ export default function Map(): JSX.Element {
               isSelected={index === selectedPlaceIndex}
               name={place?.organization_name}
               small={isMobile}
+              mobile={isMobile}
             />
           </Marker>
         ))}

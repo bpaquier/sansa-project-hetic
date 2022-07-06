@@ -1,3 +1,6 @@
+import i18next from "i18next";
+import { useTranslation } from "react-i18next";
+
 import Filter from "./Filter";
 import { FiltersWrapper, CheckboxWrapper, Content, Title } from "./styles";
 import Separator from "~/Components/Ui-kit/Separator";
@@ -6,6 +9,8 @@ import { useSearchContext } from "~/Contexts/searchContext";
 import { servicesRepartition } from "~/utils/getServices";
 
 export default function Filters(): JSX.Element {
+  const { language } = i18next;
+  const { t } = useTranslation();
   const { displayFilters } = useSearchContext();
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -16,14 +21,17 @@ export default function Filters(): JSX.Element {
   return displayFilters ? (
     <FiltersWrapper>
       <Title>
-        <Text type="titleL">{displayFilters}</Text>
+        <Text type="titleL">{t(`search.services.${displayFilters}`)}</Text>
       </Title>
       <Separator orientation="horizontal" />
       <Content>
         {selectedFilters &&
           selectedFilters?.map((filter, i) => {
             return (
-              <CheckboxWrapper key={`${filter}-${i}`}>
+              <CheckboxWrapper
+                reversed={language === "ar-SA"}
+                key={`${filter}-${i}`}
+              >
                 <Filter {...{ filter }} />
               </CheckboxWrapper>
             );

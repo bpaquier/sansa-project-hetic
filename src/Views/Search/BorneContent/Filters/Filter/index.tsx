@@ -1,33 +1,39 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
+import { useTranslation } from "react-i18next";
+import { Pressable } from "react-native";
 
 import Checkbox from "~/Components/Form/Checkbox";
 import { useSearchContext } from "~/Contexts/searchContext";
 
-interface FlterProps {
+interface FilterProps {
   filter?: string;
 }
 
-export default function Filter({ filter }: FlterProps): JSX.Element {
+export default function Filter({ filter }: FilterProps): JSX.Element {
+  const { t } = useTranslation();
   const { filters, updateFilters } = useSearchContext();
   const [isSelected, setIsSeleted] = useState<boolean>(
     filters?.includes(filter)
   );
 
-  useEffect(() => {
-    setIsSeleted(filters?.includes(filter));
-  }, [filters]);
   return (
-    <Checkbox
-      name={filter}
-      forceChecked={isSelected}
-      onChange={(state) =>
+    <Pressable
+      onPress={() => {
+        setIsSeleted((prev) => !prev);
         updateFilters({
-          action: state ? "add" : "remove",
+          action: !isSelected ? "add" : "remove",
           filtersName: [filter]
-        })
-      }
-      label={filter}
-      large
-    />
+        });
+      }}
+    >
+      <Checkbox
+        name={filter}
+        forceChecked={isSelected}
+        label={t(`search.services.${filter}`)}
+        large
+        controlled
+      />
+    </Pressable>
   );
 }

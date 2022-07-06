@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import { useTranslation } from "react-i18next";
+
 import ListItem from "./ListItem";
 import {
   ListWrapper,
@@ -16,6 +18,7 @@ import Text from "~/Components/Ui-kit/Text";
 import { useSearchContext, PlaceProps } from "~/Contexts/searchContext";
 
 export default function PlacesList(): JSX.Element {
+  const { t } = useTranslation();
   const {
     selectedPlaceIndex,
     setSelectedPlaceIndex,
@@ -103,13 +106,15 @@ export default function PlacesList(): JSX.Element {
                 <SpinnerWrapper>
                   <Spinner />
                 </SpinnerWrapper>
-                <Text>Chargement des résultats</Text>
+                <Text>{t("search.searching")}</Text>
               </LoaderWrapper>
             ) : (
               <Text>
                 {filteredPlaces?.length > 0
-                  ? `Afficher la liste (${filteredPlaces?.length} résultats)`
-                  : "Pas de résultats"}
+                  ? t("search.showList", {
+                      resultsLength: `${filteredPlaces?.length}`
+                    })
+                  : t("search.noResults")}
               </Text>
             )
           }

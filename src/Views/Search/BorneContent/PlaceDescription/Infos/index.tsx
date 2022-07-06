@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { View, Linking, Pressable, Alert } from "react-native";
 
 import { InfosWrapper, InfoItem, IconWrapper, LastInfoItem } from "./styles";
@@ -16,6 +17,7 @@ export default function Infos({
   website,
   spoken_language
 }: PlaceProps): JSX.Element {
+  const { t } = useTranslation();
   return (
     <InfosWrapper>
       {adress ? (
@@ -42,7 +44,7 @@ export default function Infos({
           <Pressable
             onPress={() => {
               Linking.openURL(website).catch(() => {
-                Alert.alert("", "Ce lien ne focntionne pas", [{ text: "OK" }]);
+                Alert.alert("", t("alerts.link"), [{ text: "OK" }]);
               });
             }}
           >
@@ -55,7 +57,7 @@ export default function Infos({
           <IconWrapper>
             <Globe color={theme?.color?.primary?.blue} />
           </IconWrapper>
-          <Text>{`Langues: ${spoken_language}`}</Text>
+          <Text>{`${t("search.languages")}: ${spoken_language}`}</Text>
         </InfoItem>
       ) : null}
       <LastInfoItem>

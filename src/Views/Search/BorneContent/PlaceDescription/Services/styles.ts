@@ -27,6 +27,6 @@ export const Service = styled.View`
   margin-bottom: 8px;
 `;
 
-export const ButtonWrapper = styled.View`
+export const ButtonWrapper = styled.TouchableOpacity`
   margin-top: 10px;
 `;

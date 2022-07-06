@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import { useTranslation } from "react-i18next";
+
 import Description from "./Description";
 import Hours from "./Hours";
 import MacuPichu from "./illustration-machu-pichu";
@@ -23,6 +25,7 @@ import { PlaceProps, Places, useSearchContext } from "~/Contexts/searchContext";
 import theme from "~/Styles/theme.styles";
 
 export default function PlaceDescription(): JSX.Element {
+  const { t } = useTranslation();
   const {
     filteredPlaces,
     displayPlaceDescription,
@@ -43,13 +46,13 @@ export default function PlaceDescription(): JSX.Element {
   }, [displayPlaceDescription, filteredPlaces]);
 
   return place ? (
-    <Wrapper>
+    <Wrapper style={{ elevation: 8 }}>
       <TitleWrapper>
         <Text type="titleL">
           {displayPanel === "description"
-            ? "Mission"
+            ? t("search.mission")
             : displayPanel === "services"
-            ? "Services proposés"
+            ? t("search.servicesOffered")
             : place?.organization_name}
         </Text>
         <CloseIconWrapper

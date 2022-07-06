@@ -3,16 +3,18 @@ import styled from "styled-components/native";
 import theme from "~/Styles/theme.styles";
 
 type StyledBoxProps = {
-  checked: boolean;
+  checked?: boolean;
   disabled?: boolean;
 };
 
-type TextContainerProps = {
+type GlobalProps = {
+  reversed?: boolean;
   large?: boolean;
 };
 
 export const StyledView = styled.Pressable`
-  flex-direction: row;
+  flex-direction: ${({ reversed }: GlobalProps) =>
+    reversed ? "row-reverse" : "row"};
   align-items: center;
 `;
 
@@ -62,7 +64,13 @@ export const CheckboxBorne = styled.Pressable<StyledBoxProps>`
 
 export const TextContainer = styled.View`
   align-self: center;
-  padding-left: ${({ large }: TextContainerProps) => (large ? "16px" : "8px")};
+  padding: ${({ reversed, large }: GlobalProps) => {
+    if (reversed) {
+      return large ? "0 16px 0 0" : "0 8px 0 0";
+    } else {
+      return large ? "0 0 0 16px" : "0 0 0 8px";
+    }
+  }};
   width: 95%;
 `;
 

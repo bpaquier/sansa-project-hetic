@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import Carousel from "react-native-carousel-control";
 
 import Card from "./Card";
@@ -14,6 +15,7 @@ import TextComponent from "~/Components/Ui-kit/Text";
 import { useSearchContext } from "~/Contexts/searchContext";
 
 export default function PlacesCarousel(): JSX.Element {
+  const { t } = useTranslation();
   const {
     filteredPlaces,
     setSelectedPlaceIndex,
@@ -37,14 +39,16 @@ export default function PlacesCarousel(): JSX.Element {
           <Logo>
             <Spinner />
           </Logo>
-          <TextComponent color="black40">Recherche en cours</TextComponent>
+          <TextComponent color="black40">{t("search.searching")}</TextComponent>
         </AlternativeCard>
       )}
       {debouncedFilters?.length > 0 &&
         (!filteredPlaces || filteredPlaces?.length === 0) &&
         !isLoading && (
           <AlternativeCard>
-            <TextComponent color="black40">Aucuns résultats</TextComponent>
+            <TextComponent color="black40">
+              {t("search.noResults")}
+            </TextComponent>
           </AlternativeCard>
         )}
       {filteredPlaces && filteredPlaces?.length > 0 && !isLoading && (

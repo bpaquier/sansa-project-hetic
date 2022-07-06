@@ -1,4 +1,4 @@
-//import { Dimensions } from "react-native";
+import { useTranslation } from "react-i18next";
 import { Dimensions } from "react-native";
 import Draggable from "react-native-draggable-panel";
 
@@ -11,9 +11,8 @@ import { useSearchContext } from "~/Contexts/searchContext";
 import theme from "~/Styles/theme.styles";
 import { servicesRepartition } from "~/utils/getServices";
 
-//const SCREEN_HEIGHT = Dimensions?.get("window").height;
-
 export default function FiltersPanel(): JSX.Element {
+  const { t } = useTranslation();
   const {
     displayFilters,
     setDisplayFilters,
@@ -45,7 +44,7 @@ export default function FiltersPanel(): JSX.Element {
               <BottomButton onPress={() => setFilters(null)}>
                 <ButtonComponent
                   type="tertiary"
-                  text="Supprimer le(s) filtre(s)"
+                  text={t("search.deleteFilters")}
                   onPress={() => setFilters(null)}
                 />
               </BottomButton>
@@ -53,7 +52,7 @@ export default function FiltersPanel(): JSX.Element {
               <BottomButton onPress={() => setFilters(null)}>
                 <ButtonComponent
                   type="tertiary"
-                  text="Réinitialiser"
+                  text={t("common.reset")}
                   onPress={() =>
                     displayFilters &&
                     updateFilters({

@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 import { CardWrapper, CardContent, IndexWrapper, Item } from "./styles";
 import Text from "~/Components/Ui-kit/Text";
 import { PlaceProps, useSearchContext } from "~/Contexts/searchContext";
@@ -14,6 +16,7 @@ export default function Card({
   hours_id,
   id
 }: CardProps): JSX.Element {
+  const { t } = useTranslation();
   const { setDisplayPlaceDescription } = useSearchContext();
 
   const currentDay = getCurrentDay();
@@ -45,10 +48,9 @@ export default function Card({
         )}
         {hours_id[0][currentDay] && (
           <Item>
-            <Text
-              type="small"
-              color="black60"
-            >{`Ouvert de ${hours_id[0][currentDay]}`}</Text>
+            <Text type="small" color="black60">{`${t("search.openingHours")}: ${
+              hours_id[0][currentDay]
+            }`}</Text>
           </Item>
         )}
 

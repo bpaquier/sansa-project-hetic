@@ -7,17 +7,19 @@ export interface PingProps {
   name?: string;
   small?: boolean;
   isSelected?: boolean;
+  mobile?: boolean;
 }
 
 export default function Ping({
   index,
   //name,
   small,
-  isSelected
+  isSelected,
+  mobile
 }: PingProps): JSX.Element {
   return (
     <PingWrapper>
-      <IndexWrapper {...{ small }}>
+      <IndexWrapper {...{ small, mobile }}>
         <Text
           textAlign="center"
           color={isSelected ? "darkBlue" : "white"}
