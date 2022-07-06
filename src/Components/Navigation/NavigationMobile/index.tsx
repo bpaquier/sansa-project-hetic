@@ -107,9 +107,9 @@ export default function NavigationMobile({
             width={iconSize}
             height={iconSize}
             color={
-              isCurrentPage("/home")
-                ? Theme.color.primary.blue
-                : Theme.color.neutral.black60
+              isCurrentPage("/")
+                ? Theme.color.primary.white
+                : Theme.color.neutral?.black60
             }
           />
         </PrimaryIconContainer>
