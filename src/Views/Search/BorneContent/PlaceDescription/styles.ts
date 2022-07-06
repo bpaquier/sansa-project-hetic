@@ -16,7 +16,7 @@ export const Wrapper = styled.View`
   background-color: ${theme?.color?.primary?.white};
   border-radius: ${theme?.shape?.radius?.input}px;
   padding: 32px 40px;
-  z-index: 105;
+  z-index: 201;
 `;
 
 export const TitleWrapper = styled.View`
@@ -39,7 +39,7 @@ export const CloseIconWrapper = styled.TouchableOpacity`
     secondaryStyle ? `2px solid ${theme?.color?.primary?.blue}` : "none"};
 `;
 
-export const ContentWrapper = styled.View`
+export const ContentWrapper = styled.ScrollView`
   margin-top: 43px;
   width: 100%;
   height: 100%;
@@ -60,6 +60,7 @@ export const SecondRow = styled.View`
   flex-direction: row;
   align-items: center;
   padding-top: 15px;
+  max-height: 400px;
 `;
 
 export const Service = styled.View`

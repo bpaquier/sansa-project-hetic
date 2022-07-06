@@ -18,7 +18,7 @@ export const TagsWrapper = styled.View`
   right: ${theme?.grid?.borneGutter}px;
   flex-direction: row;
   align-items: flex-end;
-  z-index: 120;
+  z-index: 200;
 `;
 
 export const Tag = styled.TouchableOpacity`
@@ -59,5 +59,5 @@ export const Overlay = styled.Pressable`
   height: ${Dimensions.get("window").height}px;
   width: ${Dimensions.get("window").width}px;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 119;
+  z-index: 200;
 `;

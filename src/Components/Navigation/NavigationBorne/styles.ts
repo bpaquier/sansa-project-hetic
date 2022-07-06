@@ -18,6 +18,7 @@ export const Nav = styled.Pressable`
   width: ${getColumnWidth(2, false)}px;
   left: ${grid.borneGutter}px;
   background-color: ${Theme.color.primary.white};
+  z-index: 100;
 `;
 
 export const NavButtonsContainer = styled.View`

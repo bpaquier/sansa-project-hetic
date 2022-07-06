@@ -33,15 +33,20 @@ export const InputWrapper = styled.View`
   overflow: visible;
 `;
 
+export const SearchIconWrapper = styled.View`
+  position: absolute;
+  top: 19px;
+  left: 20px;
+`;
+
 export const Input = styled.TextInput`
   flex: 1 1;
   border-radius: ${shape?.radius?.button};
   border: 1px solid ${color?.neutral?.black20};
   height: 54px;
-  margin-right: 10px;
   flex-direction: row;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 20px 0 50px;
 `;
 
 export const IconsWrapper = styled.View`

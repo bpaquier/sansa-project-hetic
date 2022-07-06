@@ -46,7 +46,7 @@ export default function PlaceDescription(): JSX.Element {
   }, [displayPlaceDescription, filteredPlaces]);
 
   return place ? (
-    <Wrapper style={{ elevation: 8 }}>
+    <Wrapper style={{ elevation: 10 }}>
       <TitleWrapper>
         <Text type="titleL">
           {displayPanel === "description"

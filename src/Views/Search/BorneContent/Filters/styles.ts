@@ -1,3 +1,4 @@
+import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 
 import { getColumnWidth } from "~/Styles/mixins.styles";
@@ -18,6 +19,7 @@ export const FiltersWrapper = styled.ScrollView`
   theme?.grid?.borneGutter +
   8}px;
   z-index: 1;
+  max-height: ${Dimensions?.get("window").height / 2}px;
 `;
 
 export const Title = styled.View`

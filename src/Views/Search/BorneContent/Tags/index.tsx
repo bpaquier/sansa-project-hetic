@@ -51,11 +51,11 @@ export default function Tags(): JSX.Element {
     <>
       {displayTagsList && (
         <Overlay
-          style={{ elevation: 7, shadowColor: "transparent" }}
+          style={{ elevation: 9 }}
           onPress={() => setDisplayTagsList(false)}
         />
       )}
-      <TagsWrapper style={{ elevation: 7, shadowColor: "transparent" }}>
+      <TagsWrapper style={{ elevation: 9, shadowColor: "transparent" }}>
         <Tag
           activeOpacity={0.8}
           bgColor={theme?.color?.primary?.blue}

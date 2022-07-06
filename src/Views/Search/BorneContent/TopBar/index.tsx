@@ -11,9 +11,10 @@ import {
   InputWrapper,
   Input,
   UnderlineIndicator,
-  RoundedIndicator
+  RoundedIndicator,
+  SearchIconWrapper
 } from "./styles";
-import SearchBig from "~/Components/Icons/System/System/SearchBig";
+import Search from "~/Components/Icons/System/System/Search";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import { useSearchContext } from "~/Contexts/searchContext";
@@ -61,14 +62,14 @@ export default function TopBar(): JSX.Element {
   return (
     <TopBarWrapper>
       <InputWrapper>
+        <SearchIconWrapper>
+          <Search width={25} height={25} />
+        </SearchIconWrapper>
         <Input
           value={searchValue}
           onChangeText={(value) => setSearchValue(value)}
           placeholder={t("search.searchPlaceholder")}
         />
-        <Button>
-          <SearchBig width={64} height={64} />
-        </Button>
       </InputWrapper>
       <Separator orientation="vertical" height="64px" />
       <IconsWrapper>{renderIcons}</IconsWrapper>
