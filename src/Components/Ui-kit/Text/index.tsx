@@ -23,7 +23,9 @@ export type TextColorsProps =
   | "black40"
   | "black20"
   | "black60"
-  | "red";
+  | "red"
+  | "warning";
+
 export type TextAlignementProps = "left" | "center" | "right";
 export interface TextComponentProps {
   children?: React.ReactNode | ReactNode[];

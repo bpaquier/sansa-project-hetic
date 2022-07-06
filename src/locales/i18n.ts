@@ -4,6 +4,7 @@ import { initReactI18next } from "react-i18next";
 import translationAR from "./languages/ar.json";
 import translationEN from "./languages/en.json";
 import translationES from "./languages/es.json";
+import translationFRAdmin from "./languages/fr-administrativeAssistance.json";
 import translationFR from "./languages/fr.json";
 import translationUK from "./languages/uk.json";
 
@@ -14,7 +15,7 @@ const resources = {
     translation: translationEN
   },
   "fr-FR": {
-    translation: translationFR
+    translation: { ...translationFR, ...translationFRAdmin }
   },
   "uk-UA": {
     translation: translationUK

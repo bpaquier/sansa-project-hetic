@@ -17,7 +17,11 @@ const Link = ({
   to
 }: LinkProps) => {
   return (
-    <RouterLink to={to} underlayColor={"transparent"}>
+    <RouterLink
+      to={to}
+      underlayColor={"transparent"}
+      style={{ margin: 0, padding: 0 }}
+    >
       <Text {...{ type, weight, color, textAlign }}>{children}</Text>
     </RouterLink>
   );

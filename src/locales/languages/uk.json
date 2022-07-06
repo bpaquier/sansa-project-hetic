@@ -27,8 +27,7 @@
     "privacyPolicy": "Політика конфіденційності",
     "legals": "Юридичний",
     "tcu": "TCU",
-    "consultList": "Зверніться до списку",
-    "administrativeAssistance": "Адміністративна допомога"
+    "consultList": "Зверніться до списку"
   },
   "forms": {
     "iReadAndAcceptPrompt": "Я прочитав і приймаю загальні умови використання",
@@ -61,7 +60,7 @@
     "deleteFilters": "Видалення всіх фільтрів",
     "seeFilters": "Переглянути всі фільтри",
     "selectedFilters": "Вибрані фільтри",
-    "noSelectedFilters" : "Фільтри не вибрано",
+    "noSelectedFilters": "Фільтри не вибрано",
     "noResults": "Немає результатів",
     "searching": "Сучасні дослідження",
     "openingHours": "Час роботи",
@@ -71,11 +70,11 @@
     "service": "Послуги",
     "servicesOffered": "Пропоновані послуги",
     "mission": "Місія",
-    "showList":"Переглянути список ({{ resultsLength }} Результатів)",
+    "showList": "Переглянути список ({{ resultsLength }} Результатів)",
     "learnMore": "Дізнатися більше",
     "seeMore": "Детальніше",
     "lastUpdate": "Останнє оновлення",
-    "services" : {
+    "services": {
       "Acceuil": "Прийом",
       "Alimentation": "Годування",
       "Santé": "Здоров'я",
@@ -93,7 +92,7 @@
       "Épicerie Sociale et Solidaire": "Продуктовий магазин «Солідарність»",
       "Colis Alimentaire": "Продуктові посилки",
       "Distribution de repas": "Розподіл шроту",
-      "Fontaine à eau":  "Фонтан з водою",
+      "Fontaine à eau": "Фонтан з водою",
       "Médecin généraliste": "Лікар загальної практики",
       "Soins enfants": "Догляд за дитиною",
       "Dépistage": "Скринінг",
@@ -125,9 +124,9 @@
       "Téléphone": "Телефон",
       "Insertion par l'activité économique": "Інтеграція через економічну діяльність",
       "Boutique solidaire": "Магазин солідарності",
-      "Bagagerie": "Багаж", 
+      "Bagagerie": "Багаж",
       "Restauration assise": "Сидяча реставрація",
-      "Coffre-fort numérique" : "Цифровий сейф",
+      "Coffre-fort numérique": "Цифровий сейф",
       "Activités diverses": "Різне"
     }
   },
