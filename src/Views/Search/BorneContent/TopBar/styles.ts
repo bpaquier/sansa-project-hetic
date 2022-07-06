@@ -14,7 +14,7 @@ export const TopBarWrapper = styled.View`
   position: absolute;
   top: ${grid.borneGutter}px;
   right: ${grid.borneGutter}px;
-  width: ${getColumnWidth(21, false)};
+  width: ${getColumnWidth(21, false)}px;
   height: ${sizes?.bornContent?.topBarHeight}px;
   background-color: ${color.primary.white};
   border-radius: ${shape?.radius?.input}px;
@@ -26,7 +26,7 @@ export const TopBarWrapper = styled.View`
 `;
 
 export const InputWrapper = styled.View`
-  width: ${getColumnWidth(7, false)};
+  width: ${getColumnWidth(7, false)}px;
   flex-direction: row;
   margin-right: 24px;
   align-items: center;
@@ -46,7 +46,7 @@ export const Input = styled.TextInput`
 
 export const IconsWrapper = styled.View`
   flex-direction: row;
-  width: ${getColumnWidth(12, false)};
+  width: ${getColumnWidth(12, false)}px;
   justify-content: space-between;
   margin-left: 24px;
 `;

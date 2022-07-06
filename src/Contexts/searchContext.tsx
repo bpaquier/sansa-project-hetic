@@ -9,6 +9,7 @@ import {
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore
 
+import { useGlobalContext } from "./globalContext";
 import { useDebounce } from "~/hooks/useDebounce";
 
 export interface PlaceProps {
@@ -56,6 +57,8 @@ interface ContextProps {
   setDisplayPlaceDescription?: (id: number) => void;
   triggerLocalization?: boolean | null;
   setTriggerLocalization?: (arg: boolean) => void;
+  isListDisplayed?: boolean;
+  setIsListDisplayed?: (arg: boolean) => void;
 }
 
 type updateFiltersProps = {
@@ -74,9 +77,11 @@ interface SearchProviderProps {
 }
 
 function SearchProvider({ children }: SearchProviderProps) {
+  const { isMobile } = useGlobalContext();
   const [selectedPlaceIndex, setSelectedPlaceIndex] = useState<number | null>(
     null
   );
+  const [isListDisplayed, setIsListDisplayed] = useState<boolean>();
   const [filteredPlaces, setFilteredPlaces] = useState<PlaceProps[] | null>(
     null
   );
@@ -107,6 +112,7 @@ function SearchProvider({ children }: SearchProviderProps) {
       setFilters(null);
       setIsLoading(false);
       setFilteredPlaces(null);
+      setIsListDisplayed(false);
     }
   }, [debouncedFilters]);
 
@@ -116,6 +122,7 @@ function SearchProvider({ children }: SearchProviderProps) {
       setFilters(null);
       setIsLoading(false);
       setDisplayFilters(null);
+      setIsListDisplayed(false);
     }
   }, [filters]);
 
@@ -146,7 +153,7 @@ function SearchProvider({ children }: SearchProviderProps) {
   };
 
   useEffect(() => {
-    filteredPlaces?.length > 0 && setSelectedPlaceIndex(0);
+    filteredPlaces?.length > 0 && isMobile && setSelectedPlaceIndex(0);
   }, [filteredPlaces]);
 
   const providerValue = {
@@ -164,7 +171,9 @@ function SearchProvider({ children }: SearchProviderProps) {
     displayPlaceDescription,
     setDisplayPlaceDescription,
     triggerLocalization,
-    setTriggerLocalization
+    setTriggerLocalization,
+    isListDisplayed,
+    setIsListDisplayed
   };
 
   return <Context.Provider value={providerValue}>{children}</Context.Provider>;

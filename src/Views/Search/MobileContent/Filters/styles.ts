@@ -29,7 +29,7 @@ export const SearchIconWrapper = styled.View`
 `;
 
 export const Input = styled.TextInput`
-  width: ${getColumnWidth(theme?.grid?.columns, true)};
+  width: ${getColumnWidth(theme?.grid?.columns, true)}px;
   border: ${theme?.color?.neutral?.black40};
   border-radius: ${theme?.shape?.radius?.button};
   height: 40px;

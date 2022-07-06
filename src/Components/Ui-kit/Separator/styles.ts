@@ -46,10 +46,10 @@ export const StyledView = styled.View`
       default:
         return (
           width ||
-          getColumnWidth(
+          `${getColumnWidth(
             columnWidth ? columnWidth : grid?.columns / 2,
             isMobile ? isMobile : true
-          )
+          )}px`
         );
     }
   }};

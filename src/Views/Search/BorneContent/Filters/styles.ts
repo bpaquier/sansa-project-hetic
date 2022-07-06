@@ -8,7 +8,7 @@ interface CheckbowWrapperProps {
 }
 
 export const FiltersWrapper = styled.ScrollView`
-  width: ${getColumnWidth(13, false)};
+  width: ${getColumnWidth(13, false)}px;
   padding: 32px 64px;
   border-radius: ${theme?.shape?.radius?.input}px;
   background-color: ${theme?.color?.primary?.white};

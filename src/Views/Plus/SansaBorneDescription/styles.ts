@@ -12,7 +12,7 @@ export const TextMissionsPlusWrapper = styled.Pressable<TextMissionsPlusWrapperP
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: ${getColumnWidth(7, false)};
+  width: ${getColumnWidth(7, false)}px;
 `;
 
 export const LogoWrappers = styled.View`

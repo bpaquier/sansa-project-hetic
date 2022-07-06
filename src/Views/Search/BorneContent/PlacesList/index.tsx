@@ -25,7 +25,8 @@ export default function PlacesList(): JSX.Element {
     filteredPlaces,
     setDisplayFilters,
     isLoading,
-    filters
+    filters,
+    setIsListDisplayed
   } = useSearchContext();
   const [isAccordeonOpen, setIsAccordeonOpen] = useState<boolean>();
   const itemsTopPositions = useRef<number[]>([]);
@@ -35,6 +36,10 @@ export default function PlacesList(): JSX.Element {
     const scrollValue = itemsTopPositions?.current?.[selectedPlaceIndex];
     (scrollValue || scrollValue === 0) && scrollTo(scrollValue);
   }, [selectedPlaceIndex]);
+
+  useEffect(() => {
+    setIsListDisplayed(isAccordeonOpen);
+  }, [isAccordeonOpen]);
 
   const scrollTo = (value: number) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

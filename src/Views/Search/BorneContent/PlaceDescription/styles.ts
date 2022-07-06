@@ -12,7 +12,7 @@ export const Wrapper = styled.View`
   top: ${theme?.grid?.borneGutter}px;
   right: ${theme?.grid?.borneGutter}px;
   height: 100%;
-  width: ${getColumnWidth(21, false)};
+  width: ${getColumnWidth(21, false)}px;
   background-color: ${theme?.color?.primary?.white};
   border-radius: ${theme?.shape?.radius?.input}px;
   padding: 32px 40px;

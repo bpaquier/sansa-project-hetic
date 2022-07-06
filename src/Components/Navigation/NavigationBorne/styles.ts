@@ -15,7 +15,7 @@ export const Nav = styled.Pressable`
   padding: 20px 0;
   border-radius: ${shape?.radius?.input}px;
   border: 1px solid ${Theme.color.neutral.black10};
-  width: ${getColumnWidth(2, false)};
+  width: ${getColumnWidth(2, false)}px;
   left: ${grid.borneGutter}px;
   background-color: ${Theme.color.primary.white};
 `;

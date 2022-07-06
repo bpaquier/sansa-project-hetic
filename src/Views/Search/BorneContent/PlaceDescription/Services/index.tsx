@@ -21,7 +21,7 @@ export default function Services({
   setDisplayPanel
 }: ServicesProps): JSX.Element {
   const { t } = useTranslation();
-  const dispalyMax = 16;
+  const dispalyMax = 13;
   return (
     <ServicesWrapper>
       <SmallTitleWrapper>

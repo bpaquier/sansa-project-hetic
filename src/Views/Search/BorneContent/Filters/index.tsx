@@ -21,7 +21,9 @@ export default function Filters(): JSX.Element {
   return displayFilters ? (
     <FiltersWrapper>
       <Title>
-        <Text type="titleL">{t(`search.services.${displayFilters}`)}</Text>
+        <Text type="titleL">
+          {t(`search.services.${displayFilters}`) ?? displayFilters}
+        </Text>
       </Title>
       <Separator orientation="horizontal" />
       <Content>

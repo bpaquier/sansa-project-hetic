@@ -13,6 +13,7 @@ import Plus from "~/Components/Icons/System/System/Plus";
 import Ping from "~/Components/Ping";
 import { useGlobalContext } from "~/Contexts/globalContext";
 import { useSearchContext } from "~/Contexts/searchContext";
+import { getColumnWidth } from "~/Styles/mixins.styles";
 import theme from "~/Styles/theme.styles";
 
 const styles = StyleSheet.create({
@@ -41,9 +42,10 @@ export default function Map(): JSX.Element {
     setSelectedPlaceIndex,
     triggerLocalization,
     displayFilters,
-    setDisplayFilters
+    setDisplayFilters,
+    isListDisplayed
   } = useSearchContext();
-
+  const [leftPadding, setLeftPadding] = useState<number>(0);
   const mapRef = useRef();
   const [location, setLocation] = useState<LocationProps>({
     latitude: 48.859,
@@ -74,19 +76,23 @@ export default function Map(): JSX.Element {
   }, [location]);
 
   useEffect(() => {
+    if (!isMobile) {
+      if (isListDisplayed) {
+        setLeftPadding(getColumnWidth(9, false));
+      } else {
+        setLeftPadding(getColumnWidth(3, false));
+      }
+    }
+  }, [isMobile, isListDisplayed]);
+
+  useEffect(() => {
     selectedPlaceIndex !== null &&
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-ignore
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      mapRef?.current?.animateToRegion(
-        {
-          latitudeDelta: delta,
-          longitudeDelta: delta,
-          latitude: parseFloat(filteredPlaces?.[selectedPlaceIndex]?.latitude),
-          longitude: parseFloat(filteredPlaces?.[selectedPlaceIndex]?.longitude)
-        },
-        1000
-      );
+      setLocation({
+        latitudeDelta: delta + 0.1,
+        longitudeDelta: delta + 0.1,
+        latitude: parseFloat(filteredPlaces?.[selectedPlaceIndex]?.latitude),
+        longitude: parseFloat(filteredPlaces?.[selectedPlaceIndex]?.longitude)
+      });
   }, [selectedPlaceIndex]);
 
   useEffect(() => {
@@ -131,7 +137,7 @@ export default function Map(): JSX.Element {
       return;
     }
     const currentLocation = await Location.getCurrentPositionAsync({});
-    goToLocation({
+    setLocation({
       latitudeDelta: initialDelta,
       longitudeDelta: initialDelta,
       latitude: currentLocation?.coords?.latitude,
@@ -150,6 +156,12 @@ export default function Map(): JSX.Element {
         initialRegion={{ ...location }}
         onPress={() => {
           !isMobile && displayFilters && setDisplayFilters(null);
+        }}
+        mapPadding={{
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: leftPadding
         }}
       >
         {filteredPlaces?.map((place, index) => (
