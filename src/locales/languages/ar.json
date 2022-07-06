@@ -27,8 +27,7 @@
     "privacyPolicy": "سياسة الخصوصية",
     "legals": "قانوني",
     "tcu": "TCU",
-    "consultList": "استشر القائمة",
-    "administrativeAssistance": "المساعدة الإدارية"
+    "consultList": "استشر القائمة"
   },
   "forms": {
     "alreadyHaveAnAccount": "هل لديك حساب بالفعل؟",
@@ -61,7 +60,7 @@
     "deleteFilters": "إزالة جميع الفلاتر",
     "seeFilters": "عرض جميع الفلاتر",
     "selectedFilters": "الفلاتر المحددة",
-    "noSelectedFilters" : "لم يتم تحديد أي فلاتر",
+    "noSelectedFilters": "لم يتم تحديد أي فلاتر",
     "noResults": "لا توجد نتائج",
     "searching": "البحوث الحالية",
     "openingHours": "ساعات العمل",
@@ -71,11 +70,11 @@
     "service": "خدمات",
     "servicesOffered": "الخدمات المقدمة",
     "mission": "مهمة",
-    "showList":"انظر القائمة ({{ resultsLength }} النتائج)",
+    "showList": "انظر القائمة ({{ resultsLength }} النتائج)",
     "learnMore": "التعرف على المزيد",
     "seeMore": "شاهد المزيد",
     "lastUpdate": "آخر تحديث",
-    "services" : {
+    "services": {
       "Acceuil": "استقبال",
       "Alimentation": "إطعام",
       "Santé": "الصحة",
@@ -93,7 +92,7 @@
       "Épicerie Sociale et Solidaire": "محل بقالة سوليدرتي",
       "Colis Alimentaire": "الطرود الغذائية",
       "Distribution de repas": "توزيع الوجبات",
-      "Fontaine à eau":  "نافورة مياه",
+      "Fontaine à eau": "نافورة مياه",
       "Médecin généraliste": "طبيب عام",
       "Soins enfants": "رعاية الطفل",
       "Dépistage": "فحص",
@@ -125,9 +124,9 @@
       "Téléphone": "تلفون",
       "Insertion par l'activité économique": "التكامل من خلال النشاط الاقتصادي",
       "Boutique solidaire": "متجر التضامن",
-      "Bagagerie": "الامتعه", 
+      "Bagagerie": "الامتعه",
       "Restauration assise": "ترميم المقاعد",
-      "Coffre-fort numérique" : "خزنة رقمية",
+      "Coffre-fort numérique": "خزنة رقمية",
       "Activités diverses": "أنشطة متنوعة"
     }
   },

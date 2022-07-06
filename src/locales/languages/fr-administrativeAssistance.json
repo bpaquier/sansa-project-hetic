@@ -1,0 +1,111 @@
+{
+  "administrativeAssistance": {
+    "administrativeAssistance": "Aides administratives",
+    "otherQuestions": "Les autres questions",
+    "hosting": {
+      "hosting": "Hébergement",
+      "hostingQuestions": "Questions sur l’hébergement",
+      "questions": [
+        {
+          "id": 0,
+          "title": "Comment faire pour avoir un hébergement ?",
+          "text": [
+            {
+              "text": "<regular>J’appelle le 115 : le numéro d’urgence pour toute personne sans hébergement. Le 115 est le numéro unique de centralisation des demandes d’hébergement d’urgence. En appelant le 115 je serai directement renvoyé vers le 115 du département depuis lequel j’appelle."
+            },
+            {
+              "text": "<warning><bold>Attention :</bold> appeler le 115 ne permet pas d’avoir accès à une solution d’hébergement pérenne. Pour avoir une solution d’hébergement longue durée, je contacte un travailleur social."
+            },
+            {
+              "text": "<regular>Je fais un dossier de demande d’hébergement avec un travailleur social. Si je suis en contact avec un travailleur social, il peut faire une demande d’hébergement avec moi auprès du <bold>SIAO</bold>, le service qui gère l’attribution des places d’hébergement."
+            },
+            {
+              "text": "<regular>Je peux faire une demande d’hébergement auprès du <bold>SIAO</bold> avec un travailleur social si je suis mal logé, hébergé, ou bien à la rue."
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "Comment faire pour avoir une adresse de domiciliation ?",
+          "text": [
+            {
+              "text": "<regular>Lorsque je n’ai pas de domicile fixe, je peux choisir une adresse de domiciliation administrative qui me permets de recevoir mon courrier et de faire mes démarches d’accès aux droits. La domiciliation est notamment nécessaire pour avoir une couverture maladie, des aides financières, etc..."
+            },
+            {
+              "text": "<regular><bold>- Si suis hébergé dans une structure d’hébergement :</bold> je peux demander à être domicilié par ma structure d’hébergement et à y recevoir mon courrier."
+            },
+            {
+              "text": "<regular><bold>- Si je n'ai pas d'hébergement, que je suis hébergé à l’hôtel ou chez une autre personne :</bold> je peux faire une demande de domiciliation auprès du <bold>Centre Communal d’Action Sociale (CCAS)</bold> de la commune où je vis, ou où j’ai des attaches (là où est l’école de mes enfants, là où je suis suivi médicalement, etc.)."
+            },
+            {
+              "text": "<warning><bold>Attention :️</bold> Pour être domicilié par le CCAS je dois pouvoir démontrer que j’ai un lien avec la commune."
+            },
+            {
+              "text": "<regular>À Paris, pour être domicilié par le <bold>Centre d’Action Sociale de la Ville de Paris (CASVP)</bold> je dois <a>prendre rendez-vous en ligne</a>.",
+              "url": "https://teleservices.paris.fr/rdvcasvp/jsp/site/Portal.jsp"
+            },
+            {
+              "text": "<regular><bold>Si je ne peux pas être domicilié par le CCAS de la commune où je vis</bold>, je peux également demander à une association agréée de me domicilier."
+            },
+            {
+              "text": "<regular>Les associations agréées peuvent avoir des critères spécifiques pour la domiciliation et peuvent refuser de me domicilier si elles n’ont plus de place."
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Comment faire pour avoir un hébergement si je suis réfugié ou bénéficiaire de la protection subsidiaire?",
+          "text": [
+            {
+              "text": "<regular>Je peux faire une demande d’admission en <bold>Centre Provisoire d’Hébergement</bold> à l’<bold>OFII</bold> mais je ne suis pas sûr de pouvoir avoir une place."
+            },
+            {
+              "text": "<regular>Je peux également appeler le 115, si je suis à la rue, et contacter un travailleur social pour faire un dossier de demande d’hébergement."
+            },
+            {
+              "text": "<regular>Il m’est conseillé de déposer au plus vite une demande de logement social pour obtenir un logement."
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Comment faire pour avoir un hébergement si je suis une femme enceinte ?",
+          "text": [
+            {
+              "text": "<regular>Je peux me rendre auprès des services sociaux de mon département de résidence : par exemple si j'habite en Seine-Saint-Denis, je vais aux <a>Services Sociaux Départementaux.</a>",
+              "url": "https://seinesaintdenis.fr/Circonscription-departementale-de-Service-Social-de-Bondy"
+            },
+            {
+              "text": "<regular>Je peux également faire une demande d’hébergement au 115."
+            },
+            {
+              "text": "<regular><bold>Si je suis enceinte</bold>, que je n’ai pas d’hébergement et que j’ai besoin d’un accompagnement et d’informations, je peux demander de l’aide en appelant le numéro vert <a>Solipam</a> : ",
+              "url": "https://solipam.fr/"
+            },
+            {
+              "text": "<phone>01.48.24.16.28"
+            },
+            {
+              "text": "<regular><bold>Solipam</bold> peut m’accompagner dans mes démarches tout au long de la grossesse et m’orienter vers des lieux où rencontrer un médecin ou un travailleur social."
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Comment faire pour avoir un hébergement si je suis jeune victime d’homophobie et/ou de transphobie ?",
+          "text": [
+            {
+              "text": "<regular>Je peux appeler la ligne d’urgence ouverte 24h/24h de l’association <bold>Le Refuge</bold> qui accueille des jeunes victimes d’homophobie et de transphobie (hébergement temporaire, accompagnement psychologique et social)."
+            },
+            {
+              "text": "<phone>06.31.59.69.50"
+            },
+            {
+              "text": "<regular>Je peux également appeler le 115 ou faire une demande d’hébergement avec un travailleur social."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

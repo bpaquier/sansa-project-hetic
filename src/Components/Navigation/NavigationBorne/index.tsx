@@ -17,6 +17,7 @@ import Ukraine from "~/Components/Icons/Flags/Ukraine";
 import MapMarker from "~/Components/Icons/System/Map/MapMarker";
 import House from "~/Components/Icons/System/System/House";
 import Plus from "~/Components/Icons/System/System/Plus";
+import Flags from "~/Components/LanguagesMenu/Flags";
 import Separator from "~/Components/Ui-kit/Separator";
 import Theme from "~/Styles/theme.styles";
 
@@ -73,10 +74,13 @@ export default function NavigationBorne({
             />
           </NavButton>
         </NavButtonContainer>
-        <NavButtonContainer active={isCurrentPage("/plus")} spaceTop>
+        <NavButtonContainer
+          active={isCurrentPage("/plus") || isCurrentPage("/faq")}
+          spaceTop
+        >
           <NavButton
             onPress={() => onPressExitLanguagesMenuAndNavigate("/plus")}
-            active={isCurrentPage("/plus")}
+            active={isCurrentPage("/plus") || isCurrentPage("/faq")}
           >
             <Plus width={36} height={36} color={Theme.color.primary.white} />
           </NavButton>
@@ -88,7 +92,7 @@ export default function NavigationBorne({
           activeOpacity={0.7}
           onPress={() => onPressExitLanguagesMenuAndNavigate()}
         >
-          <Flag />
+          <Flags size={60} />
         </TouchableOpacity>
       </LanguageSection>
     </Nav>

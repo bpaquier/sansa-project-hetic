@@ -30,7 +30,7 @@ export default function NavigationMobile({
   useEffect(() => {
     const index = isCurrentPage("/home")
       ? 0
-      : isCurrentPage("/plus")
+      : isCurrentPage("/plus") || isCurrentPage("/faq")
       ? 2
       : isCurrentPage("/")
       ? 1
@@ -122,12 +122,12 @@ export default function NavigationMobile({
           width={36}
           height={36}
           color={
-            isCurrentPage("/plus")
+            isCurrentPage("/plus") || isCurrentPage("/faq")
               ? Theme.color.primary.blue
               : Theme.color.neutral.black60
           }
         />
-        <NavButtonText active={isCurrentPage("/plus")}>
+        <NavButtonText active={isCurrentPage("/plus") || isCurrentPage("/faq")}>
           {t("plus.plus")}
         </NavButtonText>
       </NavButton>
