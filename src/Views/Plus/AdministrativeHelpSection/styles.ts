@@ -5,7 +5,7 @@ import { getColumnWidth } from "~/Styles/mixins.styles";
 export const Wrapper = styled.TouchableOpacity`
   width: 100%;
   height: 100%;
-  padding: 24px ${getColumnWidth(1, true)};
+  padding: 24px ${getColumnWidth(1, true)}px;
 `;
 
 export const FlashlightIllustrationWrapper = styled.View`

@@ -9,6 +9,7 @@ import { FAQSectionsContainers, PageContainerMobile } from "../FAQ/styles";
 import Breadcrumb from "~/Components/Breadcrumb";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 import TextWrapper from "~/Components/Ui-kit/TextWrapper";
+import LanguageFAQSelector from "~/Components/LanguagesMenu/LanguagesFAQSelector";
 
 type categoryFAQTypeQuestions = {
   id: number;
@@ -55,6 +56,7 @@ export default function FAQCategory() {
                 />
               )
           )}
+          <LanguageFAQSelector />
         </FAQSectionsContainers>
       </PageContainerMobile>
     </PageContentWrapper>

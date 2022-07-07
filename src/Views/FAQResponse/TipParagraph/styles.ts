@@ -6,7 +6,7 @@ import theme from "~/Styles/theme.styles";
 const { color } = theme;
 
 export const TipTextContainer = styled.View`
-  width: ${getColumnWidth(22, true)};
+  width: ${getColumnWidth(22, true)}px;
   display: flex;
   flex-direction: row;
   align-items: center;

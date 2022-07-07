@@ -15,7 +15,7 @@ export default function Breadcrumb({ url, text }: BreadcrumbProps) {
   const navigate = useNavigate();
 
   return (
-    <StyledBreadcrumb onPress={() => navigate(url)}>
+    <StyledBreadcrumb onPress={() => navigate(url)} activeOpacity={0.7}>
       <ArrowLeft height={28} width={28} />
       <TextWrapper marginLeft={14} color="black20" type="titleL">
         {text}

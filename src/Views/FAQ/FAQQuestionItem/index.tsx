@@ -17,7 +17,7 @@ export interface FAQQuestionItemProps {
   length: number;
   category?: string;
   bold?: boolean;
-  color?: "blue";
+  color?: string;
 }
 
 export default function FAQQuestionItem({
@@ -35,6 +35,7 @@ export default function FAQQuestionItem({
   return (
     <>
       <QuestionsContainer
+        activeOpacity={0.7}
         onPress={() => navigate(`/faq/${type}/${questionIndex}`)}
       >
         {category && <FAQQuestionCategory category={category} />}
@@ -58,7 +59,7 @@ export default function FAQQuestionItem({
           orientation="horizontal"
           columnWidth={6}
           margin={16}
-          backgroundColor={color}
+          customColor={color}
         />
       )}
     </>

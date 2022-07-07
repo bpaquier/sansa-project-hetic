@@ -3,10 +3,10 @@ import styled from "styled-components/native";
 import { getColumnWidth } from "~/Styles/mixins.styles";
 
 export const FAQQuestionTexts = styled.View`
-  width: ${getColumnWidth(22, true)};
+  width: ${getColumnWidth(22, true)}px;
 `;
 
-export const QuestionsContainer = styled.Pressable`
+export const QuestionsContainer = styled.TouchableOpacity`
   display: flex;
   flex-direction: column;
   width: 100%;

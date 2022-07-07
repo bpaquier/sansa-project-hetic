@@ -7,7 +7,7 @@ const { color } = theme;
 
 export const WarningTextContainer = styled.View`
   background-color: ${color.semantic.warning};
-  width: ${getColumnWidth(24, true)};
+  width: ${getColumnWidth(24, true)}px;
   padding: 24px;
   margin-bottom: 24px;
   border: 1px solid ${color.semantic.warningBorder};

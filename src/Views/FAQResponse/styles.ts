@@ -16,5 +16,5 @@ export const QuestionsWrapper = styled.View`
 
 export const PageWrapper = styled.View`
   width: 100%;
-  margin-bottom: 150px;
+  margin-bottom: 174px;
 `;

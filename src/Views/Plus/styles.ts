@@ -74,9 +74,9 @@ export const PlusContainersMobile = styled.View<PlusContainersProps>`
   ${({ border }) => getBorderPlusContainer(border)};
   width: 100%;
   padding: ${({ paddingY, paddingX }) =>
-    `${paddingY ?? 24}px ${
-      paddingX !== undefined ? `${paddingX}px` : getColumnWidth(1, true)
-    }`};
+    `${paddingY !== undefined ? paddingY : 24}px ${
+      paddingX !== undefined ? paddingX : getColumnWidth(1, true)
+    }px`};
   margin-bottom: ${({ marginBottom }) => getMarginBottom(24, marginBottom)};
 `;
 
