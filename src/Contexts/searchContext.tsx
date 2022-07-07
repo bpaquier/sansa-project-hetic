@@ -37,6 +37,10 @@ export interface PlaceProps {
   latitude?: string;
   longitude?: string;
   place?: number;
+  preferencialWelcomes?: {
+    value?: string;
+  }[];
+  by_appointment?: boolean;
 }
 
 interface ContextProps {

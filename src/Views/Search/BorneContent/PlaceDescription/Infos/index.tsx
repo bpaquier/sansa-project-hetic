@@ -15,7 +15,9 @@ export default function Infos({
   adress,
   phone_number,
   website,
-  spoken_language
+  spoken_language,
+  by_appointment,
+  preferencialWelcomes
 }: PlaceProps): JSX.Element {
   const { t } = useTranslation();
   return (
@@ -61,15 +63,23 @@ export default function Infos({
         </InfoItem>
       ) : null}
       <LastInfoItem>
-        <IconWrapper>
-          <Calendar2 color={theme?.color?.primary?.blue} />
-        </IconWrapper>
-        <View>
-          <Text>Sur rendez-vous</Text>
-          <Text type="small" color="black40">
-            Acceuil exclusif: femmes
-          </Text>
-        </View>
+        {by_appointment || preferencialWelcomes?.[0]?.value ? (
+          <>
+            <IconWrapper>
+              <Calendar2 color={theme?.color?.primary?.blue} />
+            </IconWrapper>
+            <View>
+              {by_appointment ? (
+                <Text>{t("search.byAppointement")}</Text>
+              ) : null}
+              {preferencialWelcomes?.[0]?.value ? (
+                <Text type="small" color="black40">
+                  {preferencialWelcomes?.[0]?.value}
+                </Text>
+              ) : null}
+            </View>
+          </>
+        ) : null}
       </LastInfoItem>
     </InfosWrapper>
   );

@@ -155,17 +155,24 @@ export default function PlaceDescriptionMobile(): JSX.Element {
                 }`}</Text>
               </InfoItem>
             ) : null}
-            <InfoItem>
-              <IconWrapper>
-                <Calendar2 color={theme?.color?.primary?.blue} />
-              </IconWrapper>
-              <View>
-                <Text>Sur rendez-vous</Text>
-                <Text type="small" color="black40">
-                  Acceuil exclusif: femmes
-                </Text>
-              </View>
-            </InfoItem>
+            {place?.by_appointment ||
+            place?.preferencialWelcomes?.[0]?.value ? (
+              <InfoItem>
+                <IconWrapper>
+                  <Calendar2 color={theme?.color?.primary?.blue} />
+                </IconWrapper>
+                <View>
+                  {place?.by_appointment ? (
+                    <Text>{t("search.byAppointement")}</Text>
+                  ) : null}
+                  {place?.preferencialWelcomes?.[0]?.value ? (
+                    <Text type="small" color="black40">
+                      {place?.preferencialWelcomes?.[0]?.value}
+                    </Text>
+                  ) : null}
+                </View>
+              </InfoItem>
+            ) : null}
           </InfosWrapper>
         </Item>
         <Item>
