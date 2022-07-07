@@ -49,6 +49,10 @@ export const InfoItem = styled.View`
   width: 90%;
 `;
 
+export const TextWrapper = styled.View`
+  justify-content: center;
+`;
+
 export const IconWrapper = styled.View`
   margin-right: 12px;
 `;

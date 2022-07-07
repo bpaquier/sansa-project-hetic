@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
   Pressable,
-  View,
   Linking,
   TouchableOpacity,
   Dimensions,
@@ -25,7 +24,8 @@ import {
   HoursItemsWrapper,
   HoursItem,
   Service,
-  LastItem
+  LastItem,
+  TextWrapper
 } from "./styles";
 import ArrowLeft from "~/Components/Icons/System/Arrows/ArrowLeft";
 import Link from "~/Components/Icons/System/Communication/Link";
@@ -90,7 +90,6 @@ export default function PlaceDescriptionMobile(): JSX.Element {
       <Header>
         <TouchableOpacity
           onPress={() => {
-            console.log("coucou");
             setDisplayPlaceDescription(null);
           }}
         >
@@ -161,7 +160,7 @@ export default function PlaceDescriptionMobile(): JSX.Element {
                 <IconWrapper>
                   <Calendar2 color={theme?.color?.primary?.blue} />
                 </IconWrapper>
-                <View>
+                <TextWrapper>
                   {place?.by_appointment ? (
                     <Text>{t("search.byAppointement")}</Text>
                   ) : null}
@@ -170,7 +169,7 @@ export default function PlaceDescriptionMobile(): JSX.Element {
                       {place?.preferencialWelcomes?.[0]?.value}
                     </Text>
                   ) : null}
-                </View>
+                </TextWrapper>
               </InfoItem>
             ) : null}
           </InfosWrapper>
