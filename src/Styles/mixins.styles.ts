@@ -7,13 +7,13 @@ const { grid } = Theme;
 export const getColumnWidth = (
   columns: number,
   smallSreen: boolean
-): string => {
+): number => {
   const { width } = Dimensions.get("window");
   const gutter = smallSreen ? grid.mobileGutter : grid.borneGutter;
   const computedWidth = width - gutter * 2;
   const columnRatio = 100 / grid.columns;
 
-  return `${((columnRatio * computedWidth) / 100) * columns}px`;
+  return ((columnRatio * computedWidth) / 100) * columns;
 };
 
 export const ImageStyle = StyleSheet.create({

@@ -10,8 +10,8 @@ export interface MedicalCaseProps {
 
 export default function MedicalCase({
   color = theme?.color?.icon?.categories?.primary,
-  width = theme?.size?.icon?.categories,
-  height = theme?.size?.icon?.categories
+  width = theme?.sizes?.icon?.categories,
+  height = theme?.sizes?.icon?.categories
 }: MedicalCaseProps): JSX.Element {
   return (
     <Svg width={width} height={height} viewBox="0 0 14 14" fill={color}>

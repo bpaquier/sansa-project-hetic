@@ -10,8 +10,8 @@ export interface MapMarkerProps {
 
 export default function MapMarker({
   color = theme?.color?.neutral?.black40,
-  width = theme?.size?.icon?.system,
-  height = theme?.size?.icon?.system
+  width = theme?.sizes?.icon?.system,
+  height = theme?.sizes?.icon?.system
 }: MapMarkerProps): JSX.Element {
   return (
     <Svg width={width} height={height} viewBox="0 0 36 36" fill={color}>

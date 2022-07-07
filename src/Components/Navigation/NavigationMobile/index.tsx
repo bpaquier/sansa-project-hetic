@@ -18,6 +18,7 @@ export default function NavigationMobile({
   onPressExitLanguagesMenuAndNavigate
 }: NavigationMobileProps) {
   const location = useLocation();
+  const iconSize = 36;
   const { t } = useTranslation();
   const isCurrentPage = (page: string): boolean => location.pathname === page;
 
@@ -85,8 +86,8 @@ export default function NavigationMobile({
       />
       <NavButton onPress={() => onPressExitLanguagesMenuAndNavigate("/home")}>
         <House
-          width={36}
-          height={36}
+          width={iconSize}
+          height={iconSize}
           color={
             isCurrentPage("/home")
               ? Theme.color.primary.blue
@@ -103,12 +104,12 @@ export default function NavigationMobile({
       >
         <PrimaryIconContainer active={isCurrentPage("/")}>
           <MapMarker
-            width={36}
-            height={36}
+            width={iconSize}
+            height={iconSize}
             color={
               isCurrentPage("/")
                 ? Theme.color.primary.white
-                : Theme.color.neutral.black60
+                : Theme.color.neutral?.black60
             }
           />
         </PrimaryIconContainer>

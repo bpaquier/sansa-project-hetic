@@ -1,5 +1,7 @@
 import { useMemo, useState, useEffect } from "react";
 
+import i18next from "i18next";
+
 import {
   StyledView,
   CheckboxBorne,
@@ -18,8 +20,11 @@ export interface CheckBoxProps extends InputProps {
   label?: string;
   forceChecked?: boolean;
   disabled?: boolean;
-  onChange?: () => void;
+  onChange?: (state: boolean) => void;
   indeterminate?: boolean;
+  width?: number;
+  large?: boolean;
+  controlled?: boolean;
 }
 
 export default function Checkbox({
@@ -28,10 +33,19 @@ export default function Checkbox({
   forceChecked = false,
   updateValue,
   required,
-  name
+  name,
+  width,
+  onChange,
+  large,
+  controlled
 }: CheckBoxProps): JSX.Element {
+  const { language } = i18next;
   const { isMobile } = useGlobalContext();
   const [checked, setChecked] = useState(forceChecked);
+
+  useEffect(() => {
+    setChecked(forceChecked);
+  }, [forceChecked]);
 
   useEffect(() => {
     required && updateValue && updateValue({ [name]: null });
@@ -40,6 +54,7 @@ export default function Checkbox({
   useEffect(() => {
     checked && updateValue && updateValue({ [name]: true });
     !checked && updateValue && updateValue({ [name]: required ? null : false });
+    onChange && onChange(checked);
   }, [checked]);
 
   const handleChange = () => {
@@ -55,7 +70,7 @@ export default function Checkbox({
     }
   }, [checked, disabled]);
 
-  const CheckSize = isMobile ? 16 : 24;
+  const CheckSize = width ? width : isMobile ? 16 : 24;
 
   const Checkbox = (
     isMobile ? CheckboxMobile : CheckboxBorne
@@ -66,14 +81,18 @@ export default function Checkbox({
   ) as React.ElementType;
 
   return (
-    <StyledView disabled={disabled} onPress={handleChange}>
+    <StyledView
+      reversed={language === "ar-SA"}
+      disabled={disabled || controlled}
+      onPress={handleChange}
+    >
       <Checkbox disabled={disabled} checked={checked} onPress={handleChange}>
         <CheckContainer>
           <Check width={CheckSize} color={colorIcon} />
         </CheckContainer>
       </Checkbox>
-      <TextContainer>
-        <Text type="small">{label}</Text>
+      <TextContainer {...{ large }} reversed={language === "ar-SA"}>
+        <Text type={large ? "paragraph" : "small"}>{label}</Text>
       </TextContainer>
     </StyledView>
   );

@@ -3,28 +3,32 @@ import React, {
   useEffect,
   useState,
   useRef,
-  useMemo
+  useMemo,
+  ReactNode
 } from "react";
 
 import { Animated, Easing, View } from "react-native";
 
-import { AccordionWrapper, Head, TextWrapper, ContentWrapper } from "./styles";
+import { AccordionWrapper, Head, HeadContent, ContentWrapper } from "./styles";
 import ArrowDown from "~/Components/Icons/System/Arrows/ArrowDown";
 import ArrowUp from "~/Components/Icons/System/Arrows/ArrowUp";
-import Text from "~/Components/Ui-kit/Text";
 
 export interface AccordionProps {
   forceOpen?: boolean;
-  headText: string;
   content: ReactElement;
   initialState?: "open" | "closed";
+  freeze?: boolean;
+  headContent?: ReactNode | ReactNode[];
+  getStatus?: (status: "open" | "closed") => void;
 }
 
 export default function Accordion({
   forceOpen,
-  headText,
+  headContent,
   content,
-  initialState = "closed"
+  initialState = "closed",
+  freeze = false,
+  getStatus
 }: AccordionProps): JSX.Element {
   const [isOpen, setIsOpen] = useState<boolean>(
     initialState === "open" ? true : false
@@ -38,23 +42,44 @@ export default function Accordion({
   );
 
   useEffect(() => {
-    Animated.timing(heightAnimationValueHolder?.current, {
-      toValue: isOpen ? 1 : 0,
-      duration: 300,
-      useNativeDriver: false,
-      easing: Easing?.circle
-    }).start();
-    Animated.timing(rotateAnimationValueHolder?.current, {
-      toValue: isOpen ? 1 : 0,
-      duration: 400,
-      useNativeDriver: false,
-      easing: Easing?.linear
-    }).start();
-  }, [isOpen]);
+    isOpen && open();
+    !isOpen && close();
+    getStatus && getStatus(isOpen ? "open" : "closed");
+  }, [isOpen, getStatus]);
 
   useEffect(() => {
     setIsOpen(forceOpen);
   }, [forceOpen]);
+
+  const open = () => {
+    Animated.timing(heightAnimationValueHolder?.current, {
+      toValue: 1,
+      duration: 300,
+      useNativeDriver: false,
+      easing: Easing?.linear
+    }).start();
+    Animated.timing(rotateAnimationValueHolder?.current, {
+      toValue: 1,
+      duration: 300,
+      useNativeDriver: false,
+      easing: Easing?.linear
+    }).start();
+  };
+
+  const close = () => {
+    Animated.timing(heightAnimationValueHolder?.current, {
+      toValue: 0,
+      duration: 300,
+      useNativeDriver: false,
+      easing: Easing?.linear
+    }).start();
+    Animated.timing(rotateAnimationValueHolder?.current, {
+      toValue: 0,
+      duration: 300,
+      useNativeDriver: false,
+      easing: Easing?.linear
+    }).start();
+  };
 
   const heightAnimation = useMemo(
     () =>
@@ -70,16 +95,19 @@ export default function Accordion({
     inputRange: [0, 1],
     outputRange: ["0deg", "180deg"]
   });
-  console.log({ contentHeight });
+
   return (
     <AccordionWrapper>
-      <Head onPress={() => setIsOpen((prev) => !prev)} activeOpacity={0.7}>
-        <TextWrapper>
-          <Text>{headText}</Text>
-        </TextWrapper>
-        <Animated.View style={[{ transform: [{ rotate: rotateAnimation }] }]}>
-          {initialState === "open" ? <ArrowUp /> : <ArrowDown />}
-        </Animated.View>
+      <Head
+        onPress={() => !freeze && setIsOpen((prev) => !prev)}
+        activeOpacity={0.7}
+      >
+        <HeadContent>{headContent}</HeadContent>
+        {!freeze && (
+          <Animated.View style={[{ transform: [{ rotate: rotateAnimation }] }]}>
+            {initialState === "open" ? <ArrowUp /> : <ArrowDown />}
+          </Animated.View>
+        )}
       </Head>
       <Animated.View
         style={[
