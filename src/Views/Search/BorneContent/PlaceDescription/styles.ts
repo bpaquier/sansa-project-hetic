@@ -81,9 +81,9 @@ export const SeparatorWrapper = styled.View`
 
 export const IllustrationWrapper = styled.View`
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: -10%;
+  right: -4%;
   width: 50%;
-  height: 50%;
+  height: 120%;
   opacity: 0.2;
 `;

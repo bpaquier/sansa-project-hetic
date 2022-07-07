@@ -92,15 +92,14 @@ export default function PlaceDescription(): JSX.Element {
                 <Separator orientation="vertical" height="100%" />
               </SeparatorWrapper>
               <Services {...place} {...{ setDisplayPanel }} />
+
+              <IllustrationWrapper>
+                <MacuPichu />
+              </IllustrationWrapper>
             </SecondRow>
           </>
         )}
       </ContentWrapper>
-      {displayPanel === null && (
-        <IllustrationWrapper>
-          <MacuPichu />
-        </IllustrationWrapper>
-      )}
     </Wrapper>
   ) : null;
 }

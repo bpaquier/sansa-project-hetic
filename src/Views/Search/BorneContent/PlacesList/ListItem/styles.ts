@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 export const ItemWrapper = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  padding: 21px 32px;
+  padding: 9px 32px;
 `;
 
 export const InfoWrapper = styled.View`
@@ -21,10 +21,13 @@ export const TextStyled = styled.View`
 
 export const IconWrapper = styled.View`
   margin-right: 12px;
-  margin-bottom: 12px;
 `;
 
 export const IconsWrapper = styled.View`
   flex-direction: row;
   flex-wrap: wrap;
+`;
+
+export const ButtonWrapper = styled.TouchableOpacity`
+  padding: 12px 0;
 `;

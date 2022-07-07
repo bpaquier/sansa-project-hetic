@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 
 import { useTranslation } from "react-i18next";
-import { TouchableOpacity } from "react-native";
 
 import {
   ItemWrapper,
@@ -9,7 +8,8 @@ import {
   TextWrapper,
   TextStyled,
   IconsWrapper,
-  IconWrapper
+  IconWrapper,
+  ButtonWrapper
 } from "./styles";
 import Icon from "~/Components/Icon";
 import Ping from "~/Components/Ping";
@@ -90,11 +90,11 @@ export default function ListItem({
             )}
           </IconsWrapper>
         )}
-        <TouchableOpacity onPress={() => setDisplayPlaceDescription(id)}>
+        <ButtonWrapper onPress={() => setDisplayPlaceDescription(id)}>
           <Text customColor={theme?.color?.primary?.blue} weight="bold">
             {t("search.learnMore")}
           </Text>
-        </TouchableOpacity>
+        </ButtonWrapper>
       </InfoWrapper>
     </ItemWrapper>
   );

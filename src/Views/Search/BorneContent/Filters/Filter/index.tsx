@@ -19,6 +19,7 @@ export default function Filter({ filter }: FilterProps): JSX.Element {
 
   return (
     <Pressable
+      style={{ alignItems: "center" }}
       onPress={() => {
         setIsSeleted((prev) => !prev);
         updateFilters({
