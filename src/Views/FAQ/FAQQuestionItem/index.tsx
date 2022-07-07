@@ -15,7 +15,7 @@ export interface FAQQuestionItemProps {
   questionIndex: number;
   index: number;
   length: number;
-  category?: string;
+  showCategory?: boolean;
   bold?: boolean;
   color?: string;
 }
@@ -25,7 +25,7 @@ export default function FAQQuestionItem({
   questionIndex,
   index,
   length,
-  category,
+  showCategory,
   bold,
   color
 }: FAQQuestionItemProps) {
@@ -38,7 +38,11 @@ export default function FAQQuestionItem({
         activeOpacity={0.7}
         onPress={() => navigate(`/faq/${type}/${questionIndex}`)}
       >
-        {category && <FAQQuestionCategory category={category} />}
+        {showCategory && (
+          <FAQQuestionCategory
+            category={t(`administrativeAssistance.${type}.${type}`)}
+          />
+        )}
         <GeneralContent>
           <FAQQuestionTexts>
             <TextWrapper
