@@ -101,16 +101,16 @@ export default function FAQResponse() {
               {!isMobile && (
                 <Separator orientation="horizontal" columnWidth={19} />
               )}
-              <TextWrapper
-                type="titleL"
-                marginTop={isMobile ? 16 : 40}
-                marginBottom={16}
-                marginLeft={16}
-                marginRight={16}
-              >
-                {t(`administrativeAssistance.${type}.questions.${index}.title`)}
-              </TextWrapper>
               <GlobalWrapper>
+                <TextWrapper
+                  type="titleL"
+                  marginTop={isMobile ? 16 : 40}
+                  marginBottom={16}
+                >
+                  {t(
+                    `administrativeAssistance.${type}.questions.${index}.title`
+                  )}
+                </TextWrapper>
                 <ResponseParagraphs paragraphs={paragraphs} />
               </GlobalWrapper>
               <QuestionsWrapper>
