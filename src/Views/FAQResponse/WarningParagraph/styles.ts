@@ -5,9 +5,14 @@ import theme from "~/Styles/theme.styles";
 
 const { color } = theme;
 
-export const WarningTextContainer = styled.View`
+type WarningTextContainerProps = {
+  isMobile?: boolean;
+};
+
+export const WarningTextContainer = styled.View<WarningTextContainerProps>`
   background-color: ${color.semantic.warning};
-  width: ${getColumnWidth(24, true)}px;
+  width: ${({ isMobile }) =>
+    isMobile ? `${getColumnWidth(24, true)}px` : "100%"};
   padding: 24px;
   margin-bottom: 24px;
   border: 1px solid ${color.semantic.warningBorder};

@@ -5,12 +5,17 @@ import theme from "~/Styles/theme.styles";
 
 const { color } = theme;
 
-export const TipTextContainer = styled.View`
-  width: ${getColumnWidth(22, true)}px;
+type TipTextContainerProps = {
+  isMobile?: boolean;
+};
+
+export const TipTextContainer = styled.View<TipTextContainerProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-bottom: 24px;
+  width: ${({ isMobile }) =>
+    getColumnWidth(isMobile ? 24 : 17, isMobile ?? false)}px;
 `;
 
 export const TipDecoration = styled.View`

@@ -8,6 +8,7 @@ export const QuestionCategoryWrapper = styled.View`
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100%;
 `;
 
 export const QuestionCategoryDecoration = styled.View`
