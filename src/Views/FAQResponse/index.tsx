@@ -83,19 +83,16 @@ export default function FAQResponse() {
           <PageContainer>
             <GlobalWrapper>
               <Breadcrumb
+                marginBottom={24}
                 url={`/faq/${type}`}
                 text={t(`administrativeAssistance.${type}.sectionTitle`)}
               />
             </GlobalWrapper>
             <ScrollView>
               {!isMobile && (
-                <Separator
-                  orientation="horizontal"
-                  margin={24}
-                  columnWidth={19}
-                />
+                <Separator orientation="horizontal" columnWidth={19} />
               )}
-              <TextWrapper type="titleL" marginTop={16} marginBottom={16}>
+              <TextWrapper type="titleL" marginTop={40} marginBottom={16}>
                 {t(`administrativeAssistance.${type}.questions.${index}.title`)}
               </TextWrapper>
               <GlobalWrapper>

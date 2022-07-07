@@ -1,16 +1,19 @@
 import React from "react";
 
 import { FAQTitleWrapperView } from "./styles";
-import TextWrapper from "~/Components/Ui-kit/TextWrapper";
+import TextWrapper, { TextWrapperProps } from "~/Components/Ui-kit/TextWrapper";
 
-type FAQTitleWrapperProps = {
+interface FAQTitleWrapperProps extends TextWrapperProps {
   title: string;
-};
+}
 
-export default function FAQTitleWrapper({ title }: FAQTitleWrapperProps) {
+export default function FAQTitleWrapper({
+  title,
+  ...props
+}: FAQTitleWrapperProps) {
   return (
     <FAQTitleWrapperView>
-      <TextWrapper color="white" type="titleXL">
+      <TextWrapper color="white" type="titleXL" {...props}>
         {title}
       </TextWrapper>
     </FAQTitleWrapperView>
