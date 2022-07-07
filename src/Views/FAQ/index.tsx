@@ -28,21 +28,21 @@ export default function FAQ() {
   const questionsFAQ = [
     {
       type: "hosting",
-      questionIndex: 0,
-      category: t("administrativeAssistance.hosting.hosting")
+      questionIndex: 0
     },
     {
-      category: t("administrativeAssistance.health.health"),
       type: "health",
-      questionIndex: 1
+      questionIndex: 0
     },
     {
-      category: t("administrativeAssistance.job.job"),
-      type: "job",
+      type: "home",
       questionIndex: 2
     },
     {
-      category: t("administrativeAssistance.foreignersRights.foreignersRights"),
+      type: "job",
+      questionIndex: 1
+    },
+    {
       type: "foreignersRights",
       questionIndex: 3
     }
@@ -100,7 +100,7 @@ export default function FAQ() {
               key={`${question.type}${question.questionIndex}`}
               questionIndex={question.questionIndex}
               index={index}
-              category={question.category}
+              showCategory
               type={question.type}
               length={questionsFAQ.length}
             />
