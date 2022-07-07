@@ -8,7 +8,7 @@ export const GlobalWrapper = styled.View`
   padding: 0px ${grid.mobileGutter}px;
 `;
 
-export const QuestionsWrapper = styled.View`
+export const QuestionsWrapper = styled.ScrollView`
   background-color: ${color.primary.blueExtraLight};
   padding: 24px;
   width: 100%;

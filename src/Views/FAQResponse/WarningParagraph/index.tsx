@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-native";
 
 import { WarningTextContainer } from "./styles";
 import Text, { TextComponentProps } from "~/Components/Ui-kit/Text";
+import { useGlobalContext } from "~/Contexts/globalContext";
 
 export interface WarningParagraphProps extends TextComponentProps {
   url?: { local?: string; external?: string };
@@ -17,8 +18,9 @@ export default function WarningParagraph({
   ...props
 }: WarningParagraphProps) {
   const navigate = useNavigate();
+  const { isMobile } = useGlobalContext();
   return (
-    <WarningTextContainer>
+    <WarningTextContainer isMobile={isMobile}>
       <Text {...props}>
         <Trans
           components={{
