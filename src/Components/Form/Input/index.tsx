@@ -175,7 +175,7 @@ export default function Input({
               }}
             >
               {options?.map((option, i) => (
-                <Picker.Item {...option} key={`${option.value}${i}`} />
+                <Picker.Item {...option} key={`${option.value}-${i}`} />
               ))}
             </Picker>
           </StyledInput>

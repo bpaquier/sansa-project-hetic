@@ -57,10 +57,19 @@ const theme = {
       technology: `#233454`
     }
   },
-  size: {
+  sizes: {
+    breakPoint: 800,
+    mobilePageMarginBottom: 200,
     icon: {
       system: 24,
       categories: 16
+    },
+    bornContent: {
+      topBarHeight: 100,
+      tagsHeight: 50
+    },
+    navigation: {
+      mobileHeight: 100
     }
   },
   boxShadow: {
@@ -75,6 +84,17 @@ const theme = {
       shadowRadius: 10,
       elevation: 2
     },
+    navigationAndroid: {
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 4
+      },
+      shadowOpacity: 0.32,
+      shadowRadius: 5.46,
+
+      elevation: 9
+    },
     overlay: `0px 4px 12px rgba(0, 0, 0, 0.1)`,
     popin: `0px 8px 24px rgba(0, 0, 0, 0.1)`
   },
@@ -84,7 +104,7 @@ const theme = {
     borneGutter: 32,
     mobileGutter: 20
   },
-  fontSize: {
+  fontSizes: {
     titleXL: "32px",
     titleL: "24px",
     titleM: "20px",
@@ -100,7 +120,8 @@ const theme = {
     radius: {
       input: 16,
       button: "36px",
-      checkbox: 4
+      checkbox: 4,
+      card: 8
     }
   },
   spacing: (numerator: number) => `calc(${numerator} * 4)px;`,
@@ -108,10 +129,6 @@ const theme = {
     small: "32px",
     medium: "48px",
     large: "72px"
-  },
-  sizes: {
-    breakPoint: 800,
-    mobilePageMarginBottom: 200
   }
 };
 

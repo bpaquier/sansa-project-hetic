@@ -22,14 +22,17 @@ export type TextColorsProps =
   | "darkBlue"
   | "black40"
   | "black20"
+  | "black60"
   | "red";
 export type TextAlignementProps = "left" | "center" | "right";
 export interface TextComponentProps {
+  children?: React.ReactNode | ReactNode[];
+  customColor?: string;
+  onLayout?: (e: any) => void;
   type?: TextTypeProps;
   weight?: TextWeightProps;
   color?: TextColorsProps;
   textAlign?: TextAlignementProps;
-  children?: React.ReactNode | ReactNode[];
 }
 
 const TextComponent = ({
@@ -37,7 +40,9 @@ const TextComponent = ({
   children,
   color,
   weight,
-  textAlign = "left"
+  textAlign = "left",
+  customColor,
+  onLayout
 }: TextComponentProps) => {
   const { language } = i18next;
   const [loaded] = useFonts({
@@ -59,12 +64,14 @@ const TextComponent = ({
     <TextContainer
       {...{
         type,
+        isMobile,
         weight,
         color,
+        customColor,
+        onLayout,
         textAlign:
           textAlign === "left" && language === "ar-SA" ? "right" : textAlign
       }}
-      isMobile={isMobile}
     >
       {children}
     </TextContainer>

@@ -15,7 +15,7 @@ export const ConnectedIllustrationsWrapper = styled.View`
 `;
 
 export const ConnectedIllustrationWrapper = styled.Pressable`
-  width: ${getColumnWidth(4, false)};
+  width: ${getColumnWidth(4, false)}px;
   border: 1px solid ${color.neutral.black5};
   border-radius: ${shape.radius.input}px;
   height: 165px;

@@ -12,8 +12,8 @@ export interface LegalProps {
 export default function Legal({
   primaryColor = theme?.color?.icon?.categories?.primary,
   secondaryColor = theme?.color?.icon?.categories?.secondary,
-  width = theme?.size?.icon?.categories,
-  height = theme?.size?.icon?.categories
+  width = theme?.sizes?.icon?.categories,
+  height = theme?.sizes?.icon?.categories
 }: LegalProps): JSX.Element {
   return (
     <Svg width={width} height={height} viewBox="0 0 16 16">

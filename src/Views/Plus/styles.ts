@@ -28,8 +28,8 @@ export const PageWrapperMobile = styled.View`
 `;
 
 export const PageWrapperBorne = styled.View`
-  width: ${getColumnWidth(21, false)};
-  margin-left: ${getColumnWidth(3, false)};
+  width: ${getColumnWidth(21, false)}px;
+  margin-left: ${getColumnWidth(3, false)}px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -57,14 +57,14 @@ export const PlusContainersBorne = styled.View<PlusContainersProps>`
   ${({ border }) => getBorderPlusContainer(border)};
   width: ${({ columnWidth }) =>
     columnWidth
-      ? getColumnWidth(columnWidth, false)
-      : getColumnWidth(grid.columns / 2, false)};
+      ? `${getColumnWidth(columnWidth, false)}px`
+      : `${getColumnWidth(grid.columns / 2, false)}px`};
   ${({ height }) => height && `height: ${height}px`};
   padding: ${({ paddingTop, paddingBottom, paddingX }) =>
     `${paddingTop ?? 40}px ${paddingX ?? 48}px ${paddingBottom ?? 40}px ${
       paddingX ?? 40
     }px`};
-  margin-right: ${getColumnWidth(1, false)};
+  margin-right: ${getColumnWidth(1, false)}px;
   margin-bottom: ${({ marginBottom }) => getMarginBottom(48, marginBottom)};
 `;
 
@@ -72,7 +72,7 @@ export const PlusContainersMobile = styled.View<PlusContainersProps>`
   ${generalPlusContainer}
   ${({ border }) => getBorderPlusContainer(border)};
   width: 100%;
-  padding: 24px ${getColumnWidth(1, true)};
+  padding: 24px ${getColumnWidth(1, true)}px;
   margin-bottom: ${({ marginBottom }) => getMarginBottom(24, marginBottom)};
 `;
 
