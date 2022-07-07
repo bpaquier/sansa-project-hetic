@@ -6,7 +6,7 @@ import theme from "~/Styles/theme.styles";
 const { color } = theme;
 
 export const PhoneTextContainer = styled.View`
-  width: ${getColumnWidth(24, true)};
+  width: ${getColumnWidth(24, true)}px;
   display: flex;
   flex-direction: row;
   align-items: center;

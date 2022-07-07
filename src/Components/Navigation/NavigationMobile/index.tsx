@@ -20,7 +20,9 @@ export default function NavigationMobile({
   const location = useLocation();
   const iconSize = 36;
   const { t } = useTranslation();
-  const isCurrentPage = (page: string): boolean => location.pathname === page;
+  const isCurrentPage = (page: string): boolean =>
+    location.pathname === page ||
+    (location.pathname.startsWith("/faq") && page.startsWith("/faq"));
 
   const NavWidth = Dimensions.get("window").width;
   const NavIndicatorWidth = 60;

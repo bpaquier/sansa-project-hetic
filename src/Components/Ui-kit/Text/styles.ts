@@ -58,9 +58,9 @@ export const TextContainer = styled.Text`
   }};
   text-align: ${({ textAlign }: TextComponentProps) => textAlign};
   ${({ type, isMobile }: TextComponentProps) => {
-    if (type === "paragraph" || type === "titleM" || type === "titleL")
-      return "line-height: 24px";
+    if (type === "paragraph" || type === "titleM") return "line-height: 24px";
     if (type === "titleXL") return "line-height: 40px";
+    if (type === "titleL") return "line-height: 30px";
     if (type === "small" && !isMobile) return "line-height: 24px";
   }};
   text-decoration: ${({ underline }) => (underline ? "underline" : "none")};

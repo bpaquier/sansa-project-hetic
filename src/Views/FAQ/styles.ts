@@ -1,9 +1,8 @@
 import styled from "styled-components/native";
 
-import { getColumnWidth } from "~/Styles/mixins.styles";
 import theme from "~/Styles/theme.styles";
 
-const { grid, color, shape } = theme;
+const { grid, color } = theme;
 
 export const PageContainerMobile = styled.ScrollView`
   margin-bottom: 170px;

@@ -11,6 +11,9 @@ import Breadcrumb from "~/Components/Breadcrumb";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 import { TextComponentProps } from "~/Components/Ui-kit/Text";
 import TextWrapper from "~/Components/Ui-kit/TextWrapper";
+import theme from "~/Styles/theme.styles";
+import LanguageFAQSelector from "~/Components/LanguagesMenu/LanguagesFAQSelector";
+import { FAQSectionsContainers } from "../FAQ/styles";
 
 export type Paragraph = {
   url?: { local?: string; external?: string };
@@ -41,7 +44,7 @@ const getQuestionsPerIndexAndType = (index?: string, type?: string) => {
     } else if (index === "3") {
       return [0, 1, 2];
     }
-  } else if (type === "job") {
+  } else if (type === "job" || type === "minors") {
     if (index === "0") {
       return [1, 2];
     } else if (index === "1") {
@@ -95,11 +98,14 @@ export default function FAQResponse() {
                     index={i}
                     questionIndex={question}
                     length={questionsPerIndexAndType.length}
-                    color="blue"
+                    color={theme.color.primary.blue}
                     bold
                   />
                 ))}
             </QuestionsWrapper>
+            <FAQSectionsContainers>
+              <LanguageFAQSelector />
+            </FAQSectionsContainers>
           </PageWrapper>
         </PageContentWrapper>
       )}

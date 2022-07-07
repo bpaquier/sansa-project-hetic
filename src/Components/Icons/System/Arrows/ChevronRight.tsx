@@ -10,8 +10,8 @@ export interface ArrowUpProps {
 
 export default function ChevrontRight({
   color = theme?.color?.neutral?.black40,
-  width = theme?.size?.icon?.system,
-  height = theme?.size?.icon?.system
+  width = theme.sizes.icon.system,
+  height = theme.sizes.icon.system
 }: ArrowUpProps): JSX.Element {
   return (
     <Svg width={width} height={height} viewBox="0 0 16 16" fill="none">

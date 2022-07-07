@@ -6,5 +6,5 @@ export const Breadcrumb = styled.TouchableOpacity`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: ${getColumnWidth(23, true)};
+  width: ${getColumnWidth(23, true)}px;
 `;

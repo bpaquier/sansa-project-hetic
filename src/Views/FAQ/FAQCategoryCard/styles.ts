@@ -6,8 +6,8 @@ import theme from "~/Styles/theme.styles";
 const { color, shape } = theme;
 
 export const CategoriesCard = styled.TouchableOpacity`
-  width: ${getColumnWidth(11, true)};
-  height: ${getColumnWidth(11, true)};
+  width: ${getColumnWidth(11, true)}px;
+  height: ${getColumnWidth(11, true)}px;
   background-color: ${color.primary.white};
   border-radius: ${shape.radius.input}px;
   display: flex;
