@@ -63,7 +63,7 @@ export default function Plus(): JSX.Element {
           border
           columnWidth={!isMobile && 7}
           marginBottom={isMobile}
-          height={260}
+          height={isMobile ? 300 : 260}
         >
           <AdministrativeHelpSection />
         </PlusContainers>

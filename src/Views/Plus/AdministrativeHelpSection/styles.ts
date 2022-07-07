@@ -2,17 +2,22 @@ import styled from "styled-components/native";
 
 import { getColumnWidth } from "~/Styles/mixins.styles";
 
-export const Wrapper = styled.TouchableOpacity`
+type WrapperProps = {
+  isMobile?: boolean;
+};
+
+export const Wrapper = styled.TouchableOpacity<WrapperProps>`
   width: 100%;
   height: 100%;
-  padding: 24px ${getColumnWidth(1, true)}px;
+  padding: ${({ isMobile }) => (isMobile ? 0 : 24)}px
+    ${getColumnWidth(1, true)}px;
 `;
 
-export const FlashlightIllustrationWrapper = styled.View`
+export const FlashlightIllustrationWrapper = styled.View<WrapperProps>`
   width: 100%;
   height: 184px;
   margin-top: 24px;
   position: absolute;
-  bottom: -10px;
+  bottom: ${({ isMobile }) => (isMobile ? -20 : -10)}px;
   left: -10px;
 `;

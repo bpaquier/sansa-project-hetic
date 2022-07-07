@@ -103,9 +103,9 @@ export default function FAQResponse() {
                   />
                 ))}
             </QuestionsWrapper>
-            <FAQSectionsContainers>
+            <GlobalWrapper>
               <LanguageFAQSelector />
-            </FAQSectionsContainers>
+            </GlobalWrapper>
           </PageWrapper>
         </PageContentWrapper>
       )}
