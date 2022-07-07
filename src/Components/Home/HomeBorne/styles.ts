@@ -39,9 +39,9 @@ export const SecondRow = styled.View`
 `;
 
 export const MapCard = styled(Card)`
-  margin-right: ${getColumnWidth(1, false)};
+  margin-right: ${getColumnWidth(1, false)}px;
   padding: 8px;
-  width: ${getColumnWidth(9, false)};
+  width: ${getColumnWidth(9, false)}px;
 `;
 
 export const MapWrapper = styled.View`
@@ -56,8 +56,8 @@ export const Map = styled(MapView)`
 
 export const AssociationsCard = styled(Card)`
   flex: 1;
-  margin-right: ${getColumnWidth(1, false)};
-  width: ${getColumnWidth(9, false)};
+  margin-right: ${getColumnWidth(1, false)}px;
+  width: ${getColumnWidth(9, false)}px;
 `;
 
 export const AssociationsCardTitleWrapper = styled.View`
@@ -70,7 +70,7 @@ export const NoEventIllustrationWrapper = styled.View`
 
 export const EventCard = styled(Card)`
   flex: 2;
-  width: ${getColumnWidth(11, false)};
+  width: ${getColumnWidth(11, false)}px;
 `;
 
 export const EventCardTitleWrapper = styled.View`
@@ -83,7 +83,7 @@ export const SanitaryCard = styled(Card)`
   justify-content: space-around;
   align-items: center;
   margin-top: 40px;
-  width: ${getColumnWidth(11, false)};
+  width: ${getColumnWidth(11, false)}px;
 `;
 
 export const SanitaryIconWrapper = styled.View`
@@ -98,7 +98,7 @@ export const SanitaryIconWrapper = styled.View`
 
 export const SportCard = styled(Card)`
   flex: 1;
-  width: ${getColumnWidth(5, false)};
+  width: ${getColumnWidth(5, false)}px;
 `;
 
 export const SportCardTitleWrapper = styled.View`
@@ -113,8 +113,8 @@ export const SportIllustrationWrapper = styled.View`
 
 export const HealthCard = styled(Card)`
   flex: 1;
-  margin-left: ${getColumnWidth(1, false)};
-  width: ${getColumnWidth(5, false)};
+  margin-left: ${getColumnWidth(1, false)}px;
+  width: ${getColumnWidth(5, false)}px;
 `;
 
 export const HealthCardHeadlineWrapper = styled.View`
