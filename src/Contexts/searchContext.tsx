@@ -8,6 +8,7 @@ import {
 
 import { useGlobalContext } from "./globalContext";
 import { useDebounce } from "~/hooks/useDebounce";
+import { getOrgaByServices } from "~/utils/api";
 
 export interface PlaceProps {
   id?: number;
@@ -94,17 +95,24 @@ function SearchProvider({ children }: SearchProviderProps) {
   useEffect(() => {
     setIsLoading(true);
     if (debouncedFilters && debouncedFilters?.length > 0) {
-      /**
-       * !replace realPlaces by API response
-       */
-      const selectedPlaces = Places?.filter((place) =>
-        place?.services_id?.some((service) =>
-          debouncedFilters?.includes(service)
-        )
-      );
-
-      setIsLoading(false);
-      setFilteredPlaces(selectedPlaces);
+      getOrgaByServices(debouncedFilters)
+        ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
+          if (status === 200) {
+            setFilteredPlaces(
+              data?.sort(
+                (prev: { place: number }, next: { place: number }) =>
+                  next?.place - prev?.place
+              )
+            );
+            setIsLoading(false);
+          } else {
+            //todo: handle error
+          }
+        })
+        .catch((err) => {
+          //todo: handle error
+          console.log(err);
+        });
     } else {
       setFilters(null);
       setIsLoading(false);
@@ -178,7 +186,7 @@ function SearchProvider({ children }: SearchProviderProps) {
 
 export default SearchProvider;
 
-export const Places = [
+/* export const Places = [
   {
     id: 1,
     organization_owner: { email: "bbechtelar@douglas.net", tel: "0787632712" },
@@ -1191,3 +1199,4 @@ export const Places = [
     place: 1
   }
 ];
+ */
