@@ -19,6 +19,7 @@ export interface FAQQuestionItemProps {
   showCategory?: boolean;
   bold?: boolean;
   color?: string;
+  isShadow?: boolean;
 }
 
 export default function FAQQuestionItem({
@@ -28,7 +29,8 @@ export default function FAQQuestionItem({
   length,
   showCategory,
   bold,
-  color
+  color,
+  isShadow
 }: FAQQuestionItemProps) {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -38,6 +40,8 @@ export default function FAQQuestionItem({
     <>
       <QuestionsContainer
         activeOpacity={0.7}
+        style={isShadow && theme.boxShadow.panelAndroid}
+        isShadow={isShadow}
         onPress={() => navigate(`/faq/${type}/${questionIndex}`)}
       >
         <GeneralContent>
@@ -50,7 +54,7 @@ export default function FAQQuestionItem({
             <TextWrapper
               weight={bold ? "bold" : "regular"}
               color="grey"
-              marginTop={8}
+              marginTop={isShadow ? 0 : 8}
             >
               {t(
                 `administrativeAssistance.${type}.questions.${questionIndex}.title`
@@ -60,7 +64,7 @@ export default function FAQQuestionItem({
           <ChevrontRight color={theme.color.primary.blue} width={16} />
         </GeneralContent>
       </QuestionsContainer>
-      {index < length - 1 && (
+      {index < length - 1 && !isShadow && (
         <Separator
           orientation="horizontal"
           columnWidth={isMobile ? 6 : 1}

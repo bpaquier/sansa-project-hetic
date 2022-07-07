@@ -6,6 +6,7 @@ import theme from "~/Styles/theme.styles";
 type FAQSectionContainersProps = {
   isMobile?: boolean;
   row?: boolean;
+  fillHeight?: boolean;
 };
 
 const { grid, color, shape } = theme;
@@ -31,6 +32,7 @@ export const FAQSectionsContainers = styled.View<FAQSectionContainersProps>`
   flex-direction: ${({ row }) => (row ? "row" : "column")};
   justify-content: space-between;
   ${({ row }) => row && `flex: 1`};
+  ${({ fillHeight }) => fillHeight && `flex: 1`};
 `;
 
 export const FrequentQuestionContainer = styled.TouchableOpacity`
