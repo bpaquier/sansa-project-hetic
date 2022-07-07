@@ -98,12 +98,16 @@ function SearchProvider({ children }: SearchProviderProps) {
       getOrgaByServices(debouncedFilters)
         ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
           if (status === 200) {
-            setFilteredPlaces(
-              data?.sort(
-                (prev: { place: number }, next: { place: number }) =>
-                  next?.place - prev?.place
-              )
-            );
+            if (data) {
+              setFilteredPlaces(
+                data?.sort(
+                  (prev: { place: number }, next: { place: number }) =>
+                    next?.place - prev?.place
+                )
+              );
+            } else {
+              //todo: handle error
+            }
             setIsLoading(false);
           } else {
             //todo: handle error

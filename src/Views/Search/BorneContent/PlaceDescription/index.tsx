@@ -21,8 +21,9 @@ import {
 import Cross from "~/Components/Icons/System/System/Cross";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
-import { PlaceProps, Places, useSearchContext } from "~/Contexts/searchContext";
+import { PlaceProps, useSearchContext } from "~/Contexts/searchContext";
 import theme from "~/Styles/theme.styles";
+import { getOrgaById } from "~/utils/api";
 
 export default function PlaceDescription(): JSX.Element {
   const { t } = useTranslation();
@@ -37,12 +38,27 @@ export default function PlaceDescription(): JSX.Element {
   >(null);
 
   useEffect(() => {
-    /**
-     * ! replace by API call
-     */
-    displayPlaceDescription
-      ? setPlace(Places?.find((place) => place?.id === displayPlaceDescription))
-      : setPlace(null);
+    displayPlaceDescription &&
+      getOrgaById(displayPlaceDescription)
+        ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
+          if (status === 200) {
+            if (data?.[0]) {
+              setPlace(data?.[0]);
+            } else {
+              //todo handle error
+            }
+          } else {
+            //todo handle error
+            setPlace(null);
+          }
+        })
+        ?.catch((err) => {
+          //todo handle error
+          console.log(err);
+          setPlace(null);
+        });
+
+    !displayPlaceDescription && setPlace(null);
   }, [displayPlaceDescription, filteredPlaces]);
 
   return place ? (
