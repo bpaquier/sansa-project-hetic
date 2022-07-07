@@ -12,16 +12,20 @@ export default function AdministrativeHelpSection(): JSX.Element {
   const navigate = useNavigate();
   const { isMobile } = useGlobalContext();
   return (
-    <Wrapper activeOpacity={0.7} onPress={() => navigate("/faq")}>
+    <Wrapper
+      activeOpacity={0.7}
+      onPress={() => navigate("/faq")}
+      isMobile={isMobile}
+    >
       <Text type="paragraph" color="black20">
         {t("plus.consultList")}
       </Text>
       <Text type="titleL">
         {t("administrativeAssistance.administrativeAssistance")}
       </Text>
-      <FlashlightIllustrationWrapper>
+      <FlashlightIllustrationWrapper isMobile={isMobile}>
         <SpotlightHelpIllustration
-          width={getColumnWidth(6, isMobile ?? false)}
+          width={getColumnWidth(isMobile ? 21 : 6, isMobile ?? false)}
         />
       </FlashlightIllustrationWrapper>
     </Wrapper>

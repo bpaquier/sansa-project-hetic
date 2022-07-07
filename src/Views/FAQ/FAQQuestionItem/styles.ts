@@ -16,7 +16,7 @@ export const QuestionsContainer = styled.TouchableOpacity<{
   border-radius: ${theme.shape.radius.input}px;
   background-color: ${({ isShadow }) =>
     isShadow ? theme.color.primary.white : "transparent"};
-  margin: ${({ isShadow }) => (isShadow ? 2 : 0)}px;
+  margin: ${({ isShadow }) => (isShadow ? 4 : 0)}px;
   margin-bottom: ${({ isShadow }) => (isShadow ? 16 : 0)}px;
 `;
 
