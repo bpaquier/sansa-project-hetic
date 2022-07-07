@@ -86,6 +86,8 @@ export default function FAQResponse() {
                 url={`/faq/${type}`}
                 text={t(`administrativeAssistance.${type}.sectionTitle`)}
               />
+            </GlobalWrapper>
+            <ScrollView>
               {!isMobile && (
                 <Separator
                   orientation="horizontal"
@@ -96,8 +98,6 @@ export default function FAQResponse() {
               <TextWrapper type="titleL" marginTop={16} marginBottom={16}>
                 {t(`administrativeAssistance.${type}.questions.${index}.title`)}
               </TextWrapper>
-            </GlobalWrapper>
-            <ScrollView>
               <GlobalWrapper>
                 <ResponseParagraphs paragraphs={paragraphs} />
               </GlobalWrapper>
