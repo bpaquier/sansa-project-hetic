@@ -1,7 +1,8 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
 import { useFonts } from "expo-font";
 import i18next from "i18next";
+import { PressableProps } from "react-native";
 
 import { TextContainer } from "./styles";
 import { useGlobalContext } from "~/Contexts/globalContext";
@@ -24,27 +25,30 @@ export type TextColorsProps =
   | "black20"
   | "black60"
   | "red"
+  | "success"
   | "warning";
 
 export type TextAlignementProps = "left" | "center" | "right";
-export interface TextComponentProps {
-  children?: React.ReactNode | ReactNode[];
+export interface TextComponentProps extends PressableProps {
   customColor?: string;
   onLayout?: (e: any) => void;
   type?: TextTypeProps;
   weight?: TextWeightProps;
   color?: TextColorsProps;
   textAlign?: TextAlignementProps;
+  underline?: boolean;
 }
 
 const TextComponent = ({
   type,
-  children,
   color,
   weight,
   textAlign = "left",
   customColor,
-  onLayout
+  onLayout,
+  underline,
+  children,
+  ...props
 }: TextComponentProps) => {
   const { language } = i18next;
   const [loaded] = useFonts({
@@ -72,8 +76,11 @@ const TextComponent = ({
         customColor,
         onLayout,
         textAlign:
-          textAlign === "left" && language === "ar-SA" ? "right" : textAlign
+          textAlign === "left" && language === "ar-SA" ? "right" : textAlign,
+        ...props
       }}
+      underline={underline}
+      isMobile={isMobile}
     >
       {children}
     </TextContainer>

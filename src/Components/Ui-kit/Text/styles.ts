@@ -5,6 +5,7 @@ import theme from "~/Styles/theme.styles";
 
 type TextComponentProps = TextComponentPropsIndex & {
   isMobile?: boolean;
+  underline?: boolean;
 };
 
 const { fontSizes, color: themeColor, fontFamily } = theme;
@@ -48,6 +49,8 @@ export const TextContainer = styled.Text`
         return themeColor?.neutral?.black60;
       case "warning":
         return themeColor?.semantic?.warningText;
+      case "success":
+        return themeColor?.semantic.successText;
       case "black":
       default:
         return themeColor?.neutral?.black100;
@@ -59,5 +62,6 @@ export const TextContainer = styled.Text`
       return "line-height: 24px";
     if (type === "titleXL") return "line-height: 40px";
     if (type === "small" && !isMobile) return "line-height: 24px";
-  }}
+  }};
+  text-decoration: ${({ underline }) => (underline ? "underline" : "none")};
 `;

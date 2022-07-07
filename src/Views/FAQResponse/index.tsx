@@ -13,7 +13,7 @@ import { TextComponentProps } from "~/Components/Ui-kit/Text";
 import TextWrapper from "~/Components/Ui-kit/TextWrapper";
 
 export type Paragraph = {
-  url?: string;
+  url?: { local?: string; external?: string };
   text: string;
 };
 export interface PhoneParagraphProps extends TextComponentProps {
@@ -21,7 +21,7 @@ export interface PhoneParagraphProps extends TextComponentProps {
 }
 
 const getQuestionsPerIndexAndType = (index?: string, type?: string) => {
-  if (type === "hosting") {
+  if (type === "hosting" || type === "home") {
     if (index === "0") {
       return [3, 1, 2];
     } else if (index === "1") {
@@ -30,6 +30,24 @@ const getQuestionsPerIndexAndType = (index?: string, type?: string) => {
       return [0, 1, 4];
     } else if (index === "3" || index === "4") {
       return [0, 1, 2];
+    }
+  } else if (type === "foreignersRights" || type === "health") {
+    if (index === "0") {
+      return [1, 2, 3];
+    } else if (index === "1") {
+      return [0, 2, 3];
+    } else if (index === "2") {
+      return [0, 1, 3];
+    } else if (index === "3") {
+      return [0, 1, 2];
+    }
+  } else if (type === "job") {
+    if (index === "0") {
+      return [1, 2];
+    } else if (index === "1") {
+      return [0, 2];
+    } else if (index === "2") {
+      return [0, 1];
     }
   }
 };
@@ -55,7 +73,7 @@ export default function FAQResponse() {
             <GlobalWrapper>
               <Breadcrumb
                 url={`/faq/${type}`}
-                text={t(`administrativeAssistance.${type}.${type}`)}
+                text={t(`administrativeAssistance.${type}.sectionTitle`)}
               />
               <TextWrapper type="titleL" marginTop={16}>
                 {t(`administrativeAssistance.${type}.questions.${index}.title`)}
