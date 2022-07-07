@@ -4,11 +4,15 @@ import theme from "~/Styles/theme.styles";
 
 const { color, grid } = theme;
 
-export const GlobalWrapper = styled.View`
+export const GlobalWrapperMobile = styled.View`
   padding: 0px ${grid.mobileGutter}px;
 `;
 
-export const QuestionsWrapper = styled.ScrollView`
+export const GlobalWrapperBorne = styled.View`
+  padding: 0px;
+`;
+
+export const QuestionsWrapper = styled.View`
   background-color: ${color.primary.blueExtraLight};
   padding: 24px;
   width: 100%;
