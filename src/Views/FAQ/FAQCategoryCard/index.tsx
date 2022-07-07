@@ -4,8 +4,12 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-native";
 
 import TextWrapper from "~/Components/Ui-kit/TextWrapper";
+import { useGlobalContext } from "~/Contexts/globalContext";
 import theme from "~/Styles/theme.styles";
-import { CategoriesCard } from "~/Views/FAQ/FAQCategoryCard/styles";
+import {
+  CategoriesCardBorne,
+  CategoriesCardMobile
+} from "~/Views/FAQ/FAQCategoryCard/styles";
 
 type FAQCategoryCardProps = {
   illustration: JSX.Element;
@@ -18,6 +22,11 @@ export default function FAQCategoryCard({
 }: FAQCategoryCardProps) {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { isMobile } = useGlobalContext();
+
+  const CategoriesCard = (
+    isMobile ? CategoriesCardMobile : CategoriesCardBorne
+  ) as React.ElementType;
 
   return (
     <CategoriesCard

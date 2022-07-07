@@ -56,13 +56,14 @@ export default function Plus(): JSX.Element {
           )}
         </PlusContainers>
         <PlusContainers
-          paddingY={0}
           paddingX={0}
+          paddingTop={0}
+          paddingBottom={0}
           style={theme.boxShadow.panelAndroid}
           border
           columnWidth={!isMobile && 7}
           marginBottom={isMobile}
-          height={325}
+          height={260}
         >
           <AdministrativeHelpSection />
         </PlusContainers>

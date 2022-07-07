@@ -8,6 +8,7 @@ import { QuestionsContainer, FAQQuestionTexts, GeneralContent } from "./styles";
 import ChevrontRight from "~/Components/Icons/System/Arrows/ChevronRight";
 import Separator from "~/Components/Ui-kit/Separator";
 import TextWrapper from "~/Components/Ui-kit/TextWrapper";
+import { useGlobalContext } from "~/Contexts/globalContext";
 import theme from "~/Styles/theme.styles";
 
 export interface FAQQuestionItemProps {
@@ -31,6 +32,7 @@ export default function FAQQuestionItem({
 }: FAQQuestionItemProps) {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { isMobile } = useGlobalContext();
 
   return (
     <>
@@ -38,13 +40,13 @@ export default function FAQQuestionItem({
         activeOpacity={0.7}
         onPress={() => navigate(`/faq/${type}/${questionIndex}`)}
       >
-        {showCategory && (
-          <FAQQuestionCategory
-            category={t(`administrativeAssistance.${type}.${type}`)}
-          />
-        )}
         <GeneralContent>
           <FAQQuestionTexts>
+            {showCategory && (
+              <FAQQuestionCategory
+                category={t(`administrativeAssistance.${type}.${type}`)}
+              />
+            )}
             <TextWrapper
               weight={bold ? "bold" : "regular"}
               color="grey"
@@ -61,7 +63,7 @@ export default function FAQQuestionItem({
       {index < length - 1 && (
         <Separator
           orientation="horizontal"
-          columnWidth={6}
+          columnWidth={isMobile ? 6 : 1}
           margin={16}
           customColor={color}
         />

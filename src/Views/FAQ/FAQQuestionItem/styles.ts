@@ -1,15 +1,14 @@
 import styled from "styled-components/native";
-
 import { getColumnWidth } from "~/Styles/mixins.styles";
 
 export const FAQQuestionTexts = styled.View`
-  width: ${getColumnWidth(22, true)}px;
+  flex: 1;
+  margin-right: 16px;
 `;
 
 export const QuestionsContainer = styled.TouchableOpacity`
   display: flex;
   flex-direction: column;
-  width: 100%;
 `;
 
 export const GeneralContent = styled.View`

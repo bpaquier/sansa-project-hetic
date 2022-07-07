@@ -20,7 +20,10 @@ export default function PageContentWrapper({
   ) as React.ElementType;
 
   return (
-    <ContentContainer backgroundColor={backgroundColor} noPaddingX={noPaddingX}>
+    <ContentContainer
+      backgroundColor={backgroundColor}
+      noPaddingX={isMobile && noPaddingX ? noPaddingX : false}
+    >
       {children}
     </ContentContainer>
   );
