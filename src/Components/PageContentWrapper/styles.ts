@@ -28,4 +28,5 @@ export const PageContainerBorne = styled.View`
   width: 100%;
   height: 100%;
   padding: ${grid.borneGutter}px;
+  background-color: ${color.neutral.black5};
 `;

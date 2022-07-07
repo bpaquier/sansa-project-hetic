@@ -31,7 +31,7 @@ export default function FAQCategory() {
   return (
     <PageContentWrapper noPaddingX backgroundColor="white">
       <PageContainerMobile>
-        <FAQSectionsContainers>
+        <FAQSectionsContainers isMobile>
           <Breadcrumb
             url="/faq"
             text={t("administrativeAssistance.administrativeAssistance")}
@@ -40,7 +40,7 @@ export default function FAQCategory() {
         <FAQTitleWrapper
           title={t(`administrativeAssistance.${type}.${type}`)}
         />
-        <FAQSectionsContainers>
+        <FAQSectionsContainers isMobile>
           <TextWrapper type="titleL" marginTop={24} marginBottom={24}>
             {t(`administrativeAssistance.${type}.sectionTitle`)}
           </TextWrapper>

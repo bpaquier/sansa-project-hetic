@@ -1,16 +1,36 @@
 import styled from "styled-components/native";
 
+import { getColumnWidth } from "~/Styles/mixins.styles";
 import theme from "~/Styles/theme.styles";
 
-const { grid, color } = theme;
+type FAQSectionContainersProps = {
+  isMobile?: boolean;
+  row?: boolean;
+};
+
+const { grid, color, shape } = theme;
 
 export const PageContainerMobile = styled.ScrollView`
   margin-bottom: 170px;
   background-color: ${color.primary.white};
 `;
 
-export const FAQSectionsContainers = styled.View`
-  padding: 0px ${grid.mobileGutter}px;
+export const PageContainerBorne = styled.View`
+  width: ${getColumnWidth(21, false)}px;
+  margin-left: ${getColumnWidth(3, false)}px;
+  background-color: ${color.primary.white};
+  border-radius: ${shape.radius.input}px;
+  height: 100%;
+  border: 1px solid ${color.neutral.black5};
+  padding: 45px ${getColumnWidth(1, false)}px;
+`;
+
+export const FAQSectionsContainers = styled.View<FAQSectionContainersProps>`
+  padding: 0px ${({ isMobile }) => (isMobile ? grid.mobileGutter : "0")}px;
+  display: flex;
+  flex-direction: ${({ row }) => (row ? "row" : "column")};
+  justify-content: space-between;
+  ${({ row }) => row && `flex: 1`};
 `;
 
 export const FrequentQuestionContainer = styled.TouchableOpacity`
@@ -32,14 +52,21 @@ export const FrequentQuestionCategoryWrapper = styled.View`
   align-items: center;
 `;
 
-export const CategoriesWrapper = styled.View`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-between;
+export const ColumnsContainersBorne = styled.View`
+  width: ${getColumnWidth(8.5, false)}px;
+  height: 100%;
 `;
 
-export const CategoriesCardColumns = styled.View`
+export const ColumnsContainersMobile = styled.View`
+  width: 100%;
+`;
+
+export const FAQQuestionsContainer = styled.View<FAQSectionContainersProps>`
   display: flex;
-  flex-direction: column;
+  flex: 1;
+  width: ${({ isMobile }) =>
+    isMobile ? "100%" : `${getColumnWidth(6, false)}px`};
+  ${({ isMobile }) => !isMobile && `max-width: 100%`};
+  justify-content: space-between;
+  padding-bottom: ${({ isMobile }) => (isMobile ? 0 : 16)}px;
 `;
