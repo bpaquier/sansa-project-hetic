@@ -15,7 +15,7 @@ export const TipTextContainer = styled.View<TipTextContainerProps>`
   align-items: center;
   margin-bottom: 24px;
   width: ${({ isMobile }) =>
-    getColumnWidth(isMobile ? 24 : 17, isMobile ?? false)}px;
+    getColumnWidth(isMobile ? 21 : 17, isMobile ?? false)}px;
 `;
 
 export const TipDecoration = styled.View`

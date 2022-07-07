@@ -6,7 +6,12 @@ import { useParams } from "react-router-native";
 import FAQQuestionCategory from "../FAQ/FAQQuestionCategory";
 import FAQQuestionItem from "../FAQ/FAQQuestionItem";
 import ResponseParagraphs from "./ResponseParagraphs";
-import { QuestionsWrapper, GlobalWrapper, PageWrapper } from "./styles";
+import {
+  QuestionsWrapper,
+  GlobalWrapperMobile,
+  GlobalWrapperBorne,
+  PageWrapper
+} from "./styles";
 import Breadcrumb from "~/Components/Breadcrumb";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 import { TextComponentProps } from "~/Components/Ui-kit/Text";
@@ -76,6 +81,10 @@ export default function FAQResponse() {
     isMobile ? PageWrapper : PageContainerBorne
   ) as React.ElementType;
 
+  const GlobalWrapper = (
+    isMobile ? GlobalWrapperMobile : GlobalWrapperBorne
+  ) as React.ElementType;
+
   return (
     <>
       {type && index && (
@@ -83,7 +92,7 @@ export default function FAQResponse() {
           <PageContainer>
             <GlobalWrapper>
               <Breadcrumb
-                marginBottom={24}
+                marginBottom={isMobile ? 0 : 24}
                 url={`/faq/${type}`}
                 text={t(`administrativeAssistance.${type}.sectionTitle`)}
               />
@@ -92,7 +101,13 @@ export default function FAQResponse() {
               {!isMobile && (
                 <Separator orientation="horizontal" columnWidth={19} />
               )}
-              <TextWrapper type="titleL" marginTop={40} marginBottom={16}>
+              <TextWrapper
+                type="titleL"
+                marginTop={isMobile ? 16 : 40}
+                marginBottom={16}
+                marginLeft={16}
+                marginRight={16}
+              >
                 {t(`administrativeAssistance.${type}.questions.${index}.title`)}
               </TextWrapper>
               <GlobalWrapper>
