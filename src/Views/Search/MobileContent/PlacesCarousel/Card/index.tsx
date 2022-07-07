@@ -17,15 +17,16 @@ export default function Card({
   id
 }: CardProps): JSX.Element {
   const { t } = useTranslation();
-  const { setDisplayPlaceDescription } = useSearchContext();
-
+  const { setDisplayPlaceDescription, selectedPlaceIndex } = useSearchContext();
   const currentDay = getCurrentDay();
 
   return (
     <CardWrapper>
       <CardContent
-        activeOpacity={0.7}
-        onPress={() => setDisplayPlaceDescription(id)}
+        activeOpacity={index === selectedPlaceIndex ? 0.7 : 1}
+        onPress={() =>
+          index === selectedPlaceIndex && setDisplayPlaceDescription(id)
+        }
       >
         {organization_name && (
           <Item>

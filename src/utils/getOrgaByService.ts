@@ -1,12 +1,7 @@
 //import { Services } from "./getServices";
 
-import axios from "axios";
-
 export default async function getOrgaByService() {
-  /*   console.log("2");
-  return fetch(
-    `http://192.168.1.37/api/getallorgaByService/a:2:{i:0;s:7:"Laverie";i:1;s:6:"Douche";}`
-  )
+  return fetch(`https://reactnative.dev/movies.json`)
     .then((Response) => Response.json())
     .then((json) => {
       console.log(json);
@@ -16,15 +11,16 @@ export default async function getOrgaByService() {
     .catch((error) => {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       console.error(error?.message);
-    }); */
+    });
 
-  try {
+  /*  try {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const res = await axios.get(
-      `http://192.168.1.37:8001/api/getallorgaByService/a:2:%7Bi:0;s:7:"Laverie";i:1;s:6:"Douche";%7D`
+      `https://127.0.0.1:8001/api/getallorgaByService/a:2:%7Bi:0;s:7:%22Laverie%22;i:1;s:6:%22Douche%22;%7D`
     );
     console.log(res.data);
   } catch (error) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     console.log(error.message);
-  }
+  } */
 }
