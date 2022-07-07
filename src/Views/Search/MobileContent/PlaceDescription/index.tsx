@@ -27,13 +27,13 @@ import {
   Service,
   LastItem
 } from "./styles";
-import Icon from "~/Components/Icon";
 import ArrowLeft from "~/Components/Icons/System/Arrows/ArrowLeft";
 import Link from "~/Components/Icons/System/Communication/Link";
 import Phone from "~/Components/Icons/System/Communication/Phone";
 import Calendar2 from "~/Components/Icons/System/Date/Calendar2";
 import MapMarker from "~/Components/Icons/System/Map/MapMarker";
 import Globe from "~/Components/Icons/System/System/Globe";
+import ServiceWithIcon from "~/Components/ServiceWithIcon";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import { PlaceProps, Places, useSearchContext } from "~/Contexts/searchContext";
@@ -186,10 +186,11 @@ export default function PlaceDescriptionMobile(): JSX.Element {
           <ItemTitle content={t("search.service")} />
           {place?.services_id?.map((service, i) => (
             <Service key={`${service}-${i}`}>
-              <IconWrapper>
-                <Icon category={service} withBackground />
-              </IconWrapper>
-              <Text>{t(`search.services.${service}`)}</Text>
+              <ServiceWithIcon
+                text={t(`search.services.${service}`)}
+                category={service}
+                withBackground
+              />
             </Service>
           ))}
         </Item>

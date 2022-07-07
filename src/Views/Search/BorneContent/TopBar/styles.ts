@@ -23,6 +23,7 @@ export const TopBarWrapper = styled.View`
   align-items: center;
   justify-content: space-between;
   z-index: 100;
+  border: ${theme?.color?.neutral?.black5};
 `;
 
 export const InputWrapper = styled.View`

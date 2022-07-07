@@ -13,6 +13,7 @@ import {
 } from "./styles";
 import Icon from "~/Components/Icon";
 import Ping from "~/Components/Ping";
+import ServiceWithIcon from "~/Components/ServiceWithIcon";
 import Text from "~/Components/Ui-kit/Text";
 import { PlaceProps, useSearchContext } from "~/Contexts/searchContext";
 import getCurrentDay from "~/hooks/getCurrentDay";
@@ -72,8 +73,8 @@ export default function ListItem({
               const isSelected = debouncedFilters?.includes(category);
               return (
                 <IconWrapper key={`${category}-${index}`}>
-                  <Icon
-                    category={category}
+                  <ServiceWithIcon
+                    {...{ category }}
                     withBackground
                     backgroundType={isSelected ? "colored" : "black"}
                   />

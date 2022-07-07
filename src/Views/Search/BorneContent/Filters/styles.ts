@@ -20,6 +20,7 @@ export const FiltersWrapper = styled.ScrollView`
   8}px;
   z-index: 1;
   max-height: ${Dimensions?.get("window").height / 2}px;
+  border: ${theme?.color?.neutral?.black5};
 `;
 
 export const Title = styled.View`

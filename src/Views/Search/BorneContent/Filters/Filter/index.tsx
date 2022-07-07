@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { useTranslation } from "react-i18next";
-import { Pressable } from "react-native";
+import { Pressable, View } from "react-native";
 
 import Checkbox from "~/Components/Form/Checkbox";
 import { useSearchContext } from "~/Contexts/searchContext";
@@ -27,13 +27,15 @@ export default function Filter({ filter }: FilterProps): JSX.Element {
         });
       }}
     >
-      <Checkbox
-        name={filter}
-        forceChecked={isSelected}
-        label={t(`search.services.${filter}`)}
-        large
-        controlled
-      />
+      <View pointerEvents="none">
+        <Checkbox
+          name={filter}
+          forceChecked={isSelected}
+          label={t(`search.services.${filter}`)}
+          large
+          controlled
+        />
+      </View>
     </Pressable>
   );
 }

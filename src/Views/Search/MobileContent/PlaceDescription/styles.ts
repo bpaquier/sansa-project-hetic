@@ -68,7 +68,6 @@ export const HoursItem = styled.View`
 `;
 
 export const Service = styled.View`
-  flex-direction: row;
   margin-bottom: 8px;
 `;
 

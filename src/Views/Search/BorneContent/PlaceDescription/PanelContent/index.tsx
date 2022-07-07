@@ -1,12 +1,7 @@
 import { useTranslation } from "react-i18next";
 
-import {
-  PanelContentWrapper,
-  Service,
-  IconWrapper,
-  ServicesList
-} from "./styles";
-import Icon from "~/Components/Icon";
+import { PanelContentWrapper, Service, ServicesList } from "./styles";
+import ServiceWithIcon from "~/Components/ServiceWithIcon";
 import Text from "~/Components/Ui-kit/Text";
 import { PlaceProps } from "~/Contexts/searchContext";
 
@@ -29,10 +24,12 @@ export default function PanelContent({
         <ServicesList>
           {services_id?.map((service, i) => (
             <Service key={`${service}-${i}`}>
-              <IconWrapper>
-                <Icon category={service} withBackground size={30} />
-              </IconWrapper>
-              <Text>{t(`search.services.${service}`)}</Text>
+              <ServiceWithIcon
+                category={service}
+                withBackground
+                size={30}
+                text={t(`search.services.${service}`)}
+              />
             </Service>
           ))}
         </ServicesList>

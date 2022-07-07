@@ -4,11 +4,10 @@ import { SmallTitleWrapper } from "../styles";
 import {
   ServicesList,
   ServicesWrapper,
-  IconWrapper,
   Service,
   ButtonWrapper
 } from "./styles";
-import Icon from "~/Components/Icon";
+import ServiceWithIcon from "~/Components/ServiceWithIcon";
 import Text from "~/Components/Ui-kit/Text";
 import { PlaceProps } from "~/Contexts/searchContext";
 
@@ -32,10 +31,11 @@ export default function Services({
       <ServicesList>
         {services_id?.slice(0, dispalyMax)?.map((service, i) => (
           <Service key={`${service}-${i}`}>
-            <IconWrapper>
-              <Icon category={service} withBackground />
-            </IconWrapper>
-            <Text>{t(`search.services.${service}`)}</Text>
+            <ServiceWithIcon
+              text={t(`search.services.${service}`)}
+              category={service}
+              withBackground
+            />
           </Service>
         ))}
         {services_id?.length > dispalyMax && (

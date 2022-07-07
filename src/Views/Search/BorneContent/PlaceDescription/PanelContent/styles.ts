@@ -18,8 +18,6 @@ export const ServicesList = styled.View`
 `;
 
 export const Service = styled.View`
-  flex-direction: row;
-  align-items: center;
   margin-right: 60px;
   margin-bottom: 12px;
 `;
