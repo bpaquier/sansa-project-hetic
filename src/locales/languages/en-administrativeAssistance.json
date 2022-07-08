@@ -1,0 +1,700 @@
+{
+  "administrativeAssistance": {
+    "administrativeAssistance": "Administrative assistance",
+    "sansaAnswerQuestions": "Sansa answers your questions",
+    "searchByCategory": "Search By Categories:",
+    "mostAskedQuestions": "Most Asked Questions:",
+    "otherQuestions": "Other Questions",
+    "hosting": {
+      "hosting": "Hosting",
+      "sectionTitle": "Accommodation Questions",
+      "questions": [
+        {
+          "id": 0,
+          "title": "How do I get accommodation?",
+          "text": [
+            {
+              "text": "I call 115: the emergency number for anyone without accommodation. 115 is the single number for centralizing emergency accommodation requests. By calling 115, I will be redirected directly to 115 of the department I'm calling from."
+            },
+            {
+              "text": "<warning><bold>Warning:</bold> calling 115 does not give access to a permanent accommodation solution. To obtain a long-term accommodation solution, I contact a social worker ."
+            },
+            {
+              "text": "I am applying for accommodation with a social worker. If I am in contact with a social worker, he can apply for accommodation with me at the <bold>SIAO</bold>, the service that manages the allocation of accommodation places."
+            },
+            {
+              "text": "I can apply for accommodation with the <bold>SIAO</bold> with a social worker if I am poorly housed, housed, or on the street."
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "How do I get a home address?",
+          "text": [
+            {
+              "text": "When I have no fixed address, I can choose an administrative domiciliation address that allows me to receive my mail and to take my steps to access rights. The domiciliation is in particular necessary to have cover illness, financial aid, etc."
+            },
+            {
+              "text": "<bold>- If I am hosted in a hosting structure:</bold> I can ask to be domiciled by my hosting structure and to receive my mail there."
+            },
+            {
+              "text": "<bold>- If I don't have accommodation, whether I'm staying at a hotel or with another person:</bold> I can request a direct debit from the <bold>Centre Communal d'Action Sociale (CCAS)</bold> of the commune where I live, or where I have ties (where my children's school is, where I am medically monitored, etc.)."
+            },
+            {
+              "text": "<warning><bold>Attention:️</bold> To be domiciled by the CCAS I must be able to demonstrate that I have a link with the municipality."
+            },
+            {
+              "text": "In Paris, to be domiciled by the <bold>Centre d'Action Sociale de la Ville de Paris (CASVP)</bold> I must <a>make an appointment online</a>.",
+              "url": {
+                "external": "https://teleservices.paris.fr/rdvcasvp/jsp/site/Portal.jsp"
+              }
+            },
+            {
+              "text": "<bold>If I cannot be domiciled by the CCAS of the municipality where I live</bold>, I can also ask an approved association to domicile me."
+            },
+            {
+              "text": "Approved associations may have specific criteria for domiciliation and may refuse to domiciliate me if they have no more space."
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "How do I get accommodation if I am a refugee or beneficiary of subsidiary protection?",
+          "text": [
+            {
+              "text": "I can apply for admission to a <bold>Provisional Accommodation Center</bold> at the <bold>OFII</bold> but I'm not sure I'll be able to get a place."
+            },
+            {
+              "text": "I can also call 115, if I am on the street, and contact a social worker to file an accommodation request."
+            },
+            {
+              "text": "I am advised to apply for social housing as soon as possible to obtain housing."
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "How do I get accommodation if I'm a pregnant woman?",
+          "text": [
+            {
+              "text": "I can go to the social services of my department of residence: for example if I live in Seine-Saint-Denis, I go to the <a>Departmental Social Services.</a>",
+              "url": {
+                "external": "https://seinesaintdenis.fr/Circonscription-departementale-de-Service-Social-de-Bondy"
+              }
+            },
+            {
+              "text": "I can also request accommodation at 115."
+            },
+            {
+              "text": "<bold>If I'm pregnant</bold>, don't have accommodation and need support and information, I can ask for help by calling the number vert <a>Solipam</a>: ",
+              "url": { "external": "https://solipam.fr/" }
+            },
+            {
+              "text": "<phone>01.48.24.16.28"
+            },
+            {
+              "text": "<bold>Solipam</bold> can accompany me in my steps throughout the pregnancy and direct me to places where I can meet a doctor or a social worker."
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "How do I get accommodation if I am a young victim of homophobia and/or transphobia?",
+          "text": [
+            {
+              "text": "I can call the 24-hour emergency line of the association <bold>Le Refuge</bold> which welcomes young victims of homophobia and transphobia (temporary accommodation, psychological and social support) ."
+            },
+            {
+              "text": "<phone>06.31.59.69.50"
+            },
+            {
+              "text": "I can also call 115 or apply for accommodation with a social worker."
+            }
+          ]
+        }
+      ]
+    },
+    "foreignersRights": {
+      "foreignersRights": "Foreigners Rights",
+      "sectionTitle": "Questions on the rights of foreigners",
+      "questions": [
+        {
+          "id": 0,
+          "title": "How do I apply for asylum if I'm under 18?",
+          "text": [
+            {
+              "text": "If I am under 18 and I am accompanied by my family in France, I must apply for asylum with my family."
+            },
+            {
+              "text": "If I am under 18 and I am a minor, a foreigner and unaccompanied by my family on French territory, I am considered an unaccompanied minor."
+            },
+            {
+              "text": "I can apply for asylum when I am an unaccompanied minor and I consider myself in danger in my country of origin. In this case the Prefecture must appoint a person who will represent my interests during the asylum application , an \"ad hoc administrator\". The Prefecture does not have the right to refuse my asylum application or refuse to appoint an \"ad hoc administrator\" to represent me. I can apply for asylum when I am an unaccompanied minor and that I consider myself in danger in my country of origin. In this case the Prefecture must appoint a person who will represent my interests during the asylum application, an \"ad hoc administrator\". The Prefecture does not have the right to refuse my asylum application or refuse to appoint an \"ad hoc administrator\" to represent me."
+            },
+            {
+              "text": "In SPADA I will be given an appointment at the Single Window for Asylum Seekers to register my asylum application. At this time the Prefecture will appoint the \"ad hoc administrator\" to represent me."
+            },
+            {
+              "text": "<warning><bold>Attention:</bold> If I am a minor and not accompanied by my family, I cannot benefit from the Allowance for Asylum Seekers (money received every month on a special card) or be accommodated with adults. I must be accommodated by Childhood Social Assistance."
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "What is the asylum application?",
+          "text": [
+            {
+              "text": "Asylum application is a procedure by which a person requests the protection of France because they consider themselves to be in danger in their country of origin."
+            },
+            {
+              "text": "It is the <bold>OFPRA – The French Office for the Protection of Refugees and Stateless Persons –</bold> which recognizes the person either as a refugee, as a beneficiary of subsidiary protection, the status of stateless person or else dismisses the person's request and does not recognize him for protection."
+            },
+            {
+              "text": "<tip><bold>Tip:</bold> Once I have submitted my asylum application, I am in a regular situation vis-à-vis foreigners' rights, the application certificate of asylum is equivalent to a residence document."
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "What are the different asylum procedures: normal, accelerated or Dublin?",
+          "text": [
+            {
+              "text": "<bold>If I am placed in normal or accelerated procedure:</bold>"
+            },
+            {
+              "text": "This means that France will study my asylum application. At <bold>GUDA</bold> a file for <bold>OFPRA</bold> is given to me. I must return it within 21 days. In this file I must indicate why I am asking for asylum in France."
+            },
+            {
+              "text": "<bold>OFPRA</bold> invites me to an interview after sending my file."
+            },
+            {
+              "text": "After the interview, within 15 days or moreiers months <bold>OFPRA</bold> makes its decision and can recognize me as a refugee or beneficiary of subsidiary protection, which allows me to apply for a residence permit or a residence card at the Prefecture."
+            },
+            {
+              "text": "<tip><bold>Tip:</bold> Once I have submitted my asylum application, I am in a regular situation vis-à-vis foreigners' rights, the application certificate of asylum is equivalent to a residence document."
+            },
+            {
+              "text": "<bold>If I am placed in Dublin procedure:</bold>"
+            },
+            {
+              "text": "This means that France considers that another country of the European Union is responsible for my asylum application. France must then organize my transfer to the country responsible for my asylum application within a 8 to 11 months depending on my situation after submitting my asylum application. If my transfer is not organized on time, I can submit an asylum application again, which will be studied by France."
+            },
+            {
+              "text": "When I am in the Dublin procedure I can be summoned regularly to the Prefecture. If I do not attend my appointments I can be placed \"on the run\". This means that I lose my <bold>Applicants Allowance d'Asile</bold>, the right to accommodation in a center dedicated to asylum seekers and that the deadline before which I can file a new asylum application which will be studied by France is extended by one year – if I am not transferred to the country responsible for my asylum application within this period."
+            },
+            {
+              "text": "If I am in the Dublin procedure, I can find out about my rights and deadlines from specialized associations."
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "How to apply for asylum?",
+          "text": [
+            {
+              "text": "To apply for asylum, I have to go to a SPADA (First Reception Structure for Asylum Seekers)."
+            },
+            {
+              "text": "If I'm in Île-de-France, I have to call the number of the <bold>OFII</bold> telephone platform to have an appointment at the <bold>SPADA</bold >"
+            },
+            {
+              "text": "<phone>01.42.50.09.00"
+            },
+            {
+              "text": "<warning><bold>Warning:</bold> It is sometimes necessary to call the <bold>OFII</bold> telephone number several times to get an answer."
+            },
+            {
+              "text": "If I am not in Île-de-France, I must go directly to the <bold>SPADA</bold> of the department where I am."
+            },
+            {
+              "text": "Once I have contacted a <bold>SPADA</bold>, I am given an appointment at the Single Window for Asylum Seekers (GUDA) to register my asylum application."
+            },
+            {
+              "text": "At <bold>GUDA</bold> I meet the <bold>OFII</bold> and the Prefecture who register my asylum application and place me in one of three asylum procedures: normal, expedited or Dublin."
+            },
+            {
+              "text": "The <bold>OFII</bold> offers me at the time of registration the Allowance for Asylum Seekers (money received every month on a special card) and can offer me accommodation on the island -de-France or in the provinces. This is a \"package\", if I refuse the proposed accommodation I lose the right to the Allowance for asylum seekers and to accommodation in a center for asylum seekers. 'asylum."
+            },
+            {
+              "text": "<warning><bold>Warning:</bold> If I am under 18, I must apply for asylum in another way. \nConsult our file: \n<a> How do I apply for asylum if I am under 18?</a>",
+              "url": {
+                "local": "/faq/foreignersRights/0"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "health": {
+      "health": "Health",
+      "sectionTitle": "Health Matters",
+      "questions": [
+        {
+          "id": 0,
+          "title": "How do I get treatment if I don't have health insurance?",
+          "text": [
+            {
+              "text": "If I don't have health insurance and can't pay the doctor, I can still get treatment in France."
+            },
+            {
+              "text": "If my state of health requires hospitalization or if I have to perform hospital treatment related to a Voluntary Termination of Pregnancy, childbirth or care related to my pregnancy or my childbirth, then the hospital may request that my healthcare costs be covered by the <bold>Urgent and Vital Care Schemes (DSUV).</bold>"
+            },
+            {
+              "text": "<tip><bold>Tip:</bold> In case of hospitalisation, if I do not have health cover and cannot pay the hospital bill, I must ask to meet a social worker from the hospital who, depending on my situation, will be able to give me access to cover sickness or make it so that I don't have to pay for my care."
+            },
+            {
+              "text": "If I am pregnant or have one or more children under the age of 6, I can consult health professionals free of charge within the <bold>PMI</bold> service of the department where I live, for my pregnancy follow-up and the medical follow-up of my child(ren), including if I do not have health insurance."
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "How to be recognized as having a disability and get help?",
+          "text": [
+            {
+              "text": "If I am disabled due to illness or disability after an accident, I can have this situation recognized. By being recognized as disabled, I can benefit from appropriate assistance. It is important that I discuss this with my attending physician."
+            },
+            {
+              "text": "<h3>How to do it?</h3>"
+            },
+            {
+              "text": "To have my disability recognised, I must contact the <bold>Departmental House for Disabled Persons (MDPH)</bold>. There is a <bold>MDPH</bold> in each department. I have to contact the <bold>MDPH</bold> of the department in which I live. I must send the MDPH an application form, containing a medical certificate to be completed by a doctor."
+            },
+            {
+              "text": "In addition to requesting recognition of the disability, I can express specific needs and requests for assistance. The <bold>MDPH</bold> will also study these requests."
+            },
+            {
+              "text": "When the <bold>MDPH</bold> recognizes a disability, it recognizes a degree of incapacity. If I have a degree of incapacity of 50% or 80% I have the right to special aids."
+            },
+            {
+              "text": "<h3>What help can I get?</h3>"
+            },
+            {
+              "text": "The rights and benefits offered by the <bold>MDPH</bold> can be:"
+            },
+            {
+              "text": "<bold>- Recognition of the status of disabled worker</bold> allowing to obtain the right to specific support in job search and adaptation of the workstation"
+            },
+            {
+              "text": "<bold>- The Allowance for Disabled Adults (AAH)</bold>, corresponding to financial assistance calculated according to resources (903.6€ per month maximum) for people with a rate of recognized disability of more than 80% or for people with a disability rate of more than 50% with recognized difficulty in accessing employment."
+            },
+            {
+              "text": "<bold>- A Disability Compensation Benefit (PCH)</bold> to obtain assistance in daily life"
+            },
+            {
+              "text": "<bold>- Referral to a medical accommodation structure</bold> if necessary"
+            },
+            {
+              "text": "- Etc."
+            },
+            {
+              "text": "<warning><bold>Attention:</bold> I do not need to have a residence permit to be recognized as having a disability. Attention, on the other hand, I need a residence permit to obtain the aid offered by the <bold>MPDH</bold>."
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "How do I get health coverage if I come from a foreign country that is not in the European Union?",
+          "text": [
+            {
+              "text": "If I am a foreigner and I have the nationality of a country that is not in the European Union, the health cover to which I am entitled depends on my situation and my duration of presence on French territory."
+            },
+            {
+              "text": "<bold>If I am in a legal situation on French territory, a refugee or a beneficiary of subsidiary protection</bold>, I can benefit from the <bold>Protection Universelle Maladie (PUMa)</bold> and under conditions of resources of the <bold>Complémentaire Santé Solidaire (CSS)</bold>:"
+            },
+            {
+              "text": "- if I am a minor unaccompanied by my parents and supported by child welfare <bold>(ASE)</bold>;\n- if I have a declared job in France;\n- if I am joining my family for reunification or family reunification;\n- if I am a student;\n- if I am an asylum seeker and have been in France for more than three months; \n- if I have been living in France for more than three months."
+            },
+            {
+              "text": "If I do not meet these conditions, and I do not have a short-stay visa, but I am in a legal situation on French territory, <bold>my children under 18 can benefit from the PUMa and Complementary Health Solidarity without waiting for me to benefit</bold>."
+            },
+            {
+              "text": "If I request my first <bold>PUMa</bold> affiliation, I must send a dedicated form to the <bold>Primary Health Insurance Fund</bold> in my department. If I work , it is my employer who takes care of the application for affiliation If I am a student, I register for <bold>Health Insurance</bold> when I register for university or school. "
+            },
+            {
+              "text": "The <bold>PUMa</bold> does not cover all of my healthcare costs, with exceptions such as if I suffer from a <a>Long-Term Condition</a>. If I don't can't afford complementary health insurance, I can benefit from the <bold>Complémentaire Santé Solidaire</bold> which allows me to benefit from 100% coverage of most of my health costs, i.e. for free or against a participation of 8 to 30€ depending on my age, depending on my income.",
+              "url": {
+                "external": "https://www.ameli.fr/val-de-marne/assure/droits-demarches/ Maladie-accident-hospitalisation/affection-longue-duree-ald/affection-longue-duree-ald#: ~:text=A%20condition%20of%20long%20hard%20C3%A9e%20non%20exon%C3%A9rate%20is,%20of%20this%20pathology%20are%20reimbursed%20%C3%A9s%20at%20usual%20rates."
+              }
+            },
+            {
+              "text": "I can check if I have the right to <bold>Solidarity Complementary Health</bold> on the <a>Health Insurance rights simulator</a>. I must renew my request every years, if I benefit from the <bold>RSA</bold> or the <bold>ASPA</bold> (minimum old age) my request is automatically renewed."
+            },
+            {
+              "text": "<bold>If I am affiliated with the PUMa and I lose my residence permit or my asylum application is rejected</bold>, I can still benefit from the PUMa and the CSS for 6 months after the expiry date of my residence permit or my asylum application certificate. I can then apply for State Medical Aid (at the earliest 45 days before the end of my PUMa rights and CSS)."
+            },
+            {
+              "text": "<bold>If I have a short-stay visa</bold>, I cannot benefit from French health cover and my children cannot benefit from it either. This is the insurance of the visa or social security from my country of origin, which must cover my health costs and those of my children."
+            },
+            {
+              "text": "<warning><bold>Attention:</bold> I do not need to have a residence permit to be recognized as having a disability. Attention, on the other hand, I need a residence permit to obtain the aid offered by the <bold>MPDH</bold>."
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "What is AME?",
+          "text": [
+            {
+              "text": "State Medical Assistance (AME) is an aid allowing 100% coverage of certain health costs for people who cannot benefit from other health cover. People benefiting from the State Medical Aid benefit from third-party payment and do not have to advance their health costs."
+            },
+            {
+              "text": "To benefit from the AME, I must be able to justify:"
+            },
+            {
+              "text": "- my identity and those of the other persons (children, spouses) for whom the request is made;\n- of my stable, uninterrupted and irregular presence with regard to the right of residence on French territory since at least least three months;\n- to have resources below the ceiling determined by decree."
+            },
+            {
+              "text": "To make my first request for State Medical Aid, I must complete the request form and go to the <bold>CPAM</bold> of the department where I live to submit my request, unless I am hospitalized or the hospital is making my request. I have to renew my request every year, so I can send it by post or my social worker can send it online."
+            },
+            {
+              "text": "<warning><bold>Warning:</bold> State Medical Aid does not cover certain services (indicated on the <bold>AME</bold> card) and does not cover charges overruns of fees. It is therefore advisable for beneficiaries of the <bold>AME</bold> to consult with approved professionals sector 1."
+            },
+            {
+              "text": "<warning><bold>Warning:</bold> Healthcare professionals are required to accept all forms of health insurance. If a health professional refuses an appointment on the pretext that you have the <bold>AME</bold> it is illegal and this can be reported via the care refusal observatory of the <bold>Fédération desacteurs of solidarity</bold> or to the <bold>Defender of Rights</bold> or even to the <bold>mediator of the Caisse Primaire d'Assurance Maladie</bold> of the professional's practice department."
+            }
+          ]
+        }
+      ]
+    },
+    "home": {
+      "home": "Housing",
+      "sectionTitle": "Housing Questions",
+      "questions": [
+        {
+          "id": 0,
+          "title": "How do I get accommodation in a social residence or boarding house?",
+          "text": [
+            {
+              "text": "<bold>If I have few financial resources and cannot immediately access housing, I can apply for Social Residence.</bold>"
+            },
+            {
+              "text": "The Social Residences are temporary accommodation where I can stay for 2 years and benefit, under certain conditions, from social support."
+            },
+            {
+              "text": "Family Pensions are a particular type of social residence, intended for people who have lived long journeys of wandering. The length of stay is not limited."
+            },
+            {
+              "text": "<bold>To access a social residence I can:</bold>"
+            },
+            {
+              "text": "- Make a request directly to the structure that interests me (for example, I can consult the <bold>Adef</bold> or <bold>Adoma</bold> sites); "
+            },
+            {
+              "text": "- If I am accommodated or on the street, I can make a request to the SIAO with my social worker;"
+            },
+            {
+              "text": "- I can make a request with a social worker in my municipality."
+            },
+            {
+              "text": "- If I am an employee of a company with more than 10 employees, I can submit a request via my employer through <a>Action Logement</a>.",
+              "url": {
+                "external": "https://www.actionlogement.fr"
+              }
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "What should I do if I am threatened with eviction?",
+          "text": [
+            {
+              "text": "<bold>If I am overdue for one or more months of rent</bold>, I can contact a social worker for help with paying my rent. My social worker can also help me find solutions with my landlord to prevent the eviction."
+            },
+            {
+              "text": "My landlord has no right to kick me out or call the police until the judge decides on my rental eviction."
+            },
+            {
+              "text": "<bold>If my landlord seized the judge who decided on my eviction</bold>, I can file a DALO appeal to be recognized as a priority for access to social housing."
+            },
+            {
+              "text": "If I don't leave the premises, a bailiff comes to my home to see that I'm still there. The judge can then decide to call the police to evict me from my accommodation. As long as I don't I haven't received the judge's decision authorizing the police to come the police can't come and evict me."
+            },
+            {
+              "text": "<tip><bold>Tip: If I wish to be informed or assisted in my steps relating to the eviction procedure</bold>, I can call the Abbé Pierre Foundation's eviction prevention number: <bold >Hello eviction prevention:</bold>"
+            },
+            {
+              "text": "<phone>0810 001 505"
+            },
+            {
+              "text": "I can get help with these procedures from a social worker or from the ADIL office in my department. The list of ADILs is available on <a>the ANIL website</a> and on soliguide. ",
+              "url": {
+                "external": "https://www.anil.org/lanil-et-les-adil/your-adil/"
+              }
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "How to get social housing?",
+          "text": [
+            {
+              "text": "If I am in a regular situation with regard to the right of residence, the first step for access to permanent housing is to apply for social housing. I can apply for social housing if I am housed, housed, badly housed or well on the street."
+            },
+            {
+              "text": "I can apply for social housing online, with the town hall of my place of residence or with a social landlord."
+            },
+            {
+              "text": "I canx get help with my application from a social worker."
+            },
+            {
+              "text": "<warning><bold>Warning: I must update my application as soon as my situation changes</bold> (income, family composition for example) and renew it every year on the anniversary date (even if I have had an offer of accommodation, or that I have taken other steps)."
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "What should I do if my current accommodation is unsanitary?",
+          "text": [
+            {
+              "text": "If I rent unsanitary accommodation (humidity, lead, electricity etc.) which is dangerous for my health, I can oblige my landlord to carry out work to bring it up to standard."
+            },
+            {
+              "text": "I must apply to the town hall to have my accommodation declared unsanitary. To do this:"
+            },
+            {
+              "text": "<bold>1.</bold> I send a registered letter to my landlord asking him to do some work"
+            },
+            {
+              "text": "<bold>2.</bold> In case of non-response or refusal of this one, I contact my town hall to report my accommodation as unsanitary housing. A town inspector will come then assess the insalubrity of the accommodation and may possibly force my landlord to work."
+            },
+            {
+              "text": "If my accommodation is declared unsanitary, I can make a <bold>DALO appeal</bold> for this reason to have priority access to social housing."
+            },
+            {
+              "text": "I can get help with these procedures from a social worker] or from the <bold>ADIL</bold> office in my department. The list of ADILs is available on the <bold>ANIL website </bold>."
+            },
+            {
+              "text": "<warning><bold>Warning:</bold> I cannot suspend payment of my rent on my own due to unsanitary conditions. This requires the publication of an order prohibiting living in the premises. Payment of the rent (even partial) protects me from eviction."
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "How do I get accommodation if I'm a student?",
+          "text": [
+            {
+              "text": "I can benefit from social housing via the Regional Center for University and School Works (CROUS). The request is made online via the platform: messervicestudiant.gouv.fr. I can also contact a CROUS social worker at my place of study."
+            },
+            {
+              "text": "If I'm homeless or don't have a residence permit, I can apply for accommodation."
+            },
+            {
+              "text": "I can also apply to a Foyer Jeunes Travailleurs or a Résidence Jeunes Actifs."
+            }
+          ]
+        }
+      ]
+    },
+    "job": {
+      "job": "Job and training",
+      "sectionTitle": "Questions about jobs and training:",
+      "Questions": [
+        {
+          "id": 0,
+          "title": "How can I be accompanied in my job search if I am over 26?",
+          "text": [
+            {
+              "text": "If I am a job seeker over the age of 26, I register with the <bold>Pôle Emploi</bold> agency at home in my department (the one where I live or the one where I I am domiciled). I can also register online on the <bold>Pôle Emploi</bold> website."
+            },
+            {
+              "text": "When I am registered as a job seeker with <bold>Pôle Emploi</bold> I can benefit from:"
+            },
+            {
+              "text": "- Support in defining my professional project"
+            },
+            {
+              "text": "- An orientation towards training systems"
+            },
+            {
+              "text": "- A possibility of doing internships in a company"
+            },
+            {
+              "text": "- Information on job offers"
+            },
+            {
+              "text": "- An orientation towards an Integration Structure through Economic Activity where I could benefit from a work contract and social and professional support"
+            },
+            {
+              "text": "- Financial aid and remuneration for certain periods of training that I carry out as part of my job search."
+            },
+            {
+              "text": "In <bold>SPADA</bold> I will be given an appointment at the Single Window for Asylum Seekers to register my asylum application. At this time the Prefecture will appoint the “ad hoc administrator” to represent me."
+            },
+            {
+              "text": "<tip><bold>Tip:</bold> If I have already worked in France and contributed to theunemployment insurance, <bold>Pôle Emploi</bold> monitors the payment of my unemployment benefits and my support in this context. If I am under 26 or have a disability and am entitled to unemployment benefits, I must register with <bold>Pôle Emploi</bold> to receive them, but I can register at the same time with the <bold>Mission Locale</bold> or <bold>CAP</bold> employment to benefit"
+            },
+            {
+              "text": "If I wish to receive information as part of my job search, I can go to one of the employment and training information sites mapped by <a>Défi Métiers<a> .",
+              "url": {
+                "external": "https://www.defi-metiers.fr/oaio/aio/recherchemap"
+              }
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "How can I be accompanied in my job search if I am under 26?",
+          "text": [
+            {
+              "text": "If I'm under 26 and I want to be supported in my professional project, I register for the <bold>Mission Locale</bold>."
+            },
+            {
+              "text": "The <bold>Mission Locale</bold> can help me define a professional project and find a job or training that corresponds to this project. I enroll in the local mission closest to at home in my department (the one where I live or the one where I am domiciled)."
+            },
+            {
+              "text": "If the realization of my professional project requires that I follow periods of unpaid training or internship, the <bold>Mission Locale</bold> can allow me to benefit from financial assistance. In return for this help, I agree to follow periods of training, job search or internship depending on the project defined with my <bold>Mission Locale</bold> adviser."
+            },
+            {
+              "text": "<tip><bold>Tip:</bold> I may be eligible for financial assistance, depending on my income and the decision of my <bold>Mission Locale</bold> advisor: Up to to €497.01 per month if I enter the <bold>Garantie Jeune</bold> program; Up to €1,491 over 3 to 6 months if I take language training as part of an Integration Course by Language Acquisition;"
+            },
+            {
+              "text": "The <bold>Mission Locale</bold> can also refer me to a Structure for Integration through Economic Activity where I could benefit from a work contract and social and professional support if I have particular difficulties in accessing employment."
+            },
+            {
+              "text": "<tip><bold>Tip:<bold> If I am entitled to unemployment benefits from <bold>Pôle Emploi</bold>, I can be registered with both <bold >Pôle Emploi</bold> and the local mission to have support adapted to my situation."
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "How if I want to learn French?",
+          "text": [
+            {
+              "text": "There are many courses that allow me to learn French. I can learn French:"
+            },
+            {
+              "text": "- Within French courses or <bold>socio-linguistic</bold> workshops offered by municipalities or associations"
+            },
+            {
+              "text": "- Within <bold>conversation workshops</bold> offered by libraries"
+            },
+            {
+              "text": "- As part of <bold>specific French learning programs</bold>. For example:"
+            },
+            {
+              "text": "\t\t・<bold>If I am a parent</bold>, I can benefit from the Open School to Parents for Child Success program (regardless of my administrative situation if I I have children in school)"
+            },
+            {
+              "text": "\t\t・<bold>If I have a work permit</bold>, as part of professional French training or professional training"
+            },
+            {
+              "text": "\t\t・<bold>If I am a refugee or beneficiary of Subsidiary Protection</bold> I can benefit from language training within specific programs."
+            },
+            {
+              "text": "\t\t・<bold>If I obtain my first residence permit</bold>, I will be summoned by the OFII to sign the Republican Integration Contract (CIR). In this context, if I don't master French, the OFII can prescribe French lessons that I must take (200 to 600 hours);"
+            },
+            {
+              "text": "Alpha network and the linguistic mapping of Défi Métiers identify the ofFrench training fre in Ile-de-France, and Soliguide in Ile-de-France, in Bordeaux, Nice, Nantes and Strasbourg. Throughout France, the cartography of Inter Carif-Oref identifies the language training offer. "
+            },
+            {
+              "text": "<warning><bold>Warning:</bold> For some formations you have to be in a regular situation."
+            }
+          ]
+        }
+      ]
+    },
+    "minors": {
+      "minors": "Unaccompanied minor",
+      "sectionTitle": "Questions on unaccompanied minors:",
+      "questions": [
+        {
+          "id": 0,
+          "title": "How can I be protected by Child Welfare?",
+          "text": [
+            {
+              "text": "<bold>If I am under 18 and alone without my family in France</bold>, I have the right to child welfare protection. To benefit from care, accommodation and help from child welfare I must report to the department in which I am, services will assess my situation to find out if I have much less 18 years old:"
+            },
+            {
+              "text": "In Ile-de-France:"
+            },
+            {
+              "text": "- <bold>If I'm in Paris</bold> I have to go to DEMIE 5 rue du Moulin Joly 75011."
+            },
+            {
+              "text": "<phone>01.58.30.14.50"
+            },
+            {
+              "text": "<phone>01.82.46.81.42"
+            },
+            {
+              "text": "- <bold>If I'm in the Val de Marne</bold>, I go to the PEOMIE in Créteil 6 rue Albert Einstein 94000 Créteil from Monday to Friday 9:30 a.m. to 5:30 p.m., reachable at"
+            },
+            {
+              "text": "<phone>01.42.07.09.02"
+            },
+            {
+              "text": "- <bold>If I am in another department</bold>, I report myself to the Department's Child Welfare Services."
+            },
+            {
+              "text": "<tip><bold>Tip:</bold> I have the right to be accommodated for the duration of the assessment of my minority by the County Council."
+            },
+            {
+              "text": "If I am supported by the ASE, I have the right until my majority to accommodation, to support by a social worker and to be educated. I also have the right to benefit health insurance to treat me."
+            },
+            {
+              "text": "If the department considers that I am of age, I can appeal to the judge to assert my minority and be supported by the ASE. To be accompanied in my appeal, I can seek the help of 'associations."
+            },
+            {
+              "text": "The departments of the department must give me a letter mentioning the fact that I am considered to be of legal age. I can then request accommodation from 115."
+            },
+            {
+              "text": "During the appeal, I am not staying with child welfare."
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "What are the rights of Unaccompanied Minors (UMAs)?",
+          "text": [
+            {
+              "text": "I am a minor if I am under 18. If I am a minor and no adult member of my family (parents or person under whose responsibility I am placed) is in France, with I have to ask to be protected by Childhood Social Assistance (ASE), which will allow me to have access to accommodation, help and support."
+            },
+            {
+              "text": "If I am in danger, I can call 119: Hello Childhood in Danger to ask for Help."
+            },
+            {
+              "text": "When I am a minor in France:"
+            },
+            {
+              "text": "- I have the right to child welfare protection if I am unaccompanied by my parents or a family member who protects me or if I am in danger in my family; "
+            },
+            {
+              "text": "- I have the right to go to school, until I turn 18. It is an obligation to be in school or in vocational training;"
+            },
+            {
+              "text": "- I am not allowed to work before the age of 16;"
+            },
+            {
+              "text": "- I have the right to health protection which allows me to see a doctor, go to the hospital or buy medicine.;"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "How do I obtain papers if I was an unaccompanied minor (MNA) and supported by Childhood Social Assistance?",
+          "text": [
+            {
+              "text": "If I am protected by Childhood Social Assistance, I am a foreigner and I want to stay in France when I reach the age of majority, I need astay."
+            },
+            {
+              "text": "\t\t・If I am in danger in my country of origin, I can apply for asylum. If I have been in France for more than 3 months, my application will be made under the accelerated procedure. "
+            },
+            {
+              "text": "\t\t・If I was protected by the ASE before I was 16 and I want to work, I can benefit from a one-year temporary residence permit \"by right \"; this means that the Prefecture has no right to refuse it. I can then ask to renew my residence permit."
+            },
+            {
+              "text": "\t\t・️ If I was protected by the ASE after I turned 16 and I have been in vocational training for at least 6 months, I can apply for a card between my 18 and my 19 years temporary residence permit of one year \"employee\" or \"temporary worker\". The Prefecture is not obliged to give me the residence permit and has the right to refuse according to the elements of my file. I can get help to constitute my file. I can then ask to renew my residence permit."
+            },
+            {
+              "text": "\t\t・️ If I am studying at a university or in a school of higher education, I can apply for a \"student\" residence permit for a period of one year. Prefecture is not obliged to grant it to me. I can then ask to renew my residence permit."
+            },
+            {
+              "text": "- <bold>If I am not in any of the previous situations</bold>, I can get help to apply for a residence permit according to my particular situation by an association that offers legal assistance in foreigners' rights. Be careful, the Prefecture can refuse to give me a residence permit."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
