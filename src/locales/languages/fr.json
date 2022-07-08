@@ -61,7 +61,7 @@
     "deleteFilters": "Supprimer tous les filtres",
     "seeFilters": "Voir tous les filtres",
     "selectedFilters": "Filtres sélectionnés",
-    "noSelectedFilters" : "Pas de filtres sélectionnés",
+    "noSelectedFilters": "Pas de filtres sélectionnés",
     "noResults": "Aucun résultats",
     "searching": "Recherche en cours",
     "openingHours": "Heures d'ouvertures",
@@ -71,7 +71,7 @@
     "service": "Services",
     "servicesOffered": "Services proposés",
     "mission": "Mission",
-    "showList":"Voir la liste ({{ resultsLength }} resultats)",
+    "showList": "Voir la liste ({{ resultsLength }} resultats)",
     "learnMore": "En savoir plus",
     "seeMore": "Voir plus",
     "lastUpdate": "Dernière mise à jour",
@@ -94,7 +94,7 @@
       "Épicerie Sociale et Solidaire": "Épicerie solidaire",
       "Colis Alimentaire": "Colis alimentaire",
       "Distribution de repas": "Distribution de repas",
-      "Fontaine à eau":  "Fontaine à eau",
+      "Fontaine à eau": "Fontaine à eau",
       "Médecin généraliste": "Médecin généraliste",
       "Soins enfants": "Soins enfants",
       "Dépistage": "Dépistage",
@@ -126,11 +126,10 @@
       "Téléphone": "Téléphone",
       "Insertion par l'activité économique": "Insertion par l'activité économique",
       "Boutique solidaire": "Boutique solidaire",
-      "Bagagerie": "Bagagerie", 
+      "Bagagerie": "Bagagerie",
       "Restauration assise": "Restauration assise",
-      "Coffre-fort numérique" : "Coffre-fort numérique",
+      "Coffre-fort numérique": "Coffre-fort numérique",
       "Activités diverses": "Activités diverses"
-      
     }
   },
   "home": {

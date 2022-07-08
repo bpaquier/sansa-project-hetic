@@ -8,6 +8,7 @@ const { color, grid } = theme;
 
 interface SeparatorStyleProps extends SeparatorProps {
   isMobile?: boolean;
+  backgroundColor?: "blue";
 }
 
 export const StyledView = styled.View`

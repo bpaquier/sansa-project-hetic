@@ -27,8 +27,7 @@
     "privacyPolicy": "Política de privacidad",
     "legals": "Información jurídica",
     "tcu": "TCU",
-    "consultList": "Ver la lista",
-    "administrativeAssistance": "Ayudas administrativas"
+    "consultList": "Ver la lista"
   },
   "forms": {
     "iReadAndAcceptPrompt": "He leído y acepto las condiciones generales de uso",
@@ -61,7 +60,7 @@
     "deleteFilters": "Eliminar todos los filtros",
     "seeFilters": "Ver todos los filtros",
     "selectedFilters": "Filtres sélectionnés",
-    "noSelectedFilters" : "Filtros seleccionados",
+    "noSelectedFilters": "Filtros seleccionados",
     "noResults": "Sin resultados",
     "searching": "Investigación actual",
     "openingHours": "Horario",
@@ -71,7 +70,7 @@
     "service": "Services",
     "servicesOffered": "Servicios propuestos",
     "mission": "Lisión",
-    "showList":"Ver la lista ({{ resultsLength }} Resultados)",
+    "showList": "Ver la lista ({{ resultsLength }} Resultados)",
     "learnMore": "Aprende más",
     "seeMore": "Ver más",
     "lastUpdate": "Última actualización",
@@ -94,7 +93,7 @@
       "Épicerie Sociale et Solidaire": "Tienda de comestibles solidaria",
       "Colis Alimentaire": "Paquetes de comida",
       "Distribution de repas": "Distribución de comidas",
-      "Fontaine à eau":  "Fuente de agua",
+      "Fontaine à eau": "Fuente de agua",
       "Médecin généraliste": "Médico de cabecera",
       "Soins enfants": "Cuidado de niños",
       "Dépistage": "Chequeo",
@@ -126,9 +125,9 @@
       "Téléphone": "Teléfono",
       "Insertion par l'activité économique": "Integración a través de la actividad económica",
       "Boutique solidaire": "Tienda solidaria",
-      "Bagagerie": "Equipaje", 
+      "Bagagerie": "Equipaje",
       "Restauration assise": "Restauración sentada",
-      "Coffre-fort numérique" : "Caja fuerte digital",
+      "Coffre-fort numérique": "Caja fuerte digital",
       "Activités diverses": "Actividades diversas"
     }
   },

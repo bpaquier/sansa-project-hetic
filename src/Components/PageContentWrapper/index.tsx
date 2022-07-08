@@ -5,9 +5,13 @@ import { useGlobalContext } from "~/Contexts/globalContext";
 
 interface PageContentWrapperProps {
   children: ReactElement;
+  noPaddingX?: boolean;
+  backgroundColor?: "grey" | "white";
 }
 export default function PageContentWrapper({
-  children
+  children,
+  noPaddingX,
+  backgroundColor
 }: PageContentWrapperProps) {
   const { isMobile } = useGlobalContext();
 
@@ -15,5 +19,12 @@ export default function PageContentWrapper({
     isMobile ? PageContainerMobile : PageContainerBorne
   ) as React.ElementType;
 
-  return <ContentContainer>{children}</ContentContainer>;
+  return (
+    <ContentContainer
+      backgroundColor={backgroundColor}
+      noPaddingX={isMobile && noPaddingX ? noPaddingX : false}
+    >
+      {children}
+    </ContentContainer>
+  );
 }

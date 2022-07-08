@@ -3,7 +3,7 @@
     "sansa": "sansa",
     "login": "Login",
     "register": "Register",
-    "logout": "Logout", 
+    "logout": "Logout",
     "reset": "Reset"
   },
   "alerts": {
@@ -26,8 +26,7 @@
     "privacyPolicy": "Privacy Policy",
     "legals": "Legals",
     "tcu": "TCU",
-    "consultList": "Consult the list",
-    "administrativeAssistance": "Administrative assistance"
+    "consultList": "Consult the list"
   },
   "forms": {
     "iReadAndAcceptPrompt": "I have read and accept the general conditions of use",
@@ -60,7 +59,7 @@
     "deleteFilters": "Delete all filters",
     "seeFilters": "See all filters",
     "selectedFilters": "Selected Filter(s)",
-    "noSelectedFilters" : "No filters selected",
+    "noSelectedFilters": "No filters selected",
     "noResults": "No results",
     "searching": "Searching",
     "openingHours": "Opening hours",
@@ -70,7 +69,7 @@
     "service": "Services",
     "servicesOffered": "Services offered",
     "mission": "Mission",
-    "showList":"Show the list ({{ resultsLength }} results)",
+    "showList": "Show the list ({{ resultsLength }} results)",
     "learnMore": "Learn more",
     "seeMore": "See more",
     "lastUpdate": "Last update",
@@ -127,7 +126,7 @@
       "Boutique solidaire": "Solidarity shop",
       "Bagagerie": "Solidarity shop",
       "Restauration assise": "Seated restoration",
-      "Coffre-fort numérique" : "Digital Safe",
+      "Coffre-fort numérique": "Digital Safe",
       "Activités diverses": "Miscellaneous activities"
     }
   },

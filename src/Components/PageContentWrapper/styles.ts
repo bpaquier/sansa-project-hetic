@@ -2,16 +2,23 @@ import styled from "styled-components/native";
 
 import Theme from "~/Styles/theme.styles";
 
-const { grid } = Theme;
+type PageContainerProps = {
+  noPaddingX?: boolean;
+  backgroundColor?: "grey" | "white";
+};
 
-export const PageContainerMobile = styled.ScrollView`
+const { grid, color } = Theme;
+
+export const PageContainerMobile = styled.ScrollView<PageContainerProps>`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   min-height: 100%;
-  padding: 50px ${grid.mobileGutter}px;
+  padding: 50px ${({ noPaddingX }) => `${noPaddingX ? 0 : grid.mobileGutter}px`};
+  background-color: ${({ backgroundColor }) =>
+    backgroundColor === "white" ? color.primary.white : color.neutral.black5};
 `;
 
 export const PageContainerBorne = styled.View`
@@ -21,4 +28,5 @@ export const PageContainerBorne = styled.View`
   width: 100%;
   height: 100%;
   padding: ${grid.borneGutter}px;
+  background-color: ${color.neutral.black5};
 `;

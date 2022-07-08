@@ -20,7 +20,9 @@ export default function NavigationMobile({
   const location = useLocation();
   const iconSize = 36;
   const { t } = useTranslation();
-  const isCurrentPage = (page: string): boolean => location.pathname === page;
+  const isCurrentPage = (page: string): boolean =>
+    location.pathname === page ||
+    (location.pathname.startsWith("/faq") && page.startsWith("/faq"));
 
   const NavWidth = Dimensions.get("window").width;
   const NavIndicatorWidth = 60;
@@ -30,7 +32,7 @@ export default function NavigationMobile({
   useEffect(() => {
     const index = isCurrentPage("/home")
       ? 0
-      : isCurrentPage("/plus")
+      : isCurrentPage("/plus") || isCurrentPage("/faq")
       ? 2
       : isCurrentPage("/")
       ? 1
@@ -122,12 +124,12 @@ export default function NavigationMobile({
           width={36}
           height={36}
           color={
-            isCurrentPage("/plus")
+            isCurrentPage("/plus") || isCurrentPage("/faq")
               ? Theme.color.primary.blue
               : Theme.color.neutral.black60
           }
         />
-        <NavButtonText active={isCurrentPage("/plus")}>
+        <NavButtonText active={isCurrentPage("/plus") || isCurrentPage("/faq")}>
           {t("plus.plus")}
         </NavButtonText>
       </NavButton>

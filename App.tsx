@@ -10,6 +10,9 @@ import theme from "~/Styles/theme.styles";
 import Home from "~/Views/Account/Home";
 import Login from "~/Views/Account/Login";
 import Register from "~/Views/Account/Register";
+import FAQ from "~/Views/FAQ";
+import FAQCategory from "~/Views/FAQCategory";
+import FAQResponse from "~/Views/FAQResponse";
 import Page from "~/Views/Page";
 import Plus from "~/Views/Plus";
 import Search from "~/Views/Search";
@@ -36,6 +39,9 @@ export default function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/home" element={<Home />} />
               <Route path="/plus" element={<Plus />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/faq/:type" element={<FAQCategory />} />
+              <Route path="/faq/:type/:index" element={<FAQResponse />} />
             </Routes>
             <LanguagesMenu />
           </>
