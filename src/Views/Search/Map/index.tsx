@@ -6,6 +6,7 @@ import { StyleSheet, Dimensions, Alert } from "react-native";
 // eslint-disable-next-line import/named
 import MapView, { PROVIDER_GOOGLE, Camera, Marker } from "react-native-maps";
 
+import mapStyle from "./mapStyle.json";
 import { Button, Controls } from "./styles";
 import PositionIcon from "~/Components/Icons/System/Map/Position";
 import Minus from "~/Components/Icons/System/System/Minus";
@@ -43,7 +44,7 @@ export default function Map(): JSX.Element {
     triggerLocalization,
     displayFilters,
     setDisplayFilters,
-    isListDisplayed
+    displayPlacesList
   } = useSearchContext();
   const [leftPadding, setLeftPadding] = useState<number>(0);
   const mapRef = useRef();
@@ -77,13 +78,13 @@ export default function Map(): JSX.Element {
 
   useEffect(() => {
     if (!isMobile) {
-      if (isListDisplayed) {
+      if (displayPlacesList) {
         setLeftPadding(getColumnWidth(9, false));
       } else {
         setLeftPadding(getColumnWidth(3, false));
       }
     }
-  }, [isMobile, isListDisplayed]);
+  }, [isMobile, displayPlacesList]);
 
   useEffect(() => {
     selectedPlaceIndex !== null &&
@@ -150,11 +151,13 @@ export default function Map(): JSX.Element {
       <MapView
         ref={mapRef}
         style={styles.map}
+        customMapStyle={mapStyle}
         provider={PROVIDER_GOOGLE}
         showsUserLocation={true}
         showsMyLocationButton={false}
         initialRegion={{ ...location }}
         onPress={() => {
+          console.log("PRESS_MAP");
           !isMobile && displayFilters && setDisplayFilters(null);
         }}
         mapPadding={{

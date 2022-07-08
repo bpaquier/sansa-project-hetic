@@ -16,3 +16,10 @@ export async function getOrgaById(id: number) {
     ?.then((resp) => resp)
     ?.catch((error) => error);
 }
+
+export async function getOrgaByNameOrAdress(arg: string) {
+  return await axios
+    ?.get(`${API_ENDPOINT}/getorgaNameAdress/${arg}`)
+    ?.then((resp) => resp)
+    ?.catch((error) => error);
+}

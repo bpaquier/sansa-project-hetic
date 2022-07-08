@@ -24,9 +24,9 @@ export default function PlacesList(): JSX.Element {
     setSelectedPlaceIndex,
     filteredPlaces,
     setDisplayFilters,
-    isLoading,
-    filters,
-    setIsListDisplayed
+    isFilterLoading,
+    displayPlacesList,
+    displaySearchResultsList
   } = useSearchContext();
   const [isAccordeonOpen, setIsAccordeonOpen] = useState<boolean>();
   const itemsTopPositions = useRef<number[]>([]);
@@ -36,10 +36,6 @@ export default function PlacesList(): JSX.Element {
     const scrollValue = itemsTopPositions?.current?.[selectedPlaceIndex];
     (scrollValue || scrollValue === 0) && scrollTo(scrollValue);
   }, [selectedPlaceIndex]);
-
-  useEffect(() => {
-    setIsListDisplayed(isAccordeonOpen);
-  }, [isAccordeonOpen]);
 
   const scrollTo = (value: number) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -96,45 +92,43 @@ export default function PlacesList(): JSX.Element {
     );
   }, [filteredPlaces, selectedPlaceIndex, setSelectedPlaceIndex]);
 
-  return (
-    filters?.length > 0 && (
-      <ListWrapper>
-        <Accordion
-          getStatus={(status) =>
-            status === "open"
-              ? setIsAccordeonOpen(true)
-              : setIsAccordeonOpen(false)
-          }
-          headContent={
-            isLoading && !isAccordeonOpen ? (
-              <LoaderWrapper>
-                <SpinnerWrapper>
-                  <Spinner />
-                </SpinnerWrapper>
-                <Text>{t("search.searching")}</Text>
-              </LoaderWrapper>
-            ) : (
-              <Text>
-                {filteredPlaces?.length > 0
-                  ? t("search.showList", {
-                      resultsLength: `${filteredPlaces?.length}`
-                    })
-                  : t("search.noResults")}
-              </Text>
-            )
-          }
-          content={List}
-          forceOpen={filteredPlaces?.length > 0}
-          freeze={
-            filteredPlaces?.length === 0 || (isLoading && !isAccordeonOpen)
-          }
-        />
-        {isLoading && isAccordeonOpen && (
-          <OverlayLoader>
-            <Spinner width={50} height={50} />
-          </OverlayLoader>
-        )}
-      </ListWrapper>
-    )
-  );
+  return displayPlacesList && !displaySearchResultsList ? (
+    <ListWrapper>
+      <Accordion
+        getStatus={(status) =>
+          status === "open"
+            ? setIsAccordeonOpen(true)
+            : setIsAccordeonOpen(false)
+        }
+        headContent={
+          isFilterLoading && !isAccordeonOpen ? (
+            <LoaderWrapper>
+              <SpinnerWrapper>
+                <Spinner />
+              </SpinnerWrapper>
+              <Text>{t("search.searching")}</Text>
+            </LoaderWrapper>
+          ) : (
+            <Text>
+              {filteredPlaces?.length > 0
+                ? t("search.showList", {
+                    resultsLength: `${filteredPlaces?.length}`
+                  })
+                : t("search.noResults")}
+            </Text>
+          )
+        }
+        content={List}
+        forceOpen={filteredPlaces?.length > 0}
+        freeze={
+          filteredPlaces?.length === 0 || (isFilterLoading && !isAccordeonOpen)
+        }
+      />
+      {isFilterLoading && isAccordeonOpen && (
+        <OverlayLoader>
+          <Spinner width={50} height={50} />
+        </OverlayLoader>
+      )}
+    </ListWrapper>
+  ) : null;
 }
