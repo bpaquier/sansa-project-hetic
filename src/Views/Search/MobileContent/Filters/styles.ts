@@ -16,6 +16,7 @@ export const FiltersWrapper = styled.View`
   left: 0;
   width: 100%;
   overflow: visible;
+  top: 50px;
 `;
 
 export const InputWrapper = styled.View`

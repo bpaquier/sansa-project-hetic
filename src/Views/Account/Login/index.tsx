@@ -52,7 +52,7 @@ export default function Login(): JSX.Element {
 
   return (
     <PageContentWrapper>
-      <FormPageTemplate image={Image} form={FormComponent} />
+      <FormPageTemplate image={Image} form={FormComponent} backArrow={true} />
     </PageContentWrapper>
   );
 }

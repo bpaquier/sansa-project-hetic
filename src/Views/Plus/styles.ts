@@ -43,7 +43,6 @@ export const PageWrapperBorne = styled.View`
 const generalPlusContainer = `
   border-radius: ${shape.radius.input}px;
   background-color: ${color.primary.white};
-  overflow: hidden;
   z-index: 0;
 `;
 

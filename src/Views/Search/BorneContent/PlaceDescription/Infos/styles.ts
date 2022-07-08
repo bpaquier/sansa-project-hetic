@@ -4,7 +4,7 @@ import theme from "~/Styles/theme.styles";
 
 export const InfosWrapper = styled.View`
   width: 47%;
-  background-color: ${theme?.color?.neutral?.black5};
+  background-color: ${theme?.color?.primary?.blueExtraLight};
   border-radius: ${theme?.shape?.radius?.input}px;
   padding: 32px;
   height: 100%;

@@ -25,7 +25,8 @@ import {
   HoursItemsWrapper,
   HoursItem,
   Service,
-  LastItem
+  LastItem,
+  ArrowWrapper
 } from "./styles";
 import ArrowLeft from "~/Components/Icons/System/Arrows/ArrowLeft";
 import Link from "~/Components/Icons/System/Communication/Link";
@@ -77,7 +78,9 @@ export default function PlaceDescriptionMobile(): JSX.Element {
             setDisplayPlaceDescription(null);
           }}
         >
-          <ArrowLeft width={24} height={24} />
+          <ArrowWrapper>
+            <ArrowLeft width={32} height={32} />
+          </ArrowWrapper>
         </TouchableOpacity>
       </Header>
       <Separator

@@ -5,18 +5,21 @@ import theme from "~/Styles/theme.styles";
 export const Wrapper = styled.View`
   position: absolute;
   right: 0;
-  top: 0;
+  top: 0%;
   left: 0;
   bottom: 0;
+  padding-top: 60px;
   background-color: ${theme?.color?.primary?.white};
 `;
 
 export const Header = styled.View`
-  height: 38px;
   overflow: visible;
   justify-content: center;
   box-shadow: ${theme?.boxShadow?.panel};
-  padding: 0 ${theme?.grid?.mobileGutter}px;
+`;
+
+export const ArrowWrapper = styled.View`
+  padding: 12px ${theme?.grid?.mobileGutter}px;
 `;
 
 export const Content = styled.ScrollView`

@@ -33,11 +33,11 @@ export default function HomeMobile(): JSX.Element {
   return (
     <PageContentWrapper>
       <View>
-        <Text color="black20" type="titleL">
+        <Text color="black40" type="titleL">
           Dashboard
         </Text>
         <EventCard style={boxShadow.panelAndroid}>
-          <Text color="black20" type="small" textAlign="center">
+          <Text color="black60" type="small" textAlign="center">
             Bientôt de nouveaux événements !
           </Text>
           <EventCardTitleWrapper>
@@ -100,7 +100,7 @@ export default function HomeMobile(): JSX.Element {
         </SanitaryCard>
         <TouchableOpacity onPress={() => navigate("/")}>
           <Card style={boxShadow.panelAndroid}>
-            <Text color="black20">Associations</Text>
+            <Text color="black60">Associations</Text>
             <AssociationsCardTitleWrapper>
               <Text type="titleM">
                 Les associations les plus visitées ces dernières semaines
@@ -128,7 +128,7 @@ export default function HomeMobile(): JSX.Element {
               <MedicalCase color="white" />
             </HealthIconWrapper>
             <View>
-              <Text color="black20">Santé</Text>
+              <Text color="black60">Santé</Text>
               <HealthCardTitleWrapper>
                 <Text type="titleM">Où puis-je me rendre ?</Text>
               </HealthCardTitleWrapper>
