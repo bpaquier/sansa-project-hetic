@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { useTranslation } from "react-i18next";
 import { Animated, Easing } from "react-native";
+import { useLocation } from "react-router-native";
 
 import Arabic from "../Icons/Flags/Arabic";
 import English from "../Icons/Flags/English";
@@ -11,44 +12,44 @@ import Ukraine from "../Icons/Flags/Ukraine";
 import TextWrapper from "../Ui-kit/TextWrapper";
 import BorneLanguagesMenu from "./BorneLanguagesMenu";
 import LanguagesMenuMobile from "./MobileLanguagesMenu";
-import { LanguagesItemMenu } from "./styles";
+import { LanguagesItemMenu, TextContainerLanguages } from "./styles";
 import { useGlobalContext } from "~/Contexts/globalContext";
 import { LanguagesType } from "~/locales/i18n";
 
 const languagesList: {
   id: LanguagesType;
   text: string;
-  flag: React.ElementType;
+  Flag: React.ElementType;
 }[] = [
   {
     id: "fr-FR",
     text: "Français",
-    flag: France
+    Flag: France
   },
   {
     id: "en-EN",
     text: "English",
-    flag: English
+    Flag: English
   },
   {
     id: "ar-SA",
     text: "يبرع",
-    flag: Arabic
+    Flag: Arabic
   },
   {
     id: "es-ES",
     text: "Español",
-    flag: Spain
+    Flag: Spain
   },
   {
     id: "uk-UA",
     text: "Українська",
-    flag: Ukraine
+    Flag: Ukraine
   }
 ];
 
 export default function LanguagesMenu(): JSX.Element {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isActive, setIsActive] = useState(i18n.language);
   const { isMenuLanguagesOpen, setMenuLanguagesOpen, isMobile } =
     useGlobalContext();
@@ -84,19 +85,36 @@ export default function LanguagesMenu(): JSX.Element {
       }).start();
   }, [backgroundAnimationValueHolder, isMenuLanguagesOpen]);
 
+  const { pathname } = useLocation();
+
   const LanguagesItemsMenu = ({ size }: { size: number }): JSX.Element => (
     <>
-      {languagesList.map((language) => (
-        <LanguagesItemMenu
-          key={language.id}
-          activeOpacity={0.7}
-          isActive={isActive === language.id}
-          onPress={() => handleChooseLanguage(language.id)}
-        >
-          <language.flag width={size} height={size} />
-          <TextWrapper marginLeft={15.5}>{language.text}</TextWrapper>
-        </LanguagesItemMenu>
-      ))}
+      {languagesList.map(({ id, text, Flag }) => {
+        const isDisabled = id === "ar-SA" && pathname.startsWith("/faq");
+        return (
+          <LanguagesItemMenu
+            key={id}
+            activeOpacity={isDisabled ? 1 : 0.7}
+            isActive={isActive === id}
+            onPress={() => !isDisabled && handleChooseLanguage(id)}
+          >
+            <Flag width={size} height={size} disabled={isDisabled} />
+            <TextContainerLanguages>
+              <TextWrapper
+                marginLeft={15.5}
+                color={isDisabled ? "black20" : "black"}
+              >
+                {text}
+              </TextWrapper>
+              {isDisabled && (
+                <TextWrapper marginLeft={15.5} color="black20">
+                  {t("common.unavailableForThisFeature")}
+                </TextWrapper>
+              )}
+            </TextContainerLanguages>
+          </LanguagesItemMenu>
+        );
+      })}
     </>
   );
 
