@@ -10,14 +10,13 @@ import {
   PageContainerBorne,
   PageContainerMobile
 } from "../FAQ/styles";
-import Breadcrumb from "~/Components/Breadcrumb";
-import PageContentWrapper from "~/Components/PageContentWrapper";
-import TextWrapper from "~/Components/Ui-kit/TextWrapper";
-import LanguageFAQSelector from "~/Components/LanguagesMenu/LanguagesFAQSelector";
-import { useGlobalContext } from "~/Contexts/globalContext";
-import theme from "~/Styles/theme.styles";
 import { QuestionsContainer } from "./styles";
+import Breadcrumb from "~/Components/Breadcrumb";
+import LanguageFAQSelector from "~/Components/LanguagesMenu/LanguagesFAQSelector";
+import PageContentWrapper from "~/Components/PageContentWrapper";
 import Separator from "~/Components/Ui-kit/Separator";
+import TextWrapper from "~/Components/Ui-kit/TextWrapper";
+import { useGlobalContext } from "~/Contexts/globalContext";
 
 type categoryFAQTypeQuestions = {
   id: number;

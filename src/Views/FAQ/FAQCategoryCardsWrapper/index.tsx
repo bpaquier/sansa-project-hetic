@@ -1,7 +1,5 @@
 import React from "react";
 
-import { useTranslation } from "react-i18next";
-
 import FAQCategoryCard from "../FAQCategoryCard";
 import ForeignersIllustration from "../Illustrations/ForeignersIllustration";
 import HealthIllustration from "../Illustrations/HealthIllustration";
@@ -18,7 +16,6 @@ import {
 } from "~/Views/FAQ/FAQCategoryCardsWrapper/styles";
 
 export default function FAQCategoryCardsWrapper() {
-  const { t } = useTranslation();
   const { isMobile } = useGlobalContext();
 
   const CategoriesWrapper = (
