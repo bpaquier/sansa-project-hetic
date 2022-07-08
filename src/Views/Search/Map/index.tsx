@@ -2,7 +2,13 @@
 import React, { useEffect, useState, useRef } from "react";
 
 import * as Location from "expo-location";
-import { StyleSheet, Dimensions, Alert, Keyboard } from "react-native";
+import {
+  StyleSheet,
+  Dimensions,
+  Alert,
+  Keyboard,
+  Platform
+} from "react-native";
 // eslint-disable-next-line import/named
 import MapView, { PROVIDER_GOOGLE, Camera, Marker } from "react-native-maps";
 
@@ -74,6 +80,7 @@ export default function Map(): JSX.Element {
   }, []);
 
   useEffect(() => {
+    Keyboard.dismiss();
     goToLocation({ ...location });
   }, [location]);
 

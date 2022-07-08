@@ -43,7 +43,11 @@ export default function Filters(): JSX.Element {
         </SearchIconWrapper>
       </InputWrapper>
       {!displaySearchResultsList && (
-        <FiltersSlider horizontal={true} showsHorizontalScrollIndicator={false}>
+        <FiltersSlider
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          keyboardShouldPersistTaps="always"
+        >
           <Tag
             bgColor={theme?.color?.primary?.blueDark}
             activeOpacity={0.7}

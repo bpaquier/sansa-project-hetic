@@ -14,7 +14,7 @@ interface TagsProps {
 export const FiltersWrapper = styled.View`
   position: absolute;
   left: 0;
-  width: 100%;
+  width: ${Dimensions.get("window").width}px;
   overflow: visible;
 `;
 
