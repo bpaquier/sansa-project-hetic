@@ -56,7 +56,7 @@
   },
   "search": {
     "search": "Buscar",
-    "searchPlaceholder": "Buscar por nombre de organización",
+    "searchPlaceholder": "Buscar por nombre o dirección",
     "filters": "Filtros",
     "deleteFilters": "Eliminar todos los filtros",
     "seeFilters": "Ver todos los filtros",

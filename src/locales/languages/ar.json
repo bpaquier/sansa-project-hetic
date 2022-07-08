@@ -56,7 +56,7 @@
   },
   "search": {
     "search": "يبحث",
-    "searchPlaceholder": "البحث حسب اسم المؤسسة",
+    "searchPlaceholder": "البحث بالاسم أو العنوان",
     "filters": "مرشحات",
     "deleteFilters": "إزالة جميع الفلاتر",
     "seeFilters": "عرض جميع الفلاتر",

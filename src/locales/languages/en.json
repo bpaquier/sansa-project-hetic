@@ -55,7 +55,7 @@
   },
   "search": {
     "search": "Search",
-    "searchPlaceholder": "Search by organisation name",
+    "searchPlaceholder": "Search by name or address",
     "filters": "Filter(s)",
     "deleteFilters": "Delete all filters",
     "seeFilters": "See all filters",
