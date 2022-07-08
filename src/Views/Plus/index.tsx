@@ -39,7 +39,7 @@ export default function Plus(): JSX.Element {
             marginBottom={16}
             type="titleL"
             textAlign="left"
-            color="black20"
+            color="black40"
           >
             {t("plus.plus")}
           </TextWrapper>
@@ -49,7 +49,7 @@ export default function Plus(): JSX.Element {
           marginBottom
           columnWidth={!isMobile && 10}
         >
-          {isConnected ? (
+          {!isConnected ? (
             <SansaDescriptionConnected isMobile={isMobile} />
           ) : (
             <SansaDescriptionNotConnected isMobile={isMobile} />

@@ -12,11 +12,13 @@ export const Wrapper = styled.View`
 `;
 
 export const Header = styled.View`
-  height: 38px;
   overflow: visible;
   justify-content: center;
   box-shadow: ${theme?.boxShadow?.panel};
-  padding: 0 ${theme?.grid?.mobileGutter}px;
+`;
+
+export const ArrowWrapper = styled.View`
+  padding: 12px ${theme?.grid?.mobileGutter}px;
 `;
 
 export const Content = styled.ScrollView`

@@ -37,7 +37,10 @@ export default function MainFilters(): JSX.Element {
               <IconWrapper>
                 <Icon category={filter} withBackground={false} />
               </IconWrapper>
-              <Text color={isSelected ? "black" : "black60"}>
+              <Text
+                color={isSelected ? "black" : "black60"}
+                weight={isSelected ? "bold" : "regular"}
+              >
                 {t(`search.services.${filter}`)}
               </Text>
             </Tag>

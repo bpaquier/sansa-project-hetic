@@ -42,7 +42,7 @@ export default function SansaDescriptionNotConnected({
       </TextWrapper>
       <Text
         type="paragraph"
-        color="black20"
+        color="black40"
         textAlign={isMobile ? "left" : "center"}
       >
         {t("plus.sansaDescription")}
