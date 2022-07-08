@@ -111,10 +111,10 @@ export default function PlacesList(): JSX.Element {
                 <SpinnerWrapper>
                   <Spinner />
                 </SpinnerWrapper>
-                <Text>{t("search.searching")}</Text>
+                <Text color="black40">{t("search.searching")}</Text>
               </LoaderWrapper>
             ) : (
-              <Text>
+              <Text color="black40">
                 {filteredPlaces?.length > 0
                   ? t("search.showList", {
                       resultsLength: `${filteredPlaces?.length}`

@@ -17,7 +17,7 @@ export default function AdministrativeHelpSection(): JSX.Element {
       onPress={() => navigate("/faq")}
       isMobile={isMobile}
     >
-      <Text type="paragraph" color="black20">
+      <Text type="paragraph" color="blue" weight="bold">
         {t("plus.consultList")}
       </Text>
       <Text type="titleL">
