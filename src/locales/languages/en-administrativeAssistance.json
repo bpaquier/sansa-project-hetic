@@ -489,7 +489,7 @@
     "job": {
       "job": "Job and training",
       "sectionTitle": "Questions about jobs and training:",
-      "Questions": [
+      "questions": [
         {
           "id": 0,
           "title": "How can I be accompanied in my job search if I am over 26?",
