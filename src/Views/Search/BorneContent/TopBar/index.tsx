@@ -32,14 +32,8 @@ export interface IconsDisplay {
 export default function TopBar(): JSX.Element {
   const { t } = useTranslation();
   const [isFocused, setIsFocused] = useState<boolean>(false);
-  const {
-    setDisplayFilters,
-    displayFilters,
-    searchValue,
-    setSearchValue,
-    setFilteredPlaces,
-    setFilters
-  } = useSearchContext();
+  const { setDisplayFilters, displayFilters, searchValue, handleSearch } =
+    useSearchContext();
 
   const iconsWidth = 48;
 
@@ -74,11 +68,7 @@ export default function TopBar(): JSX.Element {
         </SearchIconWrapper>
         <Input
           value={searchValue}
-          onChangeText={(value) => {
-            setSearchValue(value);
-            setFilteredPlaces(null);
-            setFilters(null);
-          }}
+          onChangeText={(value) => handleSearch(value)}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder={t("search.searchPlaceholder")}

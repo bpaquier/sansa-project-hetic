@@ -5,14 +5,23 @@ import theme from "~/Styles/theme.styles";
 
 const { color, shape, sizes, grid } = theme;
 
+interface GlobalProps {
+  isMobile?: boolean;
+}
+
 export const SearchResultsWrapper = styled.View`
   position: absolute;
-  left: ${getColumnWidth(3, false)}px;
+  left: ${({ isMobile }: GlobalProps) =>
+    isMobile ? `-12.5px` : `${getColumnWidth(3, false)}px`};
   margin-left: ${grid?.borneGutter}px;
-  top: ${sizes?.bornContent?.topBarHeight + grid?.borneGutter + 8}px;
+  top: ${({ isMobile }: GlobalProps) =>
+    isMobile
+      ? "62.5px"
+      : `${sizes?.bornContent?.topBarHeight + grid?.borneGutter + 8}px`};
   background-color: ${color.primary.white};
   border-radius: ${shape?.radius?.input}px;
-  width: ${getColumnWidth(7.5, false)}px;
+  width: ${({ isMobile }: GlobalProps) =>
+    isMobile ? "100%" : `${getColumnWidth(7.5, false)}px`};
   padding: 32px 0;
 `;
 

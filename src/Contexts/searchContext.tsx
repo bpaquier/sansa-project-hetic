@@ -68,6 +68,7 @@ interface ContextProps {
   isSearchLoading?: boolean;
   displaySearchResultsList?: boolean;
   setDisplaySearchResultsList?: (arg: boolean) => void;
+  handleSearch?: (value: string) => void;
 }
 
 type updateFiltersProps = {
@@ -199,6 +200,11 @@ function SearchProvider({ children }: SearchProviderProps) {
     }
   }, [debouncedSearch]);
 
+  useEffect(() => {
+    filteredPlaces?.length > 0 && isMobile && setSelectedPlaceIndex(0);
+    !filteredPlaces && setSelectedPlaceIndex(null);
+  }, [filteredPlaces]);
+
   const updateFilters = ({ action, filtersName }: updateFiltersProps) => {
     if (action === "add") {
       if (!filters || filters?.length === 0) {
@@ -225,10 +231,11 @@ function SearchProvider({ children }: SearchProviderProps) {
     }
   };
 
-  useEffect(() => {
-    filteredPlaces?.length > 0 && isMobile && setSelectedPlaceIndex(0);
-    !filteredPlaces && setSelectedPlaceIndex(null);
-  }, [filteredPlaces]);
+  const handleSearch = (value: string) => {
+    setSearchValue(value);
+    setFilteredPlaces(null);
+    setFilters(null);
+  };
 
   const providerValue = {
     selectedPlaceIndex,
@@ -254,7 +261,8 @@ function SearchProvider({ children }: SearchProviderProps) {
     setSearchResults,
     isSearchLoading,
     displaySearchResultsList,
-    setDisplaySearchResultsList
+    setDisplaySearchResultsList,
+    handleSearch
   };
 
   return <Context.Provider value={providerValue}>{children}</Context.Provider>;

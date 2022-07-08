@@ -44,7 +44,8 @@ export default function Map(): JSX.Element {
     triggerLocalization,
     displayFilters,
     setDisplayFilters,
-    displayPlacesList
+    displayPlacesList,
+    setSearchValue
   } = useSearchContext();
   const [leftPadding, setLeftPadding] = useState<number>(0);
   const mapRef = useRef();
@@ -157,8 +158,8 @@ export default function Map(): JSX.Element {
         showsMyLocationButton={false}
         initialRegion={{ ...location }}
         onPress={() => {
-          console.log("PRESS_MAP");
           !isMobile && displayFilters && setDisplayFilters(null);
+          setSearchValue(null);
         }}
         mapPadding={{
           top: 0,

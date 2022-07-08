@@ -12,6 +12,7 @@ import {
 import Spinner from "~/Components/Icons/Spinner";
 import MapMarker from "~/Components/Icons/System/Map/MapMarker";
 import Text from "~/Components/Ui-kit/Text";
+import { useGlobalContext } from "~/Contexts/globalContext";
 import { useSearchContext } from "~/Contexts/searchContext";
 
 export default function SearchResults(): JSX.Element {
@@ -27,9 +28,10 @@ export default function SearchResults(): JSX.Element {
     displaySearchResultsList,
     setDisplaySearchResultsList
   } = useSearchContext();
+  const { isMobile } = useGlobalContext();
 
   return displaySearchResultsList ? (
-    <SearchResultsWrapper>
+    <SearchResultsWrapper {...{ isMobile }}>
       <ResultsWrapper>
         {isSearchLoading ? (
           <SpinnerWrapper>
