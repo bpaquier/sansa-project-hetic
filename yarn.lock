@@ -3654,6 +3654,13 @@ expo-modules-core@0.6.5:
     compare-versions "^3.4.0"
     invariant "^2.2.4"
 
+expo-screen-orientation@~4.1.1:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/expo-screen-orientation/-/expo-screen-orientation-4.1.2.tgz#52b0799adf2bf7c275bfca308a97797731fa9f53"
+  integrity sha512-ZK9JnIuys3bL0IPIkBazBwc6dZambm2xxu0TEV7HYtowb769XLTFOJgVttrpeNDMXEt/22+dhCE4ZFaPNu6JlA==
+  dependencies:
+    "@expo/config-plugins" "^4.0.2"
+
 expo-status-bar@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/expo-status-bar/-/expo-status-bar-1.2.0.tgz#16e73205da563f9536f562e439081e30e318a82e"
@@ -4402,9 +4409,9 @@ hyphenate-style-name@^1.0.2, hyphenate-style-name@^1.0.4:
   integrity sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==
 
 i18next@^21.8.11:
-  version "21.8.11"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.8.11.tgz#197aac04be51b7083999a2cb63deb831cf1ba4c8"
-  integrity sha512-+s8N6kQShwNK+Ua/+VsS/Sji24NUJJLBk9QIucygj1f97f4hPNDWmLP9fQCI4d5+XLfXJ3JctX4g+zJla967Vw==
+  version "21.8.12"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.8.12.tgz#30a1ca4a9556d9d523c9dad0fa3c01f81aa5ee72"
+  integrity sha512-BCJsQq9DtmLb88ksPZgpjbXhPAhFmDTNrY2Jh8VvgwnTHvL8xbuSribdTsi2WPRk1kbhjtbkoqyCVr12w2XTCA==
   dependencies:
     "@babel/runtime" "^7.17.2"
 

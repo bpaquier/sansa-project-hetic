@@ -8,8 +8,8 @@ const { color } = Theme;
 
 export const PageContent = styled.View`
   flex: 1;
-  left: ${getColumnWidth(3, false)};
-  width: ${getColumnWidth(21, false)};
+  left: ${getColumnWidth(3, false)}px;
+  width: ${getColumnWidth(21, false)}px;
 `;
 
 interface CardProps {

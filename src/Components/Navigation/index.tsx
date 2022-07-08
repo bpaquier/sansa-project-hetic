@@ -17,6 +17,7 @@ export default function Navigation() {
   return (
     <Navigation
       onPressExitLanguagesMenuAndNavigate={onPressExitLanguagesMenuAndNavigate}
+      onPressMenu={setMenuLanguagesOpen}
     />
   );
 }

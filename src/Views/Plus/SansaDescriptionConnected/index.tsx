@@ -50,7 +50,7 @@ export default function SansaDescriptionConnected({
   return (
     <>
       <Text type={isMobile ? "titleL" : "titleM"}>
-        {t("helloWithName", { name: "Baswel" })}
+        {t("plus.helloWithName", { name: "Baswel" })}
       </Text>
       {isMobile && (
         <>
