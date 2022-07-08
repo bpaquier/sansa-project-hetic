@@ -3,8 +3,16 @@
     "name": "app",
     "slug": "sans",
     "version": "1.0.0",
-    "orientation": "landscape",
     "icon": "./assets/images/Team_success_Two_Color.png",
+    "orientation": "default",
+    "plugins": [
+      [
+        "expo-screen-orientation",
+        {
+          "initialOrientation": "ALL" 
+        }
+      ]
+    ],
     "splash": {
       "image": "./assets/images/Team_success_Two_Color.png",
       "resizeMode": "contain",
@@ -15,7 +23,8 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "requireFullScreen": true
     },
     "android": {
       "adaptiveIcon": {
