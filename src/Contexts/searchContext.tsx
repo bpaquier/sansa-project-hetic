@@ -131,7 +131,7 @@ function SearchProvider({ children }: SearchProviderProps) {
       setIsListDisplayed(false);
       setDisplayPlaceDescription(null);
     }
-  }, [isIdle])
+  }, [isIdle]);
 
   const updateFilters = ({ action, filtersName }: updateFiltersProps) => {
     if (action === "add") {

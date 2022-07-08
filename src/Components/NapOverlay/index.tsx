@@ -1,25 +1,37 @@
-import { View, Dimensions } from "react-native";
+import {
+  NapOverlayWrapper,
+  TouchScreenWrapper,
+  HelperWrapper,
+  HelperTextWrapper,
+  HelperText,
+  LogoWrapper,
+  LogoTextWrapper
+} from "./styles";
 import HandIcon from "./Svg/HandIcon";
 import LeftArrow from "./Svg/LeftArrow";
-import UpArrow from "./Svg/UpArrow";
 import SansaLogo from "./Svg/SansaLogo";
+import UpArrow from "./Svg/UpArrow";
 import TextWrapper from "~/Components/Ui-kit/TextWrapper";
-import Text from "~/Components/Ui-kit/Text";
-import { NapOverlayWrapper, TouchScreenWrapper, HelperWrapper, HelperTextWrapper, HelperText, LogoWrapper, LogoTextWrapper } from "./styles";
 
 export default function NapOverlay(): JSX.Element {
   return (
     <NapOverlayWrapper>
       <TouchScreenWrapper>
         <HandIcon />
-        <TextWrapper marginTop={16} type="titleL" textAlign="center" color="white">
+        <TextWrapper
+          marginTop={16}
+          type="titleL"
+          textAlign="center"
+          color="white"
+        >
           Touchez pour commencer
         </TextWrapper>
       </TouchScreenWrapper>
       <HelperWrapper top="30%" left="11%">
         <HelperTextWrapper marginBottom={20}>
           <HelperText textAlign="center" color="white">
-            Ici, vous pourrez accèder à la page d’accueil, la page de recherche ou à des aides administratives/gestion du compte
+            Ici, vous pourrez accèder à la page d’accueil, la page de recherche
+            ou à des aides administratives/gestion du compte
           </HelperText>
         </HelperTextWrapper>
         <LeftArrow />
@@ -28,7 +40,8 @@ export default function NapOverlay(): JSX.Element {
         <UpArrow />
         <HelperTextWrapper marginTop={20}>
           <HelperText textAlign="center" color="white">
-            Ici, utilisez les catégories pour rechercher vos besoins et la barre de recherche pour chercher une association
+            Ici, utilisez les catégories pour rechercher vos besoins et la barre
+            de recherche pour chercher une association
           </HelperText>
         </HelperTextWrapper>
       </HelperWrapper>

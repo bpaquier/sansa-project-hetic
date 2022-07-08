@@ -1,16 +1,13 @@
-import styled from "styled-components/native";
 import { Dimensions } from "react-native";
+import styled from "styled-components/native";
 
-
-import Theme from "~/Styles/theme.styles";
 import Text from "~/Components/Ui-kit/Text";
-const { shape, grid } = Theme;
 
 export const NapOverlayWrapper = styled.View`
   position: absolute;
   width: ${Dimensions.get("window").width};
   height: ${Dimensions.get("window").height};
-  background-color: rgba(0, 0, 0, .8);
+  background-color: rgba(0, 0, 0, 0.8);
 `;
 
 export const TouchScreenWrapper = styled.View`
@@ -19,7 +16,6 @@ export const TouchScreenWrapper = styled.View`
   left: 45%;
   align-items: center;
 `;
-
 
 type HelperTextProps = {
   top?: string;
@@ -31,11 +27,11 @@ type HelperTextProps = {
 
 export const HelperWrapper = styled.View<HelperTextProps>`
   position: absolute;
-  ${({ top }: any) => top && `top: ${top};`};
-  ${({ right }: any) => right && `right: ${right};`};
-  ${({ bottom }: any) => bottom && `top: ${bottom};`};
-  ${({ left }: any) => left && `right: ${left};`};
-  ${({ alignItems }: any) => alignItems && `align-items: ${alignItems};`};
+  ${({ top }) => top && `top: ${top};`};
+  ${({ right }) => right && `right: ${right};`};
+  ${({ bottom }) => bottom && `top: ${bottom};`};
+  ${({ left }) => left && `right: ${left};`};
+  ${({ alignItems }) => alignItems && `align-items: ${alignItems};`};
 `;
 
 type HelperTextWrapperProps = {
@@ -44,10 +40,8 @@ type HelperTextWrapperProps = {
 };
 
 export const HelperTextWrapper = styled.View<HelperTextWrapperProps>`
-  ${({ marginTop }: any) =>
-    marginTop && `margin-top: ${marginTop}px;`};
-  ${({ marginBottom }: any) =>
-    marginBottom && `margin-bottom: ${marginBottom}px;`};
+  ${({ marginTop }) => marginTop && `margin-top: ${marginTop}px;`};
+  ${({ marginBottom }) => marginBottom && `margin-bottom: ${marginBottom}px;`};
   width: 320px;
 `;
 

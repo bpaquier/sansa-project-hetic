@@ -4,11 +4,10 @@ import BornContent from "./BorneContent";
 import Map from "./Map";
 import MobileContent from "./MobileContent";
 import { MobileWrapper } from "./styles";
+import NapOverlay from "~/Components/NapOverlay";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 import { useGlobalContext } from "~/Contexts/globalContext";
 import SearchProvider from "~/Contexts/searchContext";
-import NapOverlay from "~/Components/NapOverlay";
-
 
 export default function Search(): JSX.Element {
   const { isMobile, isIdle } = useGlobalContext();
@@ -20,7 +19,7 @@ export default function Search(): JSX.Element {
     <SearchProvider>
       <Wrapper>
         <Map />
-        {isIdle && <NapOverlay />}  
+        {isIdle && <NapOverlay />}
         {isMobile ? <MobileContent /> : <BornContent />}
       </Wrapper>
     </SearchProvider>
