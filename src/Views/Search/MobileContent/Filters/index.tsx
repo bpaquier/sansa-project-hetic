@@ -13,12 +13,12 @@ import Filter from "~/Components/Icons/System/System/Filter";
 import Search from "~/Components/Icons/System/System/Search";
 import Text from "~/Components/Ui-kit/Text";
 import { useSearchContext } from "~/Contexts/searchContext";
-import theme from "~/Styles/theme.styles";
 import {
   getIconByService,
   getServiceColor,
   MainServicesToDisplay
-} from "~/utils/getServices";
+} from "~/hooks/useServices";
+import theme from "~/Styles/theme.styles";
 
 export default function Filters(): JSX.Element {
   const { t } = useTranslation();

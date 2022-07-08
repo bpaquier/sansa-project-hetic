@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { CardWrapper, CardContent, IndexWrapper, Item } from "./styles";
 import Text from "~/Components/Ui-kit/Text";
 import { PlaceProps, useSearchContext } from "~/Contexts/searchContext";
-import getCurrentDay from "~/hooks/getCurrentDay";
+import useCurrentDay from "~/hooks/useCurrentDay";
 
 export interface CardProps extends PlaceProps {
   index?: number;
@@ -18,7 +18,7 @@ export default function Card({
 }: CardProps): JSX.Element {
   const { t } = useTranslation();
   const { setDisplayPlaceDescription, selectedPlaceIndex } = useSearchContext();
-  const currentDay = getCurrentDay();
+  const currentDay = useCurrentDay();
 
   return (
     <CardWrapper>

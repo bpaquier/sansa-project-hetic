@@ -7,8 +7,8 @@ import {
 } from "react";
 
 import { useGlobalContext } from "./globalContext";
+import useApi from "~/hooks/useApi";
 import { useDebounce } from "~/hooks/useDebounce";
-import { getOrgaByServices, getOrgaByNameOrAdress } from "~/utils/api";
 
 export interface PlaceProps {
   id?: number;
@@ -88,6 +88,7 @@ interface SearchProviderProps {
 
 function SearchProvider({ children }: SearchProviderProps) {
   const { isMobile } = useGlobalContext();
+  const { getOrgaByServices, getOrgaByNameOrAdress } = useApi();
 
   const [selectedPlaceIndex, setSelectedPlaceIndex] = useState<number | null>(
     null

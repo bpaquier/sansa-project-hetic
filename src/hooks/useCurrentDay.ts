@@ -1,4 +1,4 @@
-export default function getCurrentDay():
+export default function useCurrentDay():
   | "monday"
   | "tuesday"
   | "wednesday"

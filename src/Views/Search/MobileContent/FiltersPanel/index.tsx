@@ -8,8 +8,8 @@ import { BottomButton, Filters, PanelContent } from "./styles";
 import ButtonComponent from "~/Components/Ui-kit/Button";
 import Separator from "~/Components/Ui-kit/Separator";
 import { useSearchContext } from "~/Contexts/searchContext";
+import { servicesRepartition } from "~/hooks/useServices";
 import theme from "~/Styles/theme.styles";
-import { servicesRepartition } from "~/utils/getServices";
 
 export default function FiltersPanel(): JSX.Element {
   const { t } = useTranslation();

@@ -13,8 +13,8 @@ import {
 import Cross from "~/Components/Icons/System/System/Cross";
 import Text from "~/Components/Ui-kit/Text";
 import { useSearchContext } from "~/Contexts/searchContext";
+import { getServiceColor } from "~/hooks/useServices";
 import theme from "~/Styles/theme.styles";
-import { getServiceColor } from "~/utils/getServices";
 
 export default function Tags(): JSX.Element {
   const { t } = useTranslation();

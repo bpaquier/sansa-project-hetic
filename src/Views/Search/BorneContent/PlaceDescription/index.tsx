@@ -22,11 +22,12 @@ import Cross from "~/Components/Icons/System/System/Cross";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import { PlaceProps, useSearchContext } from "~/Contexts/searchContext";
+import useApi from "~/hooks/useApi";
 import theme from "~/Styles/theme.styles";
-import { getOrgaById } from "~/utils/api";
 
 export default function PlaceDescription(): JSX.Element {
   const { t } = useTranslation();
+  const { getOrgaById } = useApi();
   const {
     filteredPlaces,
     displayPlaceDescription,

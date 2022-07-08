@@ -16,7 +16,7 @@ import Ping from "~/Components/Ping";
 import ServiceWithIcon from "~/Components/ServiceWithIcon";
 import Text from "~/Components/Ui-kit/Text";
 import { PlaceProps, useSearchContext } from "~/Contexts/searchContext";
-import getCurrentDay from "~/hooks/getCurrentDay";
+import useCurrentDay from "~/hooks/useCurrentDay";
 import theme from "~/Styles/theme.styles";
 
 export interface ListItemProps extends PlaceProps {
@@ -35,7 +35,7 @@ export default function ListItem({
   const { debouncedFilters, setDisplayPlaceDescription, filteredPlaces } =
     useSearchContext();
   const [formatedCategories, setFormatedCatgories] = useState<string[]>([]);
-  const currentDay = getCurrentDay();
+  const currentDay = useCurrentDay();
 
   useEffect(() => {
     if (debouncedFilters && debouncedFilters?.length > 0) {

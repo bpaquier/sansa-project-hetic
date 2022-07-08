@@ -4,7 +4,7 @@ import { TagsWrapper, Tag, IconWrapper } from "./styles";
 import Icon from "~/Components/Icon";
 import Text from "~/Components/Ui-kit/Text";
 import { useSearchContext } from "~/Contexts/searchContext";
-import { servicesRepartition } from "~/utils/getServices";
+import { servicesRepartition } from "~/hooks/useServices";
 
 export default function MainFilters(): JSX.Element {
   const { t } = useTranslation();

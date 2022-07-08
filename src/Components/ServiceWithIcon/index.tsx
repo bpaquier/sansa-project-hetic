@@ -1,7 +1,7 @@
 import { ServiceWrapper, TextWrapper } from "./styles";
 import Icon, { IconProps } from "~/Components/Icon";
 import Text from "~/Components/Ui-kit/Text";
-import { Services } from "~/utils/getServices";
+import { Services } from "~/hooks/useServices";
 
 interface ServiceWithIconProps extends IconProps {
   text?: string;

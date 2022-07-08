@@ -22,7 +22,7 @@ import {
   getServiceColor,
   getIconByService,
   MainServicesToDisplay
-} from "~/utils/getServices";
+} from "~/hooks/useServices";
 
 export interface IconsDisplay {
   Icon: any;

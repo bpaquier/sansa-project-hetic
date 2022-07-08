@@ -37,9 +37,9 @@ import ServiceWithIcon from "~/Components/ServiceWithIcon";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import { PlaceProps, useSearchContext } from "~/Contexts/searchContext";
-import getCurrentDay from "~/hooks/getCurrentDay";
+import useApi from "~/hooks/useApi";
+import useCurrentDay from "~/hooks/useCurrentDay";
 import theme from "~/Styles/theme.styles";
-import { getOrgaById } from "~/utils/api";
 
 interface ItemTitleProps {
   content: string;
@@ -47,13 +47,14 @@ interface ItemTitleProps {
 
 export default function PlaceDescriptionMobile(): JSX.Element {
   const { t } = useTranslation();
+  const { getOrgaById } = useApi();
   const {
     filteredPlaces,
     displayPlaceDescription,
     setDisplayPlaceDescription
   } = useSearchContext();
   const [place, setPlace] = useState<PlaceProps | null>(null);
-  const currentDay = getCurrentDay();
+  const currentDay = useCurrentDay();
 
   useEffect(() => {
     displayPlaceDescription &&

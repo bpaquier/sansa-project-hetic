@@ -1,7 +1,7 @@
 import { IconWrapper } from "./styles";
 import TextComponent from "~/Components/Ui-kit/Text";
+import { getServiceColor, getIconByService } from "~/hooks/useServices";
 import theme from "~/Styles/theme.styles";
-import { getServiceColor, getIconByService } from "~/utils/getServices";
 
 export interface IconProps {
   category?: string;

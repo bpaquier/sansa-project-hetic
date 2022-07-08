@@ -6,7 +6,7 @@ import { FiltersWrapper, CheckboxWrapper, Content, Title } from "./styles";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import { useSearchContext } from "~/Contexts/searchContext";
-import { servicesRepartition } from "~/utils/getServices";
+import { servicesRepartition } from "~/hooks/useServices";
 
 export default function Filters(): JSX.Element {
   const { language } = i18next;
