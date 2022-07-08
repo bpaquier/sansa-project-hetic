@@ -19,7 +19,7 @@ export default function Page({ children }: PageProps) {
   const navigate = useNavigate();
 
   const timerId = useRef(false);
-  const timeForInactivityInSecond = 10;
+  const timeForInactivityInSecond = 15 * 60;
 
   useEffect(() => {
     if (!isMobile) {
