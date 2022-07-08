@@ -1,3 +1,4 @@
+import { StatusBar } from "react-native";
 import styled from "styled-components/native";
 
 import theme from "~/Styles/theme.styles";
@@ -5,9 +6,10 @@ import theme from "~/Styles/theme.styles";
 export const Wrapper = styled.View`
   position: absolute;
   right: 0;
-  top: 0;
+  top: 0%;
   left: 0;
   bottom: 0;
+  padding-top: ${StatusBar.currentHeight}px;
   background-color: ${theme?.color?.primary?.white};
 `;
 

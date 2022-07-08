@@ -1,3 +1,4 @@
+import { StatusBar } from "react-native";
 import styled from "styled-components/native";
 
 import Theme from "~/Styles/theme.styles";
@@ -19,6 +20,7 @@ export const PageContainerMobile = styled.ScrollView<PageContainerProps>`
   padding: 50px ${({ noPaddingX }) => `${noPaddingX ? 0 : grid.mobileGutter}px`};
   background-color: ${({ backgroundColor }) =>
     backgroundColor === "white" ? color.primary.white : color.neutral.black5};
+  padding-top: ${StatusBar.currentHeight + 24}px;
 `;
 
 export const PageContainerBorne = styled.View`
