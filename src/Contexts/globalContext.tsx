@@ -11,6 +11,8 @@ import Theme from "~/Styles/theme.styles";
 interface ContextProps {
   isMobile?: boolean;
   setAppWidth?(width?: number): any;
+  isIdle?: boolean;
+  setIsIdle?(value?: boolean): any;
   isMenuLanguagesOpen?: boolean;
   setMenuLanguagesOpen?: (isOpen?: boolean) => void;
 }
@@ -27,6 +29,7 @@ interface GlobalProviderProps {
 
 function GlobalProvider({ children }: GlobalProviderProps) {
   const [width, setWidth] = useState<number>(0);
+  const [isIdle, setIsIdle] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(true);
   const [isMenuLanguagesOpen, setIsMenuLanguagesOpen] =
     useState<boolean>(false);
@@ -47,6 +50,8 @@ function GlobalProvider({ children }: GlobalProviderProps) {
 
   const providedValue = {
     isMobile,
+    isIdle,
+    setIsIdle,
     setAppWidth,
     isMenuLanguagesOpen,
     setMenuLanguagesOpen

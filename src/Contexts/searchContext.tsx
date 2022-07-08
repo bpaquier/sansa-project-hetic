@@ -74,7 +74,7 @@ interface SearchProviderProps {
 }
 
 function SearchProvider({ children }: SearchProviderProps) {
-  const { isMobile } = useGlobalContext();
+  const { isMobile, isIdle } = useGlobalContext();
   const [selectedPlaceIndex, setSelectedPlaceIndex] = useState<number | null>(
     null
   );
@@ -122,6 +122,16 @@ function SearchProvider({ children }: SearchProviderProps) {
       setIsListDisplayed(false);
     }
   }, [filters]);
+
+  useEffect(() => {
+    if (isIdle) {
+      setFilters(null);
+      setIsLoading(false);
+      setDisplayFilters(null);
+      setIsListDisplayed(false);
+      setDisplayPlaceDescription(null);
+    }
+  }, [isIdle])
 
   const updateFilters = ({ action, filtersName }: updateFiltersProps) => {
     if (action === "add") {
