@@ -1,4 +1,4 @@
-import { Dimensions, StatusBar } from "react-native";
+import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 
 import { getColumnWidth } from "~/Styles/mixins.styles";
@@ -16,7 +16,7 @@ export const FiltersWrapper = styled.View`
   left: 0;
   width: 100%;
   overflow: visible;
-  top: ${StatusBar.currentHeight}px;
+  top: 50px;
 `;
 
 export const InputWrapper = styled.View`
