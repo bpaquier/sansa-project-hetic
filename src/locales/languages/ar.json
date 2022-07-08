@@ -132,5 +132,13 @@
   },
   "home": {
     "home": "مسكن"
+  },
+  "administrativeAssistance": {
+    "administrativeAssistance": "المساعدات الإدارية",
+    "french": "فرنسي",
+    "cancel": "لالغاء",
+    "english": "إنجليزي",
+    "missingTraductionPrompt": "يحتاج التطبيق إلى تغيير اللغة لأن المساعدة الإدارية غير متوفرة باللغة العربية.",
+    "missingTraductionTitle": "الترجمة مفقودة"
   }
 }

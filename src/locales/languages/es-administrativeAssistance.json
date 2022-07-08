@@ -1,0 +1,700 @@
+{
+  "administrativeAssistance": {
+    "administrativeAssistance": "Asistencia administrativa",
+    "sansaAnswerQuestions": "Sansa responde tus preguntas",
+    "searchByCategory": "Buscar por categorías:",
+    "mostAskedQuestions": "Preguntas más frecuentes:",
+    "otherQuestions": "Otras Preguntas",
+    "hosting": {
+      "hosting": "Alojamiento",
+      "sectionTitle": "Preguntas sobre alojamiento",
+      "questions": [
+        {
+          "id": 0,
+          "title": "¿Cómo consigo alojamiento?",
+          "text": [
+            {
+              "text": "Llamo al 115: el número de emergencia para cualquier persona sin alojamiento. El 115 es el número único para centralizar las solicitudes de alojamiento de emergencia. Al llamar al 115, seré redirigido directamente al 115 del departamento desde el que estoy llamando"
+            },
+            {
+              "text": "<warning><bold>Advertencia:</bold> llamar al 115 no da acceso a una solución de alojamiento permanente. Para obtener una solución de alojamiento a largo plazo, me comunico con un trabajador social ."
+            },
+            {
+              "text": "Estoy solicitando alojamiento con un trabajador social. Si estoy en contacto con un trabajador social, él puede solicitar alojamiento conmigo en el <bold>SIAO</bold>, el servicio que gestiona la asignación de plazas de alojamiento"
+            },
+            {
+              "text": "Puedo solicitar alojamiento con <bold>SIAO</bold> con un trabajador social si tengo una vivienda deficiente, tengo una vivienda o estoy en la calle"
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "¿Cómo obtengo la dirección de mi casa?",
+          "text": [
+            {
+              "text": "Cuando no tengo domicilio fijo, puedo elegir una dirección de domiciliación administrativa que me permita recibir mi correo y realizar mis gestiones para acceder a derechos. La domiciliación es necesaria en particular para tener cobertura de enfermedad, ayuda económica, etc."
+            },
+            {
+              "text": "<bold>- Si estoy alojado en una estructura de hospedaje:</bold> Puedo solicitar estar domiciliado por mi estructura de hospedaje y recibir mi correo allí"
+            },
+            {
+              "text": "<bold>- Si no tengo alojamiento, ya sea que me hospede en un hotel o con otra persona:</bold> Puedo solicitar una domiciliación en el <bold>Centre Communal d'Action Sociale (CCAS)</bold> de la comuna donde vivo, o donde tengo vínculos (dónde está la escuela de mis hijos, dónde me controlan médicamente, etc.)"
+            },
+            {
+              "text": "<warning><bold>Atención:️</bold> Para ser domiciliado por la CCAS debo poder demostrar que tengo vinculación con el municipio."
+            },
+            {
+              "text": "En París, para estar domiciliado por el <bold>Centre d'Action Sociale de la Ville de Paris (CASVP)</bold> debo <a>hacer una cita en línea</a>.",
+              "url": {
+                "external": "https://teleservices.paris.fr/rdvcasvp/jsp/site/Portal.jsp"
+              }
+            },
+            {
+              "text": "<bold>Si no puedo estar domiciliado por la CCAS del municipio donde resido</bold>, también puedo pedirle a una asociación homologada que me domiciliare."
+            },
+            {
+              "text": "Las asociaciones aprobadas pueden tener criterios específicos para la domiciliación y pueden negarse a domiciliarme si no tienen más espacio"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "¿Cómo obtengo alojamiento si soy refugiado o beneficiario de protección subsidiaria?",
+          "text": [
+            {
+              "text": "Puedo solicitar la admisión a un <bold>Centro de Alojamiento Provisional</bold> en la <bold>OFII</bold> pero no estoy seguro de poder conseguir una plaza."
+            },
+            {
+              "text": "También puedo llamar al 115, si estoy en la calle, y contactar a un trabajador social para presentar una solicitud de alojamiento"
+            },
+            {
+              "text": "Me aconsejan solicitar una vivienda social lo antes posible para obtener una vivienda."
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "¿Cómo consigo alojamiento si soy una mujer embarazada?",
+          "text": [
+            {
+              "text": "Puedo ir a los servicios sociales de mi departamento de residencia: por ejemplo, si vivo en Seine-Saint-Denis, voy a los <a>Servicios Sociales del Departamento</a>",
+              "url": {
+                "external": "https://seinesaintdenis.fr/Circonscription-departementale-de-Service-Social-de-Bondy"
+              }
+            },
+            {
+              "text": "También puedo solicitar alojamiento en el 115."
+            },
+            {
+              "text": "<bold>Si estoy embarazada</bold>, no tengo alojamiento y necesito apoyo e información, puedo pedir ayuda llamando al número vert <a>Solipam</a>: ",
+              "url": { "external": "https://solipam.fr/" }
+            },
+            {
+              "text": "<teléfono>01.48.24.16.28"
+            },
+            {
+              "text": "<bold>Solipam</bold> puede acompañarme en mis pasos durante el embarazo y dirigirme a lugares donde pueda encontrarme con un médico o un trabajador social."
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "¿Cómo consigo alojamiento si soy un joven víctima de homofobia y/o transfobia?",
+          "text": [
+            {
+              "text": "Puedo llamar a la línea de emergencia 24 horas de la asociación <bold>Le Refuge</bold> que acoge a jóvenes víctimas de homofobia y transfobia (alojamiento temporal, apoyo psicológico y social) ."
+            },
+            {
+              "text": "<teléfono>06.31.59.69.50"
+            },
+            {
+              "text": "También puedo llamar al 115 o solicitar alojamiento con un trabajador social."
+            }
+          ]
+        }
+      ]
+    },
+    "foreignersRights": {
+      "foreignersRights": "Derechos de los extranjeros",
+      "sectionTitle": "Preguntas sobre los derechos de los extranjeros",
+      "questions": [
+        {
+          "id": 0,
+          "title": "¿Cómo solicito asilo si soy menor de 18 años?",
+          "text": [
+            {
+              "text": "Si soy menor de 18 años y estoy acompañado por mi familia en Francia, debo solicitar asilo con mi familia."
+            },
+            {
+              "text": "Si tengo menos de 18 años y soy menor de edad, extranjero y no acompañado por mi familia en territorio francés, se me considera un menor no acompañado"
+            },
+            {
+              "text": "Puedo solicitar asilo cuando soy un menor no acompañado y me considero en peligro en mi país de origen. En este caso, la Prefectura debe designar a una persona que representará mis intereses durante la solicitud de asilo, un \"ad administrador ad hoc\". La Prefectura no tiene derecho a denegar mi solicitud de asilo o negarse a nombrar un \"administrador ad hoc\" para que me represente. Puedo solicitar asilo cuando soy un menor no acompañado y me considero en peligro en mi país de origen. En este caso, la Prefectura debe nombrar a una persona que representará mis intereses durante la solicitud de asilo, un \"administrador ad hoc\". La Prefectura no tiene derecho a rechazar mi solicitud de asilo o negarse a nombrar un \"administrador ad hoc administrador\" para que me represente"
+            },
+            {
+              "text": "En SPADA me darán una cita en la Ventanilla Única para Solicitantes de Asilo para registrar mi solicitud de asilo. En este momento la Prefectura nombrará al \"administrador ad hoc\" para que me represente."
+            },
+            {
+              "text": "<warning><bold>Atención:</bold> Si soy menor de edad y no estoy acompañado de mi familia, no puedo beneficiarme del Subsidio para Solicitantes de Asilo (dinero que recibo cada mes en una tarjeta especial) ni ser alojado con adultos, debo ser alojado por Asistencia Social a la Infancia"
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "¿Qué es la solicitud de asilo?",
+          "text": [
+            {
+              "text": "La solicitud de asilo es un procedimiento por el cual una persona solicita la protección de Francia porque se considera en peligro en su país de origen."
+            },
+            {
+              "text": "Es la <bold>OFPRA – Oficina Francesa para la Protección de Refugiados y Apátridas-</bold> la que reconoce a la persona ya sea como refugiado, como beneficiario de protección subsidiaria, el estatus de apátrida o bien desestima la solicitud de la persona y no la reconoce para protección"
+            },
+            {
+              "text": "<tip><bold>Consejo:</bold> Una vez que he presentado mi solicitud de asilo, estoy en una situación regular con respecto a los derechos de los extranjeros, la solicitud de certificado de asilo equivale a una residencia documento."
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "¿Cuáles son los diferentes procedimientos de asilo: normal, acelerado o Dublín?",
+          "text": [
+            {
+              "text": "<bold>Si estoy en procedimiento normal o acelerado:</bold>"
+            },
+            {
+              "text": "Esto significa que Francia estudiará mi solicitud de asilo. En <bold>GUDA</bold> me entregan un archivo para <bold>OFPRA</bold>. Debo devolverlo dentro de los 21 días. En este expediente debo indicar por qué solicito asilo en Francia"
+            },
+            {
+              "text": "<bold>OFPRA</bold> me invita a una entrevista después de enviar mi archivo."
+            },
+            {
+              "text": "Después de la entrevista, dentro de 15 días o másiDurante meses la <bold>OFPRA</bold> toma su decisión y puede reconocerme como refugiado o beneficiario de protección subsidiaria, lo que me permite solicitar un permiso de residencia o una tarjeta de residencia en la Prefectura."
+            },
+            {
+              "text": "<tip><bold>Consejo:</bold> Una vez que he presentado mi solicitud de asilo, estoy en una situación regular con respecto a los derechos de los extranjeros, la solicitud de certificado de asilo equivale a una residencia documento."
+            },
+            {
+              "text": "<bold>Si me colocan en el procedimiento de Dublín:</bold>"
+            },
+            {
+              "text": "Esto significa que Francia considera que otro país de la Unión Europea es responsable de mi solicitud de asilo. Francia debe entonces organizar mi traslado al país responsable de mi solicitud de asilo dentro de un plazo de 8 a 11 meses dependiendo de mi situación después de presentar mi solicitud de asilo. Si mi traslado no se organiza a tiempo, puedo volver a presentar una solicitud de asilo, que será estudiada por Francia"
+            },
+            {
+              "text": "Cuando estoy en el procedimiento de Dublín, puedo ser convocado regularmente a la Prefectura. Si no asisto a mis citas, puedo ser puesto \"en fuga\". Esto significa que pierdo mi <bold>Asignación para solicitantes d 'Asile</bold>, el derecho a alojarme en un centro dedicado a los solicitantes de asilo y que el plazo antes del cual puedo presentar una nueva solicitud de asilo que será estudiada por Francia se prorrogue en un año, si no soy trasladado al país responsable de mi solicitud de asilo dentro de este período"
+            },
+            {
+              "text": "Si participo en el procedimiento de Dublín, puedo informarme sobre mis derechos y plazos en asociaciones especializadas"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "¿Cómo solicitar asilo?",
+          "text": [
+            {
+              "text": "Para solicitar asilo, tengo que ir a una SPADA (Estructura de Primera Acogida para Solicitantes de Asilo)"
+            },
+            {
+              "text": "Si estoy en Île-de-France, tengo que llamar al número de la plataforma telefónica <bold>OFII</bold> para tener una cita en <bold>SPADA</bold >"
+            },
+            {
+              "text": "<teléfono>01.42.50.09.00"
+            },
+            {
+              "text": "<warning><bold>Advertencia:</bold> A veces es necesario llamar varias veces al número de teléfono de la <bold>OFII</bold> para obtener una respuesta."
+            },
+            {
+              "text": "Si no estoy en Île-de-France, debo ir directamente a la <bold>SPADA</bold> del departamento donde estoy."
+            },
+            {
+              "text": "Una vez que me comuniqué con un <bold>SPADA</bold>, me dieron una cita en la Ventanilla Única para Solicitantes de Asilo (GUDA) para registrar mi solicitud de asilo"
+            },
+            {
+              "text": "En <bold>GUDA</bold> me reúno con la <bold>OFII</bold> y la Prefectura, quienes registran mi solicitud de asilo y me colocan en uno de los tres procedimientos de asilo: normal, acelerado o Dublin"
+            },
+            {
+              "text": "La <bold>OFII</bold> me ofrece en el momento de la inscripción el Subsidio para Solicitantes de Asilo (dinero recibido cada mes en una tarjeta especial) y puede ofrecerme alojamiento en la isla -de-France o en las provincias Esto es un \"paquete\", si rechazo el alojamiento propuesto pierdo el derecho a la Asignación para solicitantes de asilo y al alojamiento en un centro para solicitantes de asilo."
+            },
+            {
+              "text": "<warning><bold>Advertencia:</bold> Si soy menor de 18 años, debo solicitar asilo de otra manera. \nConsulte nuestro expediente: \n<a> ¿Cómo solicito asilo si ¿Tengo menos de 18 años?</a>",
+              "url": {
+                "local": "/faq/derechos de los extranjeros/0"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "health": {
+      "health": "Salud",
+      "sectionTitle": "Cuestiones de salud",
+      "questions": [
+        {
+          "id": 0,
+          "title": "¿Cómo obtengo tratamiento si no tengo seguro médico?",
+          "text": [
+            {
+              "text": "Si no tengo seguro médico y no puedo pagar al médico, aún puedo recibir tratamiento en Francia"
+            },
+            {
+              "text": "Si mi estado de salud requiere hospitalización o si tengo que realizar un tratamiento hospitalario relacionado con una Interrupción Voluntaria del Embarazo, parto o atención relacionada con mi embarazo o mi parto, entonces el hospital puede solicitar que se cubran mis costos de atención médica por los <bold>Esquemas de Urgencias y Cuidados Vitales (DSUV).</bold>"
+            },
+            {
+              "text": "<tip><bold>Consejo:</bold> En caso de hospitaltización, si no tengo cobertura de salud y no puedo pagar la factura del hospital, debo pedir cita con un trabajador social del hospital que, dependiendo de mi situación, podrá darme acceso a cubrir la enfermedad o hacer que yo no tengo que pagar por mi cuidado"
+            },
+            {
+              "text": "Si estoy embarazada o tengo uno o más hijos menores de 6 años, puedo consultar gratuitamente a los profesionales de la salud dentro del servicio <bold>PMI</bold> del departamento donde vivo, para mi embarazo seguimiento y el seguimiento médico de mi(s) hijo(s), incluso si no tengo seguro médico."
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "¿Cómo ser reconocido como discapacitado y obtener ayuda?",
+          "text": [
+            {
+              "text": "Si estoy discapacitado debido a una enfermedad o discapacidad después de un accidente, puedo hacer que se reconozca esta situación. Al ser reconocido como discapacitado, puedo beneficiarme de la asistencia adecuada. Es importante que discuta esto con mi médico tratante. "
+            },
+            {
+              "text": "<h3>¿Cómo hacerlo?</h3>"
+            },
+            {
+              "text": "Para que se reconozca mi discapacidad, debo comunicarme con la <bold>Casa Departamental para Personas con Discapacidad (MDPH)</bold>. Hay un <bold>MDPH</bold> en cada departamento. Debo comunicarme al <bold>MDPH</bold> del departamento en el que resido. Debo enviar al MDPH un formulario de solicitud que contenga un certificado médico que debe ser completado por un médico"
+            },
+            {
+              "text": "Además de solicitar el reconocimiento de la discapacidad, puedo expresar necesidades específicas y solicitudes de asistencia. El <bold>MDPH</bold> también estudiará estas solicitudes."
+            },
+            {
+              "text": "Cuando el <bold>MDPH</bold> reconoce una discapacidad, reconoce un grado de incapacidad. Si tengo un grado de incapacidad del 50% o del 80% tengo derecho a ayudas especiales."
+            },
+            {
+              "text": "<h3>¿Qué ayuda puedo obtener?</h3>"
+            },
+            {
+              "text": "Los derechos y beneficios que ofrece el <bold>MDPH</bold> pueden ser:"
+            },
+            {
+              "text": "<bold>- Reconocimiento de la condición de trabajador con discapacidad</bold> que permite obtener el derecho a ayudas específicas en la búsqueda de empleo y adaptación del puesto de trabajo"
+            },
+            {
+              "text": "<bold>- El Subsidio para Adultos con Discapacidad (AAH)</bold>, correspondiente a una ayuda económica calculada en función de los recursos (máximo 903,6€ mensuales) para personas con un índice de discapacidad reconocida superior al 80% o para personas con un índice de invalidez superior al 50% con reconocida dificultad para acceder al empleo."
+            },
+            {
+              "text": "<bold>- Un beneficio de compensación por discapacidad (PCH)</bold> para obtener asistencia en la vida diaria"
+            },
+            {
+              "text": "<bold>- Derivación a una estructura de alojamiento médico</bold> si es necesario"
+            },
+            {
+              "text": "- Etc."
+            },
+            {
+              "text": "<warning><bold>Atención:</bold> No necesito tener un permiso de residencia para que se me reconozca una discapacidad. Atención, por otro lado, necesito un permiso de residencia para obtener las ayudas que ofrece el <bold>MPDH</bold>"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "¿Cómo obtengo cobertura de salud si vengo de un país extranjero que no está en la Unión Europea?",
+          "text": [
+            {
+              "text": "Si soy extranjero y tengo la nacionalidad de un país que no está en la Unión Europea, la cobertura de salud a la que tengo derecho depende de mi situación y de la duración de mi presencia en territorio francés."
+            },
+            {
+              "text": "<bold>Si estoy en situación legal en territorio francés, soy refugiado o beneficiario de protección subsidiaria</bold>, puedo beneficiarme de la <bold>Protección Universelle Maladie (PUMa)</bold> y en condiciones de recursos de la <bold>Complementaire Santé Solidaire (CSS)</bold>:"
+            },
+            {
+              "text": "- si soy un menor de edad no acompañado por mis padres y mantenido por el bienestar infantil <bold>(ASE)</bold>;\n- si tengo un trabajo declarado en Francia;\n- si me afilio mi familia para la reunificación o la reunificación familiar;\n- si soy estudiante;\n- si soy un solicitante de asilo y he estado en Francia durante más de tres meses; \n- si he estado viviendo en Francia durante más de tres meses."
+            },
+            {
+              "text": "Si no cumplo estas condiciones, y no tengo un visado de corta estancia, pero estoy en una situación legal en territorio francés, <bold>mis hijos menores de 18 años pueden beneficiarse del PUMa y la Salud Complementaria Solidaridad sin esperar a que yo me beneficie</bold>."
+            },
+            {
+              "text": "Si solicito mi primera afiliación a <bold>PUMa</bold>, debo enviar un formulario dedicado a la <bold>Caja del Seguro Primario de Salud</bold> de mi departamento. Si trabajo, es mi empleador que se encarga de la solicitud de afiliación. Si soy estudiante, me registro en el <bold>Seguro de Salud</bold> cuando me registre en la universidad o la escuela"
+            },
+            {
+              "text": "El <bold>PUMa</bold> no cubre todos mis costos de atención médica, con excepciones como si sufro de una <a>enfermedad a largo plazo</a>. Si no lo hago, puedo Si no puedo pagar un seguro de salud complementario, puedo beneficiarme de <bold>Complémentaire Santé Solidaire</bold>, que me permite beneficiarme de una cobertura del 100 % de la mayoría de mis gastos de salud, es decir, de forma gratuita o contra una participación de 8 a 30 € dependiendo de mi edad, dependiendo de mis ingresos.",
+              "url": {
+                "external": "https://www.ameli.fr/val-de-marne/assure/droits-demarches/ Maladie-accident-hospitalisation/affection-longue-duree-ald/affection-longue-duree-ald#: ~:text=A%20condición%20de%20largo%20duro%20C3%A9e%20no%20exon%C3%A9tasa%20es,%20de%20esta%20patología%20son%20reembolsadas%20%C3%A9s%20a%20tasas%20habituales ."
+              }
+            },
+            {
+              "text": "Puedo consultar si tengo derecho a <bold>Salud Complementaria Solidaria</bold> en el <a>Simulador de derechos del Seguro de Salud</a>. Debo renovar mi solicitud cada año, si me beneficio la <bold>RSA</bold> o la <bold>ASPA</bold> (vejez mínima) mi solicitud se renueva automáticamente."
+            },
+            {
+              "text": "<bold>Si estoy afiliado a PUMa y pierdo mi permiso de residencia o mi solicitud de asilo es rechazada</bold>, todavía puedo beneficiarme de PUMa y CSS durante 6 meses después de la fecha de vencimiento de mi permiso de residencia o mi certificado de solicitud de asilo. Entonces puedo solicitar la Asistencia Médica del Estado (como mínimo 45 días antes de la finalización de mis derechos PUMa y CSS)."
+            },
+            {
+              "text": "<bold>Si tengo un visado de corta duración</bold>, no puedo beneficiarme de la cobertura sanitaria francesa y mis hijos tampoco. Este es el seguro del visado o la seguridad social de mi país de origen, que debe cubrir mis gastos de salud y los de mis hijos"
+            },
+            {
+              "text": "<warning><bold>Atención:</bold> No necesito tener un permiso de residencia para que se me reconozca una discapacidad. Atención, por otro lado, necesito un permiso de residencia para obtener las ayudas que ofrece el <bold>MPDH</bold>"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "¿Qué es AME?",
+          "text": [
+            {
+              "text": "La Asistencia Médica del Estado (AME) es una ayuda que permite la cobertura del 100% de determinados gastos sanitarios para personas que no pueden beneficiarse de otras coberturas sanitarias. Las personas que se benefician de la Asistencia Médica del Estado se benefician del pago de terceros y no tienen que adelantar sus costos de salud."
+            },
+            {
+              "text": "Para beneficiarme del AME, debo poder justificar:"
+            },
+            {
+              "text": "- mi identidad y la de las demás personas (hijos, cónyuges) respecto de las cuales se realiza la solicitud;\n- de mi presencia estable, ininterrumpida e irregular con respecto al derecho de residencia en territorio francés desde al menos menos tres meses;\n- disponer de recursos por debajo del tope determinado por decreto."
+            },
+            {
+              "text": "Para realizar mi primera solicitud de Asistencia Médica del Estado, debo completar el formulario de solicitud y acudir al <bold>CPAM</bold> del departamento donde vivo para presentar mi solicitud, a menos que esté hospitalizado o el el hospital está haciendo mi solicitud. Tengo que renovar mi solicitud cada año, así que puedo enviarla por correo o mi trabajador social puede enviarla en línea"
+            },
+            {
+              "text": "<warning><bold>Advertencia:</bold> La Ayuda Médica del Estado no cubre ciertos servicios (indicados en la tarjeta <bold>AME</bold>) y no cubre cargos sobrecostos. por lo que es recomendable que los beneficiarios de la <bold>AME</bold> consulten con profesionales homologados del sector 1."
+            },
+            {
+              "text": "<warning><bold>Advertencia:</bold> Los profesionales de la salud deben aceptar todas las formas de seguro médico. Si un profesional de la salud niega una cita con el pretexte de que usted tiene el <bold>AME</bold> es ilegal y esto puede ser denunciado a través del observatorio de negativa de atención de la <bold>Fédération desacteurs ofsolidarity</bold> o a el <bold>Defensor de Derechos</bold> o incluso al <bold>mediador de la Caisse Primaire d'Assurance Maladie</bold> del departamento de práctica del profesional"
+            }
+          ]
+        }
+      ]
+    },
+    "home": {
+      "home": "Vivienda",
+      "sectionTitle": "Preguntas sobre vivienda",
+      "questions": [
+        {
+          "id": 0,
+          "title": "¿Cómo obtengo alojamiento en una residencia social o pensión?",
+          "text": [
+            {
+              "text": "<bold>Si tengo pocos recursos económicos y no puedo acceder de inmediato a una vivienda, puedo solicitar la Residencia Social.</bold>"
+            },
+            {
+              "text": "Las Residencias Sociales son alojamientos temporales donde puedo permanecer durante 2 años y beneficiarme, bajo ciertas condiciones, del apoyo social."
+            },
+            {
+              "text": "Las Pensiones Familiares son un tipo particular de residencia social, destinadas a personas que han vivido largos viajes de deambulación. La duración de la estancia no está limitada."
+            },
+            {
+              "text": "<bold>Para acceder a una residencia social puedo:</bold>"
+            },
+            {
+              "text": "- Hacer una solicitud directamente a la estructura que me interesa (por ejemplo, puedo consultar los sitios <bold>Adef</bold> o <bold>Adoma</bold>); "
+            },
+            {
+              "text": "- Si estoy alojado o en la calle, puedo hacer una solicitud al SIAO con mi trabajador social;"
+            },
+            {
+              "text": "- Puedo hacer una solicitud con un trabajador social en mi municipio."
+            },
+            {
+              "text": "- Si soy un empleado de una empresa con más de 10 empleados, puedo enviar una solicitud a través de mi empleador a través de <a>Action Logement</a>.",
+              "url": {
+                "external": "https://www.actionlogement.fr"
+              }
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "¿Qué debo hacer si me amenazan con el desalojo?",
+          "text": [
+            {
+              "text": "<bold>Si estoy atrasado en uno o más meses de alquiler</bold>, puedo contactar a un trabajador social para que me ayude a pagar mi alquiler. Mi trabajador social también puede ayudarme a encontrar soluciones con el propietario para impedir el desalojo"
+            },
+            {
+              "text": "Mi arrendador no tiene derecho a echarme o llamar a la policía hasta que el juez decida sobre el desalojo de mi alquiler"
+            },
+            {
+              "text": "<bold>Si mi arrendador detuvo al juez que decidió mi desalojo</bold>, puedo presentar una apelación DALO para que se me reconozca como una prioridad para el acceso a la vivienda social"
+            },
+            {
+              "text": "Si no salgo de las instalaciones, un alguacil viene a mi casa para ver si todavía estoy allí. El juez puede entonces decidir llamar a la policía para desalojarme de mi alojamiento. Siempre que no Si no he recibido la decisión del juez que autoriza a la policía a venir, la policía no puede venir y desalojarme"
+            },
+            {
+              "text": "<tip><bold>Consejo: Si deseo ser informado o asistido en mis trámites relacionados con el procedimiento de desalojo</bold>, puedo llamar al número de prevención de desalojos de la Fundación Abbé Pierre: <bold >Hola desalojo prevención:</bold>"
+            },
+            {
+              "text": "<teléfono>0810 001 505"
+            },
+            {
+              "text": "Puedo obtener ayuda con estos trámites de un trabajador social o de la oficina de ADIL en mi departamento. La lista de ADIL está disponible en <a>el sitio web de ANIL</a> y en soliguide. ",
+              "url": {
+                "external": "https://www.anil.org/lanil-et-les-adil/your-adil/"
+              }
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "¿Cómo conseguir una vivienda social?",
+          "text": [
+            {
+              "text": "Si estoy en una situación regular con respecto al derecho de residencia, el primer paso para acceder a una vivienda permanente es solicitar una vivienda social. Puedo solicitar una vivienda social si estoy alojado, alojado, mal alojado o bien en la calle"
+            },
+            {
+              "text": "Puedo solicitar vivienda social online, en el ayuntamiento de mi lugar de residencia o con un arrendador social."
+            },
+            {
+              "text": "Puedox obtener ayuda con mi solicitud de un trabajador social"
+            },
+            {
+              "text": "<warning><bold>Advertencia: debo actualizar mi solicitud tan pronto como cambie mi situación</bold> (ingresos, composición familiar, por ejemplo) y renovarla cada año en la fecha de aniversario (incluso si tengo tenido una oferta de alojamiento, o que he tomado otras medidas)."
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "¿Qué debo hacer si mi alojamiento actual no es higiénico?",
+          "text": [
+            {
+              "text": "Si alquilo un alojamiento insalubre (humedad, plomo, electricidad, etc.) que es peligroso para mi salud, puedo obligar a mi arrendador a realizar trabajos para mejorarlo"
+            },
+            {
+              "text": "Debo solicitar al ayuntamiento que declare insalubre mi alojamiento. Para ello:"
+            },
+            {
+              "text": "<bold>1.</bold> Envío una carta certificada a mi casero pidiéndole que haga un trabajo"
+            },
+            {
+              "text": "<bold>2.</bold> En caso de no respuesta o rechazo de esta, me comunico con mi ayuntamiento para reportar mi alojamiento como vivienda insalubre. Un inspector de la ciudad irá luego a evaluar la insalubridad del alojamiento y posiblemente obligue a mi arrendador a trabajar"
+            },
+            {
+              "text": "Si mi alojamiento es declarado insalubre, puedo hacer una <bold>llamada DALO</bold> por este motivo para tener acceso prioritario a la vivienda social."
+            },
+            {
+              "text": "Puedo obtener ayuda con estos trámites de un trabajador social] o de la oficina de <bold>ADIL</bold> en mi departamento. La lista de ADIL está disponible en el <bold>sitio web de ANIL </bold> ."
+            },
+            {
+              "text": "<warning><bold>Advertencia:</bold> No puedo suspender el pago de mi alquiler por mi cuenta debido a condiciones antihigiénicas. Esto requiere la publicación de una orden que prohíba vivir en el inmueble. Pago del alquiler ( incluso parcial) me protege del desalojo"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "¿Cómo consigo alojamiento si soy estudiante?",
+          "text": [
+            {
+              "text": "Puedo beneficiarme de una vivienda social a través del Centro Regional de Obras Universitarias y Escolares (CROUS). La solicitud se realiza en línea a través de la plataforma: messervicestudiant.gouv.fr. También puedo contactar a un trabajador social del CROUS en mi lugar de estudio."
+            },
+            {
+              "text": "Si no tengo hogar o no tengo permiso de residencia, puedo solicitar alojamiento."
+            },
+            {
+              "text": "También puedo postularme para un Foyer Jeunes Travailleurs o una Résidence Jeunes Actifs"
+            }
+          ]
+        }
+      ]
+    },
+    "job": {
+      "job": "Trabajo y formación",
+      "sectionTitle": "Preguntas sobre trabajos y capacitación:",
+      "questions": [
+        {
+          "id": 0,
+          "title": "¿Cómo me pueden acompañar en mi búsqueda de empleo si tengo más de 26 años?",
+          "text": [
+            {
+              "text": "Si soy un demandante de empleo mayor de 26 años, me registro en la agencia <bold>Pôle Emploi</bold> en casa en mi departamento (en el que vivo o en el que estoy domiciliado) . También puedo registrarme en línea en el sitio web de <bold>Pôle Emploi</bold>"
+            },
+            {
+              "text": "Cuando estoy registrado como solicitante de empleo en <bold>Pôle Emploi</bold> puedo beneficiarme de:"
+            },
+            {
+              "text": "- Apoyo en la definición de mi proyecto profesional"
+            },
+            {
+              "text": "- Una orientación hacia los sistemas de formación"
+            },
+            {
+              "text": "- Posibilidad de realizar prácticas en una empresa"
+            },
+            {
+              "text": "- Información sobre ofertas de trabajo"
+            },
+            {
+              "text": "- Una orientación hacia una Estructura de Integración a través de la Actividad Económica donde podría beneficiarme de un contrato de trabajo y apoyo social y profesional"
+            },
+            {
+              "text": "- Ayudas económicas y retribución por determinados periodos de formación que realizo como parte de mi búsqueda de empleo."
+            },
+            {
+              "text": "En <bold>SPADA</bold> se me citará en la Ventanilla Única para Solicitantes de Asilo para registrar mi solicitud de asilo. En ese momento la Prefectura designará al “administrador ad hoc” para que me represente. "
+            },
+            {
+              "text": "<tip><bold>Consejo:</bold> Si ya trabajé en Francia y contribuí alseguro de desempleo, <bold>Pôle Emploi</bold> supervisa el pago de mis beneficios de desempleo y mi apoyo en este contexto. Si tengo menos de 26 años o tengo una discapacidad y tengo derecho a prestaciones por desempleo, debo registrarme en <bold>Pôle Emploi</bold> para recibirlas, pero puedo registrarme al mismo tiempo en <bold>Mission Locale</ bold> o <bold>CAP</bold> empleo para beneficiarse"
+            },
+            {
+              "text": "Si deseo recibir información como parte de mi búsqueda de empleo, puedo ir a uno de los sitios de información sobre empleo y capacitación mapeados por <a>Défi Métiers<a> .",
+              "url": {
+                "external": "https://www.defi-metiers.fr/oaio/aio/recherchemap"
+              }
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "¿Cómo me pueden acompañar en mi búsqueda de empleo si tengo menos de 26 años?",
+          "text": [
+            {
+              "text": "Si tengo menos de 26 años y quiero recibir apoyo en mi proyecto profesional, me registro en <bold>Mission Locale</bold>"
+            },
+            {
+              "text": "El <bold>Mission Locale</bold> puede ayudarme a definir un proyecto profesional y encontrar un trabajo o capacitación que corresponda a este proyecto. Me inscribo en la misión local más cercana a mi casa en mi departamento (la donde resido o en el que esté domiciliado)."
+            },
+            {
+              "text": "Si la realización de mi proyecto profesional requiere que siga períodos de formación o prácticas no remuneradas, <bold>Mission Locale</bold> puede permitirme beneficiarme de una ayuda financiera. A cambio de esta ayuda, me comprometo seguir periodos de formación, búsqueda de empleo o prácticas según el proyecto definido con mi asesor de <bold>Mission Locale</bold>."
+            },
+            {
+              "text": "<tip><bold>Consejo:</bold> Puedo ser elegible para recibir asistencia financiera, según mis ingresos y la decisión de mi asesor de <bold>Mission Locale</bold>: Hasta € 497,01 por mes si entro en el programa <bold>Garantie Jeune</bold>; Hasta 1491 € durante 3 a 6 meses si tomo cursos de idiomas como parte de un Curso de Integración por Adquisición de Idiomas;"
+            },
+            {
+              "text": "El <bold>Mission Locale</bold> también puede derivarme a una Estructura para la Integración a través de la Actividad Económica donde podría beneficiarme de un contrato de trabajo y apoyo social y profesional si tengo dificultades especiales para acceder al empleo."
+            },
+            {
+              "text": "<tip><bold>Consejo:<bold> Si tengo derecho a prestaciones por desempleo de <bold>Pôle Emploi</bold>, puedo estar registrado tanto en <bold >Pôle Emploi</bold> como en la misión local para tener un apoyo adaptado a mi situación"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "¿Cómo si quiero aprender francés?",
+          "text": [
+            {
+              "text": "Hay muchos cursos que me permiten aprender francés. Puedo aprender francés:"
+            },
+            {
+              "text": "- Dentro de los cursos de francés o talleres <bold>sociolingüísticos</bold> ofrecidos por municipios o asociaciones"
+            },
+            {
+              "text": "- Dentro de los <bold>talleres de conversación</bold> que ofrecen las bibliotecas"
+            },
+            {
+              "text": "- Como parte de <bold>programas de aprendizaje de francés específicos</bold>. Por ejemplo:"
+            },
+            {
+              "text": "\t\t・<bold>Si soy padre</bold>, puedo beneficiarme del programa Open School to Parents for Child Success (independientemente de mi situación administrativa si tengo hijos en la escuela) "
+            },
+            {
+              "text": "\t\t・<bold>Si tengo un permiso de trabajo</bold>, como parte de una formación profesional de francés o una formación profesional"
+            },
+            {
+              "text": "\t\t・<bold>Si soy refugiado o beneficiario de Protección Subsidiaria</bold> puedo beneficiarme de formación en idiomas dentro de programas específicos."
+            },
+            {
+              "text": "\t\t・<bold>Si obtengo mi primer permiso de residencia</bold>, seré citado por la OFII para firmar el Contrato de Integración Republicana (CIR). En este contexto, si no Para dominar el francés, la OFII puede prescribir las lecciones de francés que debo tomar (200 a 600 horas);"
+            },
+            {
+              "text": "La red Alpha y el mapeo lingüístico de Défi Métiers identifican la deFrench training fre en Ile-de-France, y Soliguide en Ile-de-France, en Burdeos, Niza, Nantes y Estrasburgo. En toda Francia, la cartografía de Inter Carif-Oref identifica la oferta de formación en idiomas. "
+            },
+            {
+              "text": "<warning><bold>Advertencia:</bold> Para algunas formaciones tienes que estar en una situación normal."
+            }
+          ]
+        }
+      ]
+    },
+    "minors": {
+      "minors": "Menor no acompañado",
+      "sectionTitle": "Preguntas sobre menores no acompañados:",
+      "questions": [
+        {
+          "id": 0,
+          "title": "¿Cómo puedo estar protegido por Child Welfare?",
+          "text": [
+            {
+              "text": "<bold>Si tengo menos de 18 años y estoy solo sin mi familia en Francia</bold>, tengo derecho a la protección del bienestar infantil. Para beneficiarme del cuidado, el alojamiento y la ayuda del bienestar infantil, debo informar al departamento en el que me encuentro, los servicios evaluarán mi situación para saber si tengo mucho menos de 18 años:"
+            },
+            {
+              "text": "En Ile-de-France:"
+            },
+            {
+              "text": "- <bold>Si estoy en París</bold> tengo que ir a DEMIE 5 rue du Moulin Joly 75011."
+            },
+            {
+              "text": "<teléfono>01.58.30.14.50"
+            },
+            {
+              "text": "<teléfono>01.82.46.81.42"
+            },
+            {
+              "text": "- <bold>Si estoy en Val de Marne</bold>, voy al PEOMIE en Créteil 6 rue Albert Einstein 94000 Créteil de lunes a viernes de 9:30 a 17:30, accesible en"
+            },
+            {
+              "text": "<teléfono>01.42.07.09.02"
+            },
+            {
+              "text": "- <bold>Si estoy en otro departamento</bold>, me presento ante los Servicios de Bienestar Infantil del Departamento"
+            },
+            {
+              "text": "<tip><bold>Consejo:</bold> Tengo derecho a ser acomodado durante la evaluación de mi minoría por parte del Consejo del condado."
+            },
+            {
+              "text": "Si soy mantenida por la ASE, tengo derecho hasta la mayoría de edad a alojamiento, a la manutención de un trabajador social ya ser educado. También tengo derecho a la prestación de un seguro de salud que me atienda."
+            },
+            {
+              "text": "Si el departamento considera que soy mayor de edad, puedo recurrir al juez para hacer valer mi minoría de edad y ser apoyado por la ASE. Para ser acompañado en mi recurso, puedo buscar la ayuda de 'asociaciones'"
+            },
+            {
+              "text": "Los departamentos del departamento deben entregarme una carta mencionando el hecho de que se me considera mayor de edad. Entonces puedo solicitar alojamiento al 115."
+            },
+            {
+              "text": "Durante la apelación, no me quedaré con el bienestar infantil"
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "¿Cuáles son los derechos de los Menores No Acompañados (UMA)?",
+          "text": [
+            {
+              "text": "Soy menor de edad si tengo menos de 18 años. Si soy menor de edad y ningún miembro adulto de mi familia (padres o persona bajo cuya responsabilidad estoy colocado) se encuentra en Francia, tengo que pedir protección por la Asistencia Social a la Infancia (ASE), lo que me permitirá tener acceso a alojamiento, ayuda y apoyo"
+            },
+            {
+              "text": "Si estoy en peligro, puedo llamar al 119: Hola Infancia en Peligro para pedir ayuda."
+            },
+            {
+              "text": "Cuando soy menor de edad en Francia:"
+            },
+            {
+              "text": "- Tengo derecho a la protección del bienestar infantil si no estoy acompañado por mis padres o un familiar que me proteja o si estoy en peligro en mi familia; "
+            },
+            {
+              "text": "- Tengo derecho a ir a la escuela, hasta que cumpla 18 años. Es una obligación estar en la escuela o en la formación profesional;"
+            },
+            {
+              "text": "- No se me permite trabajar antes de los 16 años;"
+            },
+            {
+              "text": "- Tengo derecho a la protección de la salud que me permite ver a un médico, ir al hospital o comprar medicamentos.;"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "¿Cómo obtengo los papeles si era un menor no acompañado (MNA) y recibí ayuda de Asistencia Social Infantil?",
+          "text": [
+            {
+              "text": "Si estoy protegido por la Asistencia Social a la Infancia, soy extranjero y quiero quedarme en Francia cuando alcance la mayoría de edad, necesito unQuédate."
+            },
+            {
+              "text": "\t\t・Si estoy en peligro en mi país de origen, puedo solicitar asilo. Si he estado en Francia durante más de 3 meses, mi solicitud se realizará mediante el procedimiento acelerado. "
+            },
+            {
+              "text": "\t\t・Si estuve protegido por la ASE antes de los 16 años y quiero trabajar, puedo beneficiarme de un permiso de residencia temporal de un año \"de derecho\"; esto significa que la Prefectura no tiene derecho a denegarlo. Entonces puedo solicitar la renovación de mi permiso de residencia"
+            },
+            {
+              "text": "\t\t・️ Si estuve amparado por la ASE después de cumplir los 16 años y llevo al menos 6 meses de formación profesional, puedo solicitar una tarjeta entre los 18 y los 19 años de residencia temporal permiso de un año \"empleado\" o \"trabajador temporal\". La Prefectura no está obligada a darme el permiso de residencia y tiene el derecho de negarme de acuerdo con los elementos de mi expediente. Puedo obtener ayuda para constituir mi expediente. Entonces puedo pedir la renovación de mi permiso de residencia"
+            },
+            {
+              "text": "\t\t・️ Si estoy estudiando en una universidad o en una escuela de educación superior, puedo solicitar un permiso de residencia de \"estudiante\" por un período de un año. La prefectura no está obligada a otorgarlo a mí. Entonces puedo solicitar la renovación de mi permiso de residencia"
+            },
+            {
+              "text": "- <bold>Si no me encuentro en ninguna de las situaciones anteriores</bold>, puedo obtener ayuda para solicitar un permiso de residencia de acuerdo a mi situación particular por parte de una asociación que ofrece asistencia legal en derechos de los extranjeros . Tenga cuidado, la Prefectura puede negarse a darme un permiso de residencia"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
