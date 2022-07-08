@@ -39,6 +39,8 @@ export default function AdministrativeHelpSection(): JSX.Element {
           }
         ]
       );
+    } else {
+      navigate("/faq");
     }
   };
 
