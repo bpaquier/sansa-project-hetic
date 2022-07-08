@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { Keyboard } from "react-native";
 
 import {
   SearchResultsWrapper,
@@ -45,6 +46,7 @@ export default function SearchResults(): JSX.Element {
                   key={`${organization?.adress}-${i}`}
                   activeOpacity={0.7}
                   onPress={() => {
+                    Keyboard.dismiss();
                     setDisplaySearchResultsList(false);
                     setDisplayFilters(null);
                     setSearchResults(null);
