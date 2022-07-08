@@ -1,8 +1,8 @@
 import styled from "styled-components/native";
 
 import { getColumnWidth } from "~/Styles/mixins.styles";
-import Theme from "~/Styles/theme.styles";
-const { sizes, color, shape } = Theme;
+import theme from "~/Styles/theme.styles";
+const { sizes, color, shape } = theme;
 
 export const PageWrapper = styled.View`
   width: 100%;
@@ -46,7 +46,7 @@ export const BackButtonBorne = styled.TouchableOpacity`
   top: ${getColumnWidth(1, false)};
   left: ${(
     parseFloat(getColumnWidth(0.5, false)) -
-    Theme.size.icon.system / 2
+    theme.sizes.icon.system / 2
   ).toString() + "px"};
   z-index: 1;
 `;
