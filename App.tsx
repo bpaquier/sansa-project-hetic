@@ -16,13 +16,14 @@ import Search from "~/Views/Search";
 import "~/locales/i18n";
 
 export default function App() {
+  const globalWidth = Dimensions?.get("window")?.width;
   useEffect(() => {
-    if (Dimensions?.get("window")?.width > theme?.sizes?.breakPoint) {
+    if (globalWidth > theme?.sizes?.breakPoint) {
       ScreenOrientation?.lockAsync(5);
     } else {
       ScreenOrientation?.lockAsync(3);
     }
-  }, []);
+  }, [globalWidth]);
 
   return (
     <NativeRouter>
