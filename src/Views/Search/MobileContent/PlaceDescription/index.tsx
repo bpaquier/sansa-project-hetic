@@ -166,7 +166,7 @@ export default function PlaceDescriptionMobile(): JSX.Element {
                     <Text>{t("search.byAppointement")}</Text>
                   ) : null}
                   {place?.preferencialWelcomes?.[0]?.value ? (
-                    <Text type="small" color="black40">
+                    <Text color="black60">
                       {place?.preferencialWelcomes?.[0]?.value}
                     </Text>
                   ) : null}

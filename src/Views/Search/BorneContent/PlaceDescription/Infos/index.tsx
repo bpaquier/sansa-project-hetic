@@ -73,9 +73,7 @@ export default function Infos({
                 <Text>{t("search.byAppointement")}</Text>
               ) : null}
               {preferencialWelcomes?.[0]?.value ? (
-                <Text type="small" color="black40">
-                  {preferencialWelcomes?.[0]?.value}
-                </Text>
+                <Text color="black60">{preferencialWelcomes?.[0]?.value}</Text>
               ) : null}
             </View>
           </>
