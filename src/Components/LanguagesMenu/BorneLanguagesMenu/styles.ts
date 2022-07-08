@@ -16,9 +16,9 @@ export const BackgroundLayer = styled.Pressable`
 
 export const MenuBorne = styled.View`
   position: absolute;
-  left: ${getColumnWidth(3, false)};
+  left: ${getColumnWidth(3, false)}px;
   bottom: ${theme.grid.borneGutter}px;
   background-color: ${theme.color.primary.white};
-  width: ${getColumnWidth(4, false)};
+  width: ${getColumnWidth(4, false)}px;
   border-radius: 10px;
 `;

@@ -25,10 +25,10 @@ export const PageContent = styled.View`
 
 export const PageContentBorne = styled.View`
   border-radius: ${shape?.radius?.input}px;
-  width: ${getColumnWidth(21, false)};
+  width: ${getColumnWidth(21, false)}px;
   background-color: ${color?.primary?.white};
-  margin-left: ${getColumnWidth(3, false)};
-  padding: ${getColumnWidth(1, false)};
+  margin-left: ${getColumnWidth(3, false)}px;
+  padding: ${getColumnWidth(1, false)}px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;

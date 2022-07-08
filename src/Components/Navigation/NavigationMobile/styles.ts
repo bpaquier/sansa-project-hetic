@@ -6,9 +6,10 @@ export const Nav = styled.Pressable`
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 16px 0;
+  height: ${Theme?.sizes?.navigation?.mobileHeight}px;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   background-color: ${Theme.color.primary.white};
   box-shadow: ${Theme.boxShadow.panel};
 `;

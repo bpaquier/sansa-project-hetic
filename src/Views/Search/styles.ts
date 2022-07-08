@@ -1,7 +1,14 @@
 import styled from "styled-components/native";
 
-export const Content = styled.View`
+import theme from "~/Styles/theme.styles";
+
+export const StyledView = styled.View``;
+
+export const MobileWrapper = styled.View`
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: ${theme?.sizes?.navigation?.mobileHeight}px;
   width: 100%;
-  height: 300px;
-  background-color: blue;
+  padding: 12.5px ${theme?.grid?.mobileGutter}px;
 `;

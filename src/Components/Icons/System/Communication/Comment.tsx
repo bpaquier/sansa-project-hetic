@@ -10,8 +10,8 @@ export interface CommentProps {
 
 export default function Comment({
   color = theme?.color?.neutral?.black40,
-  width = theme?.size?.icon?.system,
-  height = theme?.size?.icon?.system
+  width = theme?.sizes?.icon?.system,
+  height = theme?.sizes?.icon?.system
 }: CommentProps): JSX.Element {
   return (
     <Svg width={width} height={height} viewBox="0 0 17 15" fill="none">

@@ -12,7 +12,7 @@ export const TitleWrapper = styled.TouchableOpacity`
 `;
 
 export const MenuMobile = styled.View`
-  width: ${getColumnWidth(24, true)};
+  width: ${getColumnWidth(24, true)}px;
   margin-top: 24px;
   border-radius: 12px;
   background-color: ${theme.color.primary.white};

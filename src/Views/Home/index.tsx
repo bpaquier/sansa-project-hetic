@@ -1,19 +1,11 @@
-import { useNavigate } from "react-router-native";
-
-import PageContentWrapper from "~/Components/PageContentWrapper";
-import ButtonComponent from "~/Components/Ui-kit/Button";
-import Text from "~/Components/Ui-kit/Text";
+import HomeBorne from "../../Components/Home/HomeBorne";
+import HomeMobile from "../../Components/Home/HomeMobile";
+import { useGlobalContext } from "~/Contexts/globalContext";
 
 export default function Home(): JSX.Element {
-  const navigate = useNavigate();
-  return (
-    <PageContentWrapper>
-      <>
-        <Text type="titleXL" textAlign="center">
-          Home
-        </Text>
-        <ButtonComponent text="login" onPress={() => navigate("/login")} />
-      </>
-    </PageContentWrapper>
-  );
+  const { isMobile } = useGlobalContext();
+
+  const HomeComponent = isMobile ? HomeMobile : HomeBorne;
+
+  return <HomeComponent />;
 }

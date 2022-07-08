@@ -18,8 +18,11 @@ export default function NavigationMobile({
   onPressExitLanguagesMenuAndNavigate
 }: NavigationMobileProps) {
   const location = useLocation();
+  const iconSize = 36;
   const { t } = useTranslation();
-  const isCurrentPage = (page: string): boolean => location.pathname === page;
+  const isCurrentPage = (page: string): boolean =>
+    location.pathname === page ||
+    (location.pathname.startsWith("/faq") && page.startsWith("/faq"));
 
   const NavWidth = Dimensions.get("window").width;
   const NavIndicatorWidth = 60;
@@ -29,7 +32,7 @@ export default function NavigationMobile({
   useEffect(() => {
     const index = isCurrentPage("/home")
       ? 0
-      : isCurrentPage("/plus")
+      : isCurrentPage("/plus") || isCurrentPage("/faq")
       ? 2
       : isCurrentPage("/")
       ? 1
@@ -85,8 +88,8 @@ export default function NavigationMobile({
       />
       <NavButton onPress={() => onPressExitLanguagesMenuAndNavigate("/home")}>
         <House
-          width={36}
-          height={36}
+          width={iconSize}
+          height={iconSize}
           color={
             isCurrentPage("/home")
               ? Theme.color.primary.blue
@@ -103,12 +106,12 @@ export default function NavigationMobile({
       >
         <PrimaryIconContainer active={isCurrentPage("/")}>
           <MapMarker
-            width={36}
-            height={36}
+            width={iconSize}
+            height={iconSize}
             color={
               isCurrentPage("/")
                 ? Theme.color.primary.white
-                : Theme.color.neutral.black60
+                : Theme.color.neutral?.black60
             }
           />
         </PrimaryIconContainer>
@@ -121,12 +124,12 @@ export default function NavigationMobile({
           width={36}
           height={36}
           color={
-            isCurrentPage("/plus")
+            isCurrentPage("/plus") || isCurrentPage("/faq")
               ? Theme.color.primary.blue
               : Theme.color.neutral.black60
           }
         />
-        <NavButtonText active={isCurrentPage("/plus")}>
+        <NavButtonText active={isCurrentPage("/plus") || isCurrentPage("/faq")}>
           {t("plus.plus")}
         </NavButtonText>
       </NavButton>

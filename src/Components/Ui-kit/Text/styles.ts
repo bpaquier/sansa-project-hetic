@@ -5,9 +5,10 @@ import theme from "~/Styles/theme.styles";
 
 type TextComponentProps = TextComponentPropsIndex & {
   isMobile?: boolean;
+  underline?: boolean;
 };
 
-const { fontSize, color: themeColor, fontFamily } = theme;
+const { fontSizes, color: themeColor, fontFamily } = theme;
 
 export const TextContainer = styled.Text`
   font-family: ${({ weight, type, isMobile }: TextComponentProps) => {
@@ -25,7 +26,7 @@ export const TextContainer = styled.Text`
     }
   }};
   font-size: ${({ type }: TextComponentProps) =>
-    type ? fontSize[type] : fontSize?.paragraph};
+    type ? fontSizes[type] : fontSizes?.paragraph};
   color: ${({ color }: TextComponentProps) => {
     switch (color) {
       case "white":
@@ -44,6 +45,12 @@ export const TextContainer = styled.Text`
         return themeColor?.primary?.blueDark;
       case "red":
         return themeColor?.semantic?.dangerText;
+      case "black60":
+        return themeColor?.neutral?.black60;
+      case "warning":
+        return themeColor?.semantic?.warningText;
+      case "success":
+        return themeColor?.semantic.successText;
       case "black":
       default:
         return themeColor?.neutral?.black100;
@@ -51,7 +58,10 @@ export const TextContainer = styled.Text`
   }};
   text-align: ${({ textAlign }: TextComponentProps) => textAlign};
   ${({ type, isMobile }: TextComponentProps) => {
-    if (type === "paragraph") return "line-height: 24px";
+    if (type === "paragraph" || type === "titleM") return "line-height: 24px";
+    if (type === "titleXL") return "line-height: 40px";
+    if (type === "titleL") return "line-height: 30px";
     if (type === "small" && !isMobile) return "line-height: 24px";
-  }}
+  }};
+  text-decoration: ${({ underline }) => (underline ? "underline" : "none")};
 `;
