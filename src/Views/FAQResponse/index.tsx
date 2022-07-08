@@ -1,10 +1,12 @@
 import React from "react";
 
 import { useTranslation } from "react-i18next";
+import { ScrollView } from "react-native";
 import { useParams } from "react-router-native";
 
 import FAQQuestionCategory from "../FAQ/FAQQuestionCategory";
 import FAQQuestionItem from "../FAQ/FAQQuestionItem";
+import { PageContainerBorne } from "../FAQ/styles";
 import ResponseParagraphs from "./ResponseParagraphs";
 import {
   QuestionsWrapper,
@@ -13,15 +15,13 @@ import {
   PageWrapper
 } from "./styles";
 import Breadcrumb from "~/Components/Breadcrumb";
+import LanguageFAQSelector from "~/Components/LanguagesMenu/LanguagesFAQSelector";
 import PageContentWrapper from "~/Components/PageContentWrapper";
+import Separator from "~/Components/Ui-kit/Separator";
 import { TextComponentProps } from "~/Components/Ui-kit/Text";
 import TextWrapper from "~/Components/Ui-kit/TextWrapper";
-import theme from "~/Styles/theme.styles";
-import LanguageFAQSelector from "~/Components/LanguagesMenu/LanguagesFAQSelector";
-import { PageContainerBorne } from "../FAQ/styles";
 import { useGlobalContext } from "~/Contexts/globalContext";
-import Separator from "~/Components/Ui-kit/Separator";
-import { ScrollView } from "react-native";
+import theme from "~/Styles/theme.styles";
 
 export type Paragraph = {
   url?: { local?: string; external?: string };
