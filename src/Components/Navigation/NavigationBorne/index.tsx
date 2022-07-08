@@ -17,10 +17,12 @@ import Theme from "~/Styles/theme.styles";
 
 type NavigationBorneProps = {
   onPressExitLanguagesMenuAndNavigate: (direction?: string) => void;
+  onPressMenu: () => void;
 };
 
 export default function NavigationBorne({
-  onPressExitLanguagesMenuAndNavigate
+  onPressExitLanguagesMenuAndNavigate,
+  onPressMenu
 }: NavigationBorneProps) {
   const location = useLocation();
   const isCurrentPage = (page: string): boolean =>
@@ -67,10 +69,7 @@ export default function NavigationBorne({
       </NavButtonsContainer>
       <LanguageSection>
         <Separator orientation="horizontal" margin={20} width="100%" />
-        <TouchableOpacity
-          activeOpacity={0.7}
-          onPress={() => onPressExitLanguagesMenuAndNavigate()}
-        >
+        <TouchableOpacity activeOpacity={0.7} onPress={() => onPressMenu()}>
           <Flags size={60} />
         </TouchableOpacity>
       </LanguageSection>
