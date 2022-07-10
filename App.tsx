@@ -1,3 +1,4 @@
+import { StatusBar } from "react-native";
 import { NativeRouter, Routes, Route } from "react-router-native";
 
 import LanguagesMenu from "~/Components/LanguagesMenu";
@@ -19,6 +20,12 @@ export default function App() {
       <GlobalProvider>
         <Page>
           <>
+            <StatusBar
+              hidden={false}
+              barStyle="dark-content"
+              backgroundColor={"transparent"}
+              translucent={true}
+            />
             <Routes>
               <Route index element={<Search />} />
               <Route path="/login" element={<Login />} />

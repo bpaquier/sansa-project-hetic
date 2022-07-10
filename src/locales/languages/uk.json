@@ -5,7 +5,8 @@
     "register": "Реєстрація",
     "logout": "Вийти",
     "search": "Дослідження",
-    "reset": "Скинути"
+    "reset": "Скинути",
+    "unavailableForThisFeature": "Недоступно для цієї функції"
   },
   "alerts": {
     "link": "Це посилання не працює"

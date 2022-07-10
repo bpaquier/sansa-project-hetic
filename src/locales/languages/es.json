@@ -4,8 +4,8 @@
     "login": "Inicio de sesión",
     "register": "Registrar",
     "logout": "Desconexión",
-
-    "reset": "Restablecimiento"
+    "reset": "Restablecimiento",
+    "unavailableForThisFeature": "No disponible para esta característica"
   },
   "alerts": {
     "link": "Este enlace no funciona"

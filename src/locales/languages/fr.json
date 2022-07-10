@@ -5,7 +5,8 @@
     "register": "S'inscrire",
     "logout": "Se déconnecter",
     "search": "Rechercher",
-    "reset": "Réinitialiser"
+    "reset": "Réinitialiser",
+    "unavailableForThisFeature": "Indisponible pour cette fonctionnalité"
   },
   "alerts": {
     "link": "Ce lien ne marche pas"

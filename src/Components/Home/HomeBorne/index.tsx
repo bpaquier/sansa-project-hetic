@@ -52,7 +52,7 @@ export default function HomeBorne(): JSX.Element {
           </TouchableOpacity>
           <View>
             <EventCard style={boxShadow.panelAndroid}>
-              <Text color="black20" type="small" textAlign="center">
+              <Text color="black60" type="small" textAlign="center">
                 Pas de panique ! Nous allons bientôt vous trouver de nouveaux
                 événements
               </Text>
@@ -114,7 +114,7 @@ export default function HomeBorne(): JSX.Element {
         <SecondRow>
           <TouchableOpacity onPress={() => navigate("/")}>
             <AssociationsCard style={boxShadow.panelAndroid}>
-              <Text color="black20">Associations</Text>
+              <Text color="black40">Associations</Text>
               <AssociationsCardTitleWrapper>
                 <Text type="titleXL">
                   Les associations les plus visitées ces dernières semaines
@@ -142,7 +142,7 @@ export default function HomeBorne(): JSX.Element {
           <TouchableOpacity onPress={() => navigate("/")}>
             <HealthCard style={boxShadow.panelAndroid}>
               <HealthCardHeadlineWrapper>
-                <Text color="black20">Santé</Text>
+                <Text color="black40">Santé</Text>
                 <HealthIconWrapper>
                   <MedicalCase color="white" />
                 </HealthIconWrapper>
@@ -150,7 +150,7 @@ export default function HomeBorne(): JSX.Element {
               <HealthCardTitleWrapper>
                 <Text type="titleXL">Rechercher un médecin</Text>
               </HealthCardTitleWrapper>
-              <Text color="black20" type="small">
+              <Text color="black60" type="small">
                 Où puis-je me rendre ?
               </Text>
             </HealthCard>

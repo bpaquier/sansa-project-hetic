@@ -19,6 +19,7 @@ export const PageContainerMobile = styled.ScrollView<PageContainerProps>`
   padding: 50px ${({ noPaddingX }) => `${noPaddingX ? 0 : grid.mobileGutter}px`};
   background-color: ${({ backgroundColor }) =>
     backgroundColor === "white" ? color.primary.white : color.neutral.black5};
+  padding-top: 60px;
 `;
 
 export const PageContainerBorne = styled.View`
