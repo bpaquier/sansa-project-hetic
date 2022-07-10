@@ -35,18 +35,18 @@ export default function NavigationBorne({
       onPress={() => onPressExitLanguagesMenuAndNavigate()}
     >
       <NavButtonsContainer>
-        <NavButtonContainer active={isCurrentPage("/home")}>
+        <NavButtonContainer active={isCurrentPage("/")}>
           <NavButton
-            onPress={() => onPressExitLanguagesMenuAndNavigate("/home")}
-            active={isCurrentPage("/home")}
+            onPress={() => onPressExitLanguagesMenuAndNavigate("/")}
+            active={isCurrentPage("/")}
           >
             <House width={36} height={36} color={Theme.color.primary.white} />
           </NavButton>
         </NavButtonContainer>
-        <NavButtonContainer active={isCurrentPage("/")} spaceTop>
+        <NavButtonContainer active={isCurrentPage("/search")} spaceTop>
           <NavButton
-            onPress={() => onPressExitLanguagesMenuAndNavigate("/")}
-            active={isCurrentPage("/")}
+            onPress={() => onPressExitLanguagesMenuAndNavigate("/search")}
+            active={isCurrentPage("/search")}
           >
             <MapMarker
               width={36}

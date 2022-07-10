@@ -39,10 +39,10 @@ export default function App() {
               translucent={true}
             />
             <Routes>
-              <Route index element={<Search />} />
+              <Route index element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/home" element={<Home />} />
+              <Route path="/search" element={<Search />} />
               <Route path="/plus" element={<Plus />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/faq/:type" element={<FAQCategory />} />
