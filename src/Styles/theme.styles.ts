@@ -58,7 +58,7 @@ const theme = {
     }
   },
   sizes: {
-    breakPoint: 800,
+    breakPoint: 750,
     mobilePageMarginBottom: 200,
     icon: {
       system: 24,
