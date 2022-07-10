@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 
 import { useTranslation } from "react-i18next";
 
@@ -16,7 +16,7 @@ import Ping from "~/Components/Ping";
 import ServiceWithIcon from "~/Components/ServiceWithIcon";
 import Text from "~/Components/Ui-kit/Text";
 import { PlaceProps, useSearchContext } from "~/Contexts/searchContext";
-import getCurrentDay from "~/hooks/getCurrentDay";
+import useCurrentDay from "~/hooks/useCurrentDay";
 import theme from "~/Styles/theme.styles";
 
 export interface ListItemProps extends PlaceProps {
@@ -32,15 +32,18 @@ export default function ListItem({
   id
 }: ListItemProps): JSX.Element {
   const { t } = useTranslation();
-  const { debouncedFilters, setDisplayPlaceDescription } = useSearchContext();
-  const currentDay = getCurrentDay();
+  const { debouncedFilters, setDisplayPlaceDescription, filteredPlaces } =
+    useSearchContext();
+  const [formatedCategories, setFormatedCatgories] = useState<string[]>([]);
+  const currentDay = useCurrentDay();
 
-  const formatedCategories = useMemo(() => {
-    return debouncedFilters && debouncedFilters?.length > 0
-      ? services_id?.filter((service) => debouncedFilters?.includes(service))
-      : services_id?.slice(0, 5);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [debouncedFilters]);
+  useEffect(() => {
+    if (debouncedFilters && debouncedFilters?.length > 0) {
+      setFormatedCatgories(
+        services_id?.filter((service) => debouncedFilters?.includes(service))
+      );
+    }
+  }, [filteredPlaces]);
 
   return (
     <ItemWrapper>
@@ -69,18 +72,15 @@ export default function ListItem({
         </TextWrapper>
         {services_id && (
           <IconsWrapper>
-            {formatedCategories?.map((category, index) => {
-              const isSelected = debouncedFilters?.includes(category);
-              return (
-                <IconWrapper key={`${category}-${index}`}>
-                  <ServiceWithIcon
-                    {...{ category }}
-                    withBackground
-                    backgroundType={isSelected ? "colored" : "black"}
-                  />
-                </IconWrapper>
-              );
-            })}
+            {formatedCategories?.map((category, index) => (
+              <IconWrapper key={`${category}-${index}`}>
+                <ServiceWithIcon
+                  {...{ category }}
+                  withBackground
+                  backgroundType="colored"
+                />
+              </IconWrapper>
+            ))}
             {services_id?.length - formatedCategories?.length > 0 && (
               <Icon
                 withBackground

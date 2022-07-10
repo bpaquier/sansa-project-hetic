@@ -56,7 +56,7 @@
   },
   "search": {
     "search": "Вишукувати",
-    "searchPlaceholder": "Пошук за назвою організації",
+    "searchPlaceholder": "ППошук за іменем або адресою",
     "filters": "Фільтри",
     "deleteFilters": "Видалення всіх фільтрів",
     "seeFilters": "Переглянути всі фільтри",
@@ -75,7 +75,8 @@
     "learnMore": "Дізнатися більше",
     "seeMore": "Детальніше",
     "lastUpdate": "Останнє оновлення",
-    "services": {
+    "byAppointement": "За призначенням",
+    "services" : {
       "Acceuil": "Прийом",
       "Alimentation": "Годування",
       "Santé": "Здоров'я",

@@ -55,7 +55,7 @@
   },
   "search": {
     "search": "Buscar",
-    "searchPlaceholder": "Buscar por nombre de organización",
+    "searchPlaceholder": "Buscar por nombre o dirección",
     "filters": "Filtros",
     "deleteFilters": "Eliminar todos los filtros",
     "seeFilters": "Ver todos los filtros",
@@ -74,7 +74,8 @@
     "learnMore": "Aprende más",
     "seeMore": "Ver más",
     "lastUpdate": "Última actualización",
-    "services": {
+    "byAppointement": "Con cita previa",
+    "services" : {
       "Acceuil": "Recepción",
       "Alimentation": "Alimentación",
       "Santé": "Salud",

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useTranslation } from "react-i18next";
 import { Pressable, View } from "react-native";
@@ -16,6 +16,10 @@ export default function Filter({ filter }: FilterProps): JSX.Element {
   const [isSelected, setIsSeleted] = useState<boolean>(
     filters?.includes(filter)
   );
+
+  useEffect(() => {
+    setIsSeleted(filters?.includes(filter));
+  }, [filters]);
 
   return (
     <Pressable

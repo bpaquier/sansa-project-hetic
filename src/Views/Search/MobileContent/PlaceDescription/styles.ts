@@ -43,13 +43,17 @@ export const ItemTitleWrapper = styled.View`
 export const InfosWrapper = styled.View`
   padding: 16px;
   border-radius: ${theme?.shape?.radius?.card}px;
-  background-color: ${theme?.color?.neutral?.black10};
+  background-color: ${theme?.color?.primary?.blueExtraLight};
 `;
 
 export const InfoItem = styled.View`
   flex-direction: row;
   margin-bottom: 16px;
   width: 90%;
+`;
+
+export const TextWrapper = styled.View`
+  justify-content: center;
 `;
 
 export const IconWrapper = styled.View`

@@ -5,7 +5,8 @@ import {
   ServicesList,
   ServicesWrapper,
   Service,
-  ButtonWrapper
+  ButtonWrapper,
+  ListWrapper
 } from "./styles";
 import ServiceWithIcon from "~/Components/ServiceWithIcon";
 import Text from "~/Components/Ui-kit/Text";
@@ -20,7 +21,7 @@ export default function Services({
   setDisplayPanel
 }: ServicesProps): JSX.Element {
   const { t } = useTranslation();
-  const dispalyMax = 13;
+  const displayMax = 10;
   return (
     <ServicesWrapper>
       <SmallTitleWrapper>
@@ -28,24 +29,30 @@ export default function Services({
           {t("search.servicesOffered")}
         </Text>
       </SmallTitleWrapper>
-      <ServicesList>
-        {services_id?.slice(0, dispalyMax)?.map((service, i) => (
-          <Service key={`${service}-${i}`}>
-            <ServiceWithIcon
-              text={t(`search.services.${service}`)}
-              category={service}
-              withBackground
-            />
-          </Service>
-        ))}
-        {services_id?.length > dispalyMax && (
-          <ButtonWrapper onPress={() => setDisplayPanel("services")}>
-            <Text color="blue" weight="bold">
-              {t("search.seeMore")}
-            </Text>
-          </ButtonWrapper>
-        )}
-      </ServicesList>
+      <ListWrapper horizontal={true}>
+        <ServicesList>
+          {services_id?.slice(0, displayMax)?.map((service, i) => (
+            <Service key={`${service}-${i}`}>
+              <ServiceWithIcon
+                text={t(`search.services.${service}`)}
+                category={service}
+                withBackground
+              />
+            </Service>
+          ))}
+          {services_id?.length > displayMax && (
+            <ButtonWrapper
+              onPress={() => {
+                setDisplayPanel("services");
+              }}
+            >
+              <Text color="blue" weight="bold">
+                {t("search.seeMore")}
+              </Text>
+            </ButtonWrapper>
+          )}
+        </ServicesList>
+      </ListWrapper>
     </ServicesWrapper>
   );
 }

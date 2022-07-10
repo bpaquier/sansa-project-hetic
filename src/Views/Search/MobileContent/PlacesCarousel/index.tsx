@@ -20,7 +20,7 @@ export default function PlacesCarousel(): JSX.Element {
     filteredPlaces,
     setSelectedPlaceIndex,
     selectedPlaceIndex,
-    isLoading,
+    isFilterLoading,
     setTriggerLocalization,
     debouncedFilters
   } = useSearchContext();
@@ -34,7 +34,7 @@ export default function PlacesCarousel(): JSX.Element {
       >
         <PositionIcon width={40} height={40} />
       </PositionIconWrapper>
-      {isLoading && (
+      {isFilterLoading && (
         <AlternativeCard>
           <Logo>
             <Spinner />
@@ -44,14 +44,14 @@ export default function PlacesCarousel(): JSX.Element {
       )}
       {debouncedFilters?.length > 0 &&
         (!filteredPlaces || filteredPlaces?.length === 0) &&
-        !isLoading && (
+        !isFilterLoading && (
           <AlternativeCard>
             <TextComponent color="black40">
               {t("search.noResults")}
             </TextComponent>
           </AlternativeCard>
         )}
-      {filteredPlaces && filteredPlaces?.length > 0 && !isLoading && (
+      {filteredPlaces && filteredPlaces?.length > 0 && !isFilterLoading && (
         <CarouselWrapper>
           <Carousel
             swipeThreshold={0.1}

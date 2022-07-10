@@ -6,6 +6,10 @@ import {
   useEffect
 } from "react";
 
+import * as Device from "expo-device";
+import * as ScreenOrientation from "expo-screen-orientation";
+import { Dimensions } from "react-native";
+
 import Theme from "~/Styles/theme.styles";
 
 interface ContextProps {
@@ -26,18 +30,29 @@ interface GlobalProviderProps {
 }
 
 function GlobalProvider({ children }: GlobalProviderProps) {
-  const [width, setWidth] = useState<number>(0);
-  const [isMobile, setIsMobile] = useState<boolean>(true);
+  const [isMobile, setIsMobile] = useState<boolean>(
+    Dimensions?.get("window").width < Theme?.sizes?.breakPoint
+  );
   const [isMenuLanguagesOpen, setIsMenuLanguagesOpen] =
     useState<boolean>(false);
 
   useEffect(() => {
-    width > Theme?.sizes?.breakPoint ? setIsMobile(false) : setIsMobile(true);
-  }, [width]);
-
-  const setAppWidth = (width: number) => {
-    setWidth(width);
-  };
+    Device.getDeviceTypeAsync()
+      .then((deviceType) => {
+        if (deviceType === Device.DeviceType.PHONE) {
+          setIsMobile(true);
+          ScreenOrientation.lockAsync(
+            ScreenOrientation.OrientationLock.PORTRAIT_UP
+          );
+        } else {
+          setIsMobile(false);
+          ScreenOrientation.lockAsync(
+            ScreenOrientation.OrientationLock.LANDSCAPE
+          );
+        }
+      })
+      .catch(console.warn);
+  }, []);
 
   const setMenuLanguagesOpen = (isOpen?: boolean) => {
     setIsMenuLanguagesOpen((prevState) =>
@@ -47,7 +62,6 @@ function GlobalProvider({ children }: GlobalProviderProps) {
 
   const providedValue = {
     isMobile,
-    setAppWidth,
     isMenuLanguagesOpen,
     setMenuLanguagesOpen
   };

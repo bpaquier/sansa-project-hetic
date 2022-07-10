@@ -39,8 +39,9 @@ export const CloseIconWrapper = styled.TouchableOpacity`
     secondaryStyle ? `2px solid ${theme?.color?.primary?.blue}` : "none"};
 `;
 
-export const ContentWrapper = styled.ScrollView`
+export const ContentWrapper = styled.View`
   margin-top: 43px;
+  overflow: hidden;
   width: 100%;
   height: 100%;
   flex: 1 1;
@@ -51,7 +52,6 @@ export const FirstRow = styled.View`
   width: 100%;
   height: 45%;
   flex-wrap: wrap;
-  justify-content: center;
   max-height: 300px;
 `;
 

@@ -3,6 +3,7 @@ import React from "react";
 import BornContent from "./BorneContent";
 import Map from "./Map";
 import MobileContent from "./MobileContent";
+import SearchResults from "./SearchResults";
 import { MobileWrapper } from "./styles";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 import { useGlobalContext } from "~/Contexts/globalContext";
@@ -20,6 +21,7 @@ export default function Search(): JSX.Element {
       <Wrapper>
         <Map />
         {isMobile ? <MobileContent /> : <BornContent />}
+        <SearchResults />
       </Wrapper>
     </SearchProvider>
   );

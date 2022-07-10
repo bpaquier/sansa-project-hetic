@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
   Pressable,
-  View,
   Linking,
   TouchableOpacity,
   Dimensions,
@@ -26,6 +25,7 @@ import {
   HoursItem,
   Service,
   LastItem,
+  TextWrapper,
   ArrowWrapper
 } from "./styles";
 import ArrowLeft from "~/Components/Icons/System/Arrows/ArrowLeft";
@@ -37,8 +37,9 @@ import Globe from "~/Components/Icons/System/System/Globe";
 import ServiceWithIcon from "~/Components/ServiceWithIcon";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
-import { PlaceProps, Places, useSearchContext } from "~/Contexts/searchContext";
-import getCurrentDay from "~/hooks/getCurrentDay";
+import { PlaceProps, useSearchContext } from "~/Contexts/searchContext";
+import useApi from "~/hooks/useApi";
+import useCurrentDay from "~/hooks/useCurrentDay";
 import theme from "~/Styles/theme.styles";
 
 interface ItemTitleProps {
@@ -47,21 +48,37 @@ interface ItemTitleProps {
 
 export default function PlaceDescriptionMobile(): JSX.Element {
   const { t } = useTranslation();
+  const { getOrgaById } = useApi();
   const {
     filteredPlaces,
     displayPlaceDescription,
     setDisplayPlaceDescription
   } = useSearchContext();
   const [place, setPlace] = useState<PlaceProps | null>(null);
-  const currentDay = getCurrentDay();
+  const currentDay = useCurrentDay();
 
   useEffect(() => {
-    /**
-     * ! replace by API call
-     */
-    displayPlaceDescription
-      ? setPlace(Places?.find((place) => place?.id === displayPlaceDescription))
-      : setPlace(null);
+    displayPlaceDescription &&
+      getOrgaById(displayPlaceDescription)
+        ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
+          if (status === 200) {
+            if (data?.[0]) {
+              setPlace(data?.[0]);
+            } else {
+              //todo handle error
+            }
+          } else {
+            //todo handle error
+            setPlace(null);
+          }
+        })
+        ?.catch((err) => {
+          //todo handle error
+          console.log(err);
+          setPlace(null);
+        });
+
+    !displayPlaceDescription && setPlace(null);
   }, [displayPlaceDescription, filteredPlaces]);
 
   const ItemTitle = ({ content }: ItemTitleProps) => (
@@ -141,17 +158,24 @@ export default function PlaceDescriptionMobile(): JSX.Element {
                 }`}</Text>
               </InfoItem>
             ) : null}
-            <InfoItem>
-              <IconWrapper>
-                <Calendar2 color={theme?.color?.primary?.blue} />
-              </IconWrapper>
-              <View>
-                <Text>Sur rendez-vous</Text>
-                <Text type="small" color="black40">
-                  Acceuil exclusif: femmes
-                </Text>
-              </View>
-            </InfoItem>
+            {place?.by_appointment ||
+            place?.preferencialWelcomes?.[0]?.value ? (
+              <InfoItem>
+                <IconWrapper>
+                  <Calendar2 color={theme?.color?.primary?.blue} />
+                </IconWrapper>
+                <TextWrapper>
+                  {place?.by_appointment ? (
+                    <Text>{t("search.byAppointement")}</Text>
+                  ) : null}
+                  {place?.preferencialWelcomes?.[0]?.value ? (
+                    <Text color="black60">
+                      {place?.preferencialWelcomes?.[0]?.value}
+                    </Text>
+                  ) : null}
+                </TextWrapper>
+              </InfoItem>
+            ) : null}
           </InfosWrapper>
         </Item>
         <Item>
