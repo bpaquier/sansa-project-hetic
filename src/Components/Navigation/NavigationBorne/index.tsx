@@ -1,37 +1,53 @@
-import { View } from "react-native";
-import { useNavigate, useLocation } from "react-router-native";
+import { TouchableOpacity } from "react-native";
+import { useLocation } from "react-router-native";
 
-import { Nav, NavButtonContainer, NavButton } from "./styles";
-import France from "~/Components/Icons/Flags/France";
+import {
+  Nav,
+  NavButtonsContainer,
+  NavButtonContainer,
+  NavButton,
+  LanguageSection
+} from "./styles";
 import MapMarker from "~/Components/Icons/System/Map/MapMarker";
 import House from "~/Components/Icons/System/System/House";
 import Plus from "~/Components/Icons/System/System/Plus";
+import Flags from "~/Components/LanguagesMenu/Flags";
 import Separator from "~/Components/Ui-kit/Separator";
 import Theme from "~/Styles/theme.styles";
 
-export default function NavigationBorne() {
-  const navigate = useNavigate();
+type NavigationBorneProps = {
+  onPressExitLanguagesMenuAndNavigate: (direction?: string) => void;
+  onPressMenu: () => void;
+};
+
+export default function NavigationBorne({
+  onPressExitLanguagesMenuAndNavigate,
+  onPressMenu
+}: NavigationBorneProps) {
   const location = useLocation();
-  const isCurrentPage = (page: string): boolean => location.pathname === page;
+  const isCurrentPage = (page: string): boolean =>
+    location.pathname === page ||
+    (location.pathname.startsWith("/faq") && page.startsWith("/faq"));
 
   return (
-    <Nav>
-      <View
-        style={{ flex: 1, justifyContent: "center", alignContent: "center" }}
-      >
-        <NavButtonContainer active={isCurrentPage("/home")}>
+    <Nav
+      style={{ elevation: 6, shadowColor: "transparent" }}
+      onPress={() => onPressExitLanguagesMenuAndNavigate()}
+    >
+      <NavButtonsContainer>
+        <NavButtonContainer active={isCurrentPage("/")}>
           <NavButton
-            onPress={() => navigate("/home")}
-            active={isCurrentPage("/home")}
+            onPress={() => onPressExitLanguagesMenuAndNavigate("/")}
+            active={isCurrentPage("/")}
           >
             <House width={36} height={36} color={Theme.color.primary.white} />
           </NavButton>
         </NavButtonContainer>
-        <NavButtonContainer
-          active={isCurrentPage("/")}
-          style={{ marginTop: 28 }}
-        >
-          <NavButton onPress={() => navigate("/")} active={isCurrentPage("/")}>
+        <NavButtonContainer active={isCurrentPage("/search")} spaceTop>
+          <NavButton
+            onPress={() => onPressExitLanguagesMenuAndNavigate("/search")}
+            active={isCurrentPage("/search")}
+          >
             <MapMarker
               width={36}
               height={36}
@@ -40,27 +56,23 @@ export default function NavigationBorne() {
           </NavButton>
         </NavButtonContainer>
         <NavButtonContainer
-          active={isCurrentPage("/plus")}
-          style={{ marginTop: 28 }}
+          active={isCurrentPage("/plus") || isCurrentPage("/faq")}
+          spaceTop
         >
           <NavButton
-            onPress={() => navigate("/plus")}
-            active={isCurrentPage("/plus")}
+            onPress={() => onPressExitLanguagesMenuAndNavigate("/plus")}
+            active={isCurrentPage("/plus") || isCurrentPage("/faq")}
           >
             <Plus width={36} height={36} color={Theme.color.primary.white} />
           </NavButton>
         </NavButtonContainer>
-      </View>
-      <View>
-        <Separator
-          orientation="horizontal"
-          margin={20}
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          //@ts-ignore
-          style={{ width: "100%" }}
-        />
-        <France />
-      </View>
+      </NavButtonsContainer>
+      <LanguageSection>
+        <Separator orientation="horizontal" margin={20} width="100%" />
+        <TouchableOpacity activeOpacity={0.7} onPress={() => onPressMenu()}>
+          <Flags size={60} />
+        </TouchableOpacity>
+      </LanguageSection>
     </Nav>
   );
 }

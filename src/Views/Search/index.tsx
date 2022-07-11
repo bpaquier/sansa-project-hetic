@@ -1,18 +1,28 @@
-import { StyleSheet, Dimensions } from "react-native";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import React from "react";
 
-const styles = StyleSheet.create({
-  map: {
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height
-  }
-});
+import BornContent from "./BorneContent";
+import Map from "./Map";
+import MobileContent from "./MobileContent";
+import SearchResults from "./SearchResults";
+import { MobileWrapper } from "./styles";
+import PageContentWrapper from "~/Components/PageContentWrapper";
+import { useGlobalContext } from "~/Contexts/globalContext";
+import SearchProvider from "~/Contexts/searchContext";
 
 export default function Search(): JSX.Element {
+  const { isMobile } = useGlobalContext();
+
+  const Wrapper = (
+    isMobile ? MobileWrapper : PageContentWrapper
+  ) as React.ElementType;
+
   return (
-    <>
-      <MapView style={styles.map} provider={PROVIDER_GOOGLE} />
-    </>
+    <SearchProvider>
+      <Wrapper>
+        <Map />
+        {isMobile ? <MobileContent /> : <BornContent />}
+        <SearchResults />
+      </Wrapper>
+    </SearchProvider>
   );
 }
-/*  */

@@ -1,7 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import React from "react";
-
-//import { Image } from "react-native";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-native";
 
 import LoginIllustration from "./loginIllustation";
@@ -10,30 +7,30 @@ import Form from "~/Components/Form";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 import Button from "~/Components/Ui-kit/Button";
 import Text from "~/Components/Ui-kit/Text";
-//import { ImageStyle } from "~/Styles/mixins.styles";
 import FormPageTemplate from "~/Views/Account/FormPageTemplate";
 
 export default function Login(): JSX.Element {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const Image = <LoginIllustration />;
 
   const FormComponent = (
     <>
       <Form
-        title="Se connecter"
-        submitCtaLabel="Se connecter"
-        inlineCtaLabel="Mot de passe oublié"
+        title={t("common.login")}
+        submitCtaLabel={t("common.login")}
+        inlineCtaLabel={t("forms.forgotPassword")}
         items={[
           {
             placeholder: "johndoe@gmail.com",
-            label: "Votre email ou indentifiant",
+            label: t("forms.emailOrIdentifier"),
             name: "ID",
             required: true,
             type: "email"
           },
           {
-            label: "Votre mot de passe",
+            label: t("forms.yourPassword"),
             name: "password",
             type: "password",
             required: true
@@ -42,11 +39,11 @@ export default function Login(): JSX.Element {
       />
       <BottomText>
         <Text color="black40" textAlign="center" type="small">
-          Pas encore de compte?
+          {t("forms.noAccountYet")}
         </Text>
       </BottomText>
       <Button
-        text="S'incrire"
+        text={t("common.register")}
         type="tertiary"
         onPress={() => navigate("/register")}
       />
@@ -55,7 +52,7 @@ export default function Login(): JSX.Element {
 
   return (
     <PageContentWrapper>
-      <FormPageTemplate image={Image} form={FormComponent} />
+      <FormPageTemplate image={Image} form={FormComponent} backArrow={true} />
     </PageContentWrapper>
   );
 }

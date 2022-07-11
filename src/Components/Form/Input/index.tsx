@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 import { Picker } from "@react-native-picker/picker";
+import { t } from "i18next";
 import PhoneInput from "react-native-phone-number-input";
 
 import { InputWrapper, InputElement, StyledInput } from "./styles";
@@ -24,15 +25,10 @@ export interface InputProps {
   }[];
 }
 
-enum ErrorMessages {
-  empty = "Ce champs est requis",
-  format = "Format invalide"
-}
-
 interface ErrorType {
   status: boolean;
   type?: "empty" | "format";
-  content?: ErrorMessages;
+  content?: string;
 }
 
 export default function Input({
@@ -68,7 +64,11 @@ export default function Input({
 
   const checkValue = () => {
     if (required && value?.length === 0) {
-      setError({ status: true, type: "empty", content: ErrorMessages?.empty });
+      setError({
+        status: true,
+        type: "empty",
+        content: t("forms.requiredField")
+      });
       updateValue && updateValue({ [name]: null });
     } else if (type === "email") {
       if (mailRe.test(value)) {
@@ -78,7 +78,7 @@ export default function Input({
         setError({
           status: true,
           type: "format",
-          content: ErrorMessages?.format
+          content: t("forms.invalidFormat")
         });
         updateValue && updateValue({ [name]: null });
       }
@@ -90,7 +90,7 @@ export default function Input({
         setError({
           status: true,
           type: "format",
-          content: ErrorMessages?.format
+          content: t("forms.invalidFormat")
         });
         updateValue && updateValue({ [name]: null });
       }
@@ -152,7 +152,7 @@ export default function Input({
                     setError({
                       status: true,
                       type: "format",
-                      content: ErrorMessages?.format
+                      content: t("forms.invalidFormat")
                     });
                     updateValue && updateValue({ [name]: null });
                   }
@@ -175,7 +175,7 @@ export default function Input({
               }}
             >
               {options?.map((option, i) => (
-                <Picker.Item {...option} key={`${option.value}${i}`} />
+                <Picker.Item {...option} key={`${option.value}-${i}`} />
               ))}
             </Picker>
           </StyledInput>

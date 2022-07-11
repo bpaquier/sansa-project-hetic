@@ -28,8 +28,8 @@ export const StyledButton = styled.Pressable`
   justify-content: center;
   align-items: center;
   flex-grow: ${({ fullWidth }) => (fullWidth ? 1 : 0)};
-  padding: ${({ type }: ButtonProps) =>
-    type === "tertiary" ? "0" : "16px 16px 16px 16px"};
+  padding: ${({ noPadding }: ButtonProps) =>
+    noPadding === true ? "0" : "16px 32px"};
   background-color: ${({ type, isActive, isDisabled }: BackgroundPrpos) => {
     if (isDisabled && type !== "tertiary") {
       return color?.neutral?.black10;
@@ -43,7 +43,7 @@ export const StyledButton = styled.Pressable`
       return type === "primary"
         ? color?.primary?.blue
         : type === "secondary"
-        ? color?.neutral?.black5
+        ? color?.primary.white
         : "transparent";
     }
   }};
@@ -59,8 +59,8 @@ export const StyledButton = styled.Pressable`
 `;
 
 export const TextContainer = styled.View`
-  opacity: ${({ isLoading, isDisabled }: ButtonProps) =>
-    isLoading && !isDisabled ? "0" : "1"};
+  opacity: ${({ isFilterLoading, isDisabled }: ButtonProps) =>
+    isFilterLoading && !isDisabled ? "0" : "1"};
   justify-content: center;
   align-items: center;
   width: 100%;

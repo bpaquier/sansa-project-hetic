@@ -1,0 +1,700 @@
+{
+  "administrativeAssistance": {
+    "administrativeAssistance": "Aides administratives",
+    "sansaAnswerQuestions": "Sansa répond à vos questions",
+    "searchByCategory": "Rechercher par catégories :",
+    "mostAskedQuestions": "Questions les plus fréquemment posées:",
+    "otherQuestions": "Les autres questions",
+    "hosting": {
+      "hosting": "Hébergement",
+      "sectionTitle": "Questions sur l’hébergement",
+      "questions": [
+        {
+          "id": 0,
+          "title": "Comment faire pour avoir un hébergement ?",
+          "text": [
+            {
+              "text": "J’appelle le 115 : le numéro d’urgence pour toute personne sans hébergement. Le 115 est le numéro unique de centralisation des demandes d’hébergement d’urgence. En appelant le 115 je serai directement renvoyé vers le 115 du département depuis lequel j’appelle."
+            },
+            {
+              "text": "<warning><bold>Attention :</bold> appeler le 115 ne permet pas d’avoir accès à une solution d’hébergement pérenne. Pour avoir une solution d’hébergement longue durée, je contacte un travailleur social."
+            },
+            {
+              "text": "Je fais un dossier de demande d’hébergement avec un travailleur social. Si je suis en contact avec un travailleur social, il peut faire une demande d’hébergement avec moi auprès du <bold>SIAO</bold>, le service qui gère l’attribution des places d’hébergement."
+            },
+            {
+              "text": "Je peux faire une demande d’hébergement auprès du <bold>SIAO</bold> avec un travailleur social si je suis mal logé, hébergé, ou bien à la rue."
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "Comment faire pour avoir une adresse de domiciliation ?",
+          "text": [
+            {
+              "text": "Lorsque je n’ai pas de domicile fixe, je peux choisir une adresse de domiciliation administrative qui me permets de recevoir mon courrier et de faire mes démarches d’accès aux droits. La domiciliation est notamment nécessaire pour avoir une couverture maladie, des aides financières, etc..."
+            },
+            {
+              "text": "<bold>- Si suis hébergé dans une structure d’hébergement :</bold> je peux demander à être domicilié par ma structure d’hébergement et à y recevoir mon courrier."
+            },
+            {
+              "text": "<bold>- Si je n'ai pas d'hébergement, que je suis hébergé à l’hôtel ou chez une autre personne :</bold> je peux faire une demande de domiciliation auprès du <bold>Centre Communal d’Action Sociale (CCAS)</bold> de la commune où je vis, ou où j’ai des attaches (là où est l’école de mes enfants, là où je suis suivi médicalement, etc.)."
+            },
+            {
+              "text": "<warning><bold>Attention :️</bold> Pour être domicilié par le CCAS je dois pouvoir démontrer que j’ai un lien avec la commune."
+            },
+            {
+              "text": "À Paris, pour être domicilié par le <bold>Centre d’Action Sociale de la Ville de Paris (CASVP)</bold> je dois <a>prendre rendez-vous en ligne</a>.",
+              "url": {
+                "external": "https://teleservices.paris.fr/rdvcasvp/jsp/site/Portal.jsp"
+              }
+            },
+            {
+              "text": "<bold>Si je ne peux pas être domicilié par le CCAS de la commune où je vis</bold>, je peux également demander à une association agréée de me domicilier."
+            },
+            {
+              "text": "Les associations agréées peuvent avoir des critères spécifiques pour la domiciliation et peuvent refuser de me domicilier si elles n’ont plus de place."
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Comment faire pour avoir un hébergement si je suis réfugié ou bénéficiaire de la protection subsidiaire?",
+          "text": [
+            {
+              "text": "Je peux faire une demande d’admission en <bold>Centre Provisoire d’Hébergement</bold> à l’<bold>OFII</bold> mais je ne suis pas sûr de pouvoir avoir une place."
+            },
+            {
+              "text": "Je peux également appeler le 115, si je suis à la rue, et contacter un travailleur social pour faire un dossier de demande d’hébergement."
+            },
+            {
+              "text": "Il m’est conseillé de déposer au plus vite une demande de logement social pour obtenir un logement."
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Comment faire pour avoir un hébergement si je suis une femme enceinte ?",
+          "text": [
+            {
+              "text": "Je peux me rendre auprès des services sociaux de mon département de résidence : par exemple si j'habite en Seine-Saint-Denis, je vais aux <a>Services Sociaux Départementaux.</a>",
+              "url": {
+                "external": "https://seinesaintdenis.fr/Circonscription-departementale-de-Service-Social-de-Bondy"
+              }
+            },
+            {
+              "text": "Je peux également faire une demande d’hébergement au 115."
+            },
+            {
+              "text": "<bold>Si je suis enceinte</bold>, que je n’ai pas d’hébergement et que j’ai besoin d’un accompagnement et d’informations, je peux demander de l’aide en appelant le numéro vert <a>Solipam</a> : ",
+              "url": { "external": "https://solipam.fr/" }
+            },
+            {
+              "text": "<phone>01.48.24.16.28"
+            },
+            {
+              "text": "<bold>Solipam</bold> peut m’accompagner dans mes démarches tout au long de la grossesse et m’orienter vers des lieux où rencontrer un médecin ou un travailleur social."
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Comment faire pour avoir un hébergement si je suis jeune victime d’homophobie et/ou de transphobie ?",
+          "text": [
+            {
+              "text": "Je peux appeler la ligne d’urgence ouverte 24h/24h de l’association <bold>Le Refuge</bold> qui accueille des jeunes victimes d’homophobie et de transphobie (hébergement temporaire, accompagnement psychologique et social)."
+            },
+            {
+              "text": "<phone>06.31.59.69.50"
+            },
+            {
+              "text": "Je peux également appeler le 115 ou faire une demande d’hébergement avec un travailleur social."
+            }
+          ]
+        }
+      ]
+    },
+    "foreignersRights": {
+      "foreignersRights": "Droits des étrangers",
+      "sectionTitle": "Questions sur les droits des étrangers",
+      "questions": [
+        {
+          "id": 0,
+          "title": "Comment faire une demande d'asile si j'ai moins de 18 ans ?",
+          "text": [
+            {
+              "text": "Si j’ai moins de 18 ans et que je suis accompagné de ma famille en France je dois faire la demande d’asile avec ma famille."
+            },
+            {
+              "text": "Si j’ai moins de 18 ans et que je suis mineur, étranger et non accompagné par ma famille sur le territoire français, je suis considéré comme mineur non accompagné."
+            },
+            {
+              "text": "Je peux demander l’asile lorsque je suis mineur non accompagné et que je me considère en danger dans mon pays d’origine. Dans ce cas la Préfecture doit nommer une personne qui représentera mes intérêts durant la demande d’asile, un « administrateur ad hoc ». La Préfecture n’a pas le droit de refuser ma demande d’asile ou de refuser de nommer un “administrateur ad hoc” pour me représenter.Je peux demander l’asile lorsque je suis mineur non accompagné et que je me considère en danger dans mon pays d’origine. Dans ce cas la Préfecture doit nommer une personne qui représentera mes intérêts durant la demande d’asile, un « administrateur ad hoc ». La Préfecture n’a pas le droit de refuser ma demande d’asile ou de refuser de nommer un “administrateur ad hoc” pour me représenter."
+            },
+            {
+              "text": "En SPADA on me donnera un rendez-vous au Guichet Unique pour Demandeurs d’Asile pour enregistrer ma demande d’asile. A ce moment la Préfecture nommera l’”administrateur ad hoc” pour me représenter."
+            },
+            {
+              "text": "<warning><bold>Attention :</bold> Si je suis mineur et non accompagné par ma famille, je ne peux pas bénéficier de l’Allocation pour Demandeurs d’Asile  (argent reçu tous les mois sur une carte spéciale) ni être hébergé avec les adultes. Je dois être hébergé par l’Aide Sociale à l’Enfance."
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "C'est quoi la demande d'asile ?",
+          "text": [
+            {
+              "text": "La demande d’asile est une procédure par laquelle une personne demande la protection de la France car elle se considère en danger dans son pays d’origine."
+            },
+            {
+              "text": "C’est l’<bold>OFPRA – L’Office Français de Protection des Réfugiés et Apatrides –</bold> qui reconnaît à la personne soit le statut de réfugié, le statut de bénéficiaire de la protection subsidiaire, le statut d’apatride ou alors déboute la personne de sa demande et ne lui reconnaît pas de protection."
+            },
+            {
+              "text": "<tip><bold>Astuce :</bold> Une fois que j'ai déposé ma demande d'asile, je suis en situation régulière vis-à-vis du droit des étrangers, l’attestation de demande d’asile vaut document de séjour."
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "C'est quoi les différentes procédures d'asile : normale, accélérée ou Dublin ?",
+          "text": [
+            {
+              "text": "<bold>Si je suis placé en procédure normale ou accélérée :</bold>"
+            },
+            {
+              "text": "Cela signifie que c’est la France qui étudiera ma demande d’asile. Au <bold>GUDA</bold> un dossier pour l’<bold>OFPRA</bold> m’est remis. Je dois le renvoyer dans un délai de 21 jours. Dans ce dossier je dois indiquer pourquoi je demande l’asile à la France."
+            },
+            {
+              "text": "L’<bold>OFPRA</bold> me convoque à un entretien après l’envoi de mon dossier."
+            },
+            {
+              "text": "Après l’entretien, dans un délai de 15 jours à plusieurs mois l’<bold>OFPRA</bold> rend sa décision et peut me reconnaître le statut de réfugié ou de bénéficiaire de la protection subsidiaire ce qui me permets de demander un titre de séjour ou une carte de résident à la Préfecture."
+            },
+            {
+              "text": "<tip><bold>Astuce :</bold> Une fois que j'ai déposé ma demande d'asile, je suis en situation régulière vis-à-vis du droit des étrangers, l’attestation de demande d’asile vaut document de séjour."
+            },
+            {
+              "text": "<bold>Si je suis placé en procédure Dublin :</bold>"
+            },
+            {
+              "text": "Cela signifie que la France estime qu’un autre pays de l’Union Européenne est responsable de ma demande d’asile. La France doit alors organiser mon transfert dans le pays responsable de ma demande d’asile dans un délai de 8 à 11 mois selon ma situation après le dépôt de ma demande d’asile. Si mon transfert n’est pas organisé dans les délais, je peux déposer à nouveau une demande d’asile qui sera étudiée par la France."
+            },
+            {
+              "text": "Lorsque je suis en procédure Dublin je peux être convoqué régulièrement à la Préfecture. Si je ne me rends pas aux rendez-vous je peux être placé « en fuite ». Cela signifie que je perds mon <bold>Allocation Demandeurs d’Asile</bold>, le droit à l’hébergement dans un centre dédié aux demandeurs d’asile et que le délai avant lequel je peux déposer une nouvelle demande d’asile qui sera étudiée par la France est allongé d’un an – si je ne suis pas transféré vers le pays responsable de ma demande d’asile dans ce délai."
+            },
+            {
+              "text": "Si je suis en procédure Dublin, je peux m’informer sur mes droits et les délais auprès d’associations spécialisées."
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Comment faire une demande d’asile ?",
+          "text": [
+            {
+              "text": "Pour faire une demande d'asile, je dois m'adresser à une SPADA (Structure de Premier Accueil des Demandeurs d'Asile)."
+            },
+            {
+              "text": "Si je suis en Île-de-France, je dois appeler le numéro de la plateforme téléphonique de l’<bold>OFII</bold> pour avoir un rendez-vous à la <bold>SPADA</bold>"
+            },
+            {
+              "text": "<phone>01.42.50.09.00"
+            },
+            {
+              "text": "<warning><bold>Attention :</bold> Il est parfois nécessaire d’appeler à plusieurs reprises le numéro de téléphone de l’<bold>OFII</bold> pour avoir une réponse."
+            },
+            {
+              "text": "Si je ne suis pas en Île-de-France, je dois me rendre directement à la <bold>SPADA</bold> du département où je suis."
+            },
+            {
+              "text": "Une fois que j'ai contacté une <bold>SPADA</bold>, on me donne un rendez-vous au Guichet Unique des Demandeurs d’Asile (GUDA) pour enregistrer ma demande d’asile."
+            },
+            {
+              "text": "Au <bold>GUDA</bold> je rencontre l’<bold>OFII</bold> et la Préfecture qui enregistrent ma demande d’asile et me placent dans une des trois procédures d’asile : normale, accélérée ou Dublin."
+            },
+            {
+              "text": "L’<bold>OFII</bold> me propose au moment de l’enregistrement l’Allocation pour Demandeurs d’Asile (argent reçu tous les mois sur une carte spéciale) et peut me proposer un hébergement en Ile-de-France ou en province. Il s’agit d’un « package », si je refuse l’hébergement proposé je perds le droit à l’Allocation pour demandeurs d’asile et à l’hébergement dans un centre pour demandeurs d’asile."
+            },
+            {
+              "text": "<warning><bold>Attention :</bold> Si j'ai moins de 18 ans, je dois faire ma demande d'asile d'une autre façon. \nConsultez notre fiche: \n<a>Comment faire une demande d'asile si j'ai moins de 18 ans ?</a>",
+              "url": {
+                "local": "/faq/foreignersRights/0"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "health": {
+      "health": "Santé",
+      "sectionTitle": "Questions sur la santé",
+      "questions": [
+        {
+          "id": 0,
+          "title": "Comment me faire soigner si je n'ai pas de couverture maladie ?",
+          "text": [
+            {
+              "text": "Si je n’ai pas de couverture maladie et que je ne peux pas payer le médecin, je peux quand même me faire soigner en France."
+            },
+            {
+              "text": "Si mon état de santé nécessite une hospitalisation ou que je dois effectuer des soins à l’hôpital liés à une Interruption Volontaire de Grossesse, un accouchement ou des soins liés à ma grossesse ou à mon accouchement, alors l’hôpital pourra demander à ce que mes frais de santé soient pris en charge par le <bold>Dispositifs Soins Urgents et Vitaux (DSUV).</bold>"
+            },
+            {
+              "text": "<tip><bold>Astuce :</bold> En cas d’hospitalisation, si je n’ai pas de couverture maladie et ne peux pas régler la facture de l’hôpital, je dois demander à rencontrer un assistant social de l’hôpital qui en fonction de ma situation pourra me permettre d’accéder à une couverture maladie ou fera en sorte que je n’ai pas à payer mes soins."
+            },
+            {
+              "text": "Si je suis enceinte ou que j’ai un ou plusieurs enfant(s) de moins de 6 ans, je peux consulter des professionnels de santé sans frais au sein du service de <bold>PMI</bold> du département où je vis, pour mon suivi de grossesse et le suivi médical de mon/mes enfant(s) y compris si je n’ai pas de couverture maladie."
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "Comment faire pour être reconnu en situation de handicap et avoir des aides ?",
+          "text": [
+            {
+              "text": "Si je suis en situation de handicap à cause d’une maladie ou d’une invalidité après un accident, je peux faire reconnaître cette situation. En étant reconnu en situation de handicap, je peux bénéficier d’aides adaptées. Il est important que j’en parle avec mon médecin traitant."
+            },
+            {
+              "text": "<h3>Comment faire ?</h3>"
+            },
+            {
+              "text": "Pour faire reconnaître mon handicap, je dois m’adresser à la <bold>Maison Départementale des Personnes Handicapées (MDPH)</bold>. Il y a une <bold>MDPH</bold> dans chaque département. Il faut que je m’adresse à la <bold>MDPH</bold> du département dans lequel j’habite. Je dois transmettre à la MDPH un formulaire de demande, contenant un certificat médical à faire remplir par un médecin."
+            },
+            {
+              "text": "En plus de demander la reconnaissance du handicap, je peux exprimer des besoins spécifiques et des demandes d’aides. La <bold>MDPH</bold> va aussi étudier ces demandes."
+            },
+            {
+              "text": "Quand la <bold>MDPH</bold> reconnaît un handicap, elle reconnaît un taux d’incapacité. Si j’ai un taux d'incapacité de 50% ou de 80% j’ai le droit à des aides particulières."
+            },
+            {
+              "text": "<h3>Quels sont les aides que je peux avoir ?</h3>"
+            },
+            {
+              "text": "Les droits et aides proposés par la <bold>MDPH</bold> peuvent être :"
+            },
+            {
+              "text": "<bold>- La reconnaissance de la qualité de travailleur handicapé</bold> permettant d’obtenir le droit à un accompagnement spécifique dans la recherche d’emploi et une adaptation du poste de travail"
+            },
+            {
+              "text": "<bold>- L’Allocation aux Adultes Handicapés (AAH)</bold>, correspondant à une aide financière calculée en fonction des ressources (903,6€ par mois maximum) pour les personnes ayant un taux d’incapacité reconnu de plus de 80% ou pour les personnes ayant un taux d’incapacité de plus de 50% avec une difficulté d’accès à l’emploi reconnu."
+            },
+            {
+              "text": "<bold>- Une Prestation de Compensation du Handicap (PCH)</bold> permettant d’obtenir des aides dans la vie quotidienne"
+            },
+            {
+              "text": "<bold>- Une orientation vers une structure d’hébergement médicalisée</bold> si cela est nécessaire"
+            },
+            {
+              "text": "- Ect."
+            },
+            {
+              "text": "<warning><bold>Attention :</bold> Je n’ai pas besoin d’avoir un titre de séjour pour être reconnu en situation de handicap. Attention, par contre, j’ai besoin d’un titre de séjour pour obtenir les aides proposées par la <bold>MPDH</bold>."
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Comment faire pour avoir une couverture maladie si je suis originaire d'un pays étranger qui n'est pas dans l'Union Européenne ?",
+          "text": [
+            {
+              "text": "Si je suis étranger et que j’ai la nationalité d’un pays qui n’est pas dans l’Union Européenne, la couverture maladie à laquelle j’ai le droit dépend de ma situation et de ma durée de présence sur le territoire français."
+            },
+            {
+              "text": "<bold>Si je suis en situation régulière sur le territoire français, réfugié ou bénéficiaire de la protection subsidiaire</bold>, je peux bénéficier de la <bold>Protection Universelle Maladie (PUMa)</bold> et sous conditions de ressources de la <bold>Complémentaire Santé Solidaire (CSS)</bold> :"
+            },
+            {
+              "text": "- si je suis mineur non accompagné par mes parents et pris en charge par l’aide sociale à l’enfance <bold>(ASE)</bold>;\n- si j’ai un travail déclaré en France ;\n- si je rejoins ma famille au titre du regroupement ou de la réunification familiale;\n- si je suis étudiant ;\n- si je suis demandeur d’asile et que je suis en France depuis plus de trois mois ;\n- si je réside en France depuis plus de trois mois."
+            },
+            {
+              "text": "Si je ne remplis pas ces conditions, que je n’ai pas de visa de court séjour, mais que je suis en situation régulière sur le territoire français, <bold>mes enfants de moins de 18 ans peuvent bénéficier de la PUMa et de la Complémentaire Santé Solidaire sans attendre que je puisse en bénéficier</bold>."
+            },
+            {
+              "text": "Si je demande ma première affiliation à la <bold>PUMa</bold>, je dois adresser à la <bold>Caisse Primaire d’Assurance Maladie</bold> de mon département un formulaire dédié. Si je travaille, c’est mon employeur qui se charge de la demande d’affiliation. Si je suis étudiant, je m'inscris à l’<bold>Assurance Maladie</bold> lors de mon inscription à l’université ou à mon école."
+            },
+            {
+              "text": "La <bold>PUMa</bold> ne couvre pas l’intégralité de mes frais de santé, sauf exceptions notamment si je souffre d’une <a>Affection de Longue Durée</a>. Si je n’ai pas les moyens d’avoir une complémentaire santé je peux bénéficier de la <bold>Complémentaire Santé Solidaire</bold> qui me permet de bénéficier d’une prise en charge à 100% de la plupart de mes frais de santé, soit gratuitement soit contre une participation de 8 à 30€ selon mon âge, en fonction de mes revenus.",
+              "url": {
+                "external": "https://www.ameli.fr/val-de-marne/assure/droits-demarches/maladie-accident-hospitalisation/affection-longue-duree-ald/affection-longue-duree-ald#:~:text=Une%20affection%20de%20longue%20dur%C3%A9e%20non%20exon%C3%A9rante%20est,de%20cette%20pathologie%20sont%20rembours%C3%A9s%20aux%20taux%20habituels."
+              }
+            },
+            {
+              "text": "Je peux vérifier si j’ai le droit à la <bold>Complémentaire Santé Solidaire</bold> sur le <a>simulateur de droits de l’Assurance Maladie</a>. Je dois renouveler ma demande tous les ans, si je bénéficie du <bold>RSA</bold> ou de l’<bold>ASPA</bold> (minimum vieillesse) ma demande est automatiquement renouvelée."
+            },
+            {
+              "text": "<bold>Si je suis affilié à la PUMa et que je perds mon titre de séjour ou que je suis débouté de ma demande d’asile</bold>, je peux toujours bénéficier de la PUMa et de la CSS durant 6 mois après la date d’expiration de mon titre de séjour ou de mon attestation de demande d’asile. Je pourrai ensuite faire une demande d’Aide Médicale d’Etat (au plus tôt 45 jours avant la fin de mes droits PUMa et CSS)."
+            },
+            {
+              "text": "<bold>Si j’ai un visa de court séjour</bold>, je ne peux pas bénéficier de la couverture maladie française et mes enfants ne peuvent pas non plus en bénéficier. C’est l’assurance du visa ou la sécurité sociale de mon pays d’origine qui doit prendre en charge mes frais de santé et ceux de mes enfants."
+            },
+            {
+              "text": "<warning><bold>Attention :</bold> Je n’ai pas besoin d’avoir un titre de séjour pour être reconnu en situation de handicap. Attention, par contre, j’ai besoin d’un titre de séjour pour obtenir les aides proposées par la <bold>MPDH</bold>."
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "C'est quoi l'AME ?",
+          "text": [
+            {
+              "text": "L’Aide Médicale d’Etat (AME) est une aide permettant la prise en charge à 100% de certains frais de santé pour les personnes qui ne peuvent pas bénéficier d’une autre couverture maladie. Les personnes bénéficiaires de l’Aide Médicale d’Etat bénéficient du tiers payant et n’ont pas à avancer leurs frais de santé."
+            },
+            {
+              "text": "Pour bénéficier de l’AME, je dois pouvoir justifier :"
+            },
+            {
+              "text": "- mon identité et celles des autres personnes (enfants, conjoints) pour lesquelles la demande est formulée ;\n- de ma présence stable, ininterrompue et en situation irrégulière au regard du droit au séjour sur le territoire français depuis au moins trois mois ;\n- d’avoir des ressources inférieures au plafond déterminé par décret."
+            },
+            {
+              "text": "Pour effectuer ma première demande d’Aide Médicale d’Etat, je dois remplir le formulaire de demande et me déplacer à la <bold>CPAM</bold> du département où je vis pour déposer ma demande, sauf si je suis hospitalisé ou que c’est l’hôpital qui fait ma demande. Je dois renouveler tous les ans ma demande, je peux alors l’envoyer par courrier postal ou mon travailleur social peut l’envoyer par internet."
+            },
+            {
+              "text": "<warning><bold>Attention :</bold> l’Aide Médicale d’Etat ne prend pas en charge certaines prestations (indiquées sur la carte <bold>AME</bold>) et ne prend pas en charge les dépassements d’honoraires. Il est donc conseillé aux bénéficiaires de l’<bold>AME</bold> de consulter auprès de professionnels conventionnés secteur 1."
+            },
+            {
+              "text": "<warning><bold>Attention :</bold> Les professionnels de santé ont l’obligation d’accepter toutes les formes de couvertures maladie. Si un professionnel de santé refuse un rendez-vous au prétexte que vous avez l’<bold>AME</bold> c’est illégal et cela peut être signalé via l’observatoire du refus de soins de la <bold>Fédération des acteurs de la solidarité</bold> ou au <bold>Défenseur des Droits</bold> ou encore au <bold>médiateur de la Caisse Primaire d’Assurance Maladie</bold> du département d’exercice du professionnel."
+            }
+          ]
+        }
+      ]
+    },
+    "home": {
+      "home": "Logement",
+      "sectionTitle": "Questions sur le logement",
+      "questions": [
+        {
+          "id": 0,
+          "title": "Comment faire pour avoir un logement en résidence sociale ou pension de famille ? ",
+          "text": [
+            {
+              "text": "<bold>Si j’ai peu de ressources financières et ne peut accéder tout de suite au logement, je peux faire une demande de Résidence Sociale.</bold>"
+            },
+            {
+              "text": "Les Résidences Sociales sont des logements temporaires où je peux rester pendant 2 ans et bénéficier, sous conditions, d’un accompagnement social."
+            },
+            {
+              "text": "Les Pensions de Famille sont un type particulier de résidence sociale, à destination des personnes ayant vécu de longs parcours d’errance. La durée de séjour n’est pas limitée."
+            },
+            {
+              "text": "<bold>Pour accéder à une résidence sociale je peux :</bold>"
+            },
+            {
+              "text": "- Faire une demande directement auprès de la structure qui m’intéresse (je peux par exemple consulter les sites de l’<bold>Adef</bold> ou d’<bold>Adoma</bold>) ;"
+            },
+            {
+              "text": "- Si je suis hébergé ou à la rue je peux faire avec mon travailleur social une demande auprès du SIAO ;"
+            },
+            {
+              "text": "- Je peux faire une demande avec un travailleur social de ma commune."
+            },
+            {
+              "text": "- Si je suis salarié d’une entreprise de plus de 10 salariés je peux faire une demande via mon employeur par <a>Action Logement</a>.",
+              "url": {
+                "external": "https://www.actionlogement.fr"
+              }
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "Comment faire si je suis menacé d'expulsion ?",
+          "text": [
+            {
+              "text": "<bold>Si j’ai un ou plusieurs mois de loyer en retard</bold>, je peux contacter un travailleur social pour obtenir des aides pour payer mon loyer. Mon travailleur social peut également m’aider à trouver des solutions avec mon propriétaire pour empêcher l’expulsion."
+            },
+            {
+              "text": "Mon propriétaire n’a pas le droit de me mettre dehors ni de faire venir la police tant que le juge n’a pas décidé de mon expulsion locative."
+            },
+            {
+              "text": "<bold>Si mon propriétaire a saisi le juge qui a décidé de mon expulsion</bold>, je peux faire un recours DALO pour être reconnu prioritaire pour l’accès au logement social."
+            },
+            {
+              "text": "Si je ne quitte pas les lieux, un huissier vient à mon domicile constater que j’y suis encore. Le juge peut alors décider de faire venir la police pour m’expulser de mon logement. Tant que je n’ai pas reçu la décision du juge autorisant la police à venir la police ne peut pas venir m’expulser."
+            },
+            {
+              "text": "<tip><bold>Astuce : Si je souhaite être informé ou aidé dans mes démarches relatives à la procédure d’expulsion</bold>, je peux appeler le numéro prévention expulsion de la Fondation Abbé Pierre : <bold>Allo prévention expulsion :</bold>"
+            },
+            {
+              "text": "<phone>0810 001 505"
+            },
+            {
+              "text": "Je peux me faire aider dans ces démarches par un travailleur social ou par la permanence ADIL de mon département. La liste des ADIL est disponible sur <a>le site de l’ANIL</a> et sur soliguide.",
+              "url": {
+                "external": "https://www.anil.org/lanil-et-les-adil/votre-adil/"
+              }
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Comment faire pour avoir un logement social ?",
+          "text": [
+            {
+              "text": "Si je suis en situation régulière vis-à-vis du droit au séjour, la première étape pour l’accès à un logement pérenne est la demande de logement social. Je peux faire une demande de logement social si je suis logé, hébergé, mal logé où bien à la rue."
+            },
+            {
+              "text": "Je peux faire ma demande de logement social en ligne, auprès de la mairie de mon lieu de résidence ou auprès d’un bailleur social."
+            },
+            {
+              "text": "Je peux me faire aider pour remplir ma demande par un travailleur social."
+            },
+            {
+              "text": "<warning><bold>Attention : Je dois actualiser ma demande dès que ma situation change</bold> (revenu, composition familiale par exemple) et la renouveler tous les ans à la date anniversaire (même si j’ai eu une proposition de logement, ou que j’ai effectué d’autres démarches)."
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Comment faire si mon logement actuel est insalubre ?",
+          "text": [
+            {
+              "text": "Si je loue un logement insalubre (humidité, plomb, électricité etc.) qui est dangereux pour ma santé, je peux obliger mon propriétaire à faire des travaux de mise aux normes."
+            },
+            {
+              "text": "Je dois faire une demande à la mairie pour déclarer mon logement insalubre. Pour cela :"
+            },
+            {
+              "text": "<bold>1.</bold> J’envoie un recommandé à mon propriétaire pour lui demander de faire des travaux"
+            },
+            {
+              "text": "<bold>2.</bold> En cas de non-réponse ou de refus de celui-ci, je m’adresse à ma mairie pour signaler mon logement comme un habitat insalubre. Un inspecteur de la commune viendra alors évaluer l’insalubrité du logement et pourra éventuellement contraindre mon propriétaire à des travaux."
+            },
+            {
+              "text": "Si mon logement est déclaré insalubre, je peux à ce motif faire un <bold>recours DALO</bold> pour être prioritaire pour accéder au logement social."
+            },
+            {
+              "text": "Je peux me faire aider dans ces démarches par un travailleur social] ou par la permanence <bold>ADIL</bold> de mon département. La liste des ADIL est disponible sur le site de l’<bold>ANIL</bold>."
+            },
+            {
+              "text": "<warning><bold>Attention :</bold> Je ne peux pas suspendre le paiement de mon loyer par moi-même pour cause d’insalubrité. Cela nécessite la publication d’un arrêté interdisant d’habiter dans les lieux. Le paiement du loyer (même partiel) me protège de l’expulsion."
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Comment faire pour avoir un logement si je suis étudiant ?",
+          "text": [
+            {
+              "text": "Je peux bénéficier d’un logement social via le Centre Régional des Œuvres Universitaires et Scolaires (CROUS). La demande se fait en ligne via la plateforme : messervicestudiant.gouv.fr. Je peux également m’adresser à un assistant social du CROUS sur mon lieu d’étude."
+            },
+            {
+              "text": "Si je suis à la rue ou que je n’ai pas de titre de séjour, je peux faire une demande d’hébergement."
+            },
+            {
+              "text": "Je peux également faire une demande dans un Foyer Jeunes Travailleurs ou une Résidence Jeunes actifs."
+            }
+          ]
+        }
+      ]
+    },
+    "job": {
+      "job": "Emploi et formation",
+      "sectionTitle": "Questions sur les emplois et formations :",
+      "questions": [
+        {
+          "id": 0,
+          "title": "Comment faire pour être accompagné dans ma recherche d'emploi si j'ai plus de 26 ans ? ",
+          "text": [
+            {
+              "text": "Si je suis demandeur d’emploi de plus de 26 ans, je m’inscris à l’agence <bold>Pôle Emploi</bold> de chez moi dans mon département (celui où je vis ou celui où je suis domicilié). Je peux également m’inscrire en ligne sur le site de <bold>Pôle Emploi</bold>."
+            },
+            {
+              "text": "Lorsque je suis inscrit comme demandeur d’emploi auprès de <bold>Pôle Emploi</bold> je peux bénéficier :"
+            },
+            {
+              "text": "- D’un accompagnement dans la définition de mon projet professionnel"
+            },
+            {
+              "text": "- D’une orientation vers des dispositifs de formation"
+            },
+            {
+              "text": "- D’une possibilité de faire des stages en entreprise"
+            },
+            {
+              "text": "- D’une information sur les offres d’emploi"
+            },
+            {
+              "text": "- D’une orientation vers une Structure d’Insertion par l’Activité Économique où je pourrais bénéficier d’un contrat de travail et d’un accompagnement social et professionnel"
+            },
+            {
+              "text": "- D’aides financières et d’une rémunération pour certaines périodes de formation que j’effectue dans le cadre de ma recherche d’emploi."
+            },
+            {
+              "text": "En <bold>SPADA</bold> on me donnera un rendez-vous au Guichet Unique pour Demandeurs d’Asile pour enregistrer ma demande d’asile. A ce moment la Préfecture nommera l’”administrateur ad hoc” pour me représenter."
+            },
+            {
+              "text": "<tip><bold>Astuce :</bold> Si j’ai déjà travaillé en France et cotisé pour l’assurance chômage, <bold>Pôle Emploi</bold> s’assure du suivi du versement de mes allocations chômage et de mon accompagnement dans ce cadre. Si j’ai moins de 26 ans ou que je suis en situation de handicap et que j’ai droit à des allocations chômage, je dois m’inscrire auprès de <bold>Pôle Emploi</bold> pour les percevoir mais je peux m’inscrire en même temps auprès de la <bold>Mission Locale</bold> ou de <bold>CAP</bold> emploi pour en bénéficie"
+            },
+            {
+              "text": "Si je souhaite recevoir des informations dans le cadre de ma recherche d’emploi je peux me rendre dans l’un des lieux d’information sur l’emploi et la formation cartographiés par <a>Défi Métiers<a>.",
+              "url": {
+                "external": "https://www.defi-metiers.fr/oaio/aio/recherchemap"
+              }
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "Comment faire pour être accompagné dans ma recherche d'emploi si j'ai moins de 26 ans ? ",
+          "text": [
+            {
+              "text": "Si j’ai moins de 26 ans et que je souhaite être accompagné dans mon projet professionnel je m'inscris à la <bold>Mission Locale</bold>."
+            },
+            {
+              "text": "La <bold>Mission Locale</bold> peut m’accompagner à définir un projet professionnel et à trouver un emploi ou une formation qui corresponde à ce projet. Je m’inscris dans la mission locale la plus proche de chez moi dans mon département (celui où je vis ou celui où je suis domicilié)."
+            },
+            {
+              "text": "Si la réalisation de mon projet professionnel nécessite que je suive des périodes de formations ou de stage non rémunérés, la <bold>Mission Locale</bold> peut me permettre de bénéficier d’une aide financière. En contrepartie de cette aide, je m’engage à suivre des périodes de formation, de recherche d’emploi ou encore de stage en fonction du projet défini avec mon conseiller <bold>Mission Locale</bold>."
+            },
+            {
+              "text": "<tip><bold>Astuce :</bold> Je peux bénéficier d’une aide financière, en fonction des mes revenus et de la décision de mon conseiller <bold>Mission Locale</bold> : Jusqu’à 497,01 € par mois si j’entre dans le programme <bold>Garantie Jeune</bold> ; Jusqu’à 1491€ sur 3 à 6 mois si je suis des formations linguistiques dans le cadre d’un Parcours d’Intégration par l’Acquisition de la Langue ;"
+            },
+            {
+              "text": "La <bold>Mission Locale</bold> peut également m’orienter vers une Structure d’Insertion par l’Activité Economique où je pourrais bénéficier d’un contrat de travail et d’un accompagnement social et professionnel si je rencontre des difficultés particulières pour accéder à l’emploi."
+            },
+            {
+              "text": "<tip><bold>Astuce :<bold> Si j’ai le droit à des indemnités chômage de la part de <bold>Pôle Emploi</bold>, je peux être inscrit à la fois à <bold>Pôle Emploi</bold> et à la mission locale pour avoir un accompagnement adapté à ma situation."
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Comment faire si je veux apprendre le français ?",
+          "text": [
+            {
+              "text": "Il existe de nombreuses formations qui me permettent d’apprendre le français. Je peux apprendre le français :"
+            },
+            {
+              "text": "- Au sein de cours de français ou d’ateliers <bold>socio-linguistiques</bold> proposés par les communes ou les associations"
+            },
+            {
+              "text": "- Au sein d’<bold>ateliers de conversation</bold> proposés par les bibliothèques"
+            },
+            {
+              "text": "- Dans le cadre de <bold>programmes spécifiques d’apprentissages du français</bold>. Par exemple :"
+            },
+            {
+              "text": "\t\t・<bold>Si je suis parent d’élève</bold>, je peux bénéficier du programme Ouvrir l'École aux Parents pour la Réussite des Enfants (quelle que soit ma situation administrative si j’ai des enfants scolarisés)"
+            },
+            {
+              "text": "\t\t・<bold>Si j’ai une autorisation de travail</bold>, dans le cadre de formations de français à visée professionnel ou d’une formation professionnelle"
+            },
+            {
+              "text": "\t\t・<bold>Si je suis réfugié ou bénéficiaire de la Protection Subsidiaire</bold> je peux bénéficier d’une formation linguistique au sein de programmes spécifiques."
+            },
+            {
+              "text": "\t\t・<bold>Si j’obtiens mon premier titre de séjour</bold>, je serai convoqué par l’OFII pour signer le Contrat d’Intégration Républicaine (CIR). Dans ce cadre, si je ne maîtrise par le français l’OFII pourra me prescrire des cours de français que je devrais suivre obligatoirement (200 à 600h) ;"
+            },
+            {
+              "text": "Réseau alpha et la cartographie linguistique de Défi Métiers recensent l’offre de formation en français en Ile-de-France, et Soliguide en Île-de-France, à Bordeaux, Nice, Nantes et Strasbourg. Dans toute la France, la cartographie de l'inter Carif-Oref recense l'offre de formation linguistique.  "
+            },
+            {
+              "text": "<warning><bold>Attention :</bold> Pour certaines formations il faut être en situation régulière."
+            }
+          ]
+        }
+      ]
+    },
+    "minors": {
+      "minors": "Mineur non accompagné",
+      "sectionTitle": "Questions sur les mineurs non accompagnés :",
+      "questions": [
+        {
+          "id": 0,
+          "title": "Comment faire pour être protégé par l'Aide sociale à l'enfance ?",
+          "text": [
+            {
+              "text": "<bold>Si j’ai moins de 18 ans et seul sans ma famille en France</bold>, j’ai le droit à la protection de l’aide sociale à l’enfance. Pour bénéficier d’une prise en charge, d’un hébergement et d’aide de la part de l’aide sociale à l’enfance je dois me signaler auprès du département dans lequel je suis, des services évalueront ma situation pour savoir si j’ai bien moins de 18 ans :"
+            },
+            {
+              "text": "En Ile-de-France :"
+            },
+            {
+              "text": "- <bold>Si je suis à Paris</bold> je dois me rendre au DEMIE 5 rue du Moulin Joly 75011."
+            },
+            {
+              "text": "<phone>01.58.30.14.50"
+            },
+            {
+              "text": "<phone>01.82.46.81.42"
+            },
+            {
+              "text": "- <bold>Si je suis dans le Val de Marne</bold>, je me rends à la PEOMIE à Créteil 6 rue Albert Einstein 94000 Créteil du lundi au Vendredi 9h30-17h30, joignable au"
+            },
+            {
+              "text": "<phone>01.42.07.09.02"
+            },
+            {
+              "text": "- <bold>Si je suis dans un autre département</bold>, je me signale auprès des services de l’Aide Sociale à l’Enfance du département."
+            },
+            {
+              "text": "<tip><bold>Astuce :</bold> J’ai le droit à être hébergé durant toute la durée de l’évaluation de ma minorité par le Conseil Départemental."
+            },
+            {
+              "text": "Si je suis pris en charge par l’ASE, j’ai le droit jusqu’à ma majorité à un hébergement, à un accompagnement par un travailleur social et à être scolarisé. J’ai le droit également à bénéficier d’une couverture maladie pour me soigner."
+            },
+            {
+              "text": "Si le département estime que je suis majeur, je peux faire un recours devant le juge pour faire valoir ma minorité et être pris en charge par l’ASE. Pour être accompagnée dans mon recours je peux solliciter l’aide d’associations."
+            },
+            {
+              "text": "Les services du département doivent me donner un courrier qui mentionne le fait que je suis considéré comme majeur. Je peux alors solliciter un hébergement auprès du 115."
+            },
+            {
+              "text": "Durant le recours, je ne suis pas hébergé par l’aide sociale à l’enfance."
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "title": "C'est quoi les droits des Mineur Non Accompagné (MNA) ?",
+          "text": [
+            {
+              "text": "Je suis mineur si j’ai moins de 18 ans. Si je suis mineur et qu’aucun membre majeur de ma famille (parents ou personne sous la responsabilité de laquelle je suis placé) n’est en France, avec moi je dois demander à être protégé par l’Aide Sociale à l’Enfance (ASE), ce qui me permettra d’avoir accès à un hébergement, de l’aide et un accompagnement."
+            },
+            {
+              "text": "Si je suis en danger, je peux appeler le 119 : Allô Enfance en Danger pour demander de l’Aide."
+            },
+            {
+              "text": "Quand je suis mineur en France :"
+            },
+            {
+              "text": "- J’ai le droit à la protection de l’aide sociale à l’enfance si je suis non accompagné par mes parents ou un membre de ma famille qui me protège ou si je suis en danger dans ma famille ;"
+            },
+            {
+              "text": "- J’ai le droit d’aller à l’école, jusqu’à mes 18 ans. C’est une obligation d’être à l’école ou dans une formation professionnelle ;"
+            },
+            {
+              "text": "- Je n’ai pas le droit de travailler avant 16 ans ;"
+            },
+            {
+              "text": "- J’ai le droit à une protection maladie qui me permet de voir un médecin, d’aller à l’hôpital ou d’acheter des médicaments.;"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Comment faire pour obtenir des papiers si j'étais mineur non accompagné (MNA) et pris en charge par l'Aide Sociale à l'Enfance ?",
+          "text": [
+            {
+              "text": "Si je suis protégé par l’Aide Sociale à l’Enfance, que je suis étranger et que je veux rester en France à ma majorité, j’ai besoin d’un titre de séjour."
+            },
+            {
+              "text": "\t\t・Si je suis en danger dans mon pays d’origine, je peux faire une demande d’asile. Si je suis en France depuis plus de 3 mois, ma demande se fera en procédure accélérée."
+            },
+            {
+              "text": "\t\t・Si j’ai été protégé par l’ASE avant d’avoir 16 ans et que je souhaite travailler, je peux bénéficier d’une carte de séjour temporaire d’un an « de plein droit »; cela veut dire que la Préfecture n’a pas le droit de me la refuser. Je peux ensuite demander à renouveler ma carte de séjour."
+            },
+            {
+              "text": "\t\t・️ Si j’ai été protégé par l’ASE après mes 16 ans et que je suis une formation professionnelle depuis au moins 6 mois, je peux demander entre mes 18 et mes 19 ans une carte de séjour temporaire d’un an « salarié » ou « travailleur temporaire ». La Préfecture n’est pas obligée de me donner la carte de séjour et a le droit de refuser selon les éléments de mon dossier. Je peux me faire aider pour constituer mon dossier. Je peux ensuite demander à renouveler ma carte de séjour."
+            },
+            {
+              "text": "\t\t・️ Si je suis des études à l’Université ou dans une école d’enseignement supérieur, je peux faire une demande de titre de séjour « étudiant » pour une durée d’un an. La Préfecture n’est pas obligée de me l’accorder. Je peux ensuite demander à renouveler ma carte de séjour."
+            },
+            {
+              "text": "- <bold>Si je ne suis dans aucune des situations précédentes</bold>, je peux me faire aider pour faire une demande de titre de séjour en fonction de ma situation particulière par une association qui propose des permanences juridiques en droit des étrangers. Attention, la Préfecture peut refuser de me donner un titre de séjour."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

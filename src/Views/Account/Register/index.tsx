@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import React from "react";
-
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-native";
 
 import RegisterIllustration from "./registerIllustation";
@@ -13,31 +11,32 @@ import FormPageTemplate from "~/Views/Account/FormPageTemplate";
 
 export default function Register(): JSX.Element {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const Image = <RegisterIllustration />;
 
   const FormComponent = (
     <>
       <Form
-        title="S'inscrire"
-        submitCtaLabel="S'inscrire"
+        title={t("common.register")}
+        submitCtaLabel={t("common.register")}
         items={[
           {
             placeholder: "John Doe",
-            label: "Identifiant",
+            label: t("forms.identifier"),
             name: "ID",
             required: true,
             type: "text"
           },
           {
             placeholder: "johndoe@gmail.com",
-            label: "Adresse Mail",
+            label: t("forms.emailAdress"),
             name: "email",
             required: true,
             type: "email"
           },
           {
-            label: "Téléphone",
+            label: t("forms.phone"),
             name: "tel",
             type: "tel",
             defaultValue: ""
@@ -64,18 +63,16 @@ export default function Register(): JSX.Element {
             type: "text"
           }, */
           {
-            label: "Votre mot de passe",
+            label: t("forms.password"),
             name: "password",
             type: "password",
             required: true,
             checkPwd: true,
-            bottomText:
-              "Doit contenir 8 caractères avec une majuscule et un chiffre"
+            bottomText: t("forms.passwordCharactersPrompt")
           },
           {
             type: "checkbox",
-            label:
-              "J'ai lu et j'accepte les conditions générales d'utilisation",
+            label: t("forms.iReadAndAcceptPrompt"),
             forceChecked: false,
             name: "consent",
             required: true
@@ -84,11 +81,11 @@ export default function Register(): JSX.Element {
       />
       <BottomText>
         <Text color="black40" textAlign="center" type="small">
-          Vous avez déja un compte?
+          {t("forms.alreadyHaveAnAccount")}
         </Text>
       </BottomText>
       <Button
-        text="Se connecter"
+        text={t("common.login")}
         type="tertiary"
         onPress={() => navigate("/login")}
       />
@@ -97,7 +94,7 @@ export default function Register(): JSX.Element {
 
   return (
     <PageContentWrapper>
-      <FormPageTemplate image={Image} form={FormComponent} />
+      <FormPageTemplate image={Image} form={FormComponent} backArrow={true} />
     </PageContentWrapper>
   );
 }

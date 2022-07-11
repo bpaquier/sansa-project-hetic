@@ -1,33 +1,56 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
 import { useFonts } from "expo-font";
+import i18next from "i18next";
+import { PressableProps } from "react-native";
 
 import { TextContainer } from "./styles";
+import { useGlobalContext } from "~/Contexts/globalContext";
 
-export interface TextComponentProps {
-  type?: "titleXL" | "titleL" | "titleM" | "paragraph" | "small";
-  weight?: "bold" | "regular" | "medium";
-  color?:
-    | "black"
-    | "white"
-    | "orange"
-    | "blue"
-    | "grey"
-    | "darkBlue"
-    | "black40"
-    | "black20"
-    | "red";
-  children?: React.ReactNode | ReactNode[];
-  textAlign?: "left" | "center" | "right";
+export type TextTypeProps =
+  | "titleXL"
+  | "titleL"
+  | "titleM"
+  | "paragraph"
+  | "small";
+export type TextWeightProps = "bold" | "regular" | "medium";
+export type TextColorsProps =
+  | "black"
+  | "white"
+  | "orange"
+  | "blue"
+  | "grey"
+  | "darkBlue"
+  | "black40"
+  | "black20"
+  | "black60"
+  | "red"
+  | "success"
+  | "warning";
+
+export type TextAlignementProps = "left" | "center" | "right";
+export interface TextComponentProps extends PressableProps {
+  customColor?: string;
+  onLayout?: (e: any) => void;
+  type?: TextTypeProps;
+  weight?: TextWeightProps;
+  color?: TextColorsProps;
+  textAlign?: TextAlignementProps;
+  underline?: boolean;
 }
 
 const TextComponent = ({
   type,
-  children,
   color,
   weight,
-  textAlign = "left"
+  textAlign = "left",
+  customColor,
+  onLayout,
+  underline,
+  children,
+  ...props
 }: TextComponentProps) => {
+  const { language } = i18next;
   const [loaded] = useFonts({
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     Helvetica: require("~/../assets/fonts/HelveticaNeueCyr.ttf"),
@@ -37,12 +60,28 @@ const TextComponent = ({
     HelveticaBold: require("~/../assets/fonts/HelveticaNeueCyr-Bold.ttf")
   });
 
+  const { isMobile } = useGlobalContext();
+
   if (!loaded) {
     return null;
   }
 
   return (
-    <TextContainer {...{ type, weight, color, textAlign }}>
+    <TextContainer
+      {...{
+        type,
+        isMobile,
+        weight,
+        color,
+        customColor,
+        onLayout,
+        textAlign:
+          textAlign === "left" && language === "ar-SA" ? "right" : textAlign,
+        ...props
+      }}
+      underline={underline}
+      isMobile={isMobile}
+    >
       {children}
     </TextContainer>
   );

@@ -10,8 +10,8 @@ export interface HistoryProps {
 
 export default function History({
   color = theme?.color?.neutral?.black40,
-  width = theme?.size?.icon?.system,
-  height = theme?.size?.icon?.system
+  width = theme?.sizes?.icon?.system,
+  height = theme?.sizes?.icon?.system
 }: HistoryProps): JSX.Element {
   return (
     <Svg width={width} height={height} viewBox="0 0 24 24" fill={color}>

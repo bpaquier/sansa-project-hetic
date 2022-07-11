@@ -8,16 +8,21 @@ const { color, grid } = theme;
 
 interface SeparatorStyleProps extends SeparatorProps {
   isMobile?: boolean;
+  backgroundColor?: "blue";
 }
 
 export const StyledView = styled.View`
-  background-color: ${({ theme }: SeparatorProps) => {
-    switch (theme) {
-      case "dark":
-        return color?.neutral?.black10;
-      case "light":
-      default:
-        return color?.primary?.white;
+  background-color: ${({ theme, customColor }: SeparatorProps) => {
+    if (customColor) {
+      return customColor;
+    } else {
+      switch (theme) {
+        case "dark":
+          return color?.neutral?.black10;
+        case "light":
+        default:
+          return color?.primary?.white;
+      }
     }
   }};
   height: ${({ orientation, height }: SeparatorProps) => {
@@ -29,15 +34,23 @@ export const StyledView = styled.View`
         return "1px";
     }
   }};
-  width: ${({ orientation, columnWidth, isMobile }: SeparatorStyleProps) => {
+  width: ${({
+    orientation,
+    width,
+    columnWidth,
+    isMobile
+  }: SeparatorStyleProps) => {
     switch (orientation) {
       case "vertical":
         return "1px";
       case "horizontal":
       default:
-        return getColumnWidth(
-          columnWidth ? columnWidth : grid?.columns / 2,
-          isMobile ? isMobile : true
+        return (
+          width ||
+          `${getColumnWidth(
+            columnWidth ? columnWidth : grid?.columns / 2,
+            isMobile ? isMobile : true
+          )}px`
         );
     }
   }};

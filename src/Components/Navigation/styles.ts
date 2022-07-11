@@ -85,7 +85,7 @@ export const NavBorne = styled.View`
   position: absolute;
   bottom: ${grid.borneGutter}px;
   top: ${grid.borneGutter}px;
-  width: ${getColumnWidth(2, false)};
+  width: ${getColumnWidth(2, false)}px;
   left: ${grid.borneGutter}px;
   justify-content: space-around;
   background-color: grey;

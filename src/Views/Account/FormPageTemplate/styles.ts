@@ -1,8 +1,8 @@
 import styled from "styled-components/native";
 
 import { getColumnWidth } from "~/Styles/mixins.styles";
-import Theme from "~/Styles/theme.styles";
-const { sizes, color, shape } = Theme;
+import theme from "~/Styles/theme.styles";
+const { sizes, color, shape } = theme;
 
 export const PageWrapper = styled.View`
   width: 100%;
@@ -25,13 +25,30 @@ export const PageContent = styled.View`
 
 export const PageContentBorne = styled.View`
   border-radius: ${shape?.radius?.input}px;
-  width: ${getColumnWidth(21, false)};
+  width: ${getColumnWidth(21, false)}px;
   background-color: ${color?.primary?.white};
-  margin-left: ${getColumnWidth(3, false)};
-  padding: ${getColumnWidth(1, false)};
+  margin-left: ${getColumnWidth(3, false)}px;
+  padding: ${getColumnWidth(1, false)}px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const BackButtonMobile = styled.TouchableOpacity`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+`;
+
+export const BackButtonBorne = styled.TouchableOpacity`
+  position: absolute;
+  top: ${getColumnWidth(1, false)};
+  left: ${(
+    parseFloat(getColumnWidth(0.5, false)) -
+    theme.sizes.icon.system / 2
+  ).toString() + "px"};
+  z-index: 1;
 `;
 
 export const ImageWrapperMobile = styled.View`
@@ -44,8 +61,8 @@ export const ImageWrapperMobile = styled.View`
 export const ImageWrapperBorne = styled.View`
   align-items: center;
   justify-content: flex-start;
-  aspect-ratio: 1;
   width: ${getColumnWidth(10, false)};
+  max-height: 480px;
   margin-left: ${getColumnWidth(2, false)}; ;
 `;
 

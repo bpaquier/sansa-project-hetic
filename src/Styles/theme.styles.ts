@@ -10,7 +10,8 @@ const theme = {
       orangeLight: `#FFB678`,
       orangeDark: `#CF7D38`,
       paper: `#F7F3EA`,
-      white: `#FBFBFB`
+      white: `#FBFBFB`,
+      yellow: `#FFD200`
     },
     semantic: {
       success: `#D4EDDA`,
@@ -32,7 +33,11 @@ const theme = {
       black40: `#808080`,
       black20: `#AEAEAE`,
       black10: `#D6D6D6`,
-      black5: `#E8E8E8`
+      black5: `#E8E8E8`,
+      white80: `#F8F8F8`,
+      white60: `#F3F3F3`,
+      white40: `#F1F1F1`,
+      white20: `#EDEDED`
     },
     icon: {
       system: `#808080`,
@@ -52,14 +57,44 @@ const theme = {
       technology: `#233454`
     }
   },
-  size: {
+  sizes: {
+    breakPoint: 750,
+    mobilePageMarginBottom: 200,
     icon: {
       system: 24,
       categories: 16
+    },
+    bornContent: {
+      topBarHeight: 100,
+      tagsHeight: 50
+    },
+    navigation: {
+      mobileHeight: 100
     }
   },
   boxShadow: {
     panel: `0px 1px 4px rgba(0, 0, 0, 0.15)`,
+    panelAndroid: {
+      shadowColor: "#242424",
+      shadowOffset: {
+        width: 0,
+        height: 2
+      },
+      shadowOpacity: 0.2,
+      shadowRadius: 10,
+      elevation: 2
+    },
+    navigationAndroid: {
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 4
+      },
+      shadowOpacity: 0.32,
+      shadowRadius: 5.46,
+
+      elevation: 9
+    },
     overlay: `0px 4px 12px rgba(0, 0, 0, 0.1)`,
     popin: `0px 8px 24px rgba(0, 0, 0, 0.1)`
   },
@@ -69,7 +104,7 @@ const theme = {
     borneGutter: 32,
     mobileGutter: 20
   },
-  fontSize: {
+  fontSizes: {
     titleXL: "32px",
     titleL: "24px",
     titleM: "20px",
@@ -85,18 +120,15 @@ const theme = {
     radius: {
       input: 16,
       button: "36px",
-      checkbox: 4
+      checkbox: 4,
+      card: 8
     }
   },
-  spacing: (numerator: number) => `calc(${numerator} * 4);`,
+  spacing: (numerator: number) => `calc(${numerator} * 4)px;`,
   globalSpacing: {
     small: "32px",
     medium: "48px",
     large: "72px"
-  },
-  sizes: {
-    breakPoint: 800,
-    mobilePageMarginBottom: 200
   }
 };
 
