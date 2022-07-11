@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 import { useTranslation } from "react-i18next";
-import Carousel from "react-native-carousel-control";
-
-import Carousel2 from "react-native-snap-carousel";
+import { Dimensions } from "react-native";
+import Carousel from "react-native-snap-carousel";
 
 import Card from "./Card";
 import {
@@ -17,7 +16,6 @@ import Spinner from "~/Components/Icons/Spinner";
 import PositionIcon from "~/Components/Icons/System/Map/PositionMobile";
 import TextComponent from "~/Components/Ui-kit/Text";
 import { useSearchContext } from "~/Contexts/searchContext";
-import { Dimensions } from "react-native";
 
 export default function PlacesCarousel(): JSX.Element {
   const { t } = useTranslation();
@@ -68,7 +66,7 @@ export default function PlacesCarousel(): JSX.Element {
         )}
       {filteredPlaces && filteredPlaces?.length > 0 && !isFilterLoading && (
         <CarouselWrapper>
-          <Carousel2
+          <Carousel
             ref={carouselRef}
             data={filteredPlaces}
             renderItem={({ item, index }) => {
@@ -80,21 +78,6 @@ export default function PlacesCarousel(): JSX.Element {
             layoutCardOffset={3}
             onSnapToItem={(i) => setSelectedPlaceIndex(i)}
           />
-          {/* <Carousel
-            swipeThreshold={0.1}
-            currentPage={selectedPlaceIndex}
-            sneak={30}
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-            onPageChange={(index) => setSelectedPlaceIndex(index)}
-          >
-            {filteredPlaces?.map((place, i) => (
-              <Card
-                {...place}
-                index={i}
-                key={`${place?.organization_name}-${i}`}
-              />
-            ))}
-            </Carousel> */}
         </CarouselWrapper>
       )}
     </Wrapper>
