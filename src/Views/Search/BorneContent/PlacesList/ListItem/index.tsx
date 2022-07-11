@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { useTranslation } from "react-i18next";
+import { TouchableOpacity } from "react-native";
 
 import {
   ItemWrapper,
@@ -18,7 +19,6 @@ import Text from "~/Components/Ui-kit/Text";
 import { PlaceProps, useSearchContext } from "~/Contexts/searchContext";
 import useCurrentDay from "~/hooks/useCurrentDay";
 import theme from "~/Styles/theme.styles";
-import { TouchableOpacity } from "react-native";
 
 export interface ListItemProps extends PlaceProps {
   index?: number;
