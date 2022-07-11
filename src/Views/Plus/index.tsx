@@ -1,8 +1,10 @@
 import { useTranslation } from "react-i18next/";
+import { Dimensions, ScrollView } from "react-native";
 
 import {
   PageWrapperMobile,
-  PageWrapperBorne,
+  PageWrapperSmallBorne,
+  PageWrapperBigBorne,
   PlusContainersBorne,
   PlusContainersMobile,
   PagePlusBorneIllustrationWrapper,
@@ -25,6 +27,11 @@ const isConnected = true;
 export default function Plus(): JSX.Element {
   const { isMobile } = useGlobalContext();
   const { t } = useTranslation();
+  const isSmallBorne = Dimensions.get("window").width < 1200;
+
+  const PageWrapperBorne = (
+    isSmallBorne ? PageWrapperSmallBorne : PageWrapperBigBorne
+  ) as React.ElementType;
 
   const PageWrapper = (
     isMobile ? PageWrapperMobile : PageWrapperBorne
@@ -53,7 +60,7 @@ export default function Plus(): JSX.Element {
               {t("plus.plus")}
             </TextWrapper>
           )}
-          <TopContainers>
+          <TopContainers isFlex>
             <PlusContainers
               style={theme.boxShadow.panelAndroid}
               marginBottom

@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-native";
 import {
   ButtonsContainerMobile,
   ButtonsContainerBorne,
-  ButtonWrapperBorne
+  ButtonWrapperBorne,
+  ContainerDescription
 } from "./styles";
 import Button from "~/Components/Ui-kit/Button";
 import Text from "~/Components/Ui-kit/Text";
@@ -32,11 +33,11 @@ export default function SansaDescriptionNotConnected({
   ) as React.ElementType;
 
   return (
-    <>
+    <ContainerDescription isMobile={isMobile}>
       <TextWrapper
-        marginBottom={8}
         type="titleL"
         textAlign={isMobile ? "left" : "center"}
+        marginBottom={16}
       >
         {isMobile ? t("common.sansa").toUpperCase() : t("plus.whatIsSansa")}
       </TextWrapper>
@@ -48,7 +49,6 @@ export default function SansaDescriptionNotConnected({
         {t("plus.sansaDescription")}
       </Text>
       {!isMobile && <SansaBorneDescription />}
-
       <ButtonsContainer>
         <Button text={t("common.login")} onPress={() => navigate("/login")} />
         <ButtonWrapper>
@@ -59,6 +59,6 @@ export default function SansaDescriptionNotConnected({
           />
         </ButtonWrapper>
       </ButtonsContainer>
-    </>
+    </ContainerDescription>
   );
 }

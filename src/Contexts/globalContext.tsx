@@ -33,6 +33,7 @@ function GlobalProvider({ children }: GlobalProviderProps) {
   const [isMobile, setIsMobile] = useState<boolean>(
     Dimensions?.get("window").width < Theme?.sizes?.breakPoint
   );
+
   const [isMenuLanguagesOpen, setIsMenuLanguagesOpen] =
     useState<boolean>(false);
 

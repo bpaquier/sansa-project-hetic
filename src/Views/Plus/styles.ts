@@ -1,7 +1,8 @@
+import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 
 import { getColumnWidth } from "~/Styles/mixins.styles";
-import Theme from "~/Styles/theme.styles";
+import theme from "~/Styles/theme.styles";
 
 export type TextPlusWrapperProps = {
   marginTop?: number;
@@ -18,7 +19,7 @@ type PlusContainersProps = {
   paddingY?: number;
 };
 
-const { color, shape, sizes, grid } = Theme;
+const { color, shape, sizes, grid } = theme;
 
 export const PageWrapperMobile = styled.View`
   width: 100%;
@@ -28,25 +29,27 @@ export const PageWrapperMobile = styled.View`
   position: relative;
 `;
 
-export const PageWrapperBorne = styled.ScrollView`
+export const PageWrapperBigBorne = styled.View`
   width: ${getColumnWidth(21, false)}px;
   margin-left: ${getColumnWidth(3, false)}px;
   display: flex;
   flex-direction: column;
-  position: relative;
+  height: ${Dimensions.get("window").height - grid.borneGutter * 2}px;
+  justify-content: space-between;
 `;
 
-export const TopContainersBorne = styled.View`
+export const PageWrapperSmallBorne = styled.ScrollView`
+  width: ${getColumnWidth(21, false)}px;
+  margin-left: ${getColumnWidth(3, false)}px;
+`;
+
+export const TopContainersBorne = styled.View<{ isFlex?: boolean }>`
   display: flex;
   flex-direction: row;
-  padding: 3px;
+  ${({ isFlex }) => isFlex && `flex: 1`}
 `;
 
-export const TopContainersMobile = styled.View`
-  display: flex;
-  flex-direction: column;
-  padding: 3px;
-`;
+export const TopContainersMobile = styled.View``;
 
 const generalPlusContainer = `
   border-radius: ${shape.radius.input}px;
@@ -76,7 +79,10 @@ export const PlusContainersBorne = styled.View<PlusContainersProps>`
       paddingX !== undefined ? paddingX : 40
     }px`};
   margin-right: ${getColumnWidth(1, false)}px;
-  margin-bottom: ${({ marginBottom }) => getMarginBottom(32, marginBottom)};
+  margin-bottom: ${({ marginBottom }) => getMarginBottom(16, marginBottom)};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const PlusContainersMobile = styled.View<PlusContainersProps>`
