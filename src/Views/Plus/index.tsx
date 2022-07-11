@@ -45,6 +45,8 @@ export default function Plus(): JSX.Element {
     isMobile ? TopContainersMobile : TopContainersBorne
   ) as React.ElementType;
 
+  console.log(Dimensions.get("window").height);
+
   return (
     <PageContentWrapper>
       <>
