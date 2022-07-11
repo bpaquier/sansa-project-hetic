@@ -65,7 +65,7 @@ export default function HomeBorne({
             <MapCard style={boxShadow.panelAndroid}>
               <MapWrapper>
                 <MapButtonWrapper>
-                  <Button type="secondary" text="Rechercher un lieu" />
+                  <Button type="secondary" text={t("home.searchAPlace")} />
                 </MapButtonWrapper>
                 <Map provider={PROVIDER_GOOGLE} />
               </MapWrapper>
@@ -93,8 +93,9 @@ export default function HomeBorne({
                 <Text type="titleXL" textAlign="center">
                   {pointsNumber.shower}
                 </Text>
-                {/* add value from API instead of 32  */}
-                <Text>{t("home.publicShower", { count: 32 })}</Text>
+                <Text>
+                  {t("home.publicShower", { count: pointsNumber.shower })}
+                </Text>
                 <SanitaryIconWrapper>
                   <Shower
                     primaryColor={color.primary.blueExtraDark}
@@ -116,8 +117,9 @@ export default function HomeBorne({
                 <Text type="titleXL" textAlign="center">
                   {pointsNumber.water}
                 </Text>
-                {/* add value from API instead of 18  */}
-                <Text>{t("home.wateringPlace", { count: 18 })}</Text>
+                <Text>
+                  {t("home.wateringPlace", { count: pointsNumber.water })}
+                </Text>
                 <SanitaryIconWrapper>
                   <WaterFountain
                     primaryColor={color.primary.blueExtraDark}
@@ -139,8 +141,9 @@ export default function HomeBorne({
                 <Text type="titleXL" textAlign="center">
                   {pointsNumber.toilets}
                 </Text>
-                {/* add value from API instead of 167  */}
-                <Text>{t("home.publicRestroom", { count: 167 })}</Text>
+                <Text>
+                  {t("home.publicRestroom", { count: pointsNumber.toilets })}
+                </Text>
                 <SanitaryIconWrapper>
                   <Toilets
                     primaryColor={color.primary.blueExtraDark}
