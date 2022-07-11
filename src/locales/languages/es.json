@@ -75,7 +75,7 @@
     "seeMore": "Ver más",
     "lastUpdate": "Última actualización",
     "byAppointement": "Con cita previa",
-    "services" : {
+    "services": {
       "Acceuil": "Recepción",
       "Alimentation": "Alimentación",
       "Santé": "Salud",
@@ -132,6 +132,23 @@
     }
   },
   "home": {
-    "home": "Hogar"
+    "home": "Hogar",
+    "dashboard": "Tablero de mandos",
+    "eventsSoon": "¡Pronto habrá nuevos eventos!",
+    "eventsSoonBorne": "¡Que no cunda el pánico! Pronto encontraremos nuevos eventos para usted",
+    "noEventsPrompt": "Ningún evento por el momento",
+    "publicShower": "Ducha pública",
+    "publicShower_plural": "Duchas pública",
+    "wateringPlace": "Lugar de riego",
+    "wateringPlace_plural": "Lugares de riego",
+    "publicRestroom": "Baño público",
+    "publicRestroom_plural": "Baños público",
+    "mostVisitedAssociations": "Las asociaciones más visitadas en las últimas semanas",
+    "associations": "Asociaciones",
+    "nightShelter": "Brote nocturno",
+    "nightShelter_plural": "Brote nocturnos",
+    "whereCanIGo": "¿Dónde puedo ir?",
+    "lookForADoctor": "Buscar un médico",
+    "showTheMap": "Mostrar el mapa"
   }
 }

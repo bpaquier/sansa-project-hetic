@@ -1,7 +1,9 @@
+import { useTranslation } from "react-i18next";
 import { View, TouchableOpacity } from "react-native";
 import { PROVIDER_GOOGLE } from "react-native-maps";
 import { useNavigate } from "react-router-native";
 
+import { HealthIconWrapper } from "../HomeMobile/styles";
 import {
   PageContent,
   FirstRow,
@@ -24,11 +26,11 @@ import {
   SleepCardTitleWrapper,
   HealthCard,
   HealthCardHeadlineWrapper,
-  HealthCardTitleWrapper,
-  ArrowIconWrapper
+  HealthCardTitleWrapper
 } from "./styles";
 import NoEventIllustration from "~/Components/Home/Illustrations/NoEventIllustration";
 import SleepIllustration from "~/Components/Home/Illustrations/SleepIllustration";
+import MedicalCase from "~/Components/Icons/Categories/Health/MedicalCase";
 import Shower from "~/Components/Icons/Categories/Hygiene/Shower";
 import Toilets from "~/Components/Icons/Categories/Hygiene/Toilets";
 import WaterFountain from "~/Components/Icons/Categories/Hygiene/WaterFountain";
@@ -54,7 +56,7 @@ export default function HomeBorne({
   pointsNumber
 }: HomeBorneProps): JSX.Element {
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   return (
     <PageContentWrapper>
       <PageContent>
@@ -72,12 +74,11 @@ export default function HomeBorne({
           <View>
             <EventCard style={boxShadow.panelAndroid}>
               <Text color="black60" type="small" textAlign="center">
-                Pas de panique ! Nous allons bientôt vous trouver de nouveaux
-                événements
+                {t("home.eventsSoonBorne")}
               </Text>
               <EventCardTitleWrapper>
                 <Text type="titleM" textAlign="center">
-                  Aucun événement pour le moment
+                  {t("home.noEventsPrompt")}
                 </Text>
               </EventCardTitleWrapper>
               <NoEventIllustrationWrapper>
@@ -89,7 +90,8 @@ export default function HomeBorne({
                 <Text type="titleXL" textAlign="center">
                   {pointsNumber.shower}
                 </Text>
-                <Text>Douches publiques</Text>
+                {/* add value from API instead of 32  */}
+                <Text>{t("home.publicShower", { count: 32 })}</Text>
                 <SanitaryIconWrapper>
                   <Shower
                     primaryColor={color.primary.blueExtraDark}
@@ -111,7 +113,8 @@ export default function HomeBorne({
                 <Text type="titleXL" textAlign="center">
                   {pointsNumber.water}
                 </Text>
-                <Text>Points d’eau</Text>
+                {/* add value from API instead of 18  */}
+                <Text>{t("home.wateringPlace", { count: 18 })}</Text>
                 <SanitaryIconWrapper>
                   <WaterFountain
                     primaryColor={color.primary.blueExtraDark}
@@ -133,7 +136,8 @@ export default function HomeBorne({
                 <Text type="titleXL" textAlign="center">
                   {pointsNumber.toilets}
                 </Text>
-                <Text>Toilettes publiques</Text>
+                {/* add value from API instead of 167  */}
+                <Text>{t("home.publicRestroom", { count: 167 })}</Text>
                 <SanitaryIconWrapper>
                   <Toilets
                     primaryColor={color.primary.blueExtraDark}
@@ -157,21 +161,24 @@ export default function HomeBorne({
         <SecondRow>
           <TouchableOpacity onPress={() => navigate("/")}>
             <AssociationsCard style={boxShadow.panelAndroid}>
-              <Text color="black40">Associations</Text>
+              <Text color="black40">{t("home.associations")}</Text>
               <AssociationsCardTitleWrapper>
                 <Text type="titleXL">
                   Les 5 associations les plus proche de vous
                 </Text>
+                <Text type="titleXL">{t("home.mostVisitedAssociations")}</Text>
               </AssociationsCardTitleWrapper>
               <Text color="blue" weight="bold">
-                Voir la carte
+                {t("home.showTheMap")}
               </Text>
             </AssociationsCard>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigate("/")}>
             <SleepCard style={boxShadow.panelAndroid} backgroundColor="blue">
               <SleepCardTitleWrapper>
-                <Text color="white">Hébergement</Text>
+                <Text color="white">
+                  {t("administrativeAssistance.hosting.hosting")}
+                </Text>
               </SleepCardTitleWrapper>
               <SleepCardArrowWrapper>
                 <ArrowRight color="white" />
@@ -179,7 +186,9 @@ export default function HomeBorne({
               <Text type="titleXL" color="white">
                 {pointsNumber.housing}
               </Text>
-              <Text color="white">Accueil de nuit</Text>
+              <Text color="white">
+                {t("home.nightShelter", { count: pointsNumber.housing })}
+              </Text>
               <SleepIllustrationWrapper>
                 <SleepIllustration width="240px" height="142px" />
               </SleepIllustrationWrapper>
@@ -188,16 +197,18 @@ export default function HomeBorne({
           <TouchableOpacity onPress={() => navigate("/")}>
             <HealthCard style={boxShadow.panelAndroid}>
               <HealthCardHeadlineWrapper>
-                <Text color="black40">Santé</Text>
-                <ArrowIconWrapper>
-                  <ArrowRight color="white" />
-                </ArrowIconWrapper>
+                <Text color="black40">
+                  {t("administrativeAssistance.health.health")}
+                </Text>
+                <HealthIconWrapper>
+                  <MedicalCase color="white" />
+                </HealthIconWrapper>
               </HealthCardHeadlineWrapper>
               <HealthCardTitleWrapper>
-                <Text type="titleXL">Rechercher un médecin</Text>
+                <Text type="titleXL">{t("home.lookForADoctor")}</Text>
               </HealthCardTitleWrapper>
               <Text color="black60" type="small">
-                Où puis-je me rendre ?
+                {t("home.whereCanIGo")}
               </Text>
             </HealthCard>
           </TouchableOpacity>

@@ -76,7 +76,7 @@
     "seeMore": "Детальніше",
     "lastUpdate": "Останнє оновлення",
     "byAppointement": "За призначенням",
-    "services" : {
+    "services": {
       "Acceuil": "Прийом",
       "Alimentation": "Годування",
       "Santé": "Здоров'я",
@@ -133,6 +133,23 @@
     }
   },
   "home": {
-    "home": "додому"
+    "home": "додому",
+    "dashboard": "Панель приладів",
+    "eventsSoon": "Скоро нові події!",
+    "eventsSoonBorne": "Не панікуйте! Скоро ми знайдемо для вас нові події",
+    "noEventsPrompt": "На даний момент немає подій",
+    "publicShower": "Громадський душ",
+    "publicShower_plural": "Громадські душові",
+    "wateringPlace": "Місце водопою",
+    "wateringPlace_plural": "Місце водопою",
+    "publicRestroom": "Громадська вбиральня",
+    "publicRestroom_plural": "Громадські туалети",
+    "mostVisitedAssociations": "Найбільш відвідувані асоціації за останні тижні",
+    "associations": "Асоціації",
+    "nightShelter": "Притулок для ночівлі",
+    "nightShelter_plural": "Нічні притулки",
+    "whereCanIGo": "Куди мені піти?",
+    "lookForADoctor": "Знайдіть лікаря",
+    "showTheMap": "Показати карту"
   }
 }

@@ -75,7 +75,7 @@
     "seeMore": "شاهد المزيد",
     "lastUpdate": "آخر تحديث",
     "byAppointement": "عن طريق التعيين",
-    "services" : {
+    "services": {
       "Acceuil": "استقبال",
       "Alimentation": "إطعام",
       "Santé": "الصحة",
@@ -132,7 +132,24 @@
     }
   },
   "home": {
-    "home": "مسكن"
+    "home": "مسكن",
+    "dashboard": "لوحة القيادة",
+    "eventsSoon": "أحداث جديدة قريبا!",
+    "eventsSoonBorne": "لا تُصب بالذعر! سنجد قريبا أحداث جديدة لك",
+    "noEventsPrompt": "لا يوجد حدث في الوقت الراهن",
+    "publicShower": "دش عام",
+    "publicShower_plural": "الاستحمام العامة",
+    "wateringPlace": "منطقة الري",
+    "wateringPlace_plural": "أماكن الري",
+    "publicRestroom": "مرحاض عام",
+    "publicRestroom_plural": "دورات المياه العامة",
+    "mostVisitedAssociations": "الجمعيات الأكثر زيارة في الأسابيع الأخيرة",
+    "associations": "ذات الصلة",
+    "nightShelter": "مأوى ليلي",
+    "nightShelter_plural": "الملاجئ الليلية",
+    "whereCanIGo": "إلى أين يمكنني الذهاب ؟",
+    "lookForADoctor": "اعثر على طبيب",
+    "showTheMap": "اعرض الخريطة"
   },
   "administrativeAssistance": {
     "administrativeAssistance": "المساعدات الإدارية",

@@ -75,7 +75,7 @@
     "seeMore": "See more",
     "lastUpdate": "Last update",
     "byAppointement": "By appointment",
-    "services" : {
+    "services": {
       "Acceuil": "Home",
       "Alimentation": "Feeding",
       "Santé": "Health",
@@ -132,6 +132,23 @@
     }
   },
   "home": {
-    "home": "Home"
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "eventsSoon": "New events coming soon!",
+    "eventsSoonBorne": "Don't panic! We will soon find new events for you",
+    "noEventsPrompt": "No event for the moment",
+    "publicShower": "Public shower",
+    "publicShower_plural": "Public showers",
+    "wateringPlace": "Watering place",
+    "wateringPlace_plural": "Watering places",
+    "publicRestroom": "Public restroom",
+    "publicRestroom_plural": "Public restrooms",
+    "mostVisitedAssociations": "The most visited associations in recent weeks",
+    "associations": "Associations",
+    "nightShelter": "Night shelter",
+    "nightShelter_plural": "Night shelters",
+    "whereCanIGo": "Where can I go ?",
+    "lookForADoctor": "Find a doctor",
+    "showTheMap": "Show the map"
   }
 }

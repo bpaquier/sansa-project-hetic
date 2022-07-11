@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { View, TouchableOpacity } from "react-native";
 import { useNavigate } from "react-router-native";
 
@@ -26,6 +27,7 @@ import PageContentWrapper from "~/Components/PageContentWrapper";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import Theme from "~/Styles/theme.styles";
+
 const { color, boxShadow } = Theme;
 
 interface HomeMobileProps {
@@ -41,19 +43,21 @@ export default function HomeMobile({
   pointsNumber
 }: HomeMobileProps): JSX.Element {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
   return (
     <PageContentWrapper>
       <View>
         <Text color="black40" type="titleL">
-          Dashboard
+          {t("home.dashboard")}
         </Text>
         <EventCard style={boxShadow.panelAndroid}>
           <Text color="black60" type="small" textAlign="center">
-            Bientôt de nouveaux événements !
+            {t("home.eventsSoon")}
           </Text>
           <EventCardTitleWrapper>
             <Text type="titleM" textAlign="center">
-              Aucun événement pour le moment
+              {t("home.noEventsPrompt")}
             </Text>
           </EventCardTitleWrapper>
           <NoEventIllustrationWrapper>
@@ -66,7 +70,7 @@ export default function HomeMobile({
               {pointsNumber.shower}
             </Text>
             <Text type="small" textAlign="center">
-              Douches publiques
+              {t("home.publicShower", { count: pointsNumber.shower })}
             </Text>
             <SanitaryIconWrapper>
               <Shower
@@ -82,7 +86,7 @@ export default function HomeMobile({
               {pointsNumber.water}
             </Text>
             <Text type="small" textAlign="center">
-              Points d’eau
+              {t("home.wateringPlace", { count: pointsNumber.water })}
             </Text>
             <SanitaryIconWrapper>
               <WaterFountain
@@ -98,7 +102,7 @@ export default function HomeMobile({
               {pointsNumber.toilets}
             </Text>
             <Text type="small" textAlign="center">
-              Toilettes publiques
+              {t("home.publicRestroom", { count: pointsNumber.toilets })}
             </Text>
             <SanitaryIconWrapper>
               <Toilets
@@ -116,18 +120,23 @@ export default function HomeMobile({
               <Text type="titleM">
                 Les 5 associations les plus proche de vous
               </Text>
+              <Text type="titleM">{t("home.mostVisitedAssociations")}</Text>
             </AssociationsCardTitleWrapper>
           </Card>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigate("/")}>
           <Card backgroundColor="blue" style={boxShadow.panelAndroid}>
             <SleepTitleWrapper>
-              <Text color="white">Hébergement</Text>
+              <Text color="white">
+                {t("administrativeAssistance.hosting.hosting")}
+              </Text>
             </SleepTitleWrapper>
             <Text type="titleXL" color="white">
               {pointsNumber.housing}
             </Text>
-            <Text color="white">Accueil de nuit</Text>
+            <Text color="white">
+              {t("home.nightShelter", { count: pointsNumber.housing })}
+            </Text>
             <SleepIllustrationWrapper>
               <SleepIllustration width="200px" height="102px" />
             </SleepIllustrationWrapper>
