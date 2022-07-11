@@ -40,59 +40,62 @@ export default function Plus(): JSX.Element {
 
   return (
     <PageContentWrapper>
-      <PageWrapper>
-        {isMobile && (
-          <TextWrapper
-            marginBottom={16}
-            type="titleL"
-            textAlign="left"
-            color="black40"
-          >
-            {t("plus.plus")}
-          </TextWrapper>
+      <>
+        <PageWrapper>
+          {isMobile && (
+            <TextWrapper
+              marginBottom={16}
+              type="titleL"
+              textAlign="left"
+              color="black40"
+              marginLeft={3}
+            >
+              {t("plus.plus")}
+            </TextWrapper>
+          )}
+          <TopContainers>
+            <PlusContainers
+              style={theme.boxShadow.panelAndroid}
+              marginBottom
+              columnWidth={!isMobile && 10}
+            >
+              {!isConnected ? (
+                <SansaDescriptionConnected isMobile={isMobile} />
+              ) : (
+                <SansaDescriptionNotConnected isMobile={isMobile} />
+              )}
+            </PlusContainers>
+            <PlusContainers
+              paddingX={0}
+              paddingTop={0}
+              paddingBottom={0}
+              style={theme.boxShadow.panelAndroid}
+              border
+              columnWidth={!isMobile && 7}
+              marginBottom={isMobile}
+              height={isMobile ? 300 : 260}
+            >
+              <AdministrativeHelpSection />
+            </PlusContainers>
+          </TopContainers>
+          <TopContainers>
+            <PlusContainers
+              style={theme.boxShadow.panelAndroid}
+              paddingTop={24}
+              paddingX={24}
+              paddingBottom={28}
+              columnWidth={!isMobile && 5}
+            >
+              <PlusSection isMobile={isMobile} isConnected={isConnected} />
+            </PlusContainers>
+          </TopContainers>
+        </PageWrapper>
+        {!isMobile && (
+          <PagePlusBorneIllustrationWrapper style={{ elevation: -1 }}>
+            <PagePlusBorneIllustration width={getColumnWidth(12, false)} />
+          </PagePlusBorneIllustrationWrapper>
         )}
-        <TopContainers>
-          <PlusContainers
-            style={theme.boxShadow.panelAndroid}
-            marginBottom
-            columnWidth={!isMobile && 10}
-          >
-            {!isConnected ? (
-              <SansaDescriptionConnected isMobile={isMobile} />
-            ) : (
-              <SansaDescriptionNotConnected isMobile={isMobile} />
-            )}
-          </PlusContainers>
-          <PlusContainers
-            paddingX={0}
-            paddingTop={0}
-            paddingBottom={0}
-            style={theme.boxShadow.panelAndroid}
-            border
-            columnWidth={!isMobile && 7}
-            marginBottom={isMobile}
-            height={isMobile ? 300 : 260}
-          >
-            <AdministrativeHelpSection />
-          </PlusContainers>
-        </TopContainers>
-        <TopContainers>
-          <PlusContainers
-            style={theme.boxShadow.panelAndroid}
-            paddingTop={24}
-            paddingX={24}
-            paddingBottom={28}
-            columnWidth={!isMobile && 5}
-          >
-            <PlusSection isMobile={isMobile} isConnected={isConnected} />
-          </PlusContainers>
-        </TopContainers>
-      </PageWrapper>
-      {!isMobile && (
-        <PagePlusBorneIllustrationWrapper style={{ elevation: -1 }}>
-          <PagePlusBorneIllustration width={getColumnWidth(12, false)} />
-        </PagePlusBorneIllustrationWrapper>
-      )}
+      </>
     </PageContentWrapper>
   );
 }

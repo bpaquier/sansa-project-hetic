@@ -32,12 +32,8 @@ export const PageWrapperBorne = styled.ScrollView`
   width: ${getColumnWidth(21, false)}px;
   margin-left: ${getColumnWidth(3, false)}px;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-content: space-between;
-  min-height: 100%;
+  flex-direction: column;
   position: relative;
-  flex: 1;
 `;
 
 export const TopContainersBorne = styled.View`
@@ -49,6 +45,7 @@ export const TopContainersBorne = styled.View`
 export const TopContainersMobile = styled.View`
   display: flex;
   flex-direction: column;
+  padding: 3px;
 `;
 
 const generalPlusContainer = `
@@ -79,7 +76,7 @@ export const PlusContainersBorne = styled.View<PlusContainersProps>`
       paddingX !== undefined ? paddingX : 40
     }px`};
   margin-right: ${getColumnWidth(1, false)}px;
-  margin-bottom: ${({ marginBottom }) => getMarginBottom(48, marginBottom)};
+  margin-bottom: ${({ marginBottom }) => getMarginBottom(32, marginBottom)};
 `;
 
 export const PlusContainersMobile = styled.View<PlusContainersProps>`
