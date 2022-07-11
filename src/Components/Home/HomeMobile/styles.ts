@@ -58,11 +58,11 @@ export const SanitaryIconWrapper = styled.View`
   height: 40px;
 `;
 
-export const SportTitleWrapper = styled.View`
+export const SleepTitleWrapper = styled.View`
   margin-bottom: 20px;
 `;
 
-export const SportIllustrationWrapper = styled.View`
+export const SleepIllustrationWrapper = styled.View`
   position: absolute;
   right: -20px;
   bottom: 0;

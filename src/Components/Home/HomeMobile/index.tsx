@@ -10,12 +10,14 @@ import {
   SanitaryCard,
   SanitaryItemWrapper,
   SanitaryIconWrapper,
-  SportIllustrationWrapper,
+  SleepIllustrationWrapper,
   HealthCard,
-  SportTitleWrapper,
+  SleepTitleWrapper,
   HealthCardTitleWrapper,
   HealthIconWrapper
 } from "./styles";
+import NoEventIllustration from "~/Components/Home/Illustrations/NoEventIllustration";
+import SleepIllustration from "~/Components/Home/Illustrations/SleepIllustration";
 import MedicalCase from "~/Components/Icons/Categories/Health/MedicalCase";
 import Shower from "~/Components/Icons/Categories/Hygiene/Shower";
 import Toilets from "~/Components/Icons/Categories/Hygiene/Toilets";
@@ -24,11 +26,20 @@ import PageContentWrapper from "~/Components/PageContentWrapper";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import Theme from "~/Styles/theme.styles";
-import NoEventIllustration from "~/Views/Account/Home/Illustrations/NoEventIllustration";
-import SportIllustration from "~/Views/Account/Home/Illustrations/SportIllustration";
 const { color, boxShadow } = Theme;
 
-export default function HomeMobile(): JSX.Element {
+interface HomeMobileProps {
+  pointsNumber: {
+    shower: number;
+    water: number;
+    toilets: number;
+    housing: number;
+  };
+}
+
+export default function HomeMobile({
+  pointsNumber
+}: HomeMobileProps): JSX.Element {
   const navigate = useNavigate();
   return (
     <PageContentWrapper>
@@ -52,7 +63,7 @@ export default function HomeMobile(): JSX.Element {
         <SanitaryCard style={boxShadow.panelAndroid}>
           <SanitaryItemWrapper onPress={() => navigate("/")}>
             <Text type="paragraph" weight="bold" textAlign="center">
-              32
+              {pointsNumber.shower}
             </Text>
             <Text type="small" textAlign="center">
               Douches publiques
@@ -68,7 +79,7 @@ export default function HomeMobile(): JSX.Element {
           <Separator orientation="vertical" height="120px" margin={12} />
           <SanitaryItemWrapper onPress={() => navigate("/")}>
             <Text type="paragraph" weight="bold" textAlign="center">
-              18
+              {pointsNumber.water}
             </Text>
             <Text type="small" textAlign="center">
               Points d’eau
@@ -84,7 +95,7 @@ export default function HomeMobile(): JSX.Element {
           <Separator orientation="vertical" height="120px" margin={12} />
           <SanitaryItemWrapper onPress={() => navigate("/")}>
             <Text type="paragraph" weight="bold" textAlign="center">
-              167
+              {pointsNumber.toilets}
             </Text>
             <Text type="small" textAlign="center">
               Toilettes publiques
@@ -103,23 +114,23 @@ export default function HomeMobile(): JSX.Element {
             <Text color="black60">Associations</Text>
             <AssociationsCardTitleWrapper>
               <Text type="titleM">
-                Les associations les plus visitées ces dernières semaines
+                Les 5 associations les plus proche de vous
               </Text>
             </AssociationsCardTitleWrapper>
           </Card>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigate("/")}>
           <Card backgroundColor="blue" style={boxShadow.panelAndroid}>
-            <SportTitleWrapper>
-              <Text color="white">Sport</Text>
-            </SportTitleWrapper>
+            <SleepTitleWrapper>
+              <Text color="white">Hébergement</Text>
+            </SleepTitleWrapper>
             <Text type="titleXL" color="white">
-              16
+              {pointsNumber.housing}
             </Text>
-            <Text color="white">Lieux sportifs</Text>
-            <SportIllustrationWrapper>
-              <SportIllustration width="200px" height="102px" />
-            </SportIllustrationWrapper>
+            <Text color="white">Accueil de nuit</Text>
+            <SleepIllustrationWrapper>
+              <SleepIllustration width="200px" height="102px" />
+            </SleepIllustrationWrapper>
           </Card>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigate("/")}>

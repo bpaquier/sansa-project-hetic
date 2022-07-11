@@ -1,3 +1,4 @@
+import { Platform } from "react-native";
 import MapView from "react-native-maps";
 import styled from "styled-components/native";
 
@@ -38,18 +39,29 @@ export const SecondRow = styled.View`
   height: 22.5%;
 `;
 
+export const MapButtonWrapper = styled.View`
+  position: absolute;
+  z-index: 1;
+  top: 20px;
+  right: 20px;
+  elevation: ${Platform.OS === "android" ? 50 : 0};
+`;
+
 export const MapCard = styled(Card)`
+  position: relative;
   margin-right: ${getColumnWidth(1, false)}px;
   padding: 8px;
   width: ${getColumnWidth(9, false)}px;
 `;
 
 export const MapWrapper = styled.View`
+  position: relative;
   border-radius: 16px;
   overflow: hidden;
 `;
 
 export const Map = styled(MapView)`
+  z-index: 0;
   width: 100%;
   height: 100%;
 `;
@@ -96,16 +108,22 @@ export const SanitaryIconWrapper = styled.View`
   height: 60px;
 `;
 
-export const SportCard = styled(Card)`
+export const SleepCard = styled(Card)`
   flex: 1;
   width: ${getColumnWidth(5, false)}px;
 `;
 
-export const SportCardTitleWrapper = styled.View`
+export const SleepCardTitleWrapper = styled.View`
   margin-bottom: 20px;
 `;
 
-export const SportIllustrationWrapper = styled.View`
+export const SleepCardArrowWrapper = styled.View`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+`;
+
+export const SleepIllustrationWrapper = styled.View`
   position: absolute;
   right: -20px;
   bottom: 0;
@@ -127,11 +145,11 @@ export const HealthCardTitleWrapper = styled.View`
   margin-bottom: 8px;
 `;
 
-export const HealthIconWrapper = styled.View`
+export const ArrowIconWrapper = styled.View`
   align-self: flex-start;
   justify-content: center;
   align-items: center;
   border-radius: 50px;
-  padding: 12px;
+  padding: 8px;
   background-color: ${color.primary.blue};
 `;

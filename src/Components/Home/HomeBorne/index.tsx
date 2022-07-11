@@ -7,9 +7,10 @@ import {
   FirstRow,
   EmptyRow,
   SecondRow,
-  SportCard,
+  SleepCard,
   EventCard,
   EventCardTitleWrapper,
+  MapButtonWrapper,
   Map,
   MapWrapper,
   MapCard,
@@ -18,27 +19,42 @@ import {
   AssociationsCardTitleWrapper,
   SanitaryCard,
   SanitaryIconWrapper,
-  SportIllustrationWrapper,
-  SportCardTitleWrapper,
+  SleepCardArrowWrapper,
+  SleepIllustrationWrapper,
+  SleepCardTitleWrapper,
   HealthCard,
   HealthCardHeadlineWrapper,
   HealthCardTitleWrapper,
-  HealthIconWrapper
+  ArrowIconWrapper
 } from "./styles";
-import MedicalCase from "~/Components/Icons/Categories/Health/MedicalCase";
+import NoEventIllustration from "~/Components/Home/Illustrations/NoEventIllustration";
+import SleepIllustration from "~/Components/Home/Illustrations/SleepIllustration";
 import Shower from "~/Components/Icons/Categories/Hygiene/Shower";
 import Toilets from "~/Components/Icons/Categories/Hygiene/Toilets";
 import WaterFountain from "~/Components/Icons/Categories/Hygiene/WaterFountain";
+import ArrowRight from "~/Components/Icons/System/Arrows/ArrowRight";
 import PageContentWrapper from "~/Components/PageContentWrapper";
+import Button from "~/Components/Ui-kit/Button";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
+import TextWrapper from "~/Components/Ui-kit/TextWrapper";
 import Theme from "~/Styles/theme.styles";
-import NoEventIllustration from "~/Views/Account/Home/Illustrations/NoEventIllustration";
-import SportIllustration from "~/Views/Account/Home/Illustrations/SportIllustration";
 const { color, boxShadow } = Theme;
 
-export default function HomeBorne(): JSX.Element {
+interface HomeBorneProps {
+  pointsNumber: {
+    shower: number;
+    water: number;
+    toilets: number;
+    housing: number;
+  };
+}
+
+export default function HomeBorne({
+  pointsNumber
+}: HomeBorneProps): JSX.Element {
   const navigate = useNavigate();
+
   return (
     <PageContentWrapper>
       <PageContent>
@@ -46,6 +62,9 @@ export default function HomeBorne(): JSX.Element {
           <TouchableOpacity onPress={() => navigate("/")}>
             <MapCard style={boxShadow.panelAndroid}>
               <MapWrapper>
+                <MapButtonWrapper>
+                  <Button type="secondary" text="Rechercher un lieu" />
+                </MapButtonWrapper>
                 <Map provider={PROVIDER_GOOGLE} />
               </MapWrapper>
             </MapCard>
@@ -68,7 +87,7 @@ export default function HomeBorne(): JSX.Element {
             <SanitaryCard style={boxShadow.panelAndroid}>
               <TouchableOpacity onPress={() => navigate("/")}>
                 <Text type="titleXL" textAlign="center">
-                  32
+                  {pointsNumber.shower}
                 </Text>
                 <Text>Douches publiques</Text>
                 <SanitaryIconWrapper>
@@ -78,11 +97,19 @@ export default function HomeBorne(): JSX.Element {
                     height={40}
                   />
                 </SanitaryIconWrapper>
+                <TextWrapper
+                  marginTop={8}
+                  weight="bold"
+                  color="blue"
+                  textAlign="center"
+                >
+                  Voir plus
+                </TextWrapper>
               </TouchableOpacity>
-              <Separator orientation="vertical" height="120px" />
+              <Separator orientation="vertical" height="160px" />
               <TouchableOpacity onPress={() => navigate("/")}>
                 <Text type="titleXL" textAlign="center">
-                  18
+                  {pointsNumber.water}
                 </Text>
                 <Text>Points d’eau</Text>
                 <SanitaryIconWrapper>
@@ -92,11 +119,19 @@ export default function HomeBorne(): JSX.Element {
                     height={40}
                   />
                 </SanitaryIconWrapper>
+                <TextWrapper
+                  marginTop={8}
+                  weight="bold"
+                  color="blue"
+                  textAlign="center"
+                >
+                  Voir plus
+                </TextWrapper>
               </TouchableOpacity>
-              <Separator orientation="vertical" height="120px" />
+              <Separator orientation="vertical" height="160px" />
               <TouchableOpacity onPress={() => navigate("/")}>
                 <Text type="titleXL" textAlign="center">
-                  167
+                  {pointsNumber.toilets}
                 </Text>
                 <Text>Toilettes publiques</Text>
                 <SanitaryIconWrapper>
@@ -106,6 +141,14 @@ export default function HomeBorne(): JSX.Element {
                     height={40}
                   />
                 </SanitaryIconWrapper>
+                <TextWrapper
+                  marginTop={8}
+                  weight="bold"
+                  color="blue"
+                  textAlign="center"
+                >
+                  Voir plus
+                </TextWrapper>
               </TouchableOpacity>
             </SanitaryCard>
           </View>
@@ -117,7 +160,7 @@ export default function HomeBorne(): JSX.Element {
               <Text color="black40">Associations</Text>
               <AssociationsCardTitleWrapper>
                 <Text type="titleXL">
-                  Les associations les plus visitées ces dernières semaines
+                  Les 5 associations les plus proche de vous
                 </Text>
               </AssociationsCardTitleWrapper>
               <Text color="blue" weight="bold">
@@ -126,26 +169,29 @@ export default function HomeBorne(): JSX.Element {
             </AssociationsCard>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigate("/")}>
-            <SportCard style={boxShadow.panelAndroid} backgroundColor="blue">
-              <SportCardTitleWrapper>
-                <Text color="white">Sport</Text>
-              </SportCardTitleWrapper>
+            <SleepCard style={boxShadow.panelAndroid} backgroundColor="blue">
+              <SleepCardTitleWrapper>
+                <Text color="white">Hébergement</Text>
+              </SleepCardTitleWrapper>
+              <SleepCardArrowWrapper>
+                <ArrowRight color="white" />
+              </SleepCardArrowWrapper>
               <Text type="titleXL" color="white">
-                16
+                {pointsNumber.housing}
               </Text>
-              <Text color="white">Lieux sportifs</Text>
-              <SportIllustrationWrapper>
-                <SportIllustration width="240px" height="142px" />
-              </SportIllustrationWrapper>
-            </SportCard>
+              <Text color="white">Accueil de nuit</Text>
+              <SleepIllustrationWrapper>
+                <SleepIllustration width="240px" height="142px" />
+              </SleepIllustrationWrapper>
+            </SleepCard>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigate("/")}>
             <HealthCard style={boxShadow.panelAndroid}>
               <HealthCardHeadlineWrapper>
                 <Text color="black40">Santé</Text>
-                <HealthIconWrapper>
-                  <MedicalCase color="white" />
-                </HealthIconWrapper>
+                <ArrowIconWrapper>
+                  <ArrowRight color="white" />
+                </ArrowIconWrapper>
               </HealthCardHeadlineWrapper>
               <HealthCardTitleWrapper>
                 <Text type="titleXL">Rechercher un médecin</Text>
