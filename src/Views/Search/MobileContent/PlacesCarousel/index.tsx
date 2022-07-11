@@ -1,5 +1,9 @@
+import { useEffect, useRef, useState } from "react";
+
 import { useTranslation } from "react-i18next";
 import Carousel from "react-native-carousel-control";
+
+import Carousel2 from "react-native-snap-carousel";
 
 import Card from "./Card";
 import {
@@ -13,6 +17,7 @@ import Spinner from "~/Components/Icons/Spinner";
 import PositionIcon from "~/Components/Icons/System/Map/PositionMobile";
 import TextComponent from "~/Components/Ui-kit/Text";
 import { useSearchContext } from "~/Contexts/searchContext";
+import { Dimensions } from "react-native";
 
 export default function PlacesCarousel(): JSX.Element {
   const { t } = useTranslation();
@@ -24,6 +29,16 @@ export default function PlacesCarousel(): JSX.Element {
     setTriggerLocalization,
     debouncedFilters
   } = useSearchContext();
+  const carouselRef = useRef();
+
+  useEffect(() => {
+    carouselRef?.current &&
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      carouselRef?.current?.snapToItem(selectedPlaceIndex, false);
+  }, [carouselRef, selectedPlaceIndex]);
+
   return (
     <Wrapper>
       <PositionIconWrapper
@@ -53,7 +68,19 @@ export default function PlacesCarousel(): JSX.Element {
         )}
       {filteredPlaces && filteredPlaces?.length > 0 && !isFilterLoading && (
         <CarouselWrapper>
-          <Carousel
+          <Carousel2
+            ref={carouselRef}
+            data={filteredPlaces}
+            renderItem={({ item, index }) => {
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+              return <Card {...item} index={index} />;
+            }}
+            sliderWidth={Dimensions.get("window").width}
+            itemWidth={Dimensions.get("window").width * 0.8}
+            layoutCardOffset={3}
+            onSnapToItem={(i) => setSelectedPlaceIndex(i)}
+          />
+          {/* <Carousel
             swipeThreshold={0.1}
             currentPage={selectedPlaceIndex}
             sneak={30}
@@ -67,7 +94,7 @@ export default function PlacesCarousel(): JSX.Element {
                 key={`${place?.organization_name}-${i}`}
               />
             ))}
-          </Carousel>
+            </Carousel> */}
         </CarouselWrapper>
       )}
     </Wrapper>

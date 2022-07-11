@@ -159,6 +159,7 @@ export default function Map(): JSX.Element {
         showsMyLocationButton={false}
         initialRegion={{ ...location }}
         onPress={() => {
+          console.log("MAP");
           !isMobile && displayFilters && setDisplayFilters(null);
           setSearchValue(null);
           Keyboard.dismiss();
@@ -179,6 +180,7 @@ export default function Map(): JSX.Element {
             ]}
             key={`${index}-${place?.organization_name}`}
             onPress={() => {
+              console.log("MARKER");
               setSelectedPlaceIndex(index);
             }}
             coordinate={{
