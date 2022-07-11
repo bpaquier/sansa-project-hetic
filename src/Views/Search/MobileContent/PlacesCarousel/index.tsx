@@ -15,7 +15,9 @@ import {
 import Spinner from "~/Components/Icons/Spinner";
 import PositionIcon from "~/Components/Icons/System/Map/PositionMobile";
 import TextComponent from "~/Components/Ui-kit/Text";
-import { useSearchContext } from "~/Contexts/searchContext";
+import { PlaceProps, useSearchContext } from "~/Contexts/searchContext";
+import { getColumnWidth } from "~/Styles/mixins.styles";
+import theme from "~/Styles/theme.styles";
 
 export default function PlacesCarousel(): JSX.Element {
   const { t } = useTranslation();
@@ -34,7 +36,7 @@ export default function PlacesCarousel(): JSX.Element {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/ban-ts-comment
       //@ts-ignore
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      carouselRef?.current?.snapToItem(selectedPlaceIndex, false);
+      carouselRef?.current?.snapToItem(selectedPlaceIndex);
   }, [carouselRef, selectedPlaceIndex]);
 
   return (
@@ -69,14 +71,26 @@ export default function PlacesCarousel(): JSX.Element {
           <Carousel
             ref={carouselRef}
             data={filteredPlaces}
-            renderItem={({ item, index }) => {
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-              return <Card {...item} index={index} />;
+            renderItem={({
+              item,
+              index
+            }: {
+              item: PlaceProps;
+              index: number;
+            }) => {
+              return (
+                <Card
+                  {...item}
+                  index={index}
+                  key={`${item?.organization_name}-${index}`}
+                />
+              );
             }}
             sliderWidth={Dimensions.get("window").width}
-            itemWidth={Dimensions.get("window").width * 0.8}
-            layoutCardOffset={3}
+            itemWidth={getColumnWidth(theme?.grid?.columns - 2, true)}
             onSnapToItem={(i) => setSelectedPlaceIndex(i)}
+            useScrollView
+            inactiveSlideOpacity={1}
           />
         </CarouselWrapper>
       )}
