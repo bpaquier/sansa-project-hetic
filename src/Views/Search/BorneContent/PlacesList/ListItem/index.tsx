@@ -18,6 +18,7 @@ import Text from "~/Components/Ui-kit/Text";
 import { PlaceProps, useSearchContext } from "~/Contexts/searchContext";
 import useCurrentDay from "~/hooks/useCurrentDay";
 import theme from "~/Styles/theme.styles";
+import { TouchableOpacity } from "react-native";
 
 export interface ListItemProps extends PlaceProps {
   index?: number;
@@ -82,11 +83,16 @@ export default function ListItem({
               </IconWrapper>
             ))}
             {services_id?.length - formatedCategories?.length > 0 && (
-              <Icon
-                withBackground
-                backgroundType="black"
-                text={`+${services_id?.length - formatedCategories?.length}`}
-              />
+              <TouchableOpacity
+                activeOpacity={0.7}
+                onPress={() => setDisplayPlaceDescription(id)}
+              >
+                <Icon
+                  withBackground
+                  backgroundType="black"
+                  text={`+${services_id?.length - formatedCategories?.length}`}
+                />
+              </TouchableOpacity>
             )}
           </IconsWrapper>
         )}
