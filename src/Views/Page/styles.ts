@@ -1,6 +1,5 @@
 import styled from "styled-components/native";
 
-import Theme from "~/Styles/theme.styles";
 interface StyledViewProps {
   height: number;
   width: number;

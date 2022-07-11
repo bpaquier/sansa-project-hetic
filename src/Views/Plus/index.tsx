@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next/";
-import { Dimensions, ScrollView } from "react-native";
+import { Dimensions } from "react-native";
 
 import {
   PageWrapperMobile,
