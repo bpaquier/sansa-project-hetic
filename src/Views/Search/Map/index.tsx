@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
 
 import * as Location from "expo-location";
 import { StyleSheet, Dimensions, Alert, Keyboard } from "react-native";
@@ -102,6 +102,34 @@ export default function Map(): JSX.Element {
     triggerLocalization !== null && goToCurrentPosition();
   }, [triggerLocalization]);
 
+  const renderMarkers = useMemo(() => {
+    return filteredPlaces?.map((place, index) => (
+      <Marker
+        style={[
+          {
+            zIndex: index === selectedPlaceIndex ? 2 : 1
+          }
+        ]}
+        key={`${index}-${place?.organization_name}`}
+        onPress={() => {
+          setSelectedPlaceIndex(index);
+        }}
+        coordinate={{
+          latitude: parseFloat(place?.latitude),
+          longitude: parseFloat(place?.longitude)
+        }}
+      >
+        <Ping
+          {...{ index }}
+          isSelected={index === selectedPlaceIndex}
+          name={place?.organization_name}
+          small={isMobile}
+          mobile={isMobile}
+        />
+      </Marker>
+    ));
+  }, [filteredPlaces]);
+
   const zoom = (arg: "in" | "out") => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
@@ -170,31 +198,7 @@ export default function Map(): JSX.Element {
           left: leftPadding
         }}
       >
-        {filteredPlaces?.map((place, index) => (
-          <Marker
-            style={[
-              {
-                zIndex: index === selectedPlaceIndex ? 2 : 1
-              }
-            ]}
-            key={`${index}-${place?.organization_name}`}
-            onPress={() => {
-              setSelectedPlaceIndex(index);
-            }}
-            coordinate={{
-              latitude: parseFloat(place?.latitude),
-              longitude: parseFloat(place?.longitude)
-            }}
-          >
-            <Ping
-              {...{ index }}
-              isSelected={index === selectedPlaceIndex}
-              name={place?.organization_name}
-              small={isMobile}
-              mobile={isMobile}
-            />
-          </Marker>
-        ))}
+        {renderMarkers}
       </MapView>
       {!isMobile ? (
         <Controls {...{ isMobile }}>
