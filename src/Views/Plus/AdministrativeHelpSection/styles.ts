@@ -18,6 +18,6 @@ export const FlashlightIllustrationWrapper = styled.View<WrapperProps>`
   height: 184px;
   margin-top: 24px;
   position: absolute;
-  bottom: ${({ isMobile }) => (isMobile ? -20 : -10)}px;
+  bottom: ${({ isMobile }) => (isMobile ? -30 : -10)}px;
   left: -10px;
 `;

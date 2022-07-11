@@ -44,6 +44,7 @@ const generalPlusContainer = `
   border-radius: ${shape.radius.input}px;
   background-color: ${color.primary.white};
   z-index: 0;
+  overflow: hidden;
 `;
 
 const getBorderPlusContainer = (border?: boolean) =>
