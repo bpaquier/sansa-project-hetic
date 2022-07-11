@@ -28,16 +28,27 @@ export const PageWrapperMobile = styled.View`
   position: relative;
 `;
 
-export const PageWrapperBorne = styled.View`
+export const PageWrapperBorne = styled.ScrollView`
   width: ${getColumnWidth(21, false)}px;
   margin-left: ${getColumnWidth(3, false)}px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  height: 100%;
-  align-items: flex-start;
   align-content: space-between;
+  min-height: 100%;
   position: relative;
+  flex: 1;
+`;
+
+export const TopContainersBorne = styled.View`
+  display: flex;
+  flex-direction: row;
+  padding: 3px;
+`;
+
+export const TopContainersMobile = styled.View`
+  display: flex;
+  flex-direction: column;
 `;
 
 const generalPlusContainer = `
@@ -88,6 +99,6 @@ export const TextPlusWrapper = styled.Pressable<TextPlusWrapperProps>`
 
 export const PagePlusBorneIllustrationWrapper = styled.View`
   position: absolute;
-  right: 0;
-  bottom: -90px;
+  right: ${getColumnWidth(1, false)}px;
+  top: 45%;
 `;

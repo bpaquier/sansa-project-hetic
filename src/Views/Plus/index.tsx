@@ -5,11 +5,14 @@ import {
   PageWrapperBorne,
   PlusContainersBorne,
   PlusContainersMobile,
-  PagePlusBorneIllustrationWrapper
+  PagePlusBorneIllustrationWrapper,
+  TopContainersBorne,
+  TopContainersMobile
 } from "./styles";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 import TextWrapper from "~/Components/Ui-kit/TextWrapper";
 import { useGlobalContext } from "~/Contexts/globalContext";
+import { getColumnWidth } from "~/Styles/mixins.styles";
 import theme from "~/Styles/theme.styles";
 import AdministrativeHelpSection from "~/Views/Plus/AdministrativeHelpSection";
 import PagePlusBorneIllustration from "~/Views/Plus/Illustrations/PagePlusBorneIllustration";
@@ -31,6 +34,10 @@ export default function Plus(): JSX.Element {
     isMobile ? PlusContainersMobile : PlusContainersBorne
   ) as React.ElementType;
 
+  const TopContainers = (
+    isMobile ? TopContainersMobile : TopContainersBorne
+  ) as React.ElementType;
+
   return (
     <PageContentWrapper>
       <PageWrapper>
@@ -44,44 +51,48 @@ export default function Plus(): JSX.Element {
             {t("plus.plus")}
           </TextWrapper>
         )}
-        <PlusContainers
-          style={theme.boxShadow.panelAndroid}
-          marginBottom
-          columnWidth={!isMobile && 10}
-        >
-          {!isConnected ? (
-            <SansaDescriptionConnected isMobile={isMobile} />
-          ) : (
-            <SansaDescriptionNotConnected isMobile={isMobile} />
-          )}
-        </PlusContainers>
-        <PlusContainers
-          paddingX={0}
-          paddingTop={0}
-          paddingBottom={0}
-          style={theme.boxShadow.panelAndroid}
-          border
-          columnWidth={!isMobile && 7}
-          marginBottom={isMobile}
-          height={isMobile ? 300 : 260}
-        >
-          <AdministrativeHelpSection />
-        </PlusContainers>
-        <PlusContainers
-          style={theme.boxShadow.panelAndroid}
-          paddingTop={24}
-          paddingX={24}
-          paddingBottom={28}
-          columnWidth={!isMobile && 5}
-        >
-          <PlusSection isMobile={isMobile} isConnected={isConnected} />
-        </PlusContainers>
-        {!isMobile && (
-          <PagePlusBorneIllustrationWrapper>
-            <PagePlusBorneIllustration />
-          </PagePlusBorneIllustrationWrapper>
-        )}
+        <TopContainers>
+          <PlusContainers
+            style={theme.boxShadow.panelAndroid}
+            marginBottom
+            columnWidth={!isMobile && 10}
+          >
+            {!isConnected ? (
+              <SansaDescriptionConnected isMobile={isMobile} />
+            ) : (
+              <SansaDescriptionNotConnected isMobile={isMobile} />
+            )}
+          </PlusContainers>
+          <PlusContainers
+            paddingX={0}
+            paddingTop={0}
+            paddingBottom={0}
+            style={theme.boxShadow.panelAndroid}
+            border
+            columnWidth={!isMobile && 7}
+            marginBottom={isMobile}
+            height={isMobile ? 300 : 260}
+          >
+            <AdministrativeHelpSection />
+          </PlusContainers>
+        </TopContainers>
+        <TopContainers>
+          <PlusContainers
+            style={theme.boxShadow.panelAndroid}
+            paddingTop={24}
+            paddingX={24}
+            paddingBottom={28}
+            columnWidth={!isMobile && 5}
+          >
+            <PlusSection isMobile={isMobile} isConnected={isConnected} />
+          </PlusContainers>
+        </TopContainers>
       </PageWrapper>
+      {!isMobile && (
+        <PagePlusBorneIllustrationWrapper style={{ elevation: -1 }}>
+          <PagePlusBorneIllustration width={getColumnWidth(12, false)} />
+        </PagePlusBorneIllustrationWrapper>
+      )}
     </PageContentWrapper>
   );
 }

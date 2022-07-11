@@ -12,6 +12,7 @@ import Button from "~/Components/Ui-kit/Button";
 import Text from "~/Components/Ui-kit/Text";
 import TextWrapper from "~/Components/Ui-kit/TextWrapper";
 import SansaBorneDescription from "~/Views/Plus/SansaBorneDescription";
+import { ScrollView } from "react-native";
 
 type SansaDescriptionNotConnectedProps = {
   isMobile?: boolean;
@@ -48,6 +49,7 @@ export default function SansaDescriptionNotConnected({
         {t("plus.sansaDescription")}
       </Text>
       {!isMobile && <SansaBorneDescription />}
+
       <ButtonsContainer>
         <Button text={t("common.login")} onPress={() => navigate("/login")} />
         <ButtonWrapper>

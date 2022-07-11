@@ -1,7 +1,6 @@
 import styled from "styled-components/native";
 
 import Theme from "~/Styles/theme.styles";
-const { color } = Theme;
 interface StyledViewProps {
   height: number;
   width: number;
@@ -13,7 +12,6 @@ export const SafeArea = styled.View`
   position: absolute;
   bottom: 0;
   align-items: center;
-  background-color: ${color?.neutral?.black5};
 `;
 
 export const PageContent = styled.View`
