@@ -61,7 +61,7 @@ export default function HomeBorne({
     <PageContentWrapper>
       <PageContent>
         <FirstRow>
-          <TouchableOpacity onPress={() => navigate("/")}>
+          <TouchableOpacity onPress={() => navigate("/")} activeOpacity={0.7}>
             <MapCard style={boxShadow.panelAndroid}>
               <MapWrapper>
                 <MapButtonWrapper>
@@ -86,7 +86,10 @@ export default function HomeBorne({
               </NoEventIllustrationWrapper>
             </EventCard>
             <SanitaryCard style={boxShadow.panelAndroid}>
-              <TouchableOpacity onPress={() => navigate("/")}>
+              <TouchableOpacity
+                onPress={() => navigate("/")}
+                activeOpacity={0.7}
+              >
                 <Text type="titleXL" textAlign="center">
                   {pointsNumber.shower}
                 </Text>
@@ -159,59 +162,58 @@ export default function HomeBorne({
         </FirstRow>
         <EmptyRow />
         <SecondRow>
-          <TouchableOpacity onPress={() => navigate("/")}>
-            <AssociationsCard style={boxShadow.panelAndroid}>
-              <Text color="black40">{t("home.associations")}</Text>
-              <AssociationsCardTitleWrapper>
-                <Text type="titleXL">
-                  Les 5 associations les plus proche de vous
-                </Text>
-                <Text type="titleXL">{t("home.mostVisitedAssociations")}</Text>
-              </AssociationsCardTitleWrapper>
-              <Text color="blue" weight="bold">
-                {t("home.showTheMap")}
-              </Text>
-            </AssociationsCard>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigate("/")}>
-            <SleepCard style={boxShadow.panelAndroid} backgroundColor="blue">
-              <SleepCardTitleWrapper>
-                <Text color="white">
-                  {t("administrativeAssistance.hosting.hosting")}
-                </Text>
-              </SleepCardTitleWrapper>
-              <SleepCardArrowWrapper>
-                <ArrowRight color="white" />
-              </SleepCardArrowWrapper>
-              <Text type="titleXL" color="white">
-                {pointsNumber.housing}
-              </Text>
+          <AssociationsCard
+            activeOpacity={0.7}
+            style={boxShadow.panelAndroid}
+            onPress={() => navigate("/")}
+          >
+            <Text color="black40">{t("home.associations")}</Text>
+            <AssociationsCardTitleWrapper>
+              <Text type="titleXL">{t("home.mostVisitedAssociations")}</Text>
+            </AssociationsCardTitleWrapper>
+            <Text color="blue" weight="bold">
+              {t("home.showTheMap")}
+            </Text>
+          </AssociationsCard>
+          <SleepCard style={boxShadow.panelAndroid} backgroundColor="blue">
+            <SleepCardTitleWrapper>
               <Text color="white">
-                {t("home.nightShelter", { count: pointsNumber.housing })}
+                {t("administrativeAssistance.hosting.hosting")}
               </Text>
-              <SleepIllustrationWrapper>
-                <SleepIllustration width="240px" height="142px" />
-              </SleepIllustrationWrapper>
-            </SleepCard>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigate("/")}>
-            <HealthCard style={boxShadow.panelAndroid}>
-              <HealthCardHeadlineWrapper>
-                <Text color="black40">
-                  {t("administrativeAssistance.health.health")}
-                </Text>
-                <HealthIconWrapper>
-                  <MedicalCase color="white" />
-                </HealthIconWrapper>
-              </HealthCardHeadlineWrapper>
-              <HealthCardTitleWrapper>
-                <Text type="titleXL">{t("home.lookForADoctor")}</Text>
-              </HealthCardTitleWrapper>
-              <Text color="black60" type="small">
-                {t("home.whereCanIGo")}
+            </SleepCardTitleWrapper>
+            <SleepCardArrowWrapper>
+              <ArrowRight color="white" />
+            </SleepCardArrowWrapper>
+            <Text type="titleXL" color="white">
+              {pointsNumber.housing}
+            </Text>
+            <Text color="white">
+              {t("home.nightShelter", { count: pointsNumber.housing })}
+            </Text>
+            <SleepIllustrationWrapper>
+              <SleepIllustration width="240px" height="142px" />
+            </SleepIllustrationWrapper>
+          </SleepCard>
+          <HealthCard
+            style={boxShadow.panelAndroid}
+            onPress={() => navigate("/")}
+            activeOpacity={0.7}
+          >
+            <HealthCardHeadlineWrapper>
+              <Text color="black40">
+                {t("administrativeAssistance.health.health")}
               </Text>
-            </HealthCard>
-          </TouchableOpacity>
+              <HealthIconWrapper>
+                <MedicalCase color="white" />
+              </HealthIconWrapper>
+            </HealthCardHeadlineWrapper>
+            <HealthCardTitleWrapper>
+              <Text type="titleXL">{t("home.lookForADoctor")}</Text>
+            </HealthCardTitleWrapper>
+            <Text color="black60" type="small">
+              {t("home.whereCanIGo")}
+            </Text>
+          </HealthCard>
         </SecondRow>
       </PageContent>
     </PageContentWrapper>

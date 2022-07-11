@@ -25,6 +25,13 @@ export const Card = styled.View<CardProps>((props) => ({
   backgroundColor: color.primary[props.backgroundColor || "white"]
 }));
 
+export const CardTouchable = styled.TouchableOpacity<CardProps>((props) => ({
+  padding: "20px",
+  borderRadius: "24px",
+  overflow: "hidden",
+  backgroundColor: color.primary[props.backgroundColor || "white"]
+}));
+
 export const FirstRow = styled.View`
   flex-direction: row;
   height: 72.5%;
@@ -66,8 +73,8 @@ export const Map = styled(MapView)`
   height: 100%;
 `;
 
-export const AssociationsCard = styled(Card)`
-  flex: 1;
+export const AssociationsCard = styled(CardTouchable)`
+  flex: 2;
   margin-right: ${getColumnWidth(1, false)}px;
   width: ${getColumnWidth(9, false)}px;
 `;
@@ -108,7 +115,7 @@ export const SanitaryIconWrapper = styled.View`
   height: 60px;
 `;
 
-export const SleepCard = styled(Card)`
+export const SleepCard = styled(CardTouchable)`
   flex: 1;
   width: ${getColumnWidth(5, false)}px;
 `;
@@ -129,7 +136,7 @@ export const SleepIllustrationWrapper = styled.View`
   bottom: 0;
 `;
 
-export const HealthCard = styled(Card)`
+export const HealthCard = styled(CardTouchable)`
   flex: 1;
   margin-left: ${getColumnWidth(1, false)}px;
   width: ${getColumnWidth(5, false)}px;
