@@ -117,10 +117,7 @@ export default function HomeMobile({
           <Card style={boxShadow.panelAndroid}>
             <Text color="black60">Associations</Text>
             <AssociationsCardTitleWrapper>
-              <Text type="titleM">
-                Les 5 associations les plus proche de vous
-              </Text>
-              <Text type="titleM">{t("home.mostVisitedAssociations")}</Text>
+              <Text type="titleM">{t("home.closestAssociations")}</Text>
             </AssociationsCardTitleWrapper>
           </Card>
         </TouchableOpacity>

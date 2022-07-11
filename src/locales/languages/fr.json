@@ -145,7 +145,7 @@
     "wateringPlace_plural": "Points d'eau",
     "publicRestroom": "Toilette publique",
     "publicRestroom_plural": "Toilettes publiques",
-    "mostVisitedAssociations": "Les associations les plus visitées ces dernières semaines",
+    "closestAssociations": "Les 5 associations les plus proche de vous",
     "associations": "Associations",
     "nightShelter": "Accueil de nuit",
     "nightShelter_plural": "Accueils de nuit",

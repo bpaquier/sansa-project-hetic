@@ -169,7 +169,7 @@ export default function HomeBorne({
           >
             <Text color="black40">{t("home.associations")}</Text>
             <AssociationsCardTitleWrapper>
-              <Text type="titleXL">{t("home.mostVisitedAssociations")}</Text>
+              <Text type="titleXL">{t("home.closestAssociations")}</Text>
             </AssociationsCardTitleWrapper>
             <Text color="blue" weight="bold">
               {t("home.showTheMap")}
