@@ -33,6 +33,13 @@ export default function PlacesList(): JSX.Element {
   const scrollRef = useRef();
 
   useEffect(() => {
+    console.log("LIST MOUNTED");
+    return () => {
+      console.group("LIST UNMOUNTED");
+    };
+  }, []);
+
+  useEffect(() => {
     const scrollValue = itemsTopPositions?.current?.[selectedPlaceIndex];
     (scrollValue || scrollValue === 0) && scrollTo(scrollValue);
   }, [selectedPlaceIndex]);

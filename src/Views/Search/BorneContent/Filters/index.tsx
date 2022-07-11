@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 
@@ -17,6 +19,13 @@ export default function Filters(): JSX.Element {
   const selectedFilters: string[] = displayFilters
     ? servicesRepartition?.[displayFilters]
     : null;
+
+  useEffect(() => {
+    console.log("FILTERS MOUNTED");
+    return () => {
+      console.group("FILTERS UNMOUNTED");
+    };
+  }, []);
 
   return displayFilters ? (
     <FiltersWrapper>

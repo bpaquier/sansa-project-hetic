@@ -49,12 +49,8 @@ export default function Map(): JSX.Element {
   } = useSearchContext();
   const [leftPadding, setLeftPadding] = useState<number>(0);
   const mapRef = useRef();
-  const [location, setLocation] = useState<LocationProps>({
-    latitude: 48.859,
-    longitude: 2.3397,
-    latitudeDelta: initialDelta,
-    longitudeDelta: initialDelta
-  });
+
+  const [location, setLocation] = useState<LocationProps>(null);
 
   useEffect(() => {
     void (async () => {
@@ -102,34 +98,6 @@ export default function Map(): JSX.Element {
     triggerLocalization !== null && goToCurrentPosition();
   }, [triggerLocalization]);
 
-  const renderMarkers = useMemo(() => {
-    return filteredPlaces?.map((place, index) => (
-      <Marker
-        style={[
-          {
-            zIndex: index === selectedPlaceIndex ? 2 : 1
-          }
-        ]}
-        key={`${index}-${place?.organization_name}`}
-        onPress={() => {
-          setSelectedPlaceIndex(index);
-        }}
-        coordinate={{
-          latitude: parseFloat(place?.latitude),
-          longitude: parseFloat(place?.longitude)
-        }}
-      >
-        <Ping
-          {...{ index }}
-          isSelected={index === selectedPlaceIndex}
-          name={place?.organization_name}
-          small={isMobile}
-          mobile={isMobile}
-        />
-      </Marker>
-    ));
-  }, [filteredPlaces]);
-
   const zoom = (arg: "in" | "out") => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
@@ -176,63 +144,97 @@ export default function Map(): JSX.Element {
     });
   };
 
-  return (
-    <>
-      <MapView
-        ref={mapRef}
-        style={styles.map}
-        customMapStyle={mapStyle}
-        provider={PROVIDER_GOOGLE}
-        showsUserLocation={true}
-        showsMyLocationButton={false}
-        initialRegion={{ ...location }}
-        onPress={() => {
-          !isMobile && displayFilters && setDisplayFilters(null);
-          setSearchValue(null);
-          Keyboard.dismiss();
-        }}
-        mapPadding={{
-          top: 0,
-          right: 0,
-          bottom: 0,
-          left: leftPadding
-        }}
-      >
-        {renderMarkers}
-      </MapView>
-      {!isMobile ? (
-        <Controls {...{ isMobile }}>
-          <Button
-            // eslint-disable-next-line @typescript-eslint/no-misused-promises
-            onPress={() => goToCurrentPosition()}
-            marginBottom={isMobile ? 0 : 48}
-            {...{ isMobile }}
-          >
-            <PositionIcon
-              width={isMobile ? 20 : 32}
-              height={isMobile ? 20 : 32}
-              color={theme?.color?.primary?.blue}
-            />
-          </Button>
+  const renderMap = useMemo(() => {
+    console.log("memo");
+    return (
+      <>
+        <MapView
+          ref={mapRef}
+          style={styles.map}
+          customMapStyle={mapStyle}
+          provider={PROVIDER_GOOGLE}
+          showsUserLocation={true}
+          showsMyLocationButton={false}
+          initialRegion={{
+            latitude: 48.859,
+            longitude: 2.3397,
+            latitudeDelta: initialDelta,
+            longitudeDelta: initialDelta
+          }}
+          onPress={() => {
+            !isMobile && displayFilters && setDisplayFilters(null);
+            setSearchValue(null);
+            Keyboard.dismiss();
+          }}
+          mapPadding={{
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: leftPadding
+          }}
+        >
+          {filteredPlaces?.map((place, index) => (
+            <Marker
+              style={[
+                {
+                  zIndex: index === selectedPlaceIndex ? 2 : 1
+                }
+              ]}
+              key={`${index}-${place?.organization_name}`}
+              onPress={() => {
+                setSelectedPlaceIndex(index);
+              }}
+              coordinate={{
+                latitude: parseFloat(place?.latitude),
+                longitude: parseFloat(place?.longitude)
+              }}
+            >
+              <Ping
+                {...{ index }}
+                isSelected={index === selectedPlaceIndex}
+                name={place?.organization_name}
+                small={isMobile}
+                mobile={isMobile}
+              />
+            </Marker>
+          ))}
+        </MapView>
+        {!isMobile ? (
+          <Controls {...{ isMobile }}>
+            <Button
+              // eslint-disable-next-line @typescript-eslint/no-misused-promises
+              onPress={() => goToCurrentPosition()}
+              marginBottom={isMobile ? 0 : 48}
+              {...{ isMobile }}
+            >
+              <PositionIcon
+                width={isMobile ? 20 : 32}
+                height={isMobile ? 20 : 32}
+                color={theme?.color?.primary?.blue}
+              />
+            </Button>
 
-          <>
-            <Button onPress={() => zoom("in")} marginBottom={8}>
-              <Plus
-                width={32}
-                height={32}
-                color={theme?.color?.primary?.blue}
-              />
-            </Button>
-            <Button onPress={() => zoom("out")} marginBottom={0}>
-              <Minus
-                width={32}
-                height={32}
-                color={theme?.color?.primary?.blue}
-              />
-            </Button>
-          </>
-        </Controls>
-      ) : null}
-    </>
-  );
+            <>
+              <Button onPress={() => zoom("in")} marginBottom={8}>
+                <Plus
+                  width={32}
+                  height={32}
+                  color={theme?.color?.primary?.blue}
+                />
+              </Button>
+              <Button onPress={() => zoom("out")} marginBottom={0}>
+                <Minus
+                  width={32}
+                  height={32}
+                  color={theme?.color?.primary?.blue}
+                />
+              </Button>
+            </>
+          </Controls>
+        ) : null}
+      </>
+    );
+  }, [filteredPlaces, selectedPlaceIndex, isMobile, leftPadding]);
+
+  return renderMap;
 }
