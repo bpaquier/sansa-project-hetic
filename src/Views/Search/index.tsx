@@ -10,7 +10,7 @@ import { useGlobalContext } from "~/Contexts/globalContext";
 import SearchProvider from "~/Contexts/searchContext";
 
 export default function Search(): JSX.Element {
-  const { isMobile } = useGlobalContext();
+  const { isMobile, statusBarHeight } = useGlobalContext();
 
   const Wrapper = (
     isMobile ? MobileWrapper : PageContentWrapper
@@ -18,7 +18,7 @@ export default function Search(): JSX.Element {
 
   return (
     <SearchProvider>
-      <Wrapper>
+      <Wrapper {...{ statusBarHeight }}>
         <Map />
         {isMobile ? <MobileContent /> : <BornContent />}
         <SearchResults />

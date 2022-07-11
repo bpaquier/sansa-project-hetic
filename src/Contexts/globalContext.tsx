@@ -9,6 +9,7 @@ import {
 import * as Device from "expo-device";
 import * as ScreenOrientation from "expo-screen-orientation";
 import { Dimensions } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import Theme from "~/Styles/theme.styles";
 
@@ -17,6 +18,7 @@ interface ContextProps {
   setAppWidth?(width?: number): any;
   isMenuLanguagesOpen?: boolean;
   setMenuLanguagesOpen?: (isOpen?: boolean) => void;
+  statusBarHeight?: number;
 }
 
 export const Context = createContext<ContextProps>({});
@@ -30,11 +32,17 @@ interface GlobalProviderProps {
 }
 
 function GlobalProvider({ children }: GlobalProviderProps) {
+  const insets = useSafeAreaInsets();
   const [isMobile, setIsMobile] = useState<boolean>(
     Dimensions?.get("window").width < Theme?.sizes?.breakPoint
   );
   const [isMenuLanguagesOpen, setIsMenuLanguagesOpen] =
     useState<boolean>(false);
+  const [statusBarHeight, setStatusBarHeight] = useState<number>(insets?.top);
+
+  useEffect(() => {
+    setStatusBarHeight(insets?.top);
+  }, [insets?.top]);
 
   useEffect(() => {
     Device.getDeviceTypeAsync()
@@ -63,7 +71,8 @@ function GlobalProvider({ children }: GlobalProviderProps) {
   const providedValue = {
     isMobile,
     isMenuLanguagesOpen,
-    setMenuLanguagesOpen
+    setMenuLanguagesOpen,
+    statusBarHeight
   };
   return <Context.Provider value={providedValue}>{children}</Context.Provider>;
 }
