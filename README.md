@@ -27,8 +27,9 @@ On the device manager window, click on `Create device`
 
 // PHOTO
 
-Select `Import Hardware Profiles` and find SANSA_TABLETTE_CONFIGURATION
-(In the repo `DEVICE/SANSA_TABLETTE_CONFIGURATION.XML`)
+Select `Import Hardware Profiles` and find SANSA_TABLETTE_CONFIGURATION.xml
+
+(In the repo `device/SANSA_TABLETTE_CONFIGURATION.xml`)
 
 Then, it should appear in the TV category. Select the good device, and next.
 
