@@ -2,7 +2,13 @@ import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 
 import Filter from "./Filter";
-import { FiltersWrapper, CheckboxWrapper, Content, Title } from "./styles";
+import {
+  FiltersWrapper,
+  CheckboxWrapper,
+  Content,
+  Title,
+  LoadingOverlay
+} from "./styles";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import { useSearchContext } from "~/Contexts/searchContext";
@@ -11,7 +17,7 @@ import { servicesRepartition } from "~/hooks/useServices";
 export default function Filters(): JSX.Element {
   const { language } = i18next;
   const { t } = useTranslation();
-  const { displayFilters } = useSearchContext();
+  const { displayFilters, isFilterLoading } = useSearchContext();
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const selectedFilters: string[] = displayFilters
@@ -39,6 +45,7 @@ export default function Filters(): JSX.Element {
             );
           })}
       </Content>
+      {isFilterLoading && <LoadingOverlay></LoadingOverlay>}
     </FiltersWrapper>
   ) : null;
 }

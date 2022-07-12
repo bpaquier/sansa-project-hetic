@@ -122,6 +122,7 @@ function SearchProvider({ children }: SearchProviderProps) {
       searchValue && setSearchValue(null);
       !isFilterLoading && setIsFilterLoading(true);
       !displayPlacesList && setDisplayPlacesList(true);
+      updatePlacesSelection();
     }
   }, [filters]);
 
@@ -140,34 +141,6 @@ function SearchProvider({ children }: SearchProviderProps) {
       displayPlacesList && setDisplayPlacesList(false);
     }
   }, [searchValue, filters]);
-
-  useEffect(() => {
-    if (debouncedFilters && debouncedFilters?.length > 0) {
-      getOrgaByServices(debouncedFilters)
-        ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
-          if (status === 200) {
-            if (data) {
-              setFilteredPlaces(
-                data?.sort(
-                  (prev: { place: number }, next: { place: number }) =>
-                    next?.place - prev?.place
-                )
-              );
-            } else {
-              //todo: handle error
-            }
-          } else {
-            //todo: handle error
-          }
-          setIsFilterLoading(false);
-        })
-        .catch((err) => {
-          //todo: handle error
-          console.log(err);
-          setIsFilterLoading(false);
-        });
-    }
-  }, [debouncedFilters]);
 
   useEffect(() => {
     if (debouncedSearch) {
@@ -195,6 +168,32 @@ function SearchProvider({ children }: SearchProviderProps) {
   useEffect(() => {
     filteredPlaces?.length > 0 && isMobile && setSelectedPlaceIndex(0);
   }, [filteredPlaces]);
+
+  const updatePlacesSelection = () => {
+    getOrgaByServices(filters)
+      ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
+        if (status === 200) {
+          if (data) {
+            setFilteredPlaces(
+              data?.sort(
+                (prev: { place: number }, next: { place: number }) =>
+                  next?.place - prev?.place
+              )
+            );
+          } else {
+            //todo: handle error
+          }
+        } else {
+          //todo: handle error
+        }
+        setIsFilterLoading(false);
+      })
+      .catch((err) => {
+        //todo: handle error
+        console.log(err);
+        setIsFilterLoading(false);
+      });
+  };
 
   const updateFilters = ({ action, filtersName }: updateFiltersProps) => {
     if (action === "add") {

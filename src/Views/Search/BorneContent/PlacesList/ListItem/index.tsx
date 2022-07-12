@@ -32,15 +32,15 @@ export default function ListItem({
   id
 }: ListItemProps): JSX.Element {
   const { t } = useTranslation();
-  const { debouncedFilters, setDisplayPlaceDescription, filteredPlaces } =
+  const { filters, setDisplayPlaceDescription, filteredPlaces } =
     useSearchContext();
   const [formatedCategories, setFormatedCatgories] = useState<string[]>([]);
   const currentDay = useCurrentDay();
 
   useEffect(() => {
-    if (debouncedFilters && debouncedFilters?.length > 0) {
+    if (filters && filters?.length > 0) {
       setFormatedCatgories(
-        services_id?.filter((service) => debouncedFilters?.includes(service))
+        services_id?.filter((service) => filters?.includes(service))
       );
     }
   }, [filteredPlaces]);

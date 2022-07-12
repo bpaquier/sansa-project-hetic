@@ -43,3 +43,14 @@ export const CheckboxWrapper = styled.View`
     reversed ? "margin-right: 2%" : ""}
   margin-right: 2%;
 `;
+
+export const LoadingOverlay = styled.View`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  justify-content: center;
+  align-items: center;
+`;
