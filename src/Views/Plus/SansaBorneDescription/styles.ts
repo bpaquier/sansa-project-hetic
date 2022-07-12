@@ -8,7 +8,6 @@ type TextMissionsPlusWrapperProps = {
 };
 
 export const TextMissionsPlusWrapper = styled.Pressable<TextMissionsPlusWrapperProps>`
-  margin-top: 24px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -24,4 +23,11 @@ export const LogoWrappers = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const NotConnectedDescription = styled.View`
+  display: flex;
+  flex: 1;
+  margin-top: 16px;
+  justify-content: space-around;
 `;
