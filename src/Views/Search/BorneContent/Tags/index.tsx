@@ -22,13 +22,6 @@ export default function Tags(): JSX.Element {
   const [displayTagsList, setDisplayTagsList] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log("TAGS MOUNTED");
-    return () => {
-      console.group("TAGS UNMOUNTED");
-    };
-  }, []);
-
-  useEffect(() => {
     (!filters || filters?.length === 0) && setDisplayTagsList(false);
   }, [filters]);
 

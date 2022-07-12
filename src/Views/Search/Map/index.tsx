@@ -145,7 +145,6 @@ export default function Map(): JSX.Element {
   };
 
   const renderMap = useMemo(() => {
-    console.log("memo");
     return (
       <>
         <MapView

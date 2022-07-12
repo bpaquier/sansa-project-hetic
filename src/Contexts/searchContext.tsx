@@ -115,15 +115,13 @@ function SearchProvider({ children }: SearchProviderProps) {
 
   useEffect(() => {
     if (!filters || filters?.length === 0) {
-      setFilters(null);
-      setIsFilterLoading(false);
-      setDisplayFilters(null);
-      setFilteredPlaces(null);
+      displayFilters && setDisplayFilters(null);
+      filteredPlaces && setFilteredPlaces(null);
+      displayPlacesList && setDisplayPlacesList(false);
     } else {
-      setSearchValue(null);
-      setIsFilterLoading(true);
-      setDisplayPlacesList(true);
-      setFilteredPlaces(null);
+      searchValue && setSearchValue(null);
+      !isFilterLoading && setIsFilterLoading(true);
+      !displayPlacesList && setDisplayPlacesList(true);
     }
   }, [filters]);
 
@@ -160,20 +158,16 @@ function SearchProvider({ children }: SearchProviderProps) {
             } else {
               //todo: handle error
             }
-            setIsFilterLoading(false);
           } else {
             //todo: handle error
           }
+          setIsFilterLoading(false);
         })
         .catch((err) => {
           //todo: handle error
           console.log(err);
+          setIsFilterLoading(false);
         });
-    } else {
-      setFilters(null);
-      setIsFilterLoading(false);
-      setFilteredPlaces(null);
-      setDisplayPlacesList(false);
     }
   }, [debouncedFilters]);
 
@@ -187,11 +181,10 @@ function SearchProvider({ children }: SearchProviderProps) {
             } else {
               //todo: handle error
             }
-            setIsSearchLoading(false);
           } else {
-            setIsSearchLoading(false);
             //todo: handle error
           }
+          setIsSearchLoading(false);
         })
         ?.catch((err) => {
           setIsSearchLoading(false);

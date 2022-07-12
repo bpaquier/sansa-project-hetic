@@ -39,13 +39,6 @@ export default function PlaceDescription(): JSX.Element {
   >(null);
 
   useEffect(() => {
-    console.log("DESCRIPTION MOUNTED");
-    return () => {
-      console.group("DESCRIPTION UNMOUNTED");
-    };
-  }, []);
-
-  useEffect(() => {
     displayPlaceDescription &&
       getOrgaById(displayPlaceDescription)
         ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
