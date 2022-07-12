@@ -30,7 +30,12 @@ export default function useApi() {
       ?.get(`${API_ENDPOINT}/getservice/count`)
       ?.then((resp) => resp)
       ?.catch((error) => error);
-  }
+  };
 
-  return { getOrgaById, getOrgaByNameOrAdress, getOrgaByServices, getServicesCount };
+  return {
+    getOrgaById,
+    getOrgaByNameOrAdress,
+    getOrgaByServices,
+    getServicesCount
+  };
 }

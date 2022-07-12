@@ -5,6 +5,11 @@ import HomeMobile from "../../../Components/Home/HomeMobile";
 import { useGlobalContext } from "~/Contexts/globalContext";
 import useApi from "~/hooks/useApi";
 
+interface serviceObj {
+  service: string;
+  count: number;
+}
+
 export default function Home(): JSX.Element {
   const { isMobile } = useGlobalContext();
 
@@ -20,14 +25,21 @@ export default function Home(): JSX.Element {
   });
 
   const getPointsNumber = () => {
-    getServicesCount().then(({ data }) => {
-      const services = ["Douche", "Fontaine à eau", "Toilettes", "Halte de nuit"];
-      const serviceCounts = [];
-      
+    getServicesCount().then(({ data }: { data: serviceObj[] }) => {
+      const services = [
+        "Douche",
+        "Fontaine à eau",
+        "Toilettes",
+        "Halte de nuit"
+      ];
+      const serviceCounts: number[] = [];
+
       for (const service of services) {
-        const serviceCount = data.find(el => el.service === service).count;
+        const serviceCount: number = data.find(
+          (el: serviceObj) => el.service === service
+        ).count;
         serviceCounts.push(serviceCount);
-      };
+      }
 
       setPointsNumber({
         shower: serviceCounts[0],
@@ -36,7 +48,6 @@ export default function Home(): JSX.Element {
         housing: serviceCounts[3]
       });
     });
-
   };
 
   useEffect(() => {
