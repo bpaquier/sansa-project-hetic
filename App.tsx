@@ -12,6 +12,7 @@ import FAQResponse from "~/Views/FAQResponse";
 import Page from "~/Views/Page";
 import Plus from "~/Views/Plus";
 import Search from "~/Views/Search";
+import MobileOnboarding from "~/Views/MobileOnboarding";
 import "~/locales/i18n";
 
 export default function App() {
@@ -30,6 +31,7 @@ export default function App() {
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/faq/:type" element={<FAQCategory />} />
                 <Route path="/faq/:type/:index" element={<FAQResponse />} />
+                <Route path="/onboarding" element={<MobileOnboarding />} />
               </Routes>
               <LanguagesMenu />
             </>

@@ -4,7 +4,7 @@ import Theme from "~/Styles/theme.styles";
 
 type PageContainerProps = {
   noPaddingX?: boolean;
-  backgroundColor?: "grey" | "white";
+  backgroundColor?: "grey" | "white" | "blue";
 };
 
 const { grid, color } = Theme;
@@ -18,7 +18,7 @@ export const PageContainerMobile = styled.ScrollView<PageContainerProps>`
   min-height: 100%;
   padding: 50px ${({ noPaddingX }) => `${noPaddingX ? 0 : grid.mobileGutter}px`};
   background-color: ${({ backgroundColor }) =>
-    backgroundColor === "white" ? color.primary.white : color.neutral.black5};
+    backgroundColor === "white" ? color.primary.white : backgroundColor === "blue" ? color.primary.blue : color.neutral.black5};
   padding-top: 60px;
 `;
 

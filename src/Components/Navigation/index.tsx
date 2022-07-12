@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-native";
+import { useLocation, useNavigate } from "react-router-native";
 
 import NavigationBorne from "./NavigationBorne";
 import NavigationMobile from "./NavigationMobile";
@@ -13,8 +13,10 @@ export default function Navigation() {
     setMenuLanguagesOpen && setMenuLanguagesOpen(false);
     direction && navigate(direction);
   };
+  const location = useLocation();
 
   return (
+    (location.pathname !== "/onboarding") &&
     <Navigation
       onPressExitLanguagesMenuAndNavigate={onPressExitLanguagesMenuAndNavigate}
       onPressMenu={setMenuLanguagesOpen}
