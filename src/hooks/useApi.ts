@@ -25,5 +25,12 @@ export default function useApi() {
       ?.catch((error) => error);
   };
 
-  return { getOrgaById, getOrgaByNameOrAdress, getOrgaByServices };
+  const getServicesCount = async () => {
+    return await axios
+      ?.get(`${API_ENDPOINT}/getservice/count`)
+      ?.then((resp) => resp)
+      ?.catch((error) => error);
+  }
+
+  return { getOrgaById, getOrgaByNameOrAdress, getOrgaByServices, getServicesCount };
 }

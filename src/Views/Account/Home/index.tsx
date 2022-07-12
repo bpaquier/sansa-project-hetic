@@ -10,7 +10,7 @@ export default function Home(): JSX.Element {
 
   const HomeComponent = isMobile ? HomeMobile : HomeBorne;
 
-  const { getOrgaByServices } = useApi();
+  const { getServicesCount } = useApi();
 
   const [pointsNumber, setPointsNumber] = useState({
     shower: 0,
@@ -20,35 +20,23 @@ export default function Home(): JSX.Element {
   });
 
   const getPointsNumber = () => {
-    const getShowerNumber = getOrgaByServices(["Douche"]).then(
-      ({ data }: { data: [] }): number => data.length
-    );
+    getServicesCount().then(({ data }) => {
+      const services = ["Douche", "Fontaine à eau", "Toilettes", "Halte de nuit"];
+      const serviceCounts = [];
+      
+      for (const service of services) {
+        const serviceCount = data.find(el => el.service === service).count;
+        serviceCounts.push(serviceCount);
+      };
 
-    const getWaterNumber = getOrgaByServices(["Fontaine à eau"]).then(
-      ({ data }: { data: [] }): number => data.length
-    );
-
-    const getToiletsNumber = getOrgaByServices(["Toilettes"]).then(
-      ({ data }: { data: [] }): number => data.length
-    );
-
-    const getHousingNumber = getOrgaByServices(["Halte de nuit"]).then(
-      ({ data }: { data: [] }): number => data.length
-    );
-
-    Promise.all([
-      getShowerNumber,
-      getWaterNumber,
-      getToiletsNumber,
-      getHousingNumber
-    ]).then((values: [number, number, number, number]) => {
       setPointsNumber({
-        shower: values[0],
-        water: values[1],
-        toilets: values[2],
-        housing: values[3]
+        shower: serviceCounts[0],
+        water: serviceCounts[1],
+        toilets: serviceCounts[2],
+        housing: serviceCounts[3]
       });
     });
+
   };
 
   useEffect(() => {
