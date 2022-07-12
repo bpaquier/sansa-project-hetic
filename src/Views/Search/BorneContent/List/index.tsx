@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import { useTranslation } from "react-i18next";
-import { Pressable } from "react-native";
 
 import { LoadingOverlay } from "../Filters/styles";
 import {
@@ -17,7 +16,8 @@ import {
   ListHeader,
   LoaderWrapper,
   SpinnerWrapper,
-  IndexWrapper
+  IndexWrapper,
+  ListItem
 } from "./styles";
 import Icon from "~/Components/Icon";
 import Spinner from "~/Components/Icons/Spinner";
@@ -77,11 +77,13 @@ export default function List(): JSX.Element {
             index
           ) => {
             const isSelected = selectedPlaceIndex === index;
+            const lastItem = index + 1 === filteredPlaces?.length;
             const filteredServices = services_id?.filter((service) =>
               filters?.includes(service)
             );
             return (
-              <Pressable
+              <ListItem
+                {...{ isSelected, lastItem }}
                 key={`${organization_name}-${index}`}
                 onLayout={(e) => {
                   const { y } = e.nativeEvent.layout;
@@ -153,13 +155,13 @@ export default function List(): JSX.Element {
                 {index < filteredPlaces?.length - 1 && (
                   <Separator orientation="horizontal" columnWidth={6.5} />
                 )}
-              </Pressable>
+              </ListItem>
             );
           }
         )}
       </ListContent>
     );
-  }, [filteredPlaces]);
+  }, [filteredPlaces, selectedPlaceIndex]);
 
   return (
     <ListWrapper>

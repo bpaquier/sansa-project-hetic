@@ -26,6 +26,13 @@ export const ListContent = styled.ScrollView`
   70}px;
 `;
 
+export const ListItem = styled.View`
+  ${({ isSelected }: { isSelected?: boolean; lastItem?: boolean }) =>
+    isSelected ? `background-color: rgba(0,0,0,0.02)` : ""}
+  ${({ lastItem }: { isSelected?: boolean; lastItem?: boolean }) =>
+    lastItem ? `padding-bottom: 16px` : ""}
+`;
+
 export const ItemWrapper = styled.Pressable`
   flex-direction: row;
   justify-content: space-between;
@@ -57,6 +64,13 @@ export const IconsWrapper = styled.View`
 export const ButtonWrapper = styled.TouchableOpacity`
   padding: 10px 0;
 `;
+export const IndexWrapper = styled.View`
+  height: 24px;
+  width: 24px;
+  background-color: ${theme?.color?.primary?.blueExtraDark};
+  border-radius: ${theme?.shape?.radius?.checkbox}px;
+  align-items: center;
+`;
 
 export const ListHeader = styled.TouchableOpacity`
   padding: 16px 24px;
@@ -71,14 +85,6 @@ export const LoaderWrapper = styled.View`
 
 export const SpinnerWrapper = styled.View`
   margin-right: 8px;
-`;
-
-export const IndexWrapper = styled.View`
-  height: 24px;
-  width: 24px;
-  background-color: ${theme?.color?.primary?.blueExtraDark};
-  border-radius: ${theme?.shape?.radius?.checkbox}px;
-  align-items: center;
 `;
 
 export const LoadingOverlay = styled.View`
