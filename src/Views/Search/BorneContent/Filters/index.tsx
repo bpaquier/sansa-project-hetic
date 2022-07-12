@@ -18,13 +18,8 @@ import { servicesRepartition } from "~/hooks/useServices";
 export default function Filters(): JSX.Element {
   const { language } = i18next;
   const { t } = useTranslation();
-  const {
-    displayFilters,
-    isFilterLoading,
-    filters,
-    updateFilters,
-    setFilters
-  } = useSearchContext();
+  const { displayFilters, isFilterLoading, filters, updateFilters } =
+    useSearchContext();
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const selectedFilters: string[] = displayFilters
@@ -47,8 +42,7 @@ export default function Filters(): JSX.Element {
               <CheckboxWrapper
                 reversed={language === "ar-SA"}
                 key={`${filter}-${i}`}
-                onPressIn={() => {
-                  console.log(filter);
+                onPress={() => {
                   updateFilters({
                     action: isSelected ? "remove" : "add",
                     filtersName: [filter]

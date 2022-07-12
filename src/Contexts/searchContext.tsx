@@ -166,7 +166,6 @@ function SearchProvider({ children }: SearchProviderProps) {
   }, [debouncedSearch]);
 
   const updatePlacesSelection = () => {
-    console.log("start fetch");
     getOrgaByServices(filters)
       ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
         if (status === 200) {
@@ -217,6 +216,10 @@ function SearchProvider({ children }: SearchProviderProps) {
         );
     }
   };
+
+  useEffect(() => {
+    filteredPlaces && setSelectedPlaceIndex(0);
+  }, [filteredPlaces]);
 
   const handleSearch = (value: string) => {
     setSearchValue(value);

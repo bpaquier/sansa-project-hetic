@@ -26,7 +26,7 @@ export const ListContent = styled.ScrollView`
   70}px;
 `;
 
-export const ItemWrapper = styled.View`
+export const ItemWrapper = styled.Pressable`
   flex-direction: row;
   justify-content: space-between;
   padding: 9px 32px;
@@ -56,4 +56,17 @@ export const IconsWrapper = styled.View`
 
 export const ButtonWrapper = styled.TouchableOpacity`
   padding: 12px 0;
+`;
+
+export const ListHeader = styled.TouchableOpacity`
+  padding: 24px 42px;
+`;
+
+export const LoaderWrapper = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const SpinnerWrapper = styled.View`
+  margin-right: 8px;
 `;

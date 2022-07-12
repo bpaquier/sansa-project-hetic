@@ -8,12 +8,16 @@ import TopBar from "./TopBar";
 import { useSearchContext } from "~/Contexts/searchContext";
 
 export default function BornContent(): JSX.Element {
-  const { displayFilters, filters, displayPlaceDescription } =
-    useSearchContext();
+  const {
+    displayFilters,
+    filters,
+    displayPlaceDescription,
+    displayPlacesList
+  } = useSearchContext();
 
   return (
     <>
-      <List />
+      {displayPlacesList && <List />}
       {displayFilters && <Filters />}
       <TopBar />
       {filters?.length > 0 && <Tags />}
