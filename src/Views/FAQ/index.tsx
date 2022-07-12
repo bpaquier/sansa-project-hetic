@@ -84,7 +84,13 @@ export default function FAQ() {
             >
               {t("administrativeAssistance.mostAskedQuestions")}
             </TextWrapper>
-            <FAQQuestionsContainer isMobile={isMobile}>
+            <FAQQuestionsContainer
+              contentContainerStyle={{
+                flexGrow: 1,
+                justifyContent: "space-between"
+              }}
+              isMobile={isMobile}
+            >
               {questionsFAQ.map((question, index) => (
                 <FAQQuestionItem
                   key={`${question.type}${question.questionIndex}`}
