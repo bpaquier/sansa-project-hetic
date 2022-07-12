@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import i18next from "i18next";
 import { useTranslation } from "react-i18next";
+import { View } from "react-native";
 
-import { LoadingOverlay } from "../Filters/styles";
 import {
   ListWrapper,
   ListContent,
@@ -17,7 +18,8 @@ import {
   LoaderWrapper,
   SpinnerWrapper,
   IndexWrapper,
-  ListItem
+  ListItem,
+  LoadingOverlay
 } from "./styles";
 import Icon from "~/Components/Icon";
 import Spinner from "~/Components/Icons/Spinner";
@@ -40,6 +42,7 @@ export default function List(): JSX.Element {
     setDisplayFilters,
     isFilterLoading
   } = useSearchContext();
+  const { language } = i18next;
   const currentDay = useCurrentDay();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -161,7 +164,7 @@ export default function List(): JSX.Element {
         )}
       </ListContent>
     );
-  }, [filteredPlaces, selectedPlaceIndex]);
+  }, [filteredPlaces, selectedPlaceIndex, language]);
 
   return (
     <ListWrapper>
@@ -184,7 +187,7 @@ export default function List(): JSX.Element {
         )}
         {isOpen ? <ArrowUp /> : <ArrowDown />}
       </ListHeader>
-      {isOpen && renderList}
+      <View style={{ height: isOpen ? "auto" : 0 }}>{renderList}</View>
       {isFilterLoading && isOpen && (
         <LoadingOverlay>
           <Spinner width={40} height={40} />

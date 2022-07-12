@@ -12,7 +12,7 @@ export const ListWrapper = styled.View`
   left: ${getColumnWidth(3, false)}px;
   margin-left: ${grid?.borneGutter}px;
   top: ${sizes?.bornContent?.topBarHeight + grid?.borneGutter + 8}px;
-  width: ${getColumnWidth(7.5, false)}px;
+  width: ${getColumnWidth(7.7, false)}px;
   border-radius: ${shape?.radius?.input}px;
   overflow: hidden;
   background-color: ${color.primary.white};

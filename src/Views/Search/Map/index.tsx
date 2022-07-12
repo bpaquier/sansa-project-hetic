@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
-import React, { useEffect, useState, useRef, useMemo } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
-import * as Location from "expo-location";
-import { StyleSheet, Dimensions, Alert, Keyboard } from "react-native";
+import { Dimensions, Alert, Keyboard } from "react-native";
 // eslint-disable-next-line import/named
 import MapView, { PROVIDER_GOOGLE, Camera, Marker } from "react-native-maps";
 
@@ -14,18 +13,11 @@ import Plus from "~/Components/Icons/System/System/Plus";
 import Ping from "~/Components/Ping";
 import { useGlobalContext } from "~/Contexts/globalContext";
 import { useSearchContext } from "~/Contexts/searchContext";
+import useGeolocalisation from "~/hooks/useGeolocalisation";
+import useLocationPermission from "~/hooks/useLocationPermission";
 import { getColumnWidth } from "~/Styles/mixins.styles";
 import theme from "~/Styles/theme.styles";
 
-const styles = StyleSheet.create({
-  map: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height
-  }
-});
 interface LocationProps {
   latitude: number;
   longitude: number;
@@ -47,27 +39,23 @@ export default function Map(): JSX.Element {
     displayPlacesList,
     setSearchValue
   } = useSearchContext();
-  const [leftPadding, setLeftPadding] = useState<number>(0);
   const mapRef = useRef();
-
+  const locationPermission = useLocationPermission();
+  const currentLocation = useGeolocalisation(locationPermission);
+  const firstLocated = useRef<boolean>(false);
   const [location, setLocation] = useState<LocationProps>(null);
+  const [leftPadding, setLeftPadding] = useState<number>(0);
 
   useEffect(() => {
-    void (async () => {
-      const { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        return;
-      }
-      const currentLocation = await Location.getCurrentPositionAsync({});
-
+    if (currentLocation && !firstLocated.current) {
+      firstLocated.current = true;
       setLocation({
         latitudeDelta: initialDelta,
         longitudeDelta: initialDelta,
-        latitude: currentLocation?.coords?.latitude,
-        longitude: currentLocation?.coords?.longitude
+        ...currentLocation
       });
-    })();
-  }, []);
+    }
+  }, [currentLocation]);
 
   useEffect(() => {
     Keyboard.dismiss();
@@ -86,19 +74,21 @@ export default function Map(): JSX.Element {
 
   useEffect(() => {
     selectedPlaceIndex !== null &&
+      filteredPlaces &&
       setLocation({
         latitudeDelta: delta + 0.1,
         longitudeDelta: delta + 0.1,
         latitude: parseFloat(filteredPlaces?.[selectedPlaceIndex]?.latitude),
         longitude: parseFloat(filteredPlaces?.[selectedPlaceIndex]?.longitude)
       });
-  }, [selectedPlaceIndex]);
+  }, [selectedPlaceIndex, filteredPlaces]);
 
   useEffect(() => {
     triggerLocalization !== null && goToCurrentPosition();
   }, [triggerLocalization]);
 
   const zoom = (arg: "in" | "out") => {
+    console.log({ arg });
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
@@ -125,9 +115,8 @@ export default function Map(): JSX.Element {
     );
   };
 
-  const goToCurrentPosition = async () => {
-    const { status } = await Location.requestForegroundPermissionsAsync();
-    if (status !== "granted") {
+  const goToCurrentPosition = () => {
+    if (!locationPermission || !currentLocation) {
       Alert.alert(
         "",
         "Veuillez autoriser la géolocalisation dans vos paramettres",
@@ -135,105 +124,105 @@ export default function Map(): JSX.Element {
       );
       return;
     }
-    const currentLocation = await Location.getCurrentPositionAsync({});
+    setSelectedPlaceIndex(null);
     setLocation({
-      latitudeDelta: initialDelta,
-      longitudeDelta: initialDelta,
-      latitude: currentLocation?.coords?.latitude,
-      longitude: currentLocation?.coords?.longitude
+      latitudeDelta: delta,
+      longitudeDelta: delta,
+      ...currentLocation
     });
   };
 
-  const renderMap = useMemo(() => {
-    return (
-      <>
-        <MapView
-          ref={mapRef}
-          style={styles.map}
-          customMapStyle={mapStyle}
-          provider={PROVIDER_GOOGLE}
-          showsUserLocation={true}
-          showsMyLocationButton={false}
-          initialRegion={{
-            latitude: 48.859,
-            longitude: 2.3397,
-            latitudeDelta: initialDelta,
-            longitudeDelta: initialDelta
-          }}
-          onPress={() => {
-            !isMobile && displayFilters && setDisplayFilters(null);
-            setSearchValue(null);
-            Keyboard.dismiss();
-          }}
-          mapPadding={{
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: leftPadding
-          }}
-        >
-          {filteredPlaces?.map((place, index) => (
-            <Marker
-              style={[
-                {
-                  zIndex: index === selectedPlaceIndex ? 2 : 1
-                }
-              ]}
-              key={`${index}-${place?.organization_name}`}
-              onPress={() => {
-                setSelectedPlaceIndex(index);
-              }}
-              coordinate={{
-                latitude: parseFloat(place?.latitude),
-                longitude: parseFloat(place?.longitude)
-              }}
-            >
-              <Ping
-                {...{ index }}
-                isSelected={index === selectedPlaceIndex}
-                name={place?.organization_name}
-                small={isMobile}
-                mobile={isMobile}
-              />
-            </Marker>
-          ))}
-        </MapView>
-        {!isMobile ? (
-          <Controls {...{ isMobile }}>
-            <Button
-              // eslint-disable-next-line @typescript-eslint/no-misused-promises
-              onPress={() => goToCurrentPosition()}
-              marginBottom={isMobile ? 0 : 48}
-              {...{ isMobile }}
-            >
-              <PositionIcon
-                width={isMobile ? 20 : 32}
-                height={isMobile ? 20 : 32}
+  return (
+    <>
+      <MapView
+        ref={mapRef}
+        style={{
+          position: "absolute",
+          top: isMobile ? -1 * statusBarHeight : 0,
+          bottom: 0,
+          width: Dimensions.get("window").width
+        }}
+        customMapStyle={mapStyle}
+        provider={PROVIDER_GOOGLE}
+        showsUserLocation={true}
+        showsMyLocationButton={false}
+        initialRegion={{
+          latitude: 48.859,
+          longitude: 2.3397,
+          latitudeDelta: initialDelta,
+          longitudeDelta: initialDelta
+        }}
+        onPress={() => {
+          !isMobile && displayFilters && setDisplayFilters(null);
+          setSearchValue(null);
+          Keyboard.dismiss();
+        }}
+        mapPadding={{
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: leftPadding
+        }}
+      >
+        {filteredPlaces?.map((place, index) => (
+          <Marker
+            style={[
+              {
+                zIndex: index === selectedPlaceIndex ? 2 : 1
+              }
+            ]}
+            key={`${index}-${place?.organization_name}`}
+            onPress={() => {
+              setSelectedPlaceIndex(index);
+            }}
+            coordinate={{
+              latitude: parseFloat(place?.latitude),
+              longitude: parseFloat(place?.longitude)
+            }}
+          >
+            <Ping
+              {...{ index }}
+              isSelected={index === selectedPlaceIndex}
+              name={place?.organization_name}
+              small
+              mobile={isMobile}
+            />
+          </Marker>
+        ))}
+      </MapView>
+      {!isMobile ? (
+        <Controls {...{ isMobile }}>
+          <Button
+            // eslint-disable-next-line @typescript-eslint/no-misused-promises
+            onPress={() => goToCurrentPosition()}
+            marginBottom={isMobile ? 0 : 48}
+            {...{ isMobile }}
+          >
+            <PositionIcon
+              width={isMobile ? 20 : 32}
+              height={isMobile ? 20 : 32}
+              color={theme?.color?.primary?.blue}
+            />
+          </Button>
+
+          <>
+            <Button onPress={() => zoom("in")} marginBottom={8}>
+              <Plus
+                width={32}
+                height={32}
                 color={theme?.color?.primary?.blue}
               />
             </Button>
-
-            <>
-              <Button onPress={() => zoom("in")} marginBottom={8}>
-                <Plus
-                  width={32}
-                  height={32}
-                  color={theme?.color?.primary?.blue}
-                />
-              </Button>
-              <Button onPress={() => zoom("out")} marginBottom={0}>
-                <Minus
-                  width={32}
-                  height={32}
-                  color={theme?.color?.primary?.blue}
-                />
-              </Button>
-            </>
-          </Controls>
-        ) : null}
-      </>
-    );
-  }, [filteredPlaces, selectedPlaceIndex, isMobile, leftPadding]);
-
-  return renderMap;
+            <Button onPress={() => zoom("out")} marginBottom={0}>
+              <Minus
+                width={32}
+                height={32}
+                color={theme?.color?.primary?.blue}
+              />
+            </Button>
+          </>
+        </Controls>
+      ) : null}
+    </>
+  );
 }
