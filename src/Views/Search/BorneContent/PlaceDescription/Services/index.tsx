@@ -40,6 +40,24 @@ export default function Services({
               />
             </Service>
           ))}
+          {services_id?.slice(0, displayMax)?.map((service, i) => (
+            <Service key={`${service}-${i}`}>
+              <ServiceWithIcon
+                text={t(`search.services.${service}`)}
+                category={service}
+                withBackground
+              />
+            </Service>
+          ))}
+          {services_id?.slice(0, displayMax)?.map((service, i) => (
+            <Service key={`${service}-${i}`}>
+              <ServiceWithIcon
+                text={t(`search.services.${service}`)}
+                category={service}
+                withBackground
+              />
+            </Service>
+          ))}
           {services_id?.length > displayMax && (
             <ButtonWrapper
               onPress={() => {

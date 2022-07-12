@@ -1651,6 +1651,21 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
+"@types/react-native-snap-carousel@^3.8.5":
+  version "3.8.5"
+  resolved "https://registry.yarnpkg.com/@types/react-native-snap-carousel/-/react-native-snap-carousel-3.8.5.tgz#5b3cb208119e3599d5537b5fc83653a155c6275d"
+  integrity sha512-EMBwQo/om2HZM/J6u8Bvz7i0BEO/v6frrpmlvUQ579CMsgYQPlYzQ1ne4KDdRq08+yDSG8/8AwIi1R+185ROsg==
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
+
+"@types/react-native@*":
+  version "0.69.2"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.69.2.tgz#cf6fe8c909093833579ff5956bc645d6e77de426"
+  integrity sha512-AVdWv4B8/++T5QQdnpveb2OVqD+0i8SOoT63ZRD+lNtQIYxzDak91V0k6olthy+H261d4t/MRBC1cfX1Rwsb6A==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-native@^0.65":
   version "0.65.23"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.65.23.tgz#f7bde3ff0e92c6bf77c65c84f11c34a5f1d20c74"
@@ -6639,7 +6654,7 @@ prop-types@15.7.2:
     object-assign "^4.1.1"
     react-is "^16.8.1"
 
-prop-types@^15.6.0, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -6701,6 +6716,14 @@ rc@^1.0.1, rc@^1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-addons-shallow-compare@15.6.2:
+  version "15.6.2"
+  resolved "https://registry.yarnpkg.com/react-addons-shallow-compare/-/react-addons-shallow-compare-15.6.2.tgz#198a00b91fc37623db64a28fd17b596ba362702f"
+  integrity sha512-yAV9tOObmKPiohqne1jiMcx6kDjfz7GeL8K9KHgI+HvDsbrRv148uyUzrPc6GwepZnQcJ59Q3lp1ghrkyPwtjg==
+  dependencies:
+    fbjs "^0.8.4"
+    object-assign "^4.1.0"
+
 react-async-hook@3.6.1:
   version "3.6.1"
   resolved "https://registry.yarnpkg.com/react-async-hook/-/react-async-hook-3.6.1.tgz#aed3e492d87319392865c83ed7cef3609e2a7fef"
@@ -6754,10 +6777,10 @@ react-is@^17.0.1, react-is@^17.0.2:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react-native-carousel-control@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/react-native-carousel-control/-/react-native-carousel-control-2.0.1.tgz#5c6ec3e61a695128af584ba3bf335c38cb936b49"
-  integrity sha512-4yyVlWRiNkBt8xKanGS3R+UwOe+yZoc6D8yd5Wyd3i/1S4fg4YysuFHq5ZjAKjQtJud95Q1oWjhkfzVB2C+cgA==
+react-native-anchor-carousel@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-anchor-carousel/-/react-native-anchor-carousel-4.0.1.tgz#47d556b408a94a4e7e0f564a93a00aecdf60d031"
+  integrity sha512-MF5N7Z4CAg99ojh1EU9BtNJJjBvcHLLjuX8/k/IOLmBasipZfkDx723972OEZZPt1iKJCe1ESOICDLRnZZRtTg==
 
 react-native-codegen@^0.0.6:
   version "0.0.6"
@@ -6797,6 +6820,14 @@ react-native-geolocation-service@^5.3.0-beta.4:
   resolved "https://registry.yarnpkg.com/react-native-geolocation-service/-/react-native-geolocation-service-5.3.0-beta.4.tgz#8061396f734028b0ecbf8316a2cda9179df19210"
   integrity sha512-8Z/FP1ls02fnvqXCII+dDS329lP3UigNR4eIHUjPQdHu/DRGMRCpJJuj05hcq37UJL/zVVsXnPFdLA9lCOWYCQ==
 
+react-native-looped-carousel@^0.1.13:
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/react-native-looped-carousel/-/react-native-looped-carousel-0.1.13.tgz#bc1f94ee818347ecfd573acd9710c84b2f450d1f"
+  integrity sha512-q2y8b0fQJr2FsGoJGr55sAqTcUh6IWHk+UM5etC8lsNiZQSdoUjMSzFMDACrZjrKi9sOuyM8bfMMNhwOc28Trg==
+  dependencies:
+    lodash.isequal "^4.5.0"
+    prop-types "^15.6.1"
+
 react-native-maps@0.29.4:
   version "0.29.4"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.29.4.tgz#eb4a446104ed2aca5361422d06712f26d4c0d562"
@@ -6812,10 +6843,20 @@ react-native-phone-number-input@^2.1.0:
     google-libphonenumber "^3.2.10"
     react-native-country-picker-modal "^2.0.0"
 
+
+react-native-snap-carousel@^3.9.1:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/react-native-snap-carousel/-/react-native-snap-carousel-3.9.1.tgz#6fd9bd8839546c2c6043a41d2035afbc6fe0443e"
+  integrity sha512-xWEGusacIgK1YaDXLi7Gao2+ISLoGPVEBR8fcMf4tOOJQufutlNwkoLu0l6B8Qgsrre0nTxoVZikRgGRDWlLaQ==
+  dependencies:
+    prop-types "^15.6.1"
+    react-addons-shallow-compare "15.6.2"
+
 react-native-safe-area-context@3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.3.2.tgz#9549a2ce580f2374edb05e49d661258d1b8bcaed"
   integrity sha512-yOwiiPJ1rk+/nfK13eafbpW6sKW0jOnsRem2C1LPJjM3tfTof6hlvV5eWHATye3XOpu2cJ7N+HdkUvUDGwFD2Q==
+
 
 react-native-svg@^12.3.0:
   version "12.3.0"

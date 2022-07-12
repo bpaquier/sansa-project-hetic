@@ -9,6 +9,7 @@ import {
 import { useGlobalContext } from "./globalContext";
 import useApi from "~/hooks/useApi";
 import { useDebounce } from "~/hooks/useDebounce";
+import serializePlaces from "~/utils/serializePlaces";
 
 export interface PlaceProps {
   id?: number;
@@ -89,7 +90,6 @@ interface SearchProviderProps {
 function SearchProvider({ children }: SearchProviderProps) {
   const { isMobile } = useGlobalContext();
   const { getOrgaByServices, getOrgaByNameOrAdress } = useApi();
-
   const [selectedPlaceIndex, setSelectedPlaceIndex] = useState<number | null>(
     null
   );
@@ -151,12 +151,8 @@ function SearchProvider({ children }: SearchProviderProps) {
         ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
           if (status === 200) {
             if (data) {
-              setFilteredPlaces(
-                data?.sort(
-                  (prev: { place: number }, next: { place: number }) =>
-                    next?.place - prev?.place
-                )
-              );
+              const serializedPlaces = serializePlaces(data);
+              setFilteredPlaces(serializedPlaces);
             } else {
               //todo: handle error
             }

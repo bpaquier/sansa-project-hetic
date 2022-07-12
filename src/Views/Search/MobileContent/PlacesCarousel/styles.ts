@@ -12,7 +12,7 @@ export const Wrapper = styled.View`
 `;
 
 export const AlternativeCard = styled.View`
-  width: ${getColumnWidth(theme?.grid?.columns, true)}px;
+  width: ${getColumnWidth(theme?.grid?.columns - 2, true)}px;
   height: 110px;
   background-color: ${theme?.color?.primary?.white};
   justify-content: center;
