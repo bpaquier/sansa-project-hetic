@@ -9,6 +9,7 @@ import {
 import { useGlobalContext } from "./globalContext";
 import useApi from "~/hooks/useApi";
 import { useDebounce } from "~/hooks/useDebounce";
+import serializePlaces from "~/utils/serializePlaces";
 
 export interface PlaceProps {
   id?: number;
@@ -89,7 +90,6 @@ interface SearchProviderProps {
 function SearchProvider({ children }: SearchProviderProps) {
   const { isMobile } = useGlobalContext();
   const { getOrgaByServices, getOrgaByNameOrAdress } = useApi();
-
   const [selectedPlaceIndex, setSelectedPlaceIndex] = useState<number | null>(
     null
   );
@@ -141,29 +141,6 @@ function SearchProvider({ children }: SearchProviderProps) {
       displayPlacesList && setDisplayPlacesList(false);
     }
   }, [searchValue, filters]);
-
-  useEffect(() => {
-    if (debouncedSearch) {
-      getOrgaByNameOrAdress(debouncedSearch)
-        ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
-          if (status === 200) {
-            if (data) {
-              setSearchResults(data);
-            } else {
-              //todo: handle error
-            }
-          } else {
-            //todo: handle error
-          }
-          setIsSearchLoading(false);
-        })
-        ?.catch((err) => {
-          setIsSearchLoading(false);
-          //todo: handle error
-          console.log(err);
-        });
-    }
-  }, [debouncedSearch]);
 
   const updatePlacesSelection = () => {
     getOrgaByServices(filters)

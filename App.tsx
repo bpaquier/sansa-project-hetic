@@ -1,5 +1,5 @@
 import { useFonts } from "expo-font";
-import { StatusBar } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NativeRouter, Routes, Route } from "react-router-native";
 
 import LanguagesMenu from "~/Components/LanguagesMenu";
@@ -31,29 +31,25 @@ export default function App() {
 
   return (
     <NativeRouter>
-      <GlobalProvider>
-        <Page>
-          <>
-            <StatusBar
-              hidden={false}
-              barStyle="dark-content"
-              backgroundColor={"transparent"}
-              translucent={true}
-            />
-            <Routes>
-              <Route index element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/search" element={<Search />} />
-              <Route path="/plus" element={<Plus />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/faq/:type" element={<FAQCategory />} />
-              <Route path="/faq/:type/:index" element={<FAQResponse />} />
-            </Routes>
-            <LanguagesMenu />
-          </>
-        </Page>
-      </GlobalProvider>
+      <SafeAreaProvider>
+        <GlobalProvider>
+          <Page>
+            <>
+              <Routes>
+                <Route index element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/search" element={<Search />} />
+                <Route path="/plus" element={<Plus />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/faq/:type" element={<FAQCategory />} />
+                <Route path="/faq/:type/:index" element={<FAQResponse />} />
+              </Routes>
+              <LanguagesMenu />
+            </>
+          </Page>
+        </GlobalProvider>
+      </SafeAreaProvider>
     </NativeRouter>
   );
 }

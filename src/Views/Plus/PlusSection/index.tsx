@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
+import { View } from "react-native";
 
+import { WrapperPlus } from "./styles";
 import Separator from "~/Components/Ui-kit/Separator";
 import TextWrapper from "~/Components/Ui-kit/TextWrapper";
 import { useGlobalContext } from "~/Contexts/globalContext";
@@ -10,12 +12,11 @@ type PlusSectionProps = {
 };
 
 export default function PlusSection({
-  isMobile,
-  isConnected
+  isConnected,
+  isMobile
 }: PlusSectionProps): JSX.Element {
   const { t } = useTranslation();
   const { setMenuLanguagesOpen } = useGlobalContext();
-
   const plusContent = [
     { id: "contact", title: t("plus.contactUs"), link: "#" },
     {
@@ -40,23 +41,24 @@ export default function PlusSection({
         {t("plus.plus")}
       </TextWrapper>
       <Separator orientation="horizontal" theme="dark" width="100%" />
-      {plusContentToDisplay.map((content) => (
-        <TextWrapper
-          key={content.id}
-          link
-          to={content.link}
-          marginTop={16}
-          type="paragraph"
-          color="grey"
-          onPress={() =>
-            content.id === "languages" &&
-            setMenuLanguagesOpen &&
-            setMenuLanguagesOpen()
-          }
-        >
-          {content.title}
-        </TextWrapper>
-      ))}
+      <WrapperPlus>
+        {plusContentToDisplay.map((content, index) => (
+          <View key={content.id}>
+            <TextWrapper
+              type="paragraph"
+              color="grey"
+              marginTop={isMobile && index > 0 ? 16 : 0}
+              onPress={() =>
+                content.id === "languages" &&
+                setMenuLanguagesOpen &&
+                setMenuLanguagesOpen()
+              }
+            >
+              {content.title}
+            </TextWrapper>
+          </View>
+        ))}
+      </WrapperPlus>
     </>
   );
 }

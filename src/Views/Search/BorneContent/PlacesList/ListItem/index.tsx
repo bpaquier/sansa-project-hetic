@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { useTranslation } from "react-i18next";
+import { TouchableOpacity } from "react-native";
 
 import {
   ItemWrapper,
@@ -82,11 +83,16 @@ export default function ListItem({
               </IconWrapper>
             ))}
             {services_id?.length - formatedCategories?.length > 0 && (
-              <Icon
-                withBackground
-                backgroundType="black"
-                text={`+${services_id?.length - formatedCategories?.length}`}
-              />
+              <TouchableOpacity
+                activeOpacity={0.7}
+                onPress={() => setDisplayPlaceDescription(id)}
+              >
+                <Icon
+                  withBackground
+                  backgroundType="black"
+                  text={`+${services_id?.length - formatedCategories?.length}`}
+                />
+              </TouchableOpacity>
             )}
           </IconsWrapper>
         )}

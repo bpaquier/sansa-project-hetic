@@ -2,13 +2,19 @@ import styled from "styled-components/native";
 
 import theme from "~/Styles/theme.styles";
 
+interface WrapperProps {
+  statusBarHeight?: number;
+}
+
 export const Wrapper = styled.View`
   position: absolute;
   right: 0;
-  top: 0%;
+  top: ${({ statusBarHeight }: WrapperProps) =>
+    statusBarHeight ? `${-1 * statusBarHeight}px` : "0"};
   left: 0;
   bottom: 0;
-  padding-top: 60px;
+  padding-top: ${({ statusBarHeight }: WrapperProps) =>
+    statusBarHeight ? `${statusBarHeight}px` : "0"};
   background-color: ${theme?.color?.primary?.white};
 `;
 

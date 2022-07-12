@@ -36,7 +36,7 @@ interface LocationProps {
 export default function Map(): JSX.Element {
   const initialDelta = 0.1;
   const delta = 0.04;
-  const { isMobile } = useGlobalContext();
+  const { isMobile, statusBarHeight } = useGlobalContext();
   const {
     selectedPlaceIndex,
     filteredPlaces,
