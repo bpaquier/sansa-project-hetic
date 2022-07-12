@@ -27,7 +27,7 @@ export const LogoWrappers = styled.View`
 
 export const NotConnectedDescription = styled.View`
   display: flex;
-  justify-content: space-around;
   flex: 1;
   margin-top: 16px;
+  justify-content: space-around;
 `;

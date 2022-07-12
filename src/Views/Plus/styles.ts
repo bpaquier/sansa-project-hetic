@@ -15,7 +15,7 @@ type PlusContainersProps = {
   paddingTop?: number;
   paddingX?: number;
   paddingBottom?: number;
-  height?: number;
+  height?: string;
   paddingY?: number;
 };
 
@@ -46,7 +46,7 @@ export const PageWrapperSmallBorne = styled.ScrollView`
 export const TopContainersBorne = styled.View<{ isFlex?: boolean }>`
   display: flex;
   flex-direction: row;
-  ${({ isFlex }) => isFlex && `flex: 1`}
+  flex: ${({ isFlex }) => (isFlex ? 2 : 1)};
 `;
 
 export const TopContainersMobile = styled.View``;

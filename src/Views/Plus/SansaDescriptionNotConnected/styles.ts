@@ -23,3 +23,11 @@ export const ContainerDescription = styled.View<{ isMobile?: boolean }>`
   ${({ isMobile }) => !isMobile && "height: 100%"}
   justify-content: space-between;
 `;
+
+export const TopContainer = styled.View`
+  flex: 1;
+`;
+
+export const ScrollContainer = styled.ScrollView`
+  flex: 1;
+`;
