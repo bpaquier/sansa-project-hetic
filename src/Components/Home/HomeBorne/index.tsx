@@ -109,7 +109,7 @@ export default function HomeBorne({
                   color="blue"
                   textAlign="center"
                 >
-                  Voir plus
+                  {t("search.seeMore")}
                 </TextWrapper>
               </TouchableOpacity>
               <Separator orientation="vertical" height="160px" />
