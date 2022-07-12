@@ -29,7 +29,7 @@ On the device manager window, click on `Create device`
 
 Select `Import Hardware Profiles` and find SANSA_TABLETTE_CONFIGURATION.xml
 
-(In the repo (device/SANSA_TABLETTE_CONFIGURATION.xml)[https://github.com/bpaquier/sansa-project-hetic/blob/doc/addReadMeForBorne/devices/SANSA_TABLETTE_CONFIGURATION.xml])
+(In the repo [device/SANSA_TABLETTE_CONFIGURATION.xml](https://github.com/bpaquier/sansa-project-hetic/blob/doc/addReadMeForBorne/devices/SANSA_TABLETTE_CONFIGURATION.xml) )
 
 Then, it should appear in the TV category. Select the good device, and next.
 
