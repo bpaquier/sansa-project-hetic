@@ -35,9 +35,12 @@ export const Content = styled.View`
   align-items: center;
 `;
 
-export const CheckboxWrapper = styled.View`
+export const CheckboxWrapper = styled.Pressable`
   width: 47%;
-  margin-bottom: 25px;
+
+  padding-bottom: 10px;
+  padding-top: 10px;
+  justify-content: center;
   align-items: flex-start;
   ${({ reversed }: CheckbowWrapperProps) =>
     reversed ? "margin-right: 2%" : ""}
@@ -46,10 +49,10 @@ export const CheckboxWrapper = styled.View`
 
 export const LoadingOverlay = styled.View`
   position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
+  right: -64px;
+  bottom: -32px;
+  top: -32px;
+  left: -64px;
   background-color: rgba(255, 255, 255, 0.8);
   justify-content: center;
   align-items: center;

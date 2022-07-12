@@ -23,8 +23,6 @@ export default function FiltersPanel(): JSX.Element {
     isFilterLoading
   } = useSearchContext();
 
-  console.log({ isFilterLoading });
-
   return (
     <Draggable
       visible={displayFilters ? true : false}

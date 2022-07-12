@@ -165,11 +165,8 @@ function SearchProvider({ children }: SearchProviderProps) {
     }
   }, [debouncedSearch]);
 
-  useEffect(() => {
-    filteredPlaces?.length > 0 && isMobile && setSelectedPlaceIndex(0);
-  }, [filteredPlaces]);
-
   const updatePlacesSelection = () => {
+    console.log("start fetch");
     getOrgaByServices(filters)
       ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
         if (status === 200) {

@@ -1,3 +1,4 @@
+import { useFonts } from "expo-font";
 import { StatusBar } from "react-native";
 import { NativeRouter, Routes, Route } from "react-router-native";
 
@@ -15,6 +16,19 @@ import Search from "~/Views/Search";
 import "~/locales/i18n";
 
 export default function App() {
+  const [loaded] = useFonts({
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    Helvetica: require("~/../assets/fonts/HelveticaNeueCyr.ttf"),
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    HelveticaMedium: require("~/../assets/fonts/HelveticaNeueCyr-Medium.ttf"),
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    HelveticaBold: require("~/../assets/fonts/HelveticaNeueCyr-Bold.ttf")
+  });
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <NativeRouter>
       <GlobalProvider>
