@@ -16,12 +16,14 @@ export const SearchResultsWrapper = styled.View`
   margin-left: ${grid?.borneGutter}px;
   top: ${({ isMobile }: GlobalProps) =>
     isMobile
-      ? "62.5px"
+      ? `66px`
       : `${sizes?.bornContent?.topBarHeight + grid?.borneGutter + 8}px`};
   background-color: ${color.primary.white};
   border-radius: ${shape?.radius?.input}px;
   width: ${({ isMobile }: GlobalProps) =>
-    isMobile ? "100%" : `${getColumnWidth(7.5, false)}px`};
+    isMobile
+      ? `${getColumnWidth(theme?.grid?.columns, true)}px`
+      : `${getColumnWidth(7.5, false)}px`};
   padding: 32px 0;
 `;
 
