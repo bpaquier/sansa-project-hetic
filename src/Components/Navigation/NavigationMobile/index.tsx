@@ -115,7 +115,7 @@ export default function NavigationMobile({
             }
           />
         </PrimaryIconContainer>
-        <NavButtonText active={isCurrentPage("/")}>
+        <NavButtonText active={isCurrentPage("/search")}>
           {t("search.search")}
         </NavButtonText>
       </NavButton>
