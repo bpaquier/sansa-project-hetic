@@ -1,7 +1,9 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { useTranslation } from "react-i18next";
+import { Pressable } from "react-native";
 
+import { LoadingOverlay } from "../Filters/styles";
 import {
   ListWrapper,
   ListContent,
@@ -14,11 +16,15 @@ import {
   IconsWrapper,
   ListHeader,
   LoaderWrapper,
-  SpinnerWrapper
+  SpinnerWrapper,
+  IndexWrapper
 } from "./styles";
+import Icon from "~/Components/Icon";
 import Spinner from "~/Components/Icons/Spinner";
-import Ping from "~/Components/Ping";
+import ArrowDown from "~/Components/Icons/System/Arrows/ArrowDown";
+import ArrowUp from "~/Components/Icons/System/Arrows/ArrowUp";
 import ServiceWithIcon from "~/Components/ServiceWithIcon";
+import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import { useSearchContext, PlaceProps } from "~/Contexts/searchContext";
 import useCurrentDay from "~/hooks/useCurrentDay";
@@ -35,6 +41,7 @@ export default function List(): JSX.Element {
     isFilterLoading
   } = useSearchContext();
   const currentDay = useCurrentDay();
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const itemsTopPositions = useRef<number[]>([]);
   const scrollRef = useRef();
@@ -44,6 +51,10 @@ export default function List(): JSX.Element {
     (scrollValue || scrollValue === 0) && scrollTo(scrollValue);
   }, [selectedPlaceIndex]);
 
+  useEffect(() => {
+    !isOpen && filteredPlaces && setIsOpen(true);
+  }, [filteredPlaces]);
+
   const scrollTo = (value: number) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
@@ -51,10 +62,109 @@ export default function List(): JSX.Element {
     scrollRef?.current?.scrollTo({ y: value });
   };
 
+  const renderList = useMemo(() => {
+    return (
+      <ListContent ref={scrollRef}>
+        {filteredPlaces?.map(
+          (
+            {
+              organization_name,
+              adress,
+              services_id,
+              hours_id,
+              id
+            }: PlaceProps,
+            index
+          ) => {
+            const isSelected = selectedPlaceIndex === index;
+            const filteredServices = services_id?.filter((service) =>
+              filters?.includes(service)
+            );
+            return (
+              <Pressable
+                key={`${organization_name}-${index}`}
+                onLayout={(e) => {
+                  const { y } = e.nativeEvent.layout;
+                  itemsTopPositions.current[index] = y;
+                }}
+              >
+                <ItemWrapper
+                  onPress={() => {
+                    setSelectedPlaceIndex(index);
+                    setDisplayFilters(null);
+                  }}
+                >
+                  <IndexWrapper>
+                    <Text color="white">{index + 1}</Text>
+                  </IndexWrapper>
+                  <InfoWrapper>
+                    <TextWrapper>
+                      <TextStyled>
+                        {organization_name && (
+                          <Text color="black">{organization_name}</Text>
+                        )}
+                      </TextStyled>
+
+                      {adress && (
+                        <TextStyled>
+                          <Text color="black60">{adress}</Text>
+                        </TextStyled>
+                      )}
+                      {hours_id[0][currentDay] && (
+                        <TextStyled>
+                          <Text type="small" color="black60">{`${t(
+                            "search.openingHours"
+                          )}: ${hours_id[0][currentDay]}`}</Text>
+                        </TextStyled>
+                      )}
+                    </TextWrapper>
+
+                    {services_id && (
+                      <IconsWrapper>
+                        {filteredServices?.map((category, index) => (
+                          <IconWrapper key={`${category}-${index}`}>
+                            <ServiceWithIcon
+                              {...{ category }}
+                              withBackground
+                              backgroundType="colored"
+                            />
+                          </IconWrapper>
+                        ))}
+                        {services_id?.length - filteredServices?.length > 0 && (
+                          <Icon
+                            withBackground
+                            backgroundType="black"
+                            text={`+${
+                              services_id?.length - filteredServices?.length
+                            }`}
+                          />
+                        )}
+                      </IconsWrapper>
+                    )}
+                    <ButtonWrapper
+                      onPress={() => setDisplayPlaceDescription(id)}
+                    >
+                      <Text color="blue" weight="bold">
+                        {t("search.learnMore")}
+                      </Text>
+                    </ButtonWrapper>
+                  </InfoWrapper>
+                </ItemWrapper>
+                {index < filteredPlaces?.length - 1 && (
+                  <Separator orientation="horizontal" columnWidth={6.5} />
+                )}
+              </Pressable>
+            );
+          }
+        )}
+      </ListContent>
+    );
+  }, [filteredPlaces]);
+
   return (
     <ListWrapper>
-      <ListHeader>
-        {isFilterLoading ? (
+      <ListHeader onPress={() => setIsOpen((prev) => !prev)}>
+        {isFilterLoading && !isOpen ? (
           <LoaderWrapper>
             <SpinnerWrapper>
               <Spinner />
@@ -70,89 +180,18 @@ export default function List(): JSX.Element {
               : t("search.noResults")}
           </Text>
         )}
+        {isOpen ? <ArrowUp /> : <ArrowDown />}
       </ListHeader>
-      {filteredPlaces?.length > 0 && !isFilterLoading && (
-        <ListContent ref={scrollRef}>
-          {filteredPlaces?.map(
-            (
-              {
-                organization_name,
-                adress,
-                services_id,
-                hours_id,
-                id
-              }: PlaceProps,
-              index
-            ) => (
-              <ItemWrapper
-                key={`${organization_name}-${index}`}
-                onLayout={(e) => {
-                  const { y } = e.nativeEvent.layout;
-                  itemsTopPositions.current[index] = y;
-                }}
-                onPress={() => {
-                  setSelectedPlaceIndex(index);
-                  setDisplayFilters(null);
-                }}
-              >
-                {/* <Ping small index={index} /> */}
-                <InfoWrapper>
-                  <TextWrapper>
-                    <TextStyled>
-                      {organization_name && (
-                        <Text color="black" weight="bold">
-                          {organization_name}
-                        </Text>
-                      )}
-                    </TextStyled>
-                    {adress && (
-                      <TextStyled>
-                        <Text color="black60">{adress}</Text>
-                      </TextStyled>
-                    )}
-                    {hours_id[0][currentDay] && (
-                      <TextStyled>
-                        <Text type="small" color="black60">{`${t(
-                          "search.openingHours"
-                        )}: ${hours_id[0][currentDay]}`}</Text>
-                      </TextStyled>
-                    )}
-                  </TextWrapper>
-                  {services_id && (
-                    <IconsWrapper>
-                      {services_id
-                        ?.filter((service) => filters?.includes(service))
-                        ?.map((category, index) => (
-                          <IconWrapper key={`${category}-${index}`}>
-                            <ServiceWithIcon
-                              {...{ category }}
-                              withBackground
-                              backgroundType="colored"
-                            />
-                          </IconWrapper>
-                        ))}
-                      {/*  {services_id?.length - formatedCategories?.length > 0 && (
-                      <Icon
-                        withBackground
-                        backgroundType="black"
-                        text={`+${
-                          services_id?.length - formatedCategories?.length
-                        }`}
-                      />
-                    )} */}
-                    </IconsWrapper>
-                  )}
-                  <ButtonWrapper onPress={() => setDisplayPlaceDescription(id)}>
-                    <Text color="blue" weight="bold">
-                      {t("search.learnMore")}
-                    </Text>
-                  </ButtonWrapper>
-                </InfoWrapper>
-              </ItemWrapper>
-            )
-          )}
-        </ListContent>
+      {isOpen && renderList}
+      {isFilterLoading && isOpen && (
+        <LoadingOverlay>
+          <Spinner width={40} height={40} />
+        </LoadingOverlay>
       )}
     </ListWrapper>
   );
 }
+
+/**
+
+ */

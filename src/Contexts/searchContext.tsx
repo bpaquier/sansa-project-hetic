@@ -142,17 +142,37 @@ function SearchProvider({ children }: SearchProviderProps) {
     }
   }, [searchValue, filters]);
 
+  useEffect(() => {
+    if (debouncedSearch) {
+      getOrgaByNameOrAdress(debouncedSearch)
+        ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
+          if (status === 200) {
+            if (data) {
+              setSearchResults(data);
+            } else {
+              //todo: handle error
+            }
+            setIsSearchLoading(false);
+          } else {
+            setIsSearchLoading(false);
+            //todo: handle error
+          }
+        })
+        ?.catch((err) => {
+          setIsSearchLoading(false);
+          //todo: handle error
+          console.log(err);
+        });
+    }
+  }, [debouncedSearch]);
+
   const updatePlacesSelection = () => {
     getOrgaByServices(filters)
       ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
         if (status === 200) {
           if (data) {
-            setFilteredPlaces(
-              data?.sort(
-                (prev: { place: number }, next: { place: number }) =>
-                  next?.place - prev?.place
-              )
-            );
+            const serializedPlaces = serializePlaces(data);
+            setFilteredPlaces(serializedPlaces);
           } else {
             //todo: handle error
           }
