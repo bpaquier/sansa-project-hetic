@@ -126,20 +126,18 @@ function SearchProvider({ children }: SearchProviderProps) {
   }, [filters]);
 
   useEffect(() => {
-    if (searchValue) {
-      setIsSearchLoading(true);
-      setDisplaySearchResultsList(true);
+    if (searchValue && searchValue?.length > 0) {
+      !isSearchLoading && setIsSearchLoading(true);
+      !displaySearchResultsList && setDisplaySearchResultsList(true);
     } else {
-      setSearchResults(null);
-      setIsSearchLoading(false);
-      setDisplaySearchResultsList(false);
-      setFilteredPlaces(null);
+      isSearchLoading && setIsSearchLoading(false);
+      displaySearchResultsList && setDisplaySearchResultsList(false);
     }
   }, [searchValue]);
 
   useEffect(() => {
     if (!searchValue && !filters) {
-      setDisplayPlacesList(false);
+      displayPlacesList && setDisplayPlacesList(false);
     }
   }, [searchValue, filters]);
 
@@ -196,7 +194,6 @@ function SearchProvider({ children }: SearchProviderProps) {
 
   useEffect(() => {
     filteredPlaces?.length > 0 && isMobile && setSelectedPlaceIndex(0);
-    !filteredPlaces && setSelectedPlaceIndex(null);
   }, [filteredPlaces]);
 
   const updateFilters = ({ action, filtersName }: updateFiltersProps) => {

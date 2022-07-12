@@ -126,7 +126,7 @@ export default function PlacesList(): JSX.Element {
       />
       {isFilterLoading && isAccordeonOpen && (
         <OverlayLoader>
-          <Spinner width={50} height={50} />
+          <Spinner width={40} height={40} />
         </OverlayLoader>
       )}
     </ListWrapper>
