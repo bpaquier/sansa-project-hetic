@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { View, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { PROVIDER_GOOGLE } from "react-native-maps";
 import { useNavigate } from "react-router-native";
 
@@ -7,7 +7,6 @@ import { HealthIconWrapper } from "../HomeMobile/styles";
 import {
   PageContent,
   FirstRow,
-  EmptyRow,
   SecondRow,
   SleepCard,
   EventCard,
@@ -18,7 +17,6 @@ import {
   MapCard,
   NoEventIllustrationWrapper,
   AssociationsCard,
-  AssociationsCardTitleWrapper,
   SanitaryCard,
   SanitaryIconWrapper,
   SleepCardArrowWrapper,
@@ -26,11 +24,12 @@ import {
   SleepCardTitleWrapper,
   HealthCard,
   HealthCardHeadlineWrapper,
-  HealthCardTitleWrapper
+  HealthCardTitleWrapper,
+  SleepCardTextDescription,
+  RightColumn
 } from "./styles";
 import NoEventIllustration from "~/Components/Home/Illustrations/NoEventIllustration";
 import SleepIllustration from "~/Components/Home/Illustrations/SleepIllustration";
-import MedicalCase from "~/Components/Icons/Categories/Health/MedicalCase";
 import Shower from "~/Components/Icons/Categories/Hygiene/Shower";
 import Toilets from "~/Components/Icons/Categories/Hygiene/Toilets";
 import WaterFountain from "~/Components/Icons/Categories/Hygiene/WaterFountain";
@@ -57,21 +56,30 @@ export default function HomeBorne({
 }: HomeBorneProps): JSX.Element {
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  const { shower, water, toilets, housing } = pointsNumber;
+
   return (
     <PageContentWrapper>
-      <PageContent>
+      <PageContent
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: "space-between",
+          padding: 3
+        }}
+      >
         <FirstRow>
-          <TouchableOpacity onPress={() => navigate("/")} activeOpacity={0.7}>
-            <MapCard style={boxShadow.panelAndroid}>
+          <MapCard style={boxShadow.panelAndroid}>
+            <TouchableOpacity onPress={() => navigate("/")} activeOpacity={0.7}>
               <MapWrapper>
                 <MapButtonWrapper>
                   <Button type="secondary" text={t("home.searchAPlace")} />
                 </MapButtonWrapper>
                 <Map provider={PROVIDER_GOOGLE} />
               </MapWrapper>
-            </MapCard>
-          </TouchableOpacity>
-          <View>
+            </TouchableOpacity>
+          </MapCard>
+          <RightColumn>
             <EventCard style={boxShadow.panelAndroid}>
               <Text color="black60" type="small" textAlign="center">
                 {t("home.eventsSoonBorne")}
@@ -91,10 +99,10 @@ export default function HomeBorne({
                 activeOpacity={0.7}
               >
                 <Text type="titleXL" textAlign="center">
-                  {pointsNumber.shower}
+                  {shower}
                 </Text>
                 <Text>
-                  {t("home.publicShower", { count: pointsNumber.shower })}
+                  {t(shower > 0 ? "home.publicShowers" : "home.publicShower")}
                 </Text>
                 <SanitaryIconWrapper>
                   <Shower
@@ -115,10 +123,10 @@ export default function HomeBorne({
               <Separator orientation="vertical" height="160px" />
               <TouchableOpacity onPress={() => navigate("/")}>
                 <Text type="titleXL" textAlign="center">
-                  {pointsNumber.water}
+                  {water}
                 </Text>
                 <Text>
-                  {t("home.wateringPlace", { count: pointsNumber.water })}
+                  {t(water > 0 ? "home.wateringPlaces" : "home.wateringPlace")}
                 </Text>
                 <SanitaryIconWrapper>
                   <WaterFountain
@@ -133,16 +141,18 @@ export default function HomeBorne({
                   color="blue"
                   textAlign="center"
                 >
-                  Voir plus
+                  {t("search.seeMore")}
                 </TextWrapper>
               </TouchableOpacity>
               <Separator orientation="vertical" height="160px" />
               <TouchableOpacity onPress={() => navigate("/")}>
                 <Text type="titleXL" textAlign="center">
-                  {pointsNumber.toilets}
+                  {toilets}
                 </Text>
                 <Text>
-                  {t("home.publicRestroom", { count: pointsNumber.toilets })}
+                  {t(
+                    toilets > 0 ? "home.publicRestrooms" : "home.publicRestroom"
+                  )}
                 </Text>
                 <SanitaryIconWrapper>
                   <Toilets
@@ -157,13 +167,12 @@ export default function HomeBorne({
                   color="blue"
                   textAlign="center"
                 >
-                  Voir plus
+                  {t("search.seeMore")}
                 </TextWrapper>
               </TouchableOpacity>
             </SanitaryCard>
-          </View>
+          </RightColumn>
         </FirstRow>
-        <EmptyRow />
         <SecondRow>
           <AssociationsCard
             activeOpacity={0.7}
@@ -171,14 +180,16 @@ export default function HomeBorne({
             onPress={() => navigate("/")}
           >
             <Text color="black40">{t("home.associations")}</Text>
-            <AssociationsCardTitleWrapper>
-              <Text type="titleXL">{t("home.closestAssociations")}</Text>
-            </AssociationsCardTitleWrapper>
+            <Text type="titleXL">{t("home.closestAssociations")}</Text>
             <Text color="blue" weight="bold">
               {t("home.showTheMap")}
             </Text>
           </AssociationsCard>
-          <SleepCard style={boxShadow.panelAndroid} backgroundColor="blue">
+          <SleepCard
+            style={boxShadow.panelAndroid}
+            backgroundColor="blue"
+            activeOpacity={0.7}
+          >
             <SleepCardTitleWrapper>
               <Text color="white">
                 {t("administrativeAssistance.hosting.hosting")}
@@ -187,12 +198,14 @@ export default function HomeBorne({
             <SleepCardArrowWrapper>
               <ArrowRight color="white" />
             </SleepCardArrowWrapper>
-            <Text type="titleXL" color="white">
-              {pointsNumber.housing}
-            </Text>
-            <Text color="white">
-              {t("home.nightShelter", { count: pointsNumber.housing })}
-            </Text>
+            <SleepCardTextDescription>
+              <Text type="titleXL" color="white">
+                {housing}
+              </Text>
+              <Text color="white">
+                {t(housing > 0 ? "home.nightShelters" : "home.nightShelter")}
+              </Text>
+            </SleepCardTextDescription>
             <SleepIllustrationWrapper>
               <SleepIllustration width="240px" height="142px" />
             </SleepIllustrationWrapper>
@@ -207,7 +220,7 @@ export default function HomeBorne({
                 {t("administrativeAssistance.health.health")}
               </Text>
               <HealthIconWrapper>
-                <MedicalCase color="white" />
+                <ArrowRight color="white" />
               </HealthIconWrapper>
             </HealthCardHeadlineWrapper>
             <HealthCardTitleWrapper>

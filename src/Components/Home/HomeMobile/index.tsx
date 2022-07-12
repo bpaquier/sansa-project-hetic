@@ -1,9 +1,8 @@
 import { useTranslation } from "react-i18next";
-import { View, TouchableOpacity } from "react-native";
+import { View } from "react-native";
 import { useNavigate } from "react-router-native";
 
 import {
-  Card,
   EventCard,
   EventCardTitleWrapper,
   NoEventIllustrationWrapper,
@@ -15,14 +14,16 @@ import {
   HealthCard,
   SleepTitleWrapper,
   HealthCardTitleWrapper,
-  HealthIconWrapper
+  HealthIconWrapper,
+  CardTouchable,
+  GlobalWrapper
 } from "./styles";
 import NoEventIllustration from "~/Components/Home/Illustrations/NoEventIllustration";
 import SleepIllustration from "~/Components/Home/Illustrations/SleepIllustration";
-import MedicalCase from "~/Components/Icons/Categories/Health/MedicalCase";
 import Shower from "~/Components/Icons/Categories/Hygiene/Shower";
 import Toilets from "~/Components/Icons/Categories/Hygiene/Toilets";
 import WaterFountain from "~/Components/Icons/Categories/Hygiene/WaterFountain";
+import ArrowRight from "~/Components/Icons/System/Arrows/ArrowRight";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
@@ -45,9 +46,11 @@ export default function HomeMobile({
   const navigate = useNavigate();
   const { t } = useTranslation();
 
+  const { shower, water, toilets, housing } = pointsNumber;
+
   return (
     <PageContentWrapper>
-      <View>
+      <GlobalWrapper>
         <Text color="black40" type="titleL">
           {t("home.dashboard")}
         </Text>
@@ -67,10 +70,10 @@ export default function HomeMobile({
         <SanitaryCard style={boxShadow.panelAndroid}>
           <SanitaryItemWrapper onPress={() => navigate("/")}>
             <Text type="paragraph" weight="bold" textAlign="center">
-              {pointsNumber.shower}
+              {shower}
             </Text>
             <Text type="small" textAlign="center">
-              {t("home.publicShower", { count: pointsNumber.shower })}
+              {t(shower > 0 ? "home.publicShowers" : "home.publicShower")}
             </Text>
             <SanitaryIconWrapper>
               <Shower
@@ -83,10 +86,10 @@ export default function HomeMobile({
           <Separator orientation="vertical" height="120px" margin={12} />
           <SanitaryItemWrapper onPress={() => navigate("/")}>
             <Text type="paragraph" weight="bold" textAlign="center">
-              {pointsNumber.water}
+              {water}
             </Text>
             <Text type="small" textAlign="center">
-              {t("home.wateringPlace", { count: pointsNumber.water })}
+              {t(water > 0 ? "home.wateringPlaces" : "home.wateringPlace")}
             </Text>
             <SanitaryIconWrapper>
               <WaterFountain
@@ -99,10 +102,10 @@ export default function HomeMobile({
           <Separator orientation="vertical" height="120px" margin={12} />
           <SanitaryItemWrapper onPress={() => navigate("/")}>
             <Text type="paragraph" weight="bold" textAlign="center">
-              {pointsNumber.toilets}
+              {toilets}
             </Text>
             <Text type="small" textAlign="center">
-              {t("home.publicRestroom", { count: pointsNumber.toilets })}
+              {t(toilets > 0 ? "home.publicRestrooms" : "home.publicRestroom")}
             </Text>
             <SanitaryIconWrapper>
               <Toilets
@@ -113,46 +116,54 @@ export default function HomeMobile({
             </SanitaryIconWrapper>
           </SanitaryItemWrapper>
         </SanitaryCard>
-        <TouchableOpacity onPress={() => navigate("/")}>
-          <Card style={boxShadow.panelAndroid}>
-            <Text color="black60">Associations</Text>
-            <AssociationsCardTitleWrapper>
-              <Text type="titleM">{t("home.closestAssociations")}</Text>
-            </AssociationsCardTitleWrapper>
-          </Card>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigate("/")}>
-          <Card backgroundColor="blue" style={boxShadow.panelAndroid}>
-            <SleepTitleWrapper>
-              <Text color="white">
-                {t("administrativeAssistance.hosting.hosting")}
-              </Text>
-            </SleepTitleWrapper>
-            <Text type="titleXL" color="white">
-              {pointsNumber.housing}
-            </Text>
+        <CardTouchable
+          style={boxShadow.panelAndroid}
+          onPress={() => navigate("/")}
+          activeOpacity={0.7}
+        >
+          <Text color="black60">Associations</Text>
+          <AssociationsCardTitleWrapper>
+            <Text type="titleM">{t("home.closestAssociations")}</Text>
+          </AssociationsCardTitleWrapper>
+        </CardTouchable>
+        <CardTouchable
+          onPress={() => navigate("/")}
+          activeOpacity={0.7}
+          backgroundColor="blue"
+          style={boxShadow.panelAndroid}
+        >
+          <SleepTitleWrapper>
             <Text color="white">
-              {t("home.nightShelter", { count: pointsNumber.housing })}
+              {t("administrativeAssistance.hosting.hosting")}
             </Text>
-            <SleepIllustrationWrapper>
-              <SleepIllustration width="200px" height="102px" />
-            </SleepIllustrationWrapper>
-          </Card>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigate("/")}>
-          <HealthCard style={boxShadow.panelAndroid}>
-            <HealthIconWrapper>
-              <MedicalCase color="white" />
-            </HealthIconWrapper>
-            <View>
-              <Text color="black60">Santé</Text>
-              <HealthCardTitleWrapper>
-                <Text type="titleM">Où puis-je me rendre ?</Text>
-              </HealthCardTitleWrapper>
-            </View>
-          </HealthCard>
-        </TouchableOpacity>
-      </View>
+            <ArrowRight color="white" />
+          </SleepTitleWrapper>
+          <Text type="titleXL" color="white">
+            {housing}
+          </Text>
+          <Text color="white">
+            {t(housing > 0 ? "home.nightShelters" : "home.nightShelter")}
+          </Text>
+          <SleepIllustrationWrapper>
+            <SleepIllustration width="200px" height="102px" />
+          </SleepIllustrationWrapper>
+        </CardTouchable>
+        <HealthCard
+          style={boxShadow.panelAndroid}
+          onPress={() => navigate("/")}
+          activeOpacity={0.7}
+        >
+          <HealthIconWrapper>
+            <ArrowRight color="white" />
+          </HealthIconWrapper>
+          <View>
+            <Text color="black60">Santé</Text>
+            <HealthCardTitleWrapper>
+              <Text type="titleM">Où puis-je me rendre ?</Text>
+            </HealthCardTitleWrapper>
+          </View>
+        </HealthCard>
+      </GlobalWrapper>
     </PageContentWrapper>
   );
 }
