@@ -151,8 +151,8 @@ function SearchProvider({ children }: SearchProviderProps) {
         ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
           if (status === 200) {
             if (data) {
-              const serilaizedPlaces = serializePlaces(data);
-              setFilteredPlaces(serilaizedPlaces);
+              const serializedPlaces = serializePlaces(data);
+              setFilteredPlaces(serializedPlaces);
             } else {
               //todo: handle error
             }
