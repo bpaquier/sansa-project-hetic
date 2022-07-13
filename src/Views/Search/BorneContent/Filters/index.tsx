@@ -27,7 +27,7 @@ export default function Filters(): JSX.Element {
     : null;
 
   return (
-    <FiltersWrapper>
+    <FiltersWrapper {...{ isFilterLoading }}>
       <Title>
         <Text type="titleL">
           {t(`search.services.${displayFilters}`) ?? displayFilters}
@@ -62,7 +62,7 @@ export default function Filters(): JSX.Element {
             );
           })}
       </Content>
-      {isFilterLoading && <LoadingOverlay></LoadingOverlay>}
+      {isFilterLoading && <LoadingOverlay />}
     </FiltersWrapper>
   );
 }

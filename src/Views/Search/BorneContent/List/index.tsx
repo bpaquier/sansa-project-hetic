@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
-import { View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 
 import {
   ListWrapper,
@@ -134,13 +134,18 @@ export default function List(): JSX.Element {
                           </IconWrapper>
                         ))}
                         {services_id?.length - filteredServices?.length > 0 && (
-                          <Icon
-                            withBackground
-                            backgroundType="black"
-                            text={`+${
-                              services_id?.length - filteredServices?.length
-                            }`}
-                          />
+                          <TouchableOpacity
+                            onPress={() => setDisplayPlaceDescription(id)}
+                            activeOpacity={0.7}
+                          >
+                            <Icon
+                              withBackground
+                              backgroundType="black"
+                              text={`+${
+                                services_id?.length - filteredServices?.length
+                              }`}
+                            />
+                          </TouchableOpacity>
                         )}
                       </IconsWrapper>
                     )}
