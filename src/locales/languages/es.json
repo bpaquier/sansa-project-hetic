@@ -154,5 +154,35 @@
     "lookForADoctor": "Buscar un médico",
     "showTheMap": "Mostrar el mapa",
     "searchAPlace": "Encontrar un lugar"
+  },
+  "mobileOnboarding": {
+    "title": "¡Bienvenido a SANSA!",
+    "subtitle": "Solución de asistencia digital para las personas sin hogar",
+    "start": "Start",
+    "skip": "Saltar",
+    "next": "Siguiente",
+    "end": "Empezar",
+    "tooltip": [
+      {
+        "title": "Buscar",
+        "description": "Puedes buscar una asociación utilizando la barra de búsqueda"
+      },
+      {
+        "title": "Filtro",
+        "description": "También puede buscar sus necesidades utilizando las categorías"
+      },
+      {
+        "title": "Las asociaciones",
+        "description": "Aquí puedes acceder a los resultados de tu búsqueda. Al hacer clic en esta zona, tendrá acceso a los detalles de la asociación"
+      },
+      {
+        "title": "Más resultados",
+        "description": "Deslizando hacia la izquierda puedes ver las diferentes asociaciones"
+      },
+      {
+        "title": "Averigua más",
+        "description": "Haciendo clic en la inserción de la asociación se puede acceder a sus detalles"
+      }
+    ]
   }
 }

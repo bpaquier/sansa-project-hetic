@@ -4,12 +4,13 @@ import { NativeRouter, Routes, Route } from "react-router-native";
 
 import LanguagesMenu from "~/Components/LanguagesMenu";
 import GlobalProvider from "~/Contexts/globalContext";
-import Home from "~/Views/Account/Home";
 import Login from "~/Views/Account/Login";
 import Register from "~/Views/Account/Register";
 import FAQ from "~/Views/FAQ";
 import FAQCategory from "~/Views/FAQCategory";
 import FAQResponse from "~/Views/FAQResponse";
+import Home from "~/Views/Home";
+import MobileOnboarding from "~/Views/MobileOnboarding";
 import Page from "~/Views/Page";
 import Plus from "~/Views/Plus";
 import Search from "~/Views/Search";
@@ -44,6 +45,7 @@ export default function App() {
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/faq/:type" element={<FAQCategory />} />
                 <Route path="/faq/:type/:index" element={<FAQResponse />} />
+                <Route path="/onboarding" element={<MobileOnboarding />} />
               </Routes>
               <LanguagesMenu />
             </>

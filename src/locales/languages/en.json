@@ -154,5 +154,35 @@
     "lookForADoctor": "Find a doctor",
     "showTheMap": "Show the map",
     "searchAPlace": "Search for a place"
+  },
+  "mobileOnboarding": {
+    "title": "Welcome on SANSA!",
+    "subtitle": "Digital assistance solution for the homeless",
+    "start": "Start",
+    "skip": "Skip",
+    "next": "Next",
+    "end": "Get started",
+    "tooltip": [
+      {
+        "title": "Search",
+        "description": "You can search for an association using the search bar"
+      },
+      {
+        "title": "Filter",
+        "description": "You can also search for your needs using the categories"
+      },
+      {
+        "title": "The associations",
+        "description": "Here you can access the results of your search. By clicking on this area you will have access to the details of the association"
+      },
+      {
+        "title": "More results",
+        "description": "By sliding to the left you can see the different associations"
+      },
+      {
+        "title": "Find out more",
+        "description": "By clicking on the association's insert you can access its details"
+      }
+    ]
   }
 }
