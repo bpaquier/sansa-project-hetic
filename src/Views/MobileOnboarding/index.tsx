@@ -103,7 +103,7 @@ export default function HomeMobile(): JSX.Element {
             title={t("mobileOnboarding.tooltip.0.title")}
             description={t("mobileOnboarding.tooltip.0.description")}
           />
-          <OnboardingImage source={require("./images/1.jpg")} />
+          <OnboardingImage source={require("./Images/1.jpg")} />
         </View>
       </OnboardingImagePageWrapper>
       <OnboardingImagePageWrapper>
@@ -117,7 +117,7 @@ export default function HomeMobile(): JSX.Element {
             title={t("mobileOnboarding.tooltip.1.title")}
             description={t("mobileOnboarding.tooltip.1.description")}
           />
-          <OnboardingImage source={require("./images/2.jpg")} />
+          <OnboardingImage source={require("./Images/2.jpg")} />
         </View>
       </OnboardingImagePageWrapper>
       <OnboardingImagePageWrapper>
@@ -131,7 +131,7 @@ export default function HomeMobile(): JSX.Element {
             title={t("mobileOnboarding.tooltip.2.title")}
             description={t("mobileOnboarding.tooltip.2.description")}
           />
-          <OnboardingImage source={require("./images/3.jpg")} />
+          <OnboardingImage source={require("./Images/3.jpg")} />
         </View>
       </OnboardingImagePageWrapper>
       <OnboardingImagePageWrapper>
@@ -145,7 +145,7 @@ export default function HomeMobile(): JSX.Element {
             title={t("mobileOnboarding.tooltip.3.title")}
             description={t("mobileOnboarding.tooltip.3.description")}
           />
-          <OnboardingImage source={require("./images/4.jpg")} />
+          <OnboardingImage source={require("./Images/4.jpg")} />
         </View>
       </OnboardingImagePageWrapper>
       <OnboardingImagePageWrapper>
@@ -159,7 +159,7 @@ export default function HomeMobile(): JSX.Element {
             title={t("mobileOnboarding.tooltip.4.title")}
             description={t("mobileOnboarding.tooltip.4.description")}
           />
-          <OnboardingImage source={require("./images/5.jpg")} />
+          <OnboardingImage source={require("./Images/5.jpg")} />
         </View>
       </OnboardingImagePageWrapper>
     </OnboardingWrapper>
