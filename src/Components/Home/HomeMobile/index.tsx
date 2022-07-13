@@ -28,7 +28,6 @@ import PageContentWrapper from "~/Components/PageContentWrapper";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import Theme from "~/Styles/theme.styles";
-
 const { color, boxShadow } = Theme;
 
 interface HomeMobileProps {

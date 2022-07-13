@@ -6,7 +6,7 @@ import { useGlobalContext } from "~/Contexts/globalContext";
 interface PageContentWrapperProps {
   children: ReactElement;
   noPaddingX?: boolean;
-  backgroundColor?: "grey" | "white";
+  backgroundColor?: "grey" | "white" | "blue";
 }
 export default function PageContentWrapper({
   children,
