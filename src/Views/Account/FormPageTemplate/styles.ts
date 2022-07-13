@@ -63,7 +63,7 @@ export const ImageWrapperBorne = styled.View`
   justify-content: flex-start;
   width: ${getColumnWidth(10, false)};
   max-height: 480px;
-  margin-left: ${getColumnWidth(2, false)}; ;
+  margin-left: ${getColumnWidth(2, false)}px; ;
 `;
 
 export const FormWrapperMobile = styled.View`

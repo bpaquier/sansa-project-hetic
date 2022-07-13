@@ -57,6 +57,5 @@ export const LoadingOverlay = styled.View`
   background-color: rgba(255, 255, 255, 0.8);
   justify-content: center;
   align-items: center;
-  border: red;
   z-index: 2;
 `;
