@@ -4,7 +4,7 @@ import { TagsWrapper, Tag, IconWrapper } from "./styles";
 import Icon from "~/Components/Icon";
 import Text from "~/Components/Ui-kit/Text";
 import { useSearchContext } from "~/Contexts/searchContext";
-import { servicesRepartition } from "~/utils/getServices";
+import { servicesRepartition } from "~/hooks/useServices";
 
 export default function MainFilters(): JSX.Element {
   const { t } = useTranslation();
@@ -18,7 +18,7 @@ export default function MainFilters(): JSX.Element {
   return (
     <>
       <Text type="titleL" weight="bold">
-        {t(`search.services.${displayFilters}`)}
+        {displayFilters ? t(`search.services.${displayFilters}`) : ""}
       </Text>
       <TagsWrapper>
         {selectedFilters?.map((filter, i) => {
@@ -37,7 +37,10 @@ export default function MainFilters(): JSX.Element {
               <IconWrapper>
                 <Icon category={filter} withBackground={false} />
               </IconWrapper>
-              <Text color={isSelected ? "black" : "black60"}>
+              <Text
+                color={isSelected ? "black" : "black60"}
+                weight={isSelected ? "bold" : "regular"}
+              >
                 {t(`search.services.${filter}`)}
               </Text>
             </Tag>

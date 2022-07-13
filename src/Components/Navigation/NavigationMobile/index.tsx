@@ -30,11 +30,11 @@ export default function NavigationMobile({
   const [NavIndicatorOpacity] = useState(new Animated.Value(1));
 
   useEffect(() => {
-    const index = isCurrentPage("/home")
+    const index = isCurrentPage("/")
       ? 0
       : isCurrentPage("/plus") || isCurrentPage("/faq")
       ? 2
-      : isCurrentPage("/")
+      : isCurrentPage("/search")
       ? 1
       : -1;
 
@@ -86,36 +86,36 @@ export default function NavigationMobile({
           backgroundColor: Theme.color.primary.blue
         }}
       />
-      <NavButton onPress={() => onPressExitLanguagesMenuAndNavigate("/home")}>
+      <NavButton onPress={() => onPressExitLanguagesMenuAndNavigate("/")}>
         <House
           width={iconSize}
           height={iconSize}
           color={
-            isCurrentPage("/home")
+            isCurrentPage("/")
               ? Theme.color.primary.blue
               : Theme.color.neutral.black60
           }
         />
-        <NavButtonText active={isCurrentPage("/home")}>
+        <NavButtonText active={isCurrentPage("/")}>
           {t("home.home")}
         </NavButtonText>
       </NavButton>
       <NavButton
         primary
-        onPress={() => onPressExitLanguagesMenuAndNavigate("/")}
+        onPress={() => onPressExitLanguagesMenuAndNavigate("/search")}
       >
-        <PrimaryIconContainer active={isCurrentPage("/")}>
+        <PrimaryIconContainer active={isCurrentPage("/search")}>
           <MapMarker
             width={iconSize}
             height={iconSize}
             color={
-              isCurrentPage("/")
+              isCurrentPage("/search")
                 ? Theme.color.primary.white
                 : Theme.color.neutral?.black60
             }
           />
         </PrimaryIconContainer>
-        <NavButtonText active={isCurrentPage("/")}>
+        <NavButtonText active={isCurrentPage("/search")}>
           {t("search.search")}
         </NavButtonText>
       </NavButton>

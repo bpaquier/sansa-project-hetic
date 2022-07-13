@@ -64,11 +64,15 @@ export default function FAQ() {
         {!isMobile && (
           <Separator orientation="horizontal" columnWidth={19} margin={28} />
         )}
-        {isMobile && <FAQTitleWrapper title="Sansa répond à vos questions" />}
+        {isMobile && (
+          <FAQTitleWrapper
+            title={t("administrativeAssistance.sansaAnswerQuestions")}
+          />
+        )}
         <FAQSectionsContainers isMobile={isMobile} row={!isMobile}>
           <ColumnsContainer>
             <TextWrapper type="titleL" marginTop={24} marginBottom={24}>
-              Rechercher par catégories :
+              {t("administrativeAssistance.searchByCategory")}
             </TextWrapper>
             <FAQCategoryCardsWrapper />
           </ColumnsContainer>
@@ -78,9 +82,15 @@ export default function FAQ() {
               marginTop={24}
               marginBottom={24}
             >
-              Questions les plus fréquemment posées:
+              {t("administrativeAssistance.mostAskedQuestions")}
             </TextWrapper>
-            <FAQQuestionsContainer isMobile={isMobile}>
+            <FAQQuestionsContainer
+              contentContainerStyle={{
+                flexGrow: 1,
+                justifyContent: "space-between"
+              }}
+              isMobile={isMobile}
+            >
               {questionsFAQ.map((question, index) => (
                 <FAQQuestionItem
                   key={`${question.type}${question.questionIndex}`}

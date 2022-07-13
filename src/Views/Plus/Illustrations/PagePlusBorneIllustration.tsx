@@ -1,8 +1,16 @@
 import Svg, { Path } from "react-native-svg";
 
-export default function PagePlusBorneIllustration() {
+export interface PagePlusBorneIllustrationProps {
+  width?: number;
+  height?: number;
+}
+
+export default function PagePlusBorneIllustration({
+  width = 681,
+  height = 541
+}: PagePlusBorneIllustrationProps) {
   return (
-    <Svg width="681" height="541" viewBox="0 0 681 541" fill="none">
+    <Svg width={width} height={height} viewBox="0 0 681 541" fill="none">
       <Path
         opacity="0.3"
         d="M321.747 478.577C150.506 478.577 11.6879 462.788 11.6879 443.311C11.6879 423.834 150.506 408.045 321.747 408.045C492.987 408.045 631.805 423.834 631.805 443.311C631.805 462.788 492.987 478.577 321.747 478.577Z"

@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import React, { useEffect, useState, useRef } from "react";
 
-import * as Location from "expo-location";
-import { StyleSheet, Dimensions, Alert } from "react-native";
+import { useTranslation } from "react-i18next";
+import { Dimensions, Alert, Keyboard } from "react-native";
 // eslint-disable-next-line import/named
 import MapView, { PROVIDER_GOOGLE, Camera, Marker } from "react-native-maps";
 
+import mapStyle from "./mapStyle.json";
 import { Button, Controls } from "./styles";
 import PositionIcon from "~/Components/Icons/System/Map/Position";
 import Minus from "~/Components/Icons/System/System/Minus";
@@ -13,18 +14,11 @@ import Plus from "~/Components/Icons/System/System/Plus";
 import Ping from "~/Components/Ping";
 import { useGlobalContext } from "~/Contexts/globalContext";
 import { useSearchContext } from "~/Contexts/searchContext";
+import useGeolocalisation from "~/hooks/useGeolocalisation";
+import useLocationPermission from "~/hooks/useLocationPermission";
 import { getColumnWidth } from "~/Styles/mixins.styles";
 import theme from "~/Styles/theme.styles";
 
-const styles = StyleSheet.create({
-  map: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height
-  }
-});
 interface LocationProps {
   latitude: number;
   longitude: number;
@@ -35,7 +29,7 @@ interface LocationProps {
 export default function Map(): JSX.Element {
   const initialDelta = 0.1;
   const delta = 0.04;
-  const { isMobile } = useGlobalContext();
+  const { isMobile, statusBarHeight } = useGlobalContext();
   const {
     selectedPlaceIndex,
     filteredPlaces,
@@ -43,63 +37,60 @@ export default function Map(): JSX.Element {
     triggerLocalization,
     displayFilters,
     setDisplayFilters,
-    isListDisplayed
+    displayPlacesList,
+    setSearchValue
   } = useSearchContext();
-  const [leftPadding, setLeftPadding] = useState<number>(0);
+  const { t } = useTranslation();
   const mapRef = useRef();
-  const [location, setLocation] = useState<LocationProps>({
-    latitude: 48.859,
-    longitude: 2.3397,
-    latitudeDelta: initialDelta,
-    longitudeDelta: initialDelta
-  });
+  const locationPermission = useLocationPermission();
+  const currentLocation = useGeolocalisation(locationPermission);
+  const firstLocated = useRef<boolean>(false);
+  const [location, setLocation] = useState<LocationProps>(null);
+  const [leftPadding, setLeftPadding] = useState<number>(0);
 
   useEffect(() => {
-    void (async () => {
-      const { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        return;
-      }
-      const currentLocation = await Location.getCurrentPositionAsync({});
-
+    if (currentLocation && !firstLocated.current) {
+      firstLocated.current = true;
       setLocation({
         latitudeDelta: initialDelta,
         longitudeDelta: initialDelta,
-        latitude: currentLocation?.coords?.latitude,
-        longitude: currentLocation?.coords?.longitude
+        ...currentLocation
       });
-    })();
-  }, []);
+    }
+  }, [currentLocation]);
 
   useEffect(() => {
+    Keyboard.dismiss();
     goToLocation({ ...location });
   }, [location]);
 
   useEffect(() => {
     if (!isMobile) {
-      if (isListDisplayed) {
+      if (displayPlacesList) {
         setLeftPadding(getColumnWidth(9, false));
       } else {
         setLeftPadding(getColumnWidth(3, false));
       }
     }
-  }, [isMobile, isListDisplayed]);
+  }, [isMobile, displayPlacesList]);
 
   useEffect(() => {
     selectedPlaceIndex !== null &&
+      filteredPlaces &&
       setLocation({
         latitudeDelta: delta + 0.1,
         longitudeDelta: delta + 0.1,
         latitude: parseFloat(filteredPlaces?.[selectedPlaceIndex]?.latitude),
         longitude: parseFloat(filteredPlaces?.[selectedPlaceIndex]?.longitude)
       });
-  }, [selectedPlaceIndex]);
+  }, [selectedPlaceIndex, filteredPlaces]);
 
   useEffect(() => {
     triggerLocalization !== null && goToCurrentPosition();
   }, [triggerLocalization]);
 
   const zoom = (arg: "in" | "out") => {
+    console.log({ arg });
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
@@ -126,22 +117,16 @@ export default function Map(): JSX.Element {
     );
   };
 
-  const goToCurrentPosition = async () => {
-    const { status } = await Location.requestForegroundPermissionsAsync();
-    if (status !== "granted") {
-      Alert.alert(
-        "",
-        "Veuillez autoriser la géolocalisation dans vos paramettres",
-        [{ text: "OK" }]
-      );
+  const goToCurrentPosition = () => {
+    if (!locationPermission || !currentLocation) {
+      Alert.alert("", t("search.locationPermissionDenied"), [{ text: "OK" }]);
       return;
     }
-    const currentLocation = await Location.getCurrentPositionAsync({});
+    setSelectedPlaceIndex(null);
     setLocation({
-      latitudeDelta: initialDelta,
-      longitudeDelta: initialDelta,
-      latitude: currentLocation?.coords?.latitude,
-      longitude: currentLocation?.coords?.longitude
+      latitudeDelta: delta,
+      longitudeDelta: delta,
+      ...currentLocation
     });
   };
 
@@ -149,13 +134,26 @@ export default function Map(): JSX.Element {
     <>
       <MapView
         ref={mapRef}
-        style={styles.map}
+        style={{
+          position: "absolute",
+          top: isMobile ? -1 * statusBarHeight : 0,
+          bottom: 0,
+          width: Dimensions.get("window").width
+        }}
+        customMapStyle={mapStyle}
         provider={PROVIDER_GOOGLE}
         showsUserLocation={true}
         showsMyLocationButton={false}
-        initialRegion={{ ...location }}
+        initialRegion={{
+          latitude: 48.859,
+          longitude: 2.3397,
+          latitudeDelta: initialDelta,
+          longitudeDelta: initialDelta
+        }}
         onPress={() => {
           !isMobile && displayFilters && setDisplayFilters(null);
+          setSearchValue(null);
+          Keyboard.dismiss();
         }}
         mapPadding={{
           top: 0,
@@ -184,7 +182,7 @@ export default function Map(): JSX.Element {
               {...{ index }}
               isSelected={index === selectedPlaceIndex}
               name={place?.organization_name}
-              small={isMobile}
+              small
               mobile={isMobile}
             />
           </Marker>

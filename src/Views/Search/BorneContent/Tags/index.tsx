@@ -13,8 +13,8 @@ import {
 import Cross from "~/Components/Icons/System/System/Cross";
 import Text from "~/Components/Ui-kit/Text";
 import { useSearchContext } from "~/Contexts/searchContext";
+import { getServiceColor } from "~/hooks/useServices";
 import theme from "~/Styles/theme.styles";
-import { getServiceColor } from "~/utils/getServices";
 
 export default function Tags(): JSX.Element {
   const { t } = useTranslation();
@@ -67,10 +67,10 @@ export default function Tags(): JSX.Element {
           </Text>
         </Tag>
         <Tag
-          borderColor={theme?.color?.primary?.blueDark}
+          borderColor={theme?.color?.primary?.blue}
           onPress={() => setDisplayTagsList((prev) => !prev)}
         >
-          <Text color="black" weight="bold">{`${t("search.seeFilters")} (${
+          <Text color="blue" weight="bold">{`${t("search.seeFilters")} (${
             filters?.length
           })`}</Text>
         </Tag>

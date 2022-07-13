@@ -3,10 +3,10 @@ import React, { ReactElement, useEffect, useRef } from "react";
 import { activateKeepAwake, deactivateKeepAwake } from "expo-keep-awake";
 import { Dimensions, PanResponder } from "react-native";
 import { useNavigate } from "react-router-native";
+import { StatusBar } from "expo-status-bar";
 
 import { SafeArea, PageContent } from "./styles";
 import Navigation from "~/Components/Navigation";
-import { useGlobalContext } from "~/Contexts/globalContext";
 
 interface PageProps {
   children: ReactElement;
@@ -14,6 +14,7 @@ interface PageProps {
 
 export default function Page({ children }: PageProps) {
   const { height, width } = Dimensions.get("window");
+
   // eslint-disable-next-line @typescript-eslint/unbound-method
   const { setAppWidth, isMobile, setIsIdle } = useGlobalContext();
   const navigate = useNavigate();
@@ -57,6 +58,7 @@ export default function Page({ children }: PageProps) {
       {...{ height, width }}
       {...(!isMobile ? panResponder.panHandlers : {})}
     >
+      <StatusBar style="dark" />
       <PageContent>{children}</PageContent>
       <Navigation />
     </SafeArea>

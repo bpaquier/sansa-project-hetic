@@ -21,7 +21,7 @@ export default function LanguagesMenuMobile({
             onPress={() => setMenuLanguagesOpen && setMenuLanguagesOpen()}
           >
             <ArrowLeft height={28} width={28} />
-            <TextWrapper marginLeft={14} color="black20" type="titleL">
+            <TextWrapper marginLeft={14} color="black40" type="titleL">
               {t("plus.languages")}
             </TextWrapper>
           </TitleWrapper>

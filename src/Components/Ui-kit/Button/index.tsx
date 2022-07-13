@@ -16,7 +16,7 @@ export interface ButtonProps {
   onPress?: () => any;
   onLongPress?: () => any;
   text?: string;
-  isLoading?: boolean;
+  isFilterLoading?: boolean;
   isDisabled?: boolean;
   type?: "primary" | "secondary" | "tertiary";
   fullWidth?: boolean;
@@ -33,7 +33,7 @@ export default function ButtonComponent({
   fullWidth,
   type = "primary",
   isDisabled,
-  isLoading,
+  isFilterLoading,
   horizontalPosition = "center",
   noPadding = false
 }: ButtonProps): JSX.Element {
@@ -59,10 +59,10 @@ export default function ButtonComponent({
           isDisabled,
           noPadding
         }}
-        onPressIn={() => !isLoading && !isDisabled && setIsActive(true)}
-        onPressOut={() => !isLoading && !isDisabled && setIsActive(false)}
+        onPressIn={() => !isFilterLoading && !isDisabled && setIsActive(true)}
+        onPressOut={() => !isFilterLoading && !isDisabled && setIsActive(false)}
       >
-        <TextContainer {...{ isLoading, isDisabled }}>
+        <TextContainer {...{ isFilterLoading, isDisabled }}>
           <Text
             color={isActive && type === "tertiary" ? "darkBlue" : color}
             weight="bold"
@@ -70,7 +70,7 @@ export default function ButtonComponent({
             {text}
           </Text>
         </TextContainer>
-        {isLoading && !isDisabled && (
+        {isFilterLoading && !isDisabled && (
           <SpinnerContainer>
             <Spinner
               {...(type === "primary" && {

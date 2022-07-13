@@ -1,20 +1,24 @@
 import { useTranslation } from "react-i18next";
+import { View } from "react-native";
+import { useNavigate } from "react-router-native";
 
+import { WrapperPlus } from "./styles";
 import Separator from "~/Components/Ui-kit/Separator";
 import TextWrapper from "~/Components/Ui-kit/TextWrapper";
 import { useGlobalContext } from "~/Contexts/globalContext";
 
 type PlusSectionProps = {
   isMobile?: boolean;
-  isConnected?: boolean;
+  isConnected?: string;
 };
 
 export default function PlusSection({
-  isMobile,
-  isConnected
+  isConnected,
+  isMobile
 }: PlusSectionProps): JSX.Element {
   const { t } = useTranslation();
-  const { setMenuLanguagesOpen } = useGlobalContext();
+  const { setMenuLanguagesOpen, setUserConnected } = useGlobalContext();
+  const navigate = useNavigate();
 
   const plusContent = [
     { id: "contact", title: t("plus.contactUs"), link: "#" },
@@ -31,7 +35,7 @@ export default function PlusSection({
   const plusContentToDisplay = !isMobile
     ? plusContent.filter(({ id }) => id !== "languages" && id !== "logout")
     : !isConnected
-    ? plusContent.filter(({ id }) => id !== "deconnecter")
+    ? plusContent.filter(({ id }) => id !== "logout")
     : plusContent;
 
   return (
@@ -40,23 +44,27 @@ export default function PlusSection({
         {t("plus.plus")}
       </TextWrapper>
       <Separator orientation="horizontal" theme="dark" width="100%" />
-      {plusContentToDisplay.map((content) => (
-        <TextWrapper
-          key={content.id}
-          link
-          to={content.link}
-          marginTop={16}
-          type="paragraph"
-          color="grey"
-          onPress={() =>
-            content.id === "languages" &&
-            setMenuLanguagesOpen &&
-            setMenuLanguagesOpen()
-          }
-        >
-          {content.title}
-        </TextWrapper>
-      ))}
+      <WrapperPlus>
+        {plusContentToDisplay.map((content, index) => (
+          <View key={content.id}>
+            <TextWrapper
+              type="paragraph"
+              color="grey"
+              marginTop={isMobile && index > 0 ? 16 : 0}
+              onPress={() => {
+                if (content.id === "languages" && setMenuLanguagesOpen)
+                  setMenuLanguagesOpen();
+                if (content.id === "logout") {
+                  setUserConnected();
+                  navigate("/");
+                }
+              }}
+            >
+              {content.title}
+            </TextWrapper>
+          </View>
+        ))}
+      </WrapperPlus>
     </>
   );
 }

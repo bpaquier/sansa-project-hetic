@@ -1,19 +1,15 @@
 import styled from "styled-components/native";
 
-import theme from "~/Styles/theme.styles";
-
 export const ServicesWrapper = styled.View`
-  width: auto;
-  height: 100%;
-
-  border-top-right-radius: ${theme?.shape?.radius?.input}px;
+  flex: 1 1;
+  z-index: 100;
 `;
 
 export const ServicesList = styled.View`
-  flex: 1 1;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
+  width: auto;
 `;
 
 export const Service = styled.View`
@@ -23,4 +19,8 @@ export const Service = styled.View`
 
 export const ButtonWrapper = styled.TouchableOpacity`
   margin-top: 10px;
+`;
+
+export const ListWrapper = styled.ScrollView`
+  flex: 1 1;
 `;

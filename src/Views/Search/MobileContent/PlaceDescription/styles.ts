@@ -2,21 +2,30 @@ import styled from "styled-components/native";
 
 import theme from "~/Styles/theme.styles";
 
+interface WrapperProps {
+  statusBarHeight?: number;
+}
+
 export const Wrapper = styled.View`
   position: absolute;
   right: 0;
-  top: 0;
+  top: ${({ statusBarHeight }: WrapperProps) =>
+    statusBarHeight ? `${-1 * statusBarHeight}px` : "0"};
   left: 0;
   bottom: 0;
+  padding-top: ${({ statusBarHeight }: WrapperProps) =>
+    statusBarHeight ? `${statusBarHeight}px` : "0"};
   background-color: ${theme?.color?.primary?.white};
 `;
 
 export const Header = styled.View`
-  height: 38px;
   overflow: visible;
   justify-content: center;
   box-shadow: ${theme?.boxShadow?.panel};
-  padding: 0 ${theme?.grid?.mobileGutter}px;
+`;
+
+export const ArrowWrapper = styled.View`
+  padding: 12px ${theme?.grid?.mobileGutter}px;
 `;
 
 export const Content = styled.ScrollView`
@@ -40,13 +49,17 @@ export const ItemTitleWrapper = styled.View`
 export const InfosWrapper = styled.View`
   padding: 16px;
   border-radius: ${theme?.shape?.radius?.card}px;
-  background-color: ${theme?.color?.neutral?.black10};
+  background-color: ${theme?.color?.primary?.blueExtraLight};
 `;
 
 export const InfoItem = styled.View`
   flex-direction: row;
   margin-bottom: 16px;
   width: 90%;
+`;
+
+export const TextWrapper = styled.View`
+  justify-content: center;
 `;
 
 export const IconWrapper = styled.View`
@@ -73,4 +86,17 @@ export const Service = styled.View`
 
 export const LastItem = styled.View`
   margin-bottom: 100px;
+`;
+
+export const LoadingOverlay = styled.View`
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  justify-content: center;
+  align-items: center;
+  border-radius: ${theme?.shape?.radius?.input}px;
+  z-index: 2;
 `;

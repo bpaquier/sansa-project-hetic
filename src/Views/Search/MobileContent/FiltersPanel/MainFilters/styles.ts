@@ -22,7 +22,7 @@ export const Tag = styled.TouchableOpacity`
   margin-bottom: 12px;
   height: 32px;
   border: ${({ isSelected }: TagProps) =>
-    `1px solid ${
+    `2px solid ${
       isSelected
         ? theme?.color?.neutral?.black100
         : theme?.color?.neutral?.black5

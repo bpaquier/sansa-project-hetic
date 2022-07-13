@@ -59,8 +59,8 @@ export const StyledButton = styled.Pressable`
 `;
 
 export const TextContainer = styled.View`
-  opacity: ${({ isLoading, isDisabled }: ButtonProps) =>
-    isLoading && !isDisabled ? "0" : "1"};
+  opacity: ${({ isFilterLoading, isDisabled }: ButtonProps) =>
+    isFilterLoading && !isDisabled ? "0" : "1"};
   justify-content: center;
   align-items: center;
   width: 100%;

@@ -4,8 +4,8 @@
     "login": "Inicio de sesión",
     "register": "Registrar",
     "logout": "Desconexión",
-
-    "reset": "Restablecimiento"
+    "reset": "Restablecimiento",
+    "unavailableForThisFeature": "No disponible para esta característica"
   },
   "alerts": {
     "link": "Este enlace no funciona"
@@ -45,17 +45,17 @@
     "forgotPassword": "¿Ha olvidado su contraseña?"
   },
   "days": {
-    "monday": "Lundi",
-    "tuesday": "Mardi",
-    "wednesday": "Mercredi",
-    "thurday": "Jeudi",
-    "friday": "Vendredi",
-    "saturday": "Samedi",
-    "sunday": "Dimanche"
+    "monday": "Lunes",
+    "tuesday": "Martes",
+    "wednesday": "Miércoles",
+    "thurday": "Jueves",
+    "friday": "Viernes",
+    "saturday": "Sábado",
+    "sunday": "Domingo"
   },
   "search": {
     "search": "Buscar",
-    "searchPlaceholder": "Buscar por nombre de organización",
+    "searchPlaceholder": "Buscar por nombre o dirección",
     "filters": "Filtros",
     "deleteFilters": "Eliminar todos los filtros",
     "seeFilters": "Ver todos los filtros",
@@ -70,11 +70,15 @@
     "service": "Services",
     "servicesOffered": "Servicios propuestos",
     "mission": "Lisión",
-    "showList": "Ver la lista ({{ resultsLength }} Resultados)",
+    "showList": "Ver la lista ({{ resultsLength }} resultados)",
+    "hideList": "Ocultar la lista ({{ resultsLength }} resultados)",
     "learnMore": "Aprende más",
     "seeMore": "Ver más",
     "lastUpdate": "Última actualización",
-    "services": {
+    "byAppointement": "Con cita previa",
+    "locationPermissionDenied": "Permiso de acceso a la ubicación denegado",
+    "networkIssue": "No puede acceder a los datos, verifique su conexión o póngase en contacto con el soporte técnico",
+    "services" : {
       "Acceuil": "Recepción",
       "Alimentation": "Alimentación",
       "Santé": "Salud",
@@ -131,6 +135,54 @@
     }
   },
   "home": {
-    "home": "Hogar"
+    "home": "Hogar",
+    "dashboard": "Tablero de mandos",
+    "eventsSoon": "¡Pronto habrá nuevos eventos!",
+    "eventsSoonBorne": "¡Que no cunda el pánico! Pronto encontraremos nuevos eventos para usted",
+    "noEventsPrompt": "Ningún evento por el momento",
+    "publicShower": "Ducha pública",
+    "publicShowers": "Duchas pública",
+    "wateringPlace": "Lugar de riego",
+    "wateringPlaces": "Lugares de riego",
+    "publicRestroom": "Baño público",
+    "publicRestrooms": "Baños público",
+    "closestAssociations": "Las 5 asociaciones más cercanas a ti",
+    "associations": "Asociaciones",
+    "nightShelter": "Brote nocturno",
+    "nightShelters": "Brote nocturnos",
+    "whereCanIGo": "¿Dónde puedo ir?",
+    "lookForADoctor": "Buscar un médico",
+    "showTheMap": "Mostrar el mapa",
+    "searchAPlace": "Encontrar un lugar"
+  },
+  "mobileOnboarding": {
+    "title": "¡Bienvenido a SANSA!",
+    "subtitle": "Solución de asistencia digital para las personas sin hogar",
+    "start": "Start",
+    "skip": "Saltar",
+    "next": "Siguiente",
+    "end": "Empezar",
+    "tooltip": [
+      {
+        "title": "Buscar",
+        "description": "Puedes buscar una asociación utilizando la barra de búsqueda"
+      },
+      {
+        "title": "Filtro",
+        "description": "También puede buscar sus necesidades utilizando las categorías"
+      },
+      {
+        "title": "Las asociaciones",
+        "description": "Aquí puedes acceder a los resultados de tu búsqueda. Al hacer clic en esta zona, tendrá acceso a los detalles de la asociación"
+      },
+      {
+        "title": "Más resultados",
+        "description": "Deslizando hacia la izquierda puedes ver las diferentes asociaciones"
+      },
+      {
+        "title": "Averigua más",
+        "description": "Haciendo clic en la inserción de la asociación se puede acceder a sus detalles"
+      }
+    ]
   }
 }

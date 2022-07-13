@@ -7,11 +7,13 @@ import Form from "~/Components/Form";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 import Button from "~/Components/Ui-kit/Button";
 import Text from "~/Components/Ui-kit/Text";
+import { useGlobalContext } from "~/Contexts/globalContext";
 import FormPageTemplate from "~/Views/Account/FormPageTemplate";
 
 export default function Login(): JSX.Element {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { setUserConnected } = useGlobalContext();
 
   const Image = <LoginIllustration />;
 
@@ -21,6 +23,7 @@ export default function Login(): JSX.Element {
         title={t("common.login")}
         submitCtaLabel={t("common.login")}
         inlineCtaLabel={t("forms.forgotPassword")}
+        onSubmitAction={setUserConnected}
         items={[
           {
             placeholder: "johndoe@gmail.com",
@@ -52,7 +55,7 @@ export default function Login(): JSX.Element {
 
   return (
     <PageContentWrapper>
-      <FormPageTemplate image={Image} form={FormComponent} />
+      <FormPageTemplate image={Image} form={FormComponent} backArrow={true} />
     </PageContentWrapper>
   );
 }

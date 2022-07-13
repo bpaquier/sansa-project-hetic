@@ -1,51 +1,57 @@
-import { useEffect } from "react";
-
-import * as ScreenOrientation from "expo-screen-orientation";
-import { Dimensions } from "react-native";
+import { useFonts } from "expo-font";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NativeRouter, Routes, Route } from "react-router-native";
 
 import LanguagesMenu from "~/Components/LanguagesMenu";
 import GlobalProvider from "~/Contexts/globalContext";
-import theme from "~/Styles/theme.styles";
 import Login from "~/Views/Account/Login";
 import Register from "~/Views/Account/Register";
 import FAQ from "~/Views/FAQ";
 import FAQCategory from "~/Views/FAQCategory";
 import FAQResponse from "~/Views/FAQResponse";
 import Home from "~/Views/Home";
+import MobileOnboarding from "~/Views/MobileOnboarding";
 import Page from "~/Views/Page";
 import Plus from "~/Views/Plus";
 import Search from "~/Views/Search";
 import "~/locales/i18n";
 
 export default function App() {
-  useEffect(() => {
-    if (Dimensions?.get("window")?.width > theme?.sizes?.breakPoint) {
-      ScreenOrientation?.lockAsync(5);
-    } else {
-      ScreenOrientation?.lockAsync(3);
-    }
-  }, []);
+  const [loaded] = useFonts({
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    Helvetica: require("~/../assets/fonts/HelveticaNeueCyr.ttf"),
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    HelveticaMedium: require("~/../assets/fonts/HelveticaNeueCyr-Medium.ttf"),
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    HelveticaBold: require("~/../assets/fonts/HelveticaNeueCyr-Bold.ttf")
+  });
+
+  if (!loaded) {
+    return null;
+  }
 
   return (
     <NativeRouter>
-      <GlobalProvider>
-        <Page>
-          <>
-            <Routes>
-              <Route index element={<Search />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/plus" element={<Plus />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/faq/:type" element={<FAQCategory />} />
-              <Route path="/faq/:type/:index" element={<FAQResponse />} />
-            </Routes>
-            <LanguagesMenu />
-          </>
-        </Page>
-      </GlobalProvider>
+      <SafeAreaProvider>
+        <GlobalProvider>
+          <Page>
+            <>
+              <Routes>
+                <Route index element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/search" element={<Search />} />
+                <Route path="/plus" element={<Plus />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/faq/:type" element={<FAQCategory />} />
+                <Route path="/faq/:type/:index" element={<FAQResponse />} />
+                <Route path="/onboarding" element={<MobileOnboarding />} />
+              </Routes>
+              <LanguagesMenu />
+            </>
+          </Page>
+        </GlobalProvider>
+      </SafeAreaProvider>
     </NativeRouter>
   );
 }

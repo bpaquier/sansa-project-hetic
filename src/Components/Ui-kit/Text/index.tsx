@@ -1,6 +1,5 @@
 import React from "react";
 
-import { useFonts } from "expo-font";
 import i18next from "i18next";
 import { PressableProps } from "react-native";
 
@@ -51,20 +50,8 @@ const TextComponent = ({
   ...props
 }: TextComponentProps) => {
   const { language } = i18next;
-  const [loaded] = useFonts({
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    Helvetica: require("~/../assets/fonts/HelveticaNeueCyr.ttf"),
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    HelveticaMedium: require("~/../assets/fonts/HelveticaNeueCyr-Medium.ttf"),
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    HelveticaBold: require("~/../assets/fonts/HelveticaNeueCyr-Bold.ttf")
-  });
 
   const { isMobile } = useGlobalContext();
-
-  if (!loaded) {
-    return null;
-  }
 
   return (
     <TextContainer

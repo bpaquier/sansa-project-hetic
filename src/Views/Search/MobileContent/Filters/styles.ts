@@ -14,17 +14,19 @@ interface TagsProps {
 export const FiltersWrapper = styled.View`
   position: absolute;
   left: 0;
-  width: 100%;
+  width: ${Dimensions.get("window").width}px;
   overflow: visible;
+  padding-top: 16px;
 `;
 
 export const InputWrapper = styled.View`
-  padding: 12.5px ${theme?.grid?.mobileGutter}px 0;
+  padding: 0 ${theme?.grid?.mobileGutter}px;
+  position: relative;
 `;
 
 export const SearchIconWrapper = styled.View`
   position: absolute;
-  top: 24.5px;
+  top: 12px;
   left: ${theme?.grid?.mobileGutter + 12}px;
 `;
 

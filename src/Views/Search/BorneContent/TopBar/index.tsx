@@ -8,11 +8,11 @@ import {
   IconWrapper,
   Label,
   Button,
-  InputWrapper,
-  Input,
   UnderlineIndicator,
   RoundedIndicator,
-  SearchIconWrapper
+  SearchIconWrapper,
+  SearchInputWrapper,
+  Input
 } from "./styles";
 import Search from "~/Components/Icons/System/System/Search";
 import Separator from "~/Components/Ui-kit/Separator";
@@ -22,7 +22,8 @@ import {
   getServiceColor,
   getIconByService,
   MainServicesToDisplay
-} from "~/utils/getServices";
+} from "~/hooks/useServices";
+import theme from "~/Styles/theme.styles";
 
 export interface IconsDisplay {
   Icon: any;
@@ -31,8 +32,9 @@ export interface IconsDisplay {
 
 export default function TopBar(): JSX.Element {
   const { t } = useTranslation();
-  const [searchValue, setSearchValue] = useState<string>("");
-  const { setDisplayFilters, displayFilters } = useSearchContext();
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+  const { setDisplayFilters, displayFilters, searchValue, handleSearch } =
+    useSearchContext();
 
   const iconsWidth = 48;
 
@@ -61,16 +63,20 @@ export default function TopBar(): JSX.Element {
   });
   return (
     <TopBarWrapper>
-      <InputWrapper>
+      <SearchInputWrapper>
         <SearchIconWrapper>
           <Search width={25} height={25} />
         </SearchIconWrapper>
         <Input
           value={searchValue}
-          onChangeText={(value) => setSearchValue(value)}
+          onChangeText={(value) => handleSearch(value)}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
           placeholder={t("search.searchPlaceholder")}
+          placeholderTextColor={theme?.color?.neutral?.black20}
+          {...{ isFocused }}
         />
-      </InputWrapper>
+      </SearchInputWrapper>
       <Separator orientation="vertical" height="64px" />
       <IconsWrapper>{renderIcons}</IconsWrapper>
     </TopBarWrapper>

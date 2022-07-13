@@ -1,6 +1,9 @@
 {
   "administrativeAssistance": {
     "administrativeAssistance": "Aides administratives",
+    "sansaAnswerQuestions": "Sansa répond à vos questions",
+    "searchByCategory": "Rechercher par catégories :",
+    "mostAskedQuestions": "Questions les plus fréquemment posées:",
     "otherQuestions": "Les autres questions",
     "hosting": {
       "hosting": "Hébergement",
@@ -42,7 +45,9 @@
             },
             {
               "text": "À Paris, pour être domicilié par le <bold>Centre d’Action Sociale de la Ville de Paris (CASVP)</bold> je dois <a>prendre rendez-vous en ligne</a>.",
-              "url": "https://teleservices.paris.fr/rdvcasvp/jsp/site/Portal.jsp"
+              "url": {
+                "external": "https://teleservices.paris.fr/rdvcasvp/jsp/site/Portal.jsp"
+              }
             },
             {
               "text": "<bold>Si je ne peux pas être domicilié par le CCAS de la commune où je vis</bold>, je peux également demander à une association agréée de me domicilier."
@@ -73,7 +78,9 @@
           "text": [
             {
               "text": "Je peux me rendre auprès des services sociaux de mon département de résidence : par exemple si j'habite en Seine-Saint-Denis, je vais aux <a>Services Sociaux Départementaux.</a>",
-              "url": "https://seinesaintdenis.fr/Circonscription-departementale-de-Service-Social-de-Bondy"
+              "url": {
+                "external": "https://seinesaintdenis.fr/Circonscription-departementale-de-Service-Social-de-Bondy"
+              }
             },
             {
               "text": "Je peux également faire une demande d’hébergement au 115."

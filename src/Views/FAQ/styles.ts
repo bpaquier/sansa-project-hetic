@@ -63,12 +63,11 @@ export const ColumnsContainersMobile = styled.View`
   width: 100%;
 `;
 
-export const FAQQuestionsContainer = styled.View<FAQSectionContainersProps>`
+export const FAQQuestionsContainer = styled.ScrollView<FAQSectionContainersProps>`
   display: flex;
   flex: 1;
   width: ${({ isMobile }) =>
     isMobile ? "100%" : `${getColumnWidth(6, false)}px`};
   ${({ isMobile }) => !isMobile && `max-width: 100%`};
-  justify-content: space-between;
   padding-bottom: ${({ isMobile }) => (isMobile ? 0 : 16)}px;
 `;

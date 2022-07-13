@@ -11,7 +11,7 @@ import {
 import Cross from "~/Components/Icons/System/System/Cross";
 import Text from "~/Components/Ui-kit/Text";
 import { useSearchContext } from "~/Contexts/searchContext";
-import { getServiceColor } from "~/utils/getServices";
+import { getServiceColor } from "~/hooks/useServices";
 
 export default function AllFilters(): JSX.Element {
   const { t } = useTranslation();

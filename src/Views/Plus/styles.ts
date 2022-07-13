@@ -1,7 +1,8 @@
+import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 
 import { getColumnWidth } from "~/Styles/mixins.styles";
-import Theme from "~/Styles/theme.styles";
+import theme from "~/Styles/theme.styles";
 
 export type TextPlusWrapperProps = {
   marginTop?: number;
@@ -14,11 +15,11 @@ type PlusContainersProps = {
   paddingTop?: number;
   paddingX?: number;
   paddingBottom?: number;
-  height?: number;
+  height?: string;
   paddingY?: number;
 };
 
-const { color, shape, sizes, grid } = Theme;
+const { color, shape, sizes, grid } = theme;
 
 export const PageWrapperMobile = styled.View`
   width: 100%;
@@ -28,23 +29,33 @@ export const PageWrapperMobile = styled.View`
   position: relative;
 `;
 
-export const PageWrapperBorne = styled.View`
+export const PageWrapperBigBorne = styled.View`
   width: ${getColumnWidth(21, false)}px;
   margin-left: ${getColumnWidth(3, false)}px;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  height: 100%;
-  align-items: flex-start;
-  align-content: space-between;
-  position: relative;
+  flex-direction: column;
+  height: ${Dimensions.get("window").height - grid.borneGutter * 2}px;
+  justify-content: space-between;
 `;
+
+export const PageWrapperSmallBorne = styled.ScrollView`
+  width: ${getColumnWidth(21, false)}px;
+  margin-left: ${getColumnWidth(3, false)}px;
+`;
+
+export const TopContainersBorne = styled.View<{ isFlex?: boolean }>`
+  display: flex;
+  flex-direction: row;
+  flex: ${({ isFlex }) => (isFlex ? 2 : 1)};
+`;
+
+export const TopContainersMobile = styled.View``;
 
 const generalPlusContainer = `
   border-radius: ${shape.radius.input}px;
   background-color: ${color.primary.white};
-  overflow: hidden;
   z-index: 0;
+  overflow: hidden;
 `;
 
 const getBorderPlusContainer = (border?: boolean) =>
@@ -68,7 +79,10 @@ export const PlusContainersBorne = styled.View<PlusContainersProps>`
       paddingX !== undefined ? paddingX : 40
     }px`};
   margin-right: ${getColumnWidth(1, false)}px;
-  margin-bottom: ${({ marginBottom }) => getMarginBottom(48, marginBottom)};
+  margin-bottom: ${({ marginBottom }) => getMarginBottom(16, marginBottom)};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const PlusContainersMobile = styled.View<PlusContainersProps>`
@@ -88,6 +102,6 @@ export const TextPlusWrapper = styled.Pressable<TextPlusWrapperProps>`
 
 export const PagePlusBorneIllustrationWrapper = styled.View`
   position: absolute;
-  right: 0;
-  bottom: -90px;
+  right: ${getColumnWidth(1, false)}px;
+  top: 45%;
 `;

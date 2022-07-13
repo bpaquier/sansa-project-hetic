@@ -6,6 +6,11 @@ import {
   useEffect
 } from "react";
 
+import * as Device from "expo-device";
+import * as ScreenOrientation from "expo-screen-orientation";
+import { Dimensions } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+
 import Theme from "~/Styles/theme.styles";
 
 interface ContextProps {
@@ -15,6 +20,9 @@ interface ContextProps {
   setIsIdle?(value?: boolean): any;
   isMenuLanguagesOpen?: boolean;
   setMenuLanguagesOpen?: (isOpen?: boolean) => void;
+  statusBarHeight?: number;
+  setUserConnected?: (connected?: string) => void;
+  userConnected?: string;
 }
 
 export const Context = createContext<ContextProps>({});
@@ -30,22 +38,47 @@ interface GlobalProviderProps {
 function GlobalProvider({ children }: GlobalProviderProps) {
   const [width, setWidth] = useState<number>(0);
   const [isIdle, setIsIdle] = useState<boolean>(false);
-  const [isMobile, setIsMobile] = useState<boolean>(true);
+  const insets = useSafeAreaInsets();
+  const [isMobile, setIsMobile] = useState<boolean>(
+    Dimensions?.get("window").width < Theme?.sizes?.breakPoint
+  );
+  const [userConnected, setUserContextConnected] = useState<
+    string | undefined
+  >();
   const [isMenuLanguagesOpen, setIsMenuLanguagesOpen] =
     useState<boolean>(false);
+  const [statusBarHeight, setStatusBarHeight] = useState<number>(insets?.top);
 
   useEffect(() => {
-    width > Theme?.sizes?.breakPoint ? setIsMobile(false) : setIsMobile(true);
-  }, [width]);
+    setStatusBarHeight(insets?.top);
+  }, [insets?.top]);
 
-  const setAppWidth = (width: number) => {
-    setWidth(width);
-  };
+  useEffect(() => {
+    Device.getDeviceTypeAsync()
+      .then((deviceType) => {
+        if (deviceType === Device.DeviceType.PHONE) {
+          setIsMobile(true);
+          ScreenOrientation.lockAsync(
+            ScreenOrientation.OrientationLock.PORTRAIT_UP
+          );
+        } else {
+          setIsMobile(false);
+          ScreenOrientation.lockAsync(
+            ScreenOrientation.OrientationLock.LANDSCAPE
+          );
+        }
+      })
+      .catch(console.warn);
+  }, []);
 
   const setMenuLanguagesOpen = (isOpen?: boolean) => {
     setIsMenuLanguagesOpen((prevState) =>
       isOpen !== undefined ? isOpen : !prevState
     );
+  };
+
+  const setUserConnected = (connected?: string) => {
+    setUserContextConnected(connected);
   };
 
   const providedValue = {
@@ -54,7 +87,10 @@ function GlobalProvider({ children }: GlobalProviderProps) {
     setIsIdle,
     setAppWidth,
     isMenuLanguagesOpen,
-    setMenuLanguagesOpen
+    setMenuLanguagesOpen,
+    statusBarHeight,
+    userConnected,
+    setUserConnected
   };
   return <Context.Provider value={providedValue}>{children}</Context.Provider>;
 }

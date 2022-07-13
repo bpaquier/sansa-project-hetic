@@ -1,19 +1,27 @@
 import React from "react";
 
 import Filters from "./Filters";
+import List from "./List";
 import PlaceDescription from "./PlaceDescription";
-import PlacesList from "./PlacesList";
 import Tags from "./Tags";
 import TopBar from "./TopBar";
+import { useSearchContext } from "~/Contexts/searchContext";
 
 export default function BornContent(): JSX.Element {
+  const {
+    displayFilters,
+    filters,
+    displayPlaceDescription,
+    displayPlacesList
+  } = useSearchContext();
+
   return (
     <>
-      <PlacesList />
-      <Filters />
+      {displayPlacesList && <List />}
+      {displayFilters && <Filters />}
       <TopBar />
-      <Tags />
-      <PlaceDescription />
+      {filters?.length > 0 && <Tags />}
+      {displayPlaceDescription && <PlaceDescription />}
     </>
   );
 }

@@ -9,12 +9,15 @@ interface UnderlineIndicatorProps {
   bgColor?: string;
   width?: number;
 }
+interface InputProps {
+  isFocused?: boolean;
+}
 
 export const TopBarWrapper = styled.View`
   position: absolute;
   top: ${grid.borneGutter}px;
   right: ${grid.borneGutter}px;
-  width: ${getColumnWidth(21, false)}px;
+  left: ${grid?.borneGutter * 2 + getColumnWidth(2, false)}px;
   height: ${sizes?.bornContent?.topBarHeight}px;
   background-color: ${color.primary.white};
   border-radius: ${shape?.radius?.input}px;
@@ -26,7 +29,7 @@ export const TopBarWrapper = styled.View`
   border: ${theme?.color?.neutral?.black5};
 `;
 
-export const InputWrapper = styled.View`
+export const SearchInputWrapper = styled.View`
   width: ${getColumnWidth(7, false)}px;
   flex-direction: row;
   margin-right: 24px;
@@ -43,7 +46,8 @@ export const SearchIconWrapper = styled.View`
 export const Input = styled.TextInput`
   flex: 1 1;
   border-radius: ${shape?.radius?.button};
-  border: 1px solid ${color?.neutral?.black20};
+  border: ${({ isFocused }: InputProps) =>
+    isFocused ? color?.primary?.blueExtraDark : color?.neutral?.black20};
   height: 54px;
   flex-direction: row;
   align-items: center;

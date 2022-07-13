@@ -17,3 +17,9 @@ export const LanguagesItemMenu = styled.TouchableOpacity<LanguagesItemMenuProps>
   background-color: ${({ isActive }) =>
     isActive ? theme.color.neutral.white60 : "transparent"};
 `;
+
+export const TextContainerLanguages = styled.View`
+  display: flex;
+  flex-direction: column;
+  padding-right: 10px;
+`;

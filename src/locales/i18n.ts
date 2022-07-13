@@ -2,26 +2,29 @@ import * as i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
 import translationAR from "./languages/ar.json";
+import translationENAdmin from "./languages/en-administrativeAssistance.json";
 import translationEN from "./languages/en.json";
+import translationESAdmin from "./languages/es-administrativeAssistance.json";
 import translationES from "./languages/es.json";
 import translationFRAdmin from "./languages/fr-administrativeAssistance.json";
 import translationFR from "./languages/fr.json";
+import translationUKAdmin from "./languages/uk-administrativeAssistance.json";
 import translationUK from "./languages/uk.json";
 
 export type LanguagesType = "fr-FR" | "es-ES" | "en-EN" | "uk-UA" | "ar-SA";
 
 const resources = {
   "en-EN": {
-    translation: translationEN
+    translation: { ...translationEN, ...translationENAdmin }
   },
   "fr-FR": {
     translation: { ...translationFR, ...translationFRAdmin }
   },
   "uk-UA": {
-    translation: translationUK
+    translation: { ...translationUK, ...translationUKAdmin }
   },
   "es-ES": {
-    translation: translationES
+    translation: { ...translationES, ...translationESAdmin }
   },
   "ar-SA": {
     translation: translationAR
