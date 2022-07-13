@@ -49,7 +49,7 @@ export default function AdministrativeHelpSection(): JSX.Element {
       <Text type="paragraph" color="black20">
         {t("plus.consultList")}
       </Text>
-      <Text type="titleL">
+      <Text type="titleL" style={{ elevation: 1 }}>
         {t("administrativeAssistance.administrativeAssistance")}
       </Text>
       <FlashlightIllustrationWrapper isMobile={isMobile}>

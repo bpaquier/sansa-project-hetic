@@ -5,10 +5,10 @@ export const ButtonsContainerMobile = styled.View`
 `;
 
 export const ButtonsContainerBorne = styled.View`
-  margin-top: 56px;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-top: 24px;
 `;
 
 export const ButtonWrapperBorne = styled.View`
@@ -16,3 +16,18 @@ export const ButtonWrapperBorne = styled.View`
 `;
 
 export const ButtonWrapperMobile = styled.View``;
+
+export const ContainerDescription = styled.View<{ isMobile?: boolean }>`
+  display: flex;
+  width: 100%;
+  ${({ isMobile }) => !isMobile && "height: 100%"}
+  justify-content: space-between;
+`;
+
+export const TopContainer = styled.View`
+  flex: 1;
+`;
+
+export const ScrollContainer = styled.ScrollView`
+  flex: 1;
+`;

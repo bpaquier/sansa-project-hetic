@@ -22,7 +22,7 @@ export const PageContainerMobile = styled.ScrollView<PageContainerProps>`
       ? color.primary.white
       : backgroundColor === "blue"
       ? color.primary.blue
-      : color.neutral.black5};
+      : color.components.backgroundApp};
   padding-top: 60px;
 `;
 
@@ -33,5 +33,5 @@ export const PageContainerBorne = styled.View`
   width: 100%;
   height: 100%;
   padding: ${grid.borneGutter}px;
-  background-color: ${color.neutral.black5};
+  background-color: ${color.components.backgroundApp};
 `;

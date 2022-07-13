@@ -55,6 +55,9 @@ const theme = {
       advice: `#DE945C`,
       activities: `#D4494C`,
       technology: `#233454`
+    },
+    components: {
+      backgroundApp: `#F4F4F4`
     }
   },
   sizes: {
