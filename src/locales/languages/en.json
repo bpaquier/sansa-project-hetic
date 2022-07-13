@@ -75,7 +75,7 @@
     "seeMore": "See more",
     "lastUpdate": "Last update",
     "byAppointement": "By appointment",
-    "services" : {
+    "services": {
       "Acceuil": "Home",
       "Alimentation": "Feeding",
       "Santé": "Health",
@@ -132,7 +132,25 @@
     }
   },
   "home": {
-    "home": "Home"
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "eventsSoon": "New events coming soon!",
+    "eventsSoonBorne": "Don't panic! We will soon find new events for you",
+    "noEventsPrompt": "No event for the moment",
+    "publicShower": "Public shower",
+    "publicShowers": "Public showers",
+    "wateringPlace": "Watering place",
+    "wateringPlaces": "Watering places",
+    "publicRestroom": "Public restroom",
+    "publicRestrooms": "Public restrooms",
+    "closestAssociations": "The 5 associations closest to you",
+    "associations": "Associations",
+    "nightShelter": "Night shelter",
+    "nightShelters": "Night shelters",
+    "whereCanIGo": "Where can I go ?",
+    "lookForADoctor": "Find a doctor",
+    "showTheMap": "Show the map",
+    "searchAPlace": "Search for a place"
   },
   "mobileOnboarding": {
     "title": "Welcome on SANSA!",
