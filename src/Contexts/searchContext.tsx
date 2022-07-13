@@ -230,6 +230,7 @@ function SearchProvider({ children }: SearchProviderProps) {
     displayPlaceDescription && setDisplayPlaceDescription(null);
     displayPlacesList && setDisplayPlacesList(null);
     setDisplaySearchResultsList && setDisplaySearchResultsList(null);
+    filters && setFilters(null);
   };
 
   const providerValue = {
