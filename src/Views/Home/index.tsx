@@ -1,9 +1,11 @@
-import HomeBorne from "../../../Components/Home/HomeBorne";
-import HomeMobile from "../../../Components/Home/HomeMobile";
-import { useGlobalContext } from "~/Contexts/globalContext";
 import { useEffect } from "react";
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigate } from "react-router-native";
+
+import HomeBorne from "~/Components/Home/HomeBorne";
+import HomeMobile from "~/Components/Home/HomeMobile";
+import { useGlobalContext } from "~/Contexts/globalContext";
 
 export default function Home(): JSX.Element {
   const { isMobile } = useGlobalContext();
@@ -18,11 +20,13 @@ export default function Home(): JSX.Element {
       AsyncStorage.setItem("alreadyLaunched", "true");
       navigate("/onboarding");
     }
-  }
-  
+  };
+
   useEffect(() => {
-    checkIfFirstLaunch();
-  })
+    if (isMobile) {
+      checkIfFirstLaunch();
+    }
+  });
 
   return <HomeComponent />;
 }

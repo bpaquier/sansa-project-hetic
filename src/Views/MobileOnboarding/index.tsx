@@ -1,41 +1,52 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React, { useEffect, useState } from "react";
-import { View, TouchableOpacity, Animated, ImageBackground } from "react-native";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { useNavigate } from "react-router-native";
-import Flags from "~/Components/LanguagesMenu/Flags";
 
+import { useTranslation } from "react-i18next";
+import { View, Animated, Dimensions } from "react-native";
+import { useNavigate } from "react-router-native";
+
+import SansaLogo from "./SansaLogo";
+import {
+  FlagButtonWrapper,
+  OnboardingImage,
+  OnboardingImagePageWrapper,
+  OnboardingPageWrapper,
+  StartScreenContentWrapper
+} from "./styles";
+import Flags from "~/Components/LanguagesMenu/Flags";
+import MobileOnboardingTooltip from "~/Components/MobileOnboardingTooltip";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 import Button from "~/Components/Ui-kit/Button";
 import TextWrapper from "~/Components/Ui-kit/TextWrapper";
-import SansaLogo from "./SansaLogo";
 import { useGlobalContext } from "~/Contexts/globalContext";
-import { Dimensions, Image } from "react-native";
-import MobileOnboardingTooltip from "~/Components/MobileOnboardingTooltip";
 
 export default function HomeMobile(): JSX.Element {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { setMenuLanguagesOpen } = useGlobalContext();
 
   const [step, setStep] = useState(0);
 
-  const [NavIndicatorTranslate] = useState(new Animated.Value(0));
+  const [OnboardingTranslate] = useState(new Animated.Value(0));
 
   useEffect(() => {
-    Animated.spring(NavIndicatorTranslate, {
+    Animated.spring(OnboardingTranslate, {
       toValue: -Dimensions.get("window").width * step,
       velocity: 10,
       useNativeDriver: true
     }).start();
   }, [step]);
 
-  const NavIndicator = (props: any) => {
+  const OnboardingWrapper = (props: any) => {
     return (
       <Animated.View
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         style={{
           // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          ...props.style,
-          transform: [{ translateX: NavIndicatorTranslate }],
+          flexDirection: "row",
+          height: "100%",
+          width: Dimensions.get("window").width * 6,
+          transform: [{ translateX: OnboardingTranslate }]
         }}
       >
         {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
@@ -43,125 +54,114 @@ export default function HomeMobile(): JSX.Element {
       </Animated.View>
     );
   };
-  
+
   return (
-    <NavIndicator style={{ flexDirection: "row", height: "100%", width: Dimensions.get("window").width * 6 }}>
-      <View style={{ width: Dimensions.get("window").width }}>
+    <OnboardingWrapper>
+      <OnboardingPageWrapper>
         <PageContentWrapper backgroundColor="blue">
           <View>
-            <View style={{ position: "absolute", top: 0, left: 0}}>
-              <TouchableOpacity onPress={() =>
-                setMenuLanguagesOpen &&
-                setMenuLanguagesOpen()
-              }>
-                <View style={{ padding: 1, backgroundColor: "white", borderRadius: 50 }}>
-                  <Flags size={40} />
-                </View>
-              </TouchableOpacity>
-            </View>
-            <View style={{ marginTop: "50%", alignItems: "center" }}>
+            <FlagButtonWrapper
+              onPress={() => setMenuLanguagesOpen && setMenuLanguagesOpen()}
+            >
+              <Flags size={40} />
+            </FlagButtonWrapper>
+            <StartScreenContentWrapper>
               <SansaLogo />
-              <TextWrapper marginTop={16} type="titleL" color="white" textAlign="center">Bienvenue sur SANSA !</TextWrapper>
-              <TextWrapper marginTop={16} color="white" textAlign="center">Solution d’aide numérique aux</TextWrapper>
-              <TextWrapper marginBottom={36} color="white" textAlign="center">sans-abris</TextWrapper>
-              <Button type="secondary" text="Commencer" onPress={() => setStep(1)} />
-            </View>
+              <TextWrapper
+                marginTop={16}
+                type="titleL"
+                color="white"
+                textAlign="center"
+              >
+                {t("mobileOnboarding.title")}
+              </TextWrapper>
+              <TextWrapper
+                marginTop={16}
+                marginBottom={36}
+                color="white"
+                textAlign="center"
+              >
+                {t("mobileOnboarding.subtitle")}
+              </TextWrapper>
+              <Button
+                type="secondary"
+                text={t("mobileOnboarding.start")}
+                onPress={() => setStep(1)}
+              />
+            </StartScreenContentWrapper>
           </View>
         </PageContentWrapper>
-      </View>
-      <View style={{ position: "relative", width: Dimensions.get("window").width, height: "100%", backgroundColor: "black", justifyContent: "center" }}>
+      </OnboardingPageWrapper>
+      <OnboardingImagePageWrapper>
         <View>
           <MobileOnboardingTooltip
             top="80px"
             right="2%"
             ArrowPosition="top"
-            nextText="Suivant"
+            nextText={t("mobileOnboarding.next")}
             onNext={() => setStep(2)}
-            title="Recherchez"
-            description="Vous pouvez rechercher une association grâce à la barre de recherche"
+            title={t("mobileOnboarding.tooltip.0.title")}
+            description={t("mobileOnboarding.tooltip.0.description")}
           />
-          <Image style={{ bottom: undefined, width: Dimensions.get("window").width, height: Dimensions.get("window").width * 71 / 40, resizeMode: "contain" }} source={require('./Images/1.jpg')} />
+          <OnboardingImage source={require("./images/1.jpg")} />
         </View>
-      </View>
-      <View style={{ position: "relative", width: Dimensions.get("window").width, height: "100%", backgroundColor: "black", justifyContent: "center" }}>
+      </OnboardingImagePageWrapper>
+      <OnboardingImagePageWrapper>
         <View>
           <MobileOnboardingTooltip
             top="140px"
             right="2%"
             ArrowPosition="top"
-            nextText="Suivant"
+            nextText={t("mobileOnboarding.next")}
             onNext={() => setStep(3)}
-            title="Filtrez"
-            description="Vous pouvez aussi rechercher vos besoins grâce aux catégories"
+            title={t("mobileOnboarding.tooltip.1.title")}
+            description={t("mobileOnboarding.tooltip.1.description")}
           />
-          <Image style={{ bottom: undefined, width: Dimensions.get("window").width, height: Dimensions.get("window").width * 71 / 40, resizeMode: "contain" }} source={require('./Images/2.jpg')} />
+          <OnboardingImage source={require("./images/2.jpg")} />
         </View>
-      </View>
-      <View style={{ position: "relative", width: Dimensions.get("window").width, height: "100%", backgroundColor: "black", justifyContent: "center" }}>
+      </OnboardingImagePageWrapper>
+      <OnboardingImagePageWrapper>
         <View>
           <MobileOnboardingTooltip
             bottom="258px"
             right="19%"
             ArrowPosition="bottom"
-            nextText="Suivant"
+            nextText={t("mobileOnboarding.next")}
             onNext={() => setStep(4)}
-            title="Les associations"
-            description="Ici, vous pourrez accéder aux resultats de votre recherche. En cliquant sur cette zone vous aurez accès au détail de l’association"
+            title={t("mobileOnboarding.tooltip.2.title")}
+            description={t("mobileOnboarding.tooltip.2.description")}
           />
-          <Image style={{ bottom: undefined, width: Dimensions.get("window").width, height: Dimensions.get("window").width * 71 / 40, resizeMode: "contain" }} source={require('./Images/3.jpg')} />
+          <OnboardingImage source={require("./images/3.jpg")} />
         </View>
-      </View>
-      <View style={{ position: "relative", width: Dimensions.get("window").width, height: "100%", backgroundColor: "black", justifyContent: "center" }}>
+      </OnboardingImagePageWrapper>
+      <OnboardingImagePageWrapper>
         <View>
           <MobileOnboardingTooltip
             bottom="258px"
             right="19%"
             ArrowPosition="bottom"
-            nextText="Suivant"
+            nextText={t("mobileOnboarding.next")}
             onNext={() => setStep(5)}
-            title="Plus de résultats"
-            description="En glissant vers la gauche vous pourrez voir les différentes associations"
+            title={t("mobileOnboarding.tooltip.3.title")}
+            description={t("mobileOnboarding.tooltip.3.description")}
           />
-          <Image style={{ bottom: undefined, width: Dimensions.get("window").width, height: Dimensions.get("window").width * 71 / 40, resizeMode: "contain" }} source={require('./Images/4.jpg')} />
+          <OnboardingImage source={require("./images/4.jpg")} />
         </View>
-      </View>
-      <View style={{ position: "relative", width: Dimensions.get("window").width, height: "100%", backgroundColor: "black", justifyContent: "center" }}>
+      </OnboardingImagePageWrapper>
+      <OnboardingImagePageWrapper>
         <View>
           <MobileOnboardingTooltip
             top="364px"
             right="19%"
             ArrowPosition="top"
-            nextText="Démarrer"
+            nextText={t("mobileOnboarding.end")}
             onNext={() => navigate("/search")}
-            title="Informez-vous"
-            description="En cliquant sur l’encart de l’assocation vous pourrez accéder à son détail"
+            title={t("mobileOnboarding.tooltip.4.title")}
+            description={t("mobileOnboarding.tooltip.4.description")}
           />
-          <Image style={{ bottom: undefined, width: Dimensions.get("window").width, height: Dimensions.get("window").width * 71 / 40, resizeMode: "contain" }} source={require('./Images/5.jpg')} />
+          <OnboardingImage source={require("./images/5.jpg")} />
         </View>
-      </View>
-      <View style={{ width: Dimensions.get("window").width }}>
-        <PageContentWrapper backgroundColor="grey">
-          <View>
-            <View style={{ position: "absolute", top: 0, left: 0}}>
-              <TouchableOpacity onPress={() =>
-                setMenuLanguagesOpen &&
-                setMenuLanguagesOpen()
-              }>
-                <View style={{ padding: 1, backgroundColor: "white", borderRadius: 50 }}>
-                  <Flags size={40} />
-                </View>
-              </TouchableOpacity>
-            </View>
-            <View style={{ marginTop: "50%", alignItems: "center" }}>
-              <SansaLogo />
-              <TextWrapper marginTop={16} type="titleL" color="white" textAlign="center">Bienvenue sur SANSA !</TextWrapper>
-              <TextWrapper marginTop={16} color="white" textAlign="center">Solution d’aide numérique aux</TextWrapper>
-              <TextWrapper marginBottom={36} color="white" textAlign="center">sans-abris</TextWrapper>
-              <Button type="secondary" text="Commencer" onPress={() => setStep(0)} />
-            </View>
-          </View>
-        </PageContentWrapper>
-      </View>
-    </NavIndicator>
+      </OnboardingImagePageWrapper>
+    </OnboardingWrapper>
   );
 }

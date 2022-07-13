@@ -24,8 +24,8 @@ import PageContentWrapper from "~/Components/PageContentWrapper";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import Theme from "~/Styles/theme.styles";
-import NoEventIllustration from "~/Views/Account/Home/Illustrations/NoEventIllustration";
-import SportIllustration from "~/Views/Account/Home/Illustrations/SportIllustration";
+import NoEventIllustration from "~/Views/Home/Illustrations/NoEventIllustration";
+import SportIllustration from "~/Views/Home/Illustrations/SportIllustration";
 const { color, boxShadow } = Theme;
 
 export default function HomeMobile(): JSX.Element {

@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+
 import theme from "~/Styles/theme.styles";
 
 const { color } = theme;
@@ -8,7 +9,7 @@ type TooltipWrapperProps = {
   right?: string;
   bottom?: string;
   left?: string;
-}
+};
 
 export const TooltipWrapper = styled.View<TooltipWrapperProps>`
   position: absolute;
@@ -25,7 +26,7 @@ export const TooltipWrapper = styled.View<TooltipWrapperProps>`
 
 type TooltipTriangle = {
   position?: string;
-}
+};
 
 export const TooltipTriangle = styled.View<TooltipTriangle>`
   position: absolute;
@@ -37,4 +38,10 @@ export const TooltipTriangle = styled.View<TooltipTriangle>`
   border-radius: 2px;
   background-color: ${color.primary.blueExtraLight};
   transform: rotate(45deg);
+`;
+
+export const TooltipButtonsWrapper = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 `;

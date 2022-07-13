@@ -3,7 +3,7 @@ import { NativeRouter, Routes, Route } from "react-router-native";
 
 import LanguagesMenu from "~/Components/LanguagesMenu";
 import GlobalProvider from "~/Contexts/globalContext";
-import Home from "~/Views/Account/Home";
+import Home from "~/Views/Home";
 import Login from "~/Views/Account/Login";
 import Register from "~/Views/Account/Register";
 import FAQ from "~/Views/FAQ";

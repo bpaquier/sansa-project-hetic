@@ -16,10 +16,13 @@ export default function Navigation() {
   const location = useLocation();
 
   return (
-    (location.pathname !== "/onboarding") &&
-    <Navigation
-      onPressExitLanguagesMenuAndNavigate={onPressExitLanguagesMenuAndNavigate}
-      onPressMenu={setMenuLanguagesOpen}
-    />
+    location.pathname !== "/onboarding" && (
+      <Navigation
+        onPressExitLanguagesMenuAndNavigate={
+          onPressExitLanguagesMenuAndNavigate
+        }
+        onPressMenu={setMenuLanguagesOpen}
+      />
+    )
   );
 }
