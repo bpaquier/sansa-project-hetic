@@ -6,6 +6,9 @@ import {
   useEffect
 } from "react";
 
+import { useTranslation } from "react-i18next";
+import { Alert } from "react-native";
+
 import useApi from "~/hooks/useApi";
 import { useDebounce } from "~/hooks/useDebounce";
 import serializePlaces from "~/utils/serializePlaces";
@@ -87,6 +90,7 @@ interface SearchProviderProps {
 }
 
 function SearchProvider({ children }: SearchProviderProps) {
+  const { t } = useTranslation();
   const { getOrgaByServices, getOrgaByNameOrAdress } = useApi();
   const [selectedPlaceIndex, setSelectedPlaceIndex] = useState<number | null>(
     null
@@ -148,18 +152,17 @@ function SearchProvider({ children }: SearchProviderProps) {
             if (data) {
               setSearchResults(data);
             } else {
-              //todo: handle error
+              handleApiErrors();
             }
-            setIsSearchLoading(false);
+            handleApiErrors();
           } else {
-            setIsSearchLoading(false);
-            //todo: handle error
+            handleApiErrors();
           }
-        })
-        ?.catch((err) => {
           setIsSearchLoading(false);
-          //todo: handle error
-          console.log(err);
+        })
+        ?.catch(() => {
+          setIsSearchLoading(false);
+          handleApiErrors();
         });
     }
   }, [debouncedSearch]);
@@ -172,16 +175,15 @@ function SearchProvider({ children }: SearchProviderProps) {
             const serializedPlaces = serializePlaces(data);
             setFilteredPlaces(serializedPlaces);
           } else {
-            //todo: handle error
+            handleApiErrors();
           }
         } else {
-          //todo: handle error
+          handleApiErrors();
         }
         setIsFilterLoading(false);
       })
-      .catch((err) => {
-        //todo: handle error
-        console.log(err);
+      .catch(() => {
+        handleApiErrors();
         setIsFilterLoading(false);
       });
   };
@@ -220,6 +222,13 @@ function SearchProvider({ children }: SearchProviderProps) {
     setSearchValue(value);
     setFilteredPlaces(null);
     setFilters(null);
+  };
+
+  const handleApiErrors = () => {
+    Alert.alert("", t("search.networkIssue"), [{ text: "OK" }]);
+    displayFilters && setDisplayFilters(null);
+    displayPlaceDescription && setDisplayPlaceDescription(null);
+    displayPlacesList && setDisplayPlacesList(null);
   };
 
   const providerValue = {

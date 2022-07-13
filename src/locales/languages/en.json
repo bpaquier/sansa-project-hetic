@@ -75,6 +75,8 @@
     "seeMore": "See more",
     "lastUpdate": "Last update",
     "byAppointement": "By appointment",
+    "locationPermissionDenied": "Permission to access location was denied",
+    "networkIssue": "Can not access to data, please check your connection or contact support",
     "services" : {
       "Acceuil": "Home",
       "Alimentation": "Feeding",

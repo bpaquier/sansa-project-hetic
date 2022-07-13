@@ -75,6 +75,8 @@
     "seeMore": "شاهد المزيد",
     "lastUpdate": "آخر تحديث",
     "byAppointement": "عن طريق التعيين",
+    "locationPermissionDenied": "تم رفض إذن الوصول إلى الموقع الجغرافي",
+    "networkIssue": "لا يمكن الوصول إلى البيانات ، يرجى التحقق من اتصالك أو الاتصال بالدعم",
     "services" : {
       "Acceuil": "استقبال",
       "Alimentation": "إطعام",

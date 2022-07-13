@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import React, { useEffect, useState, useRef } from "react";
 
+import { useTranslation } from "react-i18next";
 import { Dimensions, Alert, Keyboard } from "react-native";
 // eslint-disable-next-line import/named
 import MapView, { PROVIDER_GOOGLE, Camera, Marker } from "react-native-maps";
@@ -39,6 +40,7 @@ export default function Map(): JSX.Element {
     displayPlacesList,
     setSearchValue
   } = useSearchContext();
+  const { t } = useTranslation();
   const mapRef = useRef();
   const locationPermission = useLocationPermission();
   const currentLocation = useGeolocalisation(locationPermission);
@@ -117,11 +119,7 @@ export default function Map(): JSX.Element {
 
   const goToCurrentPosition = () => {
     if (!locationPermission || !currentLocation) {
-      Alert.alert(
-        "",
-        "Veuillez autoriser la géolocalisation dans vos paramettres",
-        [{ text: "OK" }]
-      );
+      Alert.alert("", t("search.locationPermissionDenied"), [{ text: "OK" }]);
       return;
     }
     setSelectedPlaceIndex(null);

@@ -75,6 +75,8 @@
     "seeMore": "Ver más",
     "lastUpdate": "Última actualización",
     "byAppointement": "Con cita previa",
+    "locationPermissionDenied": "Permiso de acceso a la ubicación denegado",
+    "networkIssue": "No puede acceder a los datos, verifique su conexión o póngase en contacto con el soporte técnico",
     "services" : {
       "Acceuil": "Recepción",
       "Alimentation": "Alimentación",

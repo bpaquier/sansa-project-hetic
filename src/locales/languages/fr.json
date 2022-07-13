@@ -77,6 +77,8 @@
     "seeMore": "Voir plus",
     "lastUpdate": "Dernière mise à jour",
     "byAppointement": "Sur rendez-vous",
+    "locationPermissionDenied": "Permission d'accès à la localisation refusée",
+    "networkIssue": "Impossible d'accéder aux données, veuillez vérifier votre connexion ou contacter le support",
     "services" : {
       "Acceuil": "Accueil",
       "Alimentation": "Alimentation",
