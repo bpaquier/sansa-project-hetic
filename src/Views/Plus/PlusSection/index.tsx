@@ -9,7 +9,7 @@ import { useGlobalContext } from "~/Contexts/globalContext";
 
 type PlusSectionProps = {
   isMobile?: boolean;
-  isConnected?: boolean;
+  isConnected?: string;
 };
 
 export default function PlusSection({
@@ -35,7 +35,7 @@ export default function PlusSection({
   const plusContentToDisplay = !isMobile
     ? plusContent.filter(({ id }) => id !== "languages" && id !== "logout")
     : !isConnected
-    ? plusContent.filter(({ id }) => id !== "deconnecter")
+    ? plusContent.filter(({ id }) => id !== "logout")
     : plusContent;
 
   return (
