@@ -35,6 +35,7 @@ export default function Filters(): JSX.Element {
       <InputWrapper>
         <Input
           placeholder={t("search.searchPlaceholder")}
+          placeholderTextColor={theme?.color?.neutral?.black20}
           onChangeText={(value) => handleSearch(value)}
           value={searchValue}
         />

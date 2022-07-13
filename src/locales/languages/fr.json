@@ -73,11 +73,14 @@
     "servicesOffered": "Services proposés",
     "mission": "Mission",
     "showList": "Voir la liste ({{ resultsLength }} resultats)",
+    "hideList": "Masquer la liste ({{ resultsLength }} resultats)",
     "learnMore": "En savoir plus",
     "seeMore": "Voir plus",
     "lastUpdate": "Dernière mise à jour",
     "byAppointement": "Sur rendez-vous",
-    "services": {
+    "locationPermissionDenied": "Permission d'accès à la localisation refusée",
+    "networkIssue": "Impossible d'accéder aux données, veuillez vérifier votre connexion ou contacter le support",
+    "services" : {
       "Acceuil": "Accueil",
       "Alimentation": "Alimentation",
       "Santé": "Santé",

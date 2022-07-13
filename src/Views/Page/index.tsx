@@ -15,7 +15,7 @@ export default function Page({ children }: PageProps) {
 
   return (
     <SafeArea {...{ width, height }}>
-      <StatusBar />
+      <StatusBar style="dark" />
       <PageContent>{children}</PageContent>
       <Navigation />
     </SafeArea>

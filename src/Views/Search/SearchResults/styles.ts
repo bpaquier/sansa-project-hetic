@@ -12,7 +12,7 @@ interface GlobalProps {
 export const SearchResultsWrapper = styled.View`
   position: absolute;
   left: ${({ isMobile }: GlobalProps) =>
-    isMobile ? `-12.5px` : `${getColumnWidth(3, false)}px`};
+    isMobile ? `-12.5px` : `${grid?.borneGutter + getColumnWidth(2, false)}px`};
   margin-left: ${grid?.borneGutter}px;
   top: ${({ isMobile }: GlobalProps) =>
     isMobile
@@ -23,7 +23,7 @@ export const SearchResultsWrapper = styled.View`
   width: ${({ isMobile }: GlobalProps) =>
     isMobile
       ? `${getColumnWidth(theme?.grid?.columns, true)}px`
-      : `${getColumnWidth(7.5, false)}px`};
+      : `${getColumnWidth(8, false)}px`};
   padding: 32px 0;
 `;
 

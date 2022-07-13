@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 import axios from "axios";
-
 export default function useApi() {
-  const API_ENDPOINT = "http://sansah.vhswebs.com/api";
+  const API_ENDPOINT = "https://sansah.vhswebs.com/api";
 
   const getOrgaByServices = async (services: string[]) => {
     return await axios
@@ -11,7 +10,7 @@ export default function useApi() {
       ?.catch((error) => error);
   };
 
-  const getOrgaById = async (id: number) => {
+  const getOrgaById = async (id: number /* , lang?: string */) => {
     return await axios
       .get(`${API_ENDPOINT}/getorgabyid/${id}`)
       ?.then((resp) => resp)

@@ -18,7 +18,7 @@ export default function MainFilters(): JSX.Element {
   return (
     <>
       <Text type="titleL" weight="bold">
-        {t(`search.services.${displayFilters}`)}
+        {displayFilters ? t(`search.services.${displayFilters}`) : ""}
       </Text>
       <TagsWrapper>
         {selectedFilters?.map((filter, i) => {

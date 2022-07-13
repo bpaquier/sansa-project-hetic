@@ -67,10 +67,10 @@ export default function Tags(): JSX.Element {
           </Text>
         </Tag>
         <Tag
-          borderColor={theme?.color?.primary?.blueDark}
+          borderColor={theme?.color?.primary?.blue}
           onPress={() => setDisplayTagsList((prev) => !prev)}
         >
-          <Text color="black" weight="bold">{`${t("search.seeFilters")} (${
+          <Text color="blue" weight="bold">{`${t("search.seeFilters")} (${
             filters?.length
           })`}</Text>
         </Tag>

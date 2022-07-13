@@ -4,7 +4,14 @@ import Draggable from "react-native-draggable-panel";
 
 import AllFilters from "./AllFilters";
 import MainFilters from "./MainFilters";
-import { BottomButton, Filters, PanelContent, Overlay } from "./styles";
+import {
+  BottomButton,
+  Filters,
+  PanelContent,
+  LoadingOverlay,
+  Overlay
+} from "./styles";
+import Spinner from "~/Components/Icons/Spinner";
 import ButtonComponent from "~/Components/Ui-kit/Button";
 import Separator from "~/Components/Ui-kit/Separator";
 import { useGlobalContext } from "~/Contexts/globalContext";
@@ -19,7 +26,8 @@ export default function FiltersPanel(): JSX.Element {
     setDisplayFilters,
     filters,
     setFilters,
-    updateFilters
+    updateFilters,
+    isFilterLoading
   } = useSearchContext();
   const { statusBarHeight } = useGlobalContext();
 
@@ -71,6 +79,11 @@ export default function FiltersPanel(): JSX.Element {
               )}
             </>
           ) : null}
+          {isFilterLoading && (
+            <LoadingOverlay>
+              <Spinner width={50} height={50} />
+            </LoadingOverlay>
+          )}
         </PanelContent>
       </Draggable>
     </>

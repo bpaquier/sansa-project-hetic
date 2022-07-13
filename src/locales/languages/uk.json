@@ -72,11 +72,14 @@
     "servicesOffered": "Пропоновані послуги",
     "mission": "Місія",
     "showList": "Переглянути список ({{ resultsLength }} Результатів)",
+    "hideList": "Приховання списку ({{ resultsLength }} Результатів))",
     "learnMore": "Дізнатися більше",
     "seeMore": "Детальніше",
     "lastUpdate": "Останнє оновлення",
     "byAppointement": "За призначенням",
-    "services": {
+    "locationPermissionDenied": "У дозволі на доступ до місцезнаходження відмовлено",
+    "networkIssue": "Не можете отримати доступ до даних, будь ласка, перевірте своє з'єднання або зв'яжіться зі службою підтримки",
+    "services" : {
       "Acceuil": "Прийом",
       "Alimentation": "Годування",
       "Santé": "Здоров'я",

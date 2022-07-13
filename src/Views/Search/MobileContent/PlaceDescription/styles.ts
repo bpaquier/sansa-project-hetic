@@ -87,3 +87,16 @@ export const Service = styled.View`
 export const LastItem = styled.View`
   margin-bottom: 100px;
 `;
+
+export const LoadingOverlay = styled.View`
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  justify-content: center;
+  align-items: center;
+  border-radius: ${theme?.shape?.radius?.input}px;
+  z-index: 2;
+`;

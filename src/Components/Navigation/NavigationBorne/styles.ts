@@ -46,8 +46,8 @@ interface NavButtonProps {
 }
 
 export const NavButton = styled.TouchableOpacity<NavButtonProps>`
-  width: 60px;
-  height: 60px;
+  width: ${getColumnWidth(1.3, false)}px;
+  height: ${getColumnWidth(1.3, false)}px;
   justify-content: center;
   align-items: center;
   border-radius: 500px;

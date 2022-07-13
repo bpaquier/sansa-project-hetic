@@ -27,7 +27,7 @@ export default function PlacesCarousel(): JSX.Element {
     selectedPlaceIndex,
     isFilterLoading,
     setTriggerLocalization,
-    debouncedFilters
+    filters
   } = useSearchContext();
   const carouselRef = useRef();
 
@@ -57,7 +57,7 @@ export default function PlacesCarousel(): JSX.Element {
           <TextComponent color="black40">{t("search.searching")}</TextComponent>
         </AlternativeCard>
       )}
-      {debouncedFilters?.length > 0 &&
+      {filters?.length > 0 &&
         (!filteredPlaces || filteredPlaces?.length === 0) &&
         !isFilterLoading && (
           <AlternativeCard>

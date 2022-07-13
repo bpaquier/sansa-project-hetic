@@ -71,11 +71,14 @@
     "servicesOffered": "Services offered",
     "mission": "Mission",
     "showList": "Show the list ({{ resultsLength }} results)",
+    "hideList": "Hide the list ({{ resultsLength }} results)",
     "learnMore": "Learn more",
     "seeMore": "See more",
     "lastUpdate": "Last update",
     "byAppointement": "By appointment",
-    "services": {
+    "locationPermissionDenied": "Permission to access location was denied",
+    "networkIssue": "Can not access to data, please check your connection or contact support",
+    "services" : {
       "Acceuil": "Home",
       "Alimentation": "Feeding",
       "Santé": "Health",

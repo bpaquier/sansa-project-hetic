@@ -6,7 +6,9 @@ import {
   useEffect
 } from "react";
 
-import { useGlobalContext } from "./globalContext";
+import { useTranslation } from "react-i18next";
+import { Alert } from "react-native";
+
 import useApi from "~/hooks/useApi";
 import { useDebounce } from "~/hooks/useDebounce";
 import serializePlaces from "~/utils/serializePlaces";
@@ -70,6 +72,7 @@ interface ContextProps {
   displaySearchResultsList?: boolean;
   setDisplaySearchResultsList?: (arg: boolean) => void;
   handleSearch?: (value: string) => void;
+  handleApiErrors?: () => void;
 }
 
 type updateFiltersProps = {
@@ -88,7 +91,7 @@ interface SearchProviderProps {
 }
 
 function SearchProvider({ children }: SearchProviderProps) {
-  const { isMobile } = useGlobalContext();
+  const { t } = useTranslation();
   const { getOrgaByServices, getOrgaByNameOrAdress } = useApi();
   const [selectedPlaceIndex, setSelectedPlaceIndex] = useState<number | null>(
     null
@@ -115,63 +118,32 @@ function SearchProvider({ children }: SearchProviderProps) {
 
   useEffect(() => {
     if (!filters || filters?.length === 0) {
-      setFilters(null);
-      setIsFilterLoading(false);
-      setDisplayFilters(null);
-      setFilteredPlaces(null);
+      displayFilters && setDisplayFilters(null);
+      filteredPlaces && setFilteredPlaces(null);
+      displayPlacesList && setDisplayPlacesList(false);
     } else {
-      setSearchValue(null);
-      setIsFilterLoading(true);
-      setDisplayPlacesList(true);
-      setFilteredPlaces(null);
+      searchValue && setSearchValue(null);
+      !isFilterLoading && setIsFilterLoading(true);
+      !displayPlacesList && setDisplayPlacesList(true);
+      updatePlacesSelection();
     }
   }, [filters]);
 
   useEffect(() => {
-    if (searchValue) {
-      setIsSearchLoading(true);
-      setDisplaySearchResultsList(true);
+    if (searchValue && searchValue?.length > 0) {
+      !isSearchLoading && setIsSearchLoading(true);
+      !displaySearchResultsList && setDisplaySearchResultsList(true);
     } else {
-      setSearchResults(null);
-      setIsSearchLoading(false);
-      setDisplaySearchResultsList(false);
-      setFilteredPlaces(null);
+      isSearchLoading && setIsSearchLoading(false);
+      displaySearchResultsList && setDisplaySearchResultsList(false);
     }
   }, [searchValue]);
 
   useEffect(() => {
     if (!searchValue && !filters) {
-      setDisplayPlacesList(false);
+      displayPlacesList && setDisplayPlacesList(false);
     }
   }, [searchValue, filters]);
-
-  useEffect(() => {
-    if (debouncedFilters && debouncedFilters?.length > 0) {
-      getOrgaByServices(debouncedFilters)
-        ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
-          if (status === 200) {
-            if (data) {
-              const serializedPlaces = serializePlaces(data);
-              setFilteredPlaces(serializedPlaces);
-            } else {
-              //todo: handle error
-            }
-            setIsFilterLoading(false);
-          } else {
-            //todo: handle error
-          }
-        })
-        .catch((err) => {
-          //todo: handle error
-          console.log(err);
-        });
-    } else {
-      setFilters(null);
-      setIsFilterLoading(false);
-      setFilteredPlaces(null);
-      setDisplayPlacesList(false);
-    }
-  }, [debouncedFilters]);
 
   useEffect(() => {
     if (debouncedSearch) {
@@ -181,26 +153,40 @@ function SearchProvider({ children }: SearchProviderProps) {
             if (data) {
               setSearchResults(data);
             } else {
-              //todo: handle error
+              handleApiErrors();
             }
-            setIsSearchLoading(false);
           } else {
-            setIsSearchLoading(false);
-            //todo: handle error
+            handleApiErrors();
           }
-        })
-        ?.catch((err) => {
           setIsSearchLoading(false);
-          //todo: handle error
-          console.log(err);
+        })
+        ?.catch(() => {
+          setIsSearchLoading(false);
+          handleApiErrors();
         });
     }
   }, [debouncedSearch]);
 
-  useEffect(() => {
-    filteredPlaces?.length > 0 && isMobile && setSelectedPlaceIndex(0);
-    !filteredPlaces && setSelectedPlaceIndex(null);
-  }, [filteredPlaces]);
+  const updatePlacesSelection = () => {
+    getOrgaByServices(filters)
+      ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
+        if (status === 200) {
+          if (data) {
+            const serializedPlaces = serializePlaces(data);
+            setFilteredPlaces(serializedPlaces);
+          } else {
+            handleApiErrors();
+          }
+        } else {
+          handleApiErrors();
+        }
+        setIsFilterLoading(false);
+      })
+      .catch(() => {
+        handleApiErrors();
+        setIsFilterLoading(false);
+      });
+  };
 
   const updateFilters = ({ action, filtersName }: updateFiltersProps) => {
     if (action === "add") {
@@ -228,10 +214,23 @@ function SearchProvider({ children }: SearchProviderProps) {
     }
   };
 
+  useEffect(() => {
+    filteredPlaces && setSelectedPlaceIndex(0);
+  }, [filteredPlaces]);
+
   const handleSearch = (value: string) => {
     setSearchValue(value);
     setFilteredPlaces(null);
     setFilters(null);
+  };
+
+  const handleApiErrors = () => {
+    Alert.alert("", t("search.networkIssue"), [{ text: "OK" }]);
+    displayFilters && setDisplayFilters(null);
+    displayPlaceDescription && setDisplayPlaceDescription(null);
+    displayPlacesList && setDisplayPlacesList(null);
+    setDisplaySearchResultsList && setDisplaySearchResultsList(null);
+    filters && setFilters(null);
   };
 
   const providerValue = {
@@ -259,7 +258,8 @@ function SearchProvider({ children }: SearchProviderProps) {
     isSearchLoading,
     displaySearchResultsList,
     setDisplaySearchResultsList,
-    handleSearch
+    handleSearch,
+    handleApiErrors
   };
 
   return <Context.Provider value={providerValue}>{children}</Context.Provider>;
