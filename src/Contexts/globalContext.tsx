@@ -88,7 +88,7 @@ function GlobalProvider({ children }: GlobalProviderProps) {
     setMenuLanguagesOpen,
     statusBarHeight,
     searchParams,
-    setSearchParams
+    setSearchParams,
     userConnected,
     setUserConnected
   };
