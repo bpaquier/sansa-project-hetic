@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "sansa",
-    "slug": "sanss",
+    "name": "Sansa",
+    "slug": "sansa-app",
     "version": "1.0.0",
     "icon": "./assets/images/Team_success_Two_Color.png",
     "orientation": "default",
