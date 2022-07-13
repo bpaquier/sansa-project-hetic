@@ -12,7 +12,7 @@ export const Wrapper = styled.View`
   top: ${theme?.grid?.borneGutter}px;
   right: ${theme?.grid?.borneGutter}px;
   height: 100%;
-  width: ${getColumnWidth(21, false)}px;
+  left: ${theme?.grid?.borneGutter * 2 + getColumnWidth(2, false)}px;
   background-color: ${theme?.color?.primary?.white};
   border-radius: ${theme?.shape?.radius?.input}px;
   padding: 32px 40px;
@@ -86,4 +86,17 @@ export const IllustrationWrapper = styled.View`
   width: 50%;
   height: 120%;
   opacity: 0.2;
+`;
+
+export const LoadingOverlay = styled.View`
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  justify-content: center;
+  align-items: center;
+  border-radius: ${theme?.shape?.radius?.input}px;
+  z-index: 2;
 `;

@@ -19,6 +19,16 @@ export const Card = styled.View<CardProps>`
     `background-color: ${color.primary[backgroundColor || "white"]}`};
 `;
 
+export const CardTouchable = styled.TouchableOpacity<CardProps>`
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 24px;
+  overflow: hidden;
+
+  ${({ backgroundColor }) =>
+    `background-color: ${color.primary[backgroundColor || "white"]}`};
+`;
+
 export const AssociationsCardTitleWrapper = styled.View`
   margin-top: 12px;
 `;
@@ -58,20 +68,25 @@ export const SanitaryIconWrapper = styled.View`
   height: 40px;
 `;
 
-export const SportTitleWrapper = styled.View`
+export const SleepTitleWrapper = styled.View`
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 `;
 
-export const SportIllustrationWrapper = styled.View`
+export const SleepIllustrationWrapper = styled.View`
   position: absolute;
   right: -20px;
   bottom: 0;
 `;
 
-export const HealthCard = styled(Card)`
+export const HealthCard = styled(CardTouchable)`
   flex-direction: row;
   align-items: center;
   margin-bottom: 168px;
+  display: flex;
+  align-content: center;
 `;
 
 export const HealthCardTitleWrapper = styled.View`
@@ -79,11 +94,12 @@ export const HealthCardTitleWrapper = styled.View`
 `;
 
 export const HealthIconWrapper = styled.View`
-  align-self: flex-start;
-  justify-content: center;
-  align-items: center;
-  margin-right: 12px;
-  padding: 16px;
+  padding: 8px;
   border-radius: 50px;
   background-color: ${color.primary.blue};
+  margin-right: 16px;
+`;
+
+export const GlobalWrapper = styled.View`
+  margin-bottom: ${Theme.grid.mobileGutter}px;
 `;

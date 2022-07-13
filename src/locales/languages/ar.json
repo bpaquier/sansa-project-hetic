@@ -71,10 +71,13 @@
     "servicesOffered": "الخدمات المقدمة",
     "mission": "مهمة",
     "showList": "انظر القائمة ({{ resultsLength }} النتائج)",
+    "hideList": " إخفاء القائمة({{ resultsLength }} النتائج)",
     "learnMore": "التعرف على المزيد",
     "seeMore": "شاهد المزيد",
     "lastUpdate": "آخر تحديث",
     "byAppointement": "عن طريق التعيين",
+    "locationPermissionDenied": "تم رفض إذن الوصول إلى الموقع الجغرافي",
+    "networkIssue": "لا يمكن الوصول إلى البيانات ، يرجى التحقق من اتصالك أو الاتصال بالدعم",
     "services" : {
       "Acceuil": "استقبال",
       "Alimentation": "إطعام",
@@ -132,7 +135,25 @@
     }
   },
   "home": {
-    "home": "مسكن"
+    "home": "مسكن",
+    "dashboard": "لوحة القيادة",
+    "eventsSoon": "أحداث جديدة قريبا!",
+    "eventsSoonBorne": "لا تُصب بالذعر! سنجد قريبا أحداث جديدة لك",
+    "noEventsPrompt": "لا يوجد حدث في الوقت الراهن",
+    "publicShower": "دش عام",
+    "publicShowers": "الاستحمام العامة",
+    "wateringPlace": "منطقة الري",
+    "wateringPlaces": "أماكن الري",
+    "publicRestroom": "مرحاض عام",
+    "publicRestrooms": "دورات المياه العامة",
+    "closestAssociations": "5 جمعيات الأقرب إليك",
+    "associations": "ذات الصلة",
+    "nightShelter": "مأوى ليلي",
+    "nightShelters": "الملاجئ الليلية",
+    "whereCanIGo": "إلى أين يمكنني الذهاب ؟",
+    "lookForADoctor": "اعثر على طبيب",
+    "showTheMap": "اعرض الخريطة",
+    "searchAPlace": "ابحث عن مكان"
   },
   "administrativeAssistance": {
     "administrativeAssistance": "المساعدات الإدارية",

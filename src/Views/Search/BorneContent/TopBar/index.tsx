@@ -23,6 +23,7 @@ import {
   getIconByService,
   MainServicesToDisplay
 } from "~/hooks/useServices";
+import theme from "~/Styles/theme.styles";
 
 export interface IconsDisplay {
   Icon: any;
@@ -72,6 +73,7 @@ export default function TopBar(): JSX.Element {
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder={t("search.searchPlaceholder")}
+          placeholderTextColor={theme?.color?.neutral?.black20}
           {...{ isFocused }}
         />
       </SearchInputWrapper>

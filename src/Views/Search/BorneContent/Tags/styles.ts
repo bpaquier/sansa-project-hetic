@@ -13,9 +13,8 @@ interface TagProps {
 export const TagsWrapper = styled.View`
   position: absolute;
   bottom: ${theme?.grid?.borneGutter}px;
-  left: ${getColumnWidth(3, false)}px;
-  margin-left: ${theme?.grid?.borneGutter}px;
-  right: ${theme?.grid?.borneGutter}px;
+  left: ${theme?.grid?.borneGutter * 2 + getColumnWidth(2, false)}px;
+  right: ${theme?.grid?.borneGutter + getColumnWidth(2, false)}px;
   flex-direction: row;
   align-items: flex-end;
   z-index: 200;

@@ -72,10 +72,13 @@
     "servicesOffered": "Пропоновані послуги",
     "mission": "Місія",
     "showList": "Переглянути список ({{ resultsLength }} Результатів)",
+    "hideList": "Приховання списку ({{ resultsLength }} Результатів))",
     "learnMore": "Дізнатися більше",
     "seeMore": "Детальніше",
     "lastUpdate": "Останнє оновлення",
     "byAppointement": "За призначенням",
+    "locationPermissionDenied": "У дозволі на доступ до місцезнаходження відмовлено",
+    "networkIssue": "Не можете отримати доступ до даних, будь ласка, перевірте своє з'єднання або зв'яжіться зі службою підтримки",
     "services" : {
       "Acceuil": "Прийом",
       "Alimentation": "Годування",
@@ -133,6 +136,24 @@
     }
   },
   "home": {
-    "home": "додому"
+    "home": "додому",
+    "dashboard": "Панель приладів",
+    "eventsSoon": "Скоро нові події!",
+    "eventsSoonBorne": "Не панікуйте! Скоро ми знайдемо для вас нові події",
+    "noEventsPrompt": "На даний момент немає подій",
+    "publicShower": "Громадський душ",
+    "publicShowers": "Громадські душові",
+    "wateringPlace": "Місце водопою",
+    "wateringPlaces": "Місце водопою",
+    "publicRestroom": "Громадська вбиральня",
+    "publicRestrooms": "Громадські туалети",
+    "closestAssociations": "5 найближчих вам асоціацій",
+    "associations": "Асоціації",
+    "nightShelter": "Притулок для ночівлі",
+    "nightShelters": "Нічні притулки",
+    "whereCanIGo": "Куди мені піти?",
+    "lookForADoctor": "Знайдіть лікаря",
+    "showTheMap": "Показати карту",
+    "searchAPlace": "Знайдіть місце"
   }
 }
