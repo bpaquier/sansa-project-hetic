@@ -16,6 +16,8 @@ import Theme from "~/Styles/theme.styles";
 interface ContextProps {
   isMobile?: boolean;
   setAppWidth?(width?: number): any;
+  isIdle?: boolean;
+  setIsIdle?(value?: boolean): any;
   isMenuLanguagesOpen?: boolean;
   setMenuLanguagesOpen?: (isOpen?: boolean) => void;
   statusBarHeight?: number;
@@ -34,6 +36,8 @@ interface GlobalProviderProps {
 }
 
 function GlobalProvider({ children }: GlobalProviderProps) {
+  const [width, setWidth] = useState<number>(0);
+  const [isIdle, setIsIdle] = useState<boolean>(false);
   const insets = useSafeAreaInsets();
   const [isMobile, setIsMobile] = useState<boolean>(
     Dimensions?.get("window").width < Theme?.sizes?.breakPoint
@@ -41,7 +45,6 @@ function GlobalProvider({ children }: GlobalProviderProps) {
   const [userConnected, setUserContextConnected] = useState<
     string | undefined
   >();
-
   const [isMenuLanguagesOpen, setIsMenuLanguagesOpen] =
     useState<boolean>(false);
   const [statusBarHeight, setStatusBarHeight] = useState<number>(insets?.top);
@@ -80,6 +83,9 @@ function GlobalProvider({ children }: GlobalProviderProps) {
 
   const providedValue = {
     isMobile,
+    isIdle,
+    setIsIdle,
+    setAppWidth,
     isMenuLanguagesOpen,
     setMenuLanguagesOpen,
     statusBarHeight,

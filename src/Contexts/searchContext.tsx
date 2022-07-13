@@ -91,6 +91,7 @@ interface SearchProviderProps {
 }
 
 function SearchProvider({ children }: SearchProviderProps) {
+  const { isMobile, isIdle } = useGlobalContext();
   const { t } = useTranslation();
   const { getOrgaByServices, getOrgaByNameOrAdress } = useApi();
   const [selectedPlaceIndex, setSelectedPlaceIndex] = useState<number | null>(
@@ -187,6 +188,16 @@ function SearchProvider({ children }: SearchProviderProps) {
         setIsFilterLoading(false);
       });
   };
+
+  useEffect(() => {
+    if (isIdle) {
+      setFilters(null);
+      setIsLoading(false);
+      setDisplayFilters(null);
+      setIsListDisplayed(false);
+      setDisplayPlaceDescription(null);
+    }
+  }, [isIdle]);
 
   const updateFilters = ({ action, filtersName }: updateFiltersProps) => {
     if (action === "add") {

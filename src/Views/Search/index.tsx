@@ -5,12 +5,13 @@ import Map from "./Map";
 import MobileContent from "./MobileContent";
 import SearchResults from "./SearchResults";
 import { MobileWrapper } from "./styles";
+import NapOverlay from "~/Components/NapOverlay";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 import { useGlobalContext } from "~/Contexts/globalContext";
 import SearchProvider from "~/Contexts/searchContext";
 
 export default function Search(): JSX.Element {
-  const { isMobile, statusBarHeight } = useGlobalContext();
+  const { isMobile, isIdle, statusBarHeight } = useGlobalContext();
 
   const Wrapper = (
     isMobile ? MobileWrapper : PageContentWrapper
@@ -20,6 +21,7 @@ export default function Search(): JSX.Element {
     <SearchProvider>
       <Wrapper {...{ statusBarHeight }}>
         <Map />
+        {isIdle && <NapOverlay />}
         {isMobile ? <MobileContent /> : <BornContent />}
         <SearchResults />
       </Wrapper>
