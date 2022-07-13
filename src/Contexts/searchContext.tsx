@@ -72,6 +72,7 @@ interface ContextProps {
   displaySearchResultsList?: boolean;
   setDisplaySearchResultsList?: (arg: boolean) => void;
   handleSearch?: (value: string) => void;
+  handleApiErrors?: () => void;
 }
 
 type updateFiltersProps = {
@@ -257,7 +258,8 @@ function SearchProvider({ children }: SearchProviderProps) {
     isSearchLoading,
     displaySearchResultsList,
     setDisplaySearchResultsList,
-    handleSearch
+    handleSearch,
+    handleApiErrors
   };
 
   return <Context.Provider value={providerValue}>{children}</Context.Provider>;

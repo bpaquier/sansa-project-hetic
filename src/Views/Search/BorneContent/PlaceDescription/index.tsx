@@ -16,8 +16,10 @@ import {
   FirstRow,
   SecondRow,
   SeparatorWrapper,
-  IllustrationWrapper
+  IllustrationWrapper,
+  LoadingOverlay
 } from "./styles";
+import Spinner from "~/Components/Icons/Spinner";
 import Cross from "~/Components/Icons/System/System/Cross";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
@@ -31,14 +33,17 @@ export default function PlaceDescription(): JSX.Element {
   const {
     filteredPlaces,
     displayPlaceDescription,
-    setDisplayPlaceDescription
+    setDisplayPlaceDescription,
+    handleApiErrors
   } = useSearchContext();
   const [place, setPlace] = useState<PlaceProps | null>(null);
   const [displayPanel, setDisplayPanel] = useState<
     "description" | "services" | null
   >(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
+    setIsLoading(true);
     displayPlaceDescription &&
       getOrgaById(displayPlaceDescription)
         ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
@@ -46,77 +51,89 @@ export default function PlaceDescription(): JSX.Element {
             if (data?.[0]) {
               setPlace(data?.[0]);
             } else {
-              //todo handle error
+              handleApiErrors();
             }
           } else {
-            //todo handle error
+            handleApiErrors();
             setPlace(null);
           }
+          setIsLoading(false);
         })
-        ?.catch((err) => {
-          //todo handle error
-          console.log(err);
+        ?.catch(() => {
+          handleApiErrors();
           setPlace(null);
+          setIsLoading(false);
         });
 
     !displayPlaceDescription && setPlace(null);
   }, [displayPlaceDescription, filteredPlaces]);
 
-  return place ? (
+  return displayPlaceDescription ? (
     <Wrapper style={{ elevation: 10 }}>
-      <TitleWrapper>
-        <Text type="titleL">
-          {displayPanel === "description"
-            ? t("search.mission")
-            : displayPanel === "services"
-            ? t("search.servicesOffered")
-            : place?.organization_name}
-        </Text>
-        <CloseIconWrapper
-          secondaryStyle={displayPanel !== null}
-          onPress={() => {
-            if (displayPanel === "description" || displayPanel === "services") {
-              setDisplayPanel(null);
-            } else {
-              setDisplayPlaceDescription(null);
-            }
-          }}
-        >
-          <Cross
-            width={32}
-            height={32}
-            color={
-              displayPanel === null
-                ? theme?.color?.primary?.white
-                : theme?.color?.primary?.blue
-            }
-          />
-        </CloseIconWrapper>
-      </TitleWrapper>
-      <Separator orientation="horizontal" width="100%" />
-      <ContentWrapper>
-        {displayPanel === "description" || displayPanel === "services" ? (
-          <PanelContent type={displayPanel} {...place} />
-        ) : (
-          <>
-            <FirstRow>
-              <Infos {...place} />
-              <Description {...place} {...{ setDisplayPanel }} />
-            </FirstRow>
-            <SecondRow>
-              <Hours {...place} />
-              <SeparatorWrapper>
-                <Separator orientation="vertical" height="100%" />
-              </SeparatorWrapper>
-              <Services {...place} {...{ setDisplayPanel }} />
+      {!isLoading && place ? (
+        <>
+          <TitleWrapper>
+            <Text type="titleL">
+              {displayPanel === "description"
+                ? t("search.mission")
+                : displayPanel === "services"
+                ? t("search.servicesOffered")
+                : place?.organization_name}
+            </Text>
+            <CloseIconWrapper
+              secondaryStyle={displayPanel !== null}
+              onPress={() => {
+                if (
+                  displayPanel === "description" ||
+                  displayPanel === "services"
+                ) {
+                  setDisplayPanel(null);
+                } else {
+                  setDisplayPlaceDescription(null);
+                }
+              }}
+            >
+              <Cross
+                width={32}
+                height={32}
+                color={
+                  displayPanel === null
+                    ? theme?.color?.primary?.white
+                    : theme?.color?.primary?.blue
+                }
+              />
+            </CloseIconWrapper>
+          </TitleWrapper>
+          <Separator orientation="horizontal" width="100%" />
+          <ContentWrapper>
+            {displayPanel === "description" || displayPanel === "services" ? (
+              <PanelContent type={displayPanel} {...place} />
+            ) : (
+              <>
+                <FirstRow>
+                  <Infos {...place} />
+                  <Description {...place} {...{ setDisplayPanel }} />
+                </FirstRow>
+                <SecondRow>
+                  <Hours {...place} />
+                  <SeparatorWrapper>
+                    <Separator orientation="vertical" height="100%" />
+                  </SeparatorWrapper>
+                  <Services {...place} {...{ setDisplayPanel }} />
 
-              <IllustrationWrapper>
-                <MacuPichu />
-              </IllustrationWrapper>
-            </SecondRow>
-          </>
-        )}
-      </ContentWrapper>
+                  <IllustrationWrapper>
+                    <MacuPichu />
+                  </IllustrationWrapper>
+                </SecondRow>
+              </>
+            )}
+          </ContentWrapper>
+        </>
+      ) : (
+        <LoadingOverlay>
+          <Spinner width={50} height={50} />
+        </LoadingOverlay>
+      )}
     </Wrapper>
   ) : null;
 }
