@@ -7,7 +7,7 @@ import Theme from "~/Styles/theme.styles";
 
 const { color } = Theme;
 
-export const PageContent = styled.View`
+export const PageContent = styled.ScrollView`
   flex: 1;
   left: ${getColumnWidth(3, false)}px;
   width: ${getColumnWidth(21, false)}px;
@@ -25,18 +25,20 @@ export const Card = styled.View<CardProps>((props) => ({
   backgroundColor: color.primary[props.backgroundColor || "white"]
 }));
 
+export const CardTouchable = styled.TouchableOpacity<CardProps>((props) => ({
+  padding: "20px",
+  borderRadius: "24px",
+  overflow: "hidden",
+  backgroundColor: color.primary[props.backgroundColor || "white"]
+}));
+
 export const FirstRow = styled.View`
   flex-direction: row;
   height: 72.5%;
 `;
 
-export const EmptyRow = styled.View`
-  height: 5%;
-`;
-
 export const SecondRow = styled.View`
   flex-direction: row;
-  height: 22.5%;
 `;
 
 export const MapButtonWrapper = styled.View`
@@ -66,14 +68,16 @@ export const Map = styled(MapView)`
   height: 100%;
 `;
 
-export const AssociationsCard = styled(Card)`
-  flex: 1;
+export const AssociationsCard = styled(CardTouchable)`
+  flex: 2;
   margin-right: ${getColumnWidth(1, false)}px;
   width: ${getColumnWidth(9, false)}px;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const AssociationsCardTitleWrapper = styled.View`
-  margin: 16px 0 auto;
+  margin: 0px 0 auto;
 `;
 
 export const NoEventIllustrationWrapper = styled.View`
@@ -82,7 +86,7 @@ export const NoEventIllustrationWrapper = styled.View`
 
 export const EventCard = styled(Card)`
   flex: 2;
-  width: ${getColumnWidth(11, false)}px;
+  width: 100%;
 `;
 
 export const EventCardTitleWrapper = styled.View`
@@ -95,7 +99,7 @@ export const SanitaryCard = styled(Card)`
   justify-content: space-around;
   align-items: center;
   margin-top: 40px;
-  width: ${getColumnWidth(11, false)}px;
+  width: 100%;
 `;
 
 export const SanitaryIconWrapper = styled.View`
@@ -108,9 +112,10 @@ export const SanitaryIconWrapper = styled.View`
   height: 60px;
 `;
 
-export const SleepCard = styled(Card)`
+export const SleepCard = styled(CardTouchable)`
   flex: 1;
   width: ${getColumnWidth(5, false)}px;
+  display: flex;
 `;
 
 export const SleepCardTitleWrapper = styled.View`
@@ -125,25 +130,25 @@ export const SleepCardArrowWrapper = styled.View`
 
 export const SleepIllustrationWrapper = styled.View`
   position: absolute;
-  right: -20px;
+  right: -55px;
   bottom: 0;
 `;
 
-export const HealthCard = styled(Card)`
+export const HealthCard = styled(CardTouchable)`
   flex: 1;
   margin-left: ${getColumnWidth(1, false)}px;
   width: ${getColumnWidth(5, false)}px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const HealthCardHeadlineWrapper = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: auto;
 `;
 
-export const HealthCardTitleWrapper = styled.View`
-  margin-bottom: 8px;
-`;
+export const HealthCardTitleWrapper = styled.View``;
 
 export const ArrowIconWrapper = styled.View`
   align-self: flex-start;
@@ -152,4 +157,12 @@ export const ArrowIconWrapper = styled.View`
   border-radius: 50px;
   padding: 8px;
   background-color: ${color.primary.blue};
+`;
+
+export const SleepCardTextDescription = styled.View`
+  width: ${getColumnWidth(2, false)}px;
+`;
+
+export const RightColumn = styled.View`
+  flex: 1;
 `;

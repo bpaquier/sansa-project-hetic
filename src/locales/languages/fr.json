@@ -77,7 +77,7 @@
     "seeMore": "Voir plus",
     "lastUpdate": "Dernière mise à jour",
     "byAppointement": "Sur rendez-vous",
-    "services" : {
+    "services": {
       "Acceuil": "Accueil",
       "Alimentation": "Alimentation",
       "Santé": "Santé",
@@ -134,6 +134,24 @@
     }
   },
   "home": {
-    "home": "Acceuil"
+    "home": "Acceuil",
+    "dashboard": "Dashboard",
+    "eventsSoon": "Bientôt de nouveaux événements !",
+    "eventsSoonBorne": "Pas de panique ! Nous allons bientôt vous trouver de nouveaux événements",
+    "noEventsPrompt": "Aucun événement pour le moment",
+    "publicShower": "Douche publique",
+    "publicShowers": "Douches publiques",
+    "wateringPlace": "Point d'eau",
+    "wateringPlaces": "Points d'eau",
+    "publicRestroom": "Toilette publique",
+    "publicRestrooms": "Toilettes publiques",
+    "closestAssociations": "Les 5 associations les plus proches de vous",
+    "associations": "Associations",
+    "nightShelter": "Accueil de nuit",
+    "nightShelters": "Accueils de nuit",
+    "whereCanIGo": "Où puis-je me rendre ?",
+    "lookForADoctor": "Rechercher un médecin",
+    "showTheMap": "Voir la carte",
+    "searchAPlace": "Rechercher un lieu"
   }
 }
