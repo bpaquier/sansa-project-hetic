@@ -19,6 +19,8 @@ interface ContextProps {
   isMenuLanguagesOpen?: boolean;
   setMenuLanguagesOpen?: (isOpen?: boolean) => void;
   statusBarHeight?: number;
+  searchParams?: object;
+  setSearchParams?: (params: object | null) => void;
 }
 
 export const Context = createContext<ContextProps>({});
@@ -40,6 +42,8 @@ function GlobalProvider({ children }: GlobalProviderProps) {
   const [isMenuLanguagesOpen, setIsMenuLanguagesOpen] =
     useState<boolean>(false);
   const [statusBarHeight, setStatusBarHeight] = useState<number>(insets?.top);
+
+  const [searchParams, setSearchParams] = useState<object | null>(null);
 
   useEffect(() => {
     setStatusBarHeight(insets?.top);
@@ -73,7 +77,9 @@ function GlobalProvider({ children }: GlobalProviderProps) {
     isMobile,
     isMenuLanguagesOpen,
     setMenuLanguagesOpen,
-    statusBarHeight
+    statusBarHeight,
+    searchParams,
+    setSearchParams
   };
   return <Context.Provider value={providedValue}>{children}</Context.Provider>;
 }

@@ -39,6 +39,7 @@ import Button from "~/Components/Ui-kit/Button";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import TextWrapper from "~/Components/Ui-kit/TextWrapper";
+import { useGlobalContext } from "~/Contexts/globalContext";
 import Theme from "~/Styles/theme.styles";
 const { color, boxShadow } = Theme;
 
@@ -54,8 +55,21 @@ interface HomeBorneProps {
 export default function HomeBorne({
   pointsNumber
 }: HomeBorneProps): JSX.Element {
+  const { setSearchParams } = useGlobalContext();
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  interface searchParamsProps {
+    filter?: string;
+  }
+
+  const setSearchParamsAndNavigate = (
+    path: string,
+    params: searchParamsProps
+  ) => {
+    setSearchParams(params);
+    navigate(path);
+  };
 
   const { shower, water, toilets, housing } = pointsNumber;
 
@@ -70,7 +84,10 @@ export default function HomeBorne({
       >
         <FirstRow>
           <MapCard style={boxShadow.panelAndroid}>
-            <TouchableOpacity onPress={() => navigate("/")} activeOpacity={0.7}>
+            <TouchableOpacity
+              onPress={() => navigate("/search")}
+              activeOpacity={0.7}
+            >
               <MapWrapper>
                 <MapButtonWrapper>
                   <Button type="secondary" text={t("home.searchAPlace")} />
@@ -95,7 +112,9 @@ export default function HomeBorne({
             </EventCard>
             <SanitaryCard style={boxShadow.panelAndroid}>
               <TouchableOpacity
-                onPress={() => navigate("/")}
+                onPress={() =>
+                  setSearchParamsAndNavigate("/search", { filter: "Douche" })
+                }
                 activeOpacity={0.7}
               >
                 <Text type="titleXL" textAlign="center">
@@ -121,7 +140,14 @@ export default function HomeBorne({
                 </TextWrapper>
               </TouchableOpacity>
               <Separator orientation="vertical" height="160px" />
-              <TouchableOpacity onPress={() => navigate("/")}>
+
+              <TouchableOpacity
+                onPress={() =>
+                  setSearchParamsAndNavigate("/search", {
+                    filter: "Fontaine à eau"
+                  })
+                }
+              >
                 <Text type="titleXL" textAlign="center">
                   {water}
                 </Text>
@@ -145,7 +171,11 @@ export default function HomeBorne({
                 </TextWrapper>
               </TouchableOpacity>
               <Separator orientation="vertical" height="160px" />
-              <TouchableOpacity onPress={() => navigate("/")}>
+              <TouchableOpacity
+                onPress={() =>
+                  setSearchParamsAndNavigate("/search", { filter: "Toilettes" })
+                }
+              >
                 <Text type="titleXL" textAlign="center">
                   {toilets}
                 </Text>
@@ -177,7 +207,7 @@ export default function HomeBorne({
           <AssociationsCard
             activeOpacity={0.7}
             style={boxShadow.panelAndroid}
-            onPress={() => navigate("/")}
+            onPress={() => navigate("/search")}
           >
             <Text color="black40">{t("home.associations")}</Text>
             <Text type="titleXL">{t("home.closestAssociations")}</Text>
@@ -188,6 +218,9 @@ export default function HomeBorne({
           <SleepCard
             style={boxShadow.panelAndroid}
             backgroundColor="blue"
+            onPress={() =>
+              setSearchParamsAndNavigate("/search", { filter: "Halte de nuit" })
+            }
             activeOpacity={0.7}
           >
             <SleepCardTitleWrapper>
@@ -212,7 +245,11 @@ export default function HomeBorne({
           </SleepCard>
           <HealthCard
             style={boxShadow.panelAndroid}
-            onPress={() => navigate("/")}
+            onPress={() =>
+              setSearchParamsAndNavigate("/search", {
+                filter: "Médecin généraliste"
+              })
+            }
             activeOpacity={0.7}
           >
             <HealthCardHeadlineWrapper>

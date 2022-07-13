@@ -9,6 +9,7 @@ import {
 import { useTranslation } from "react-i18next";
 import { Alert } from "react-native";
 
+import { useGlobalContext } from "~/Contexts/globalContext";
 import useApi from "~/hooks/useApi";
 import { useDebounce } from "~/hooks/useDebounce";
 import serializePlaces from "~/utils/serializePlaces";
@@ -115,6 +116,15 @@ function SearchProvider({ children }: SearchProviderProps) {
 
   const debouncedFilters = useDebounce(filters, 500);
   const debouncedSearch = useDebounce(searchValue, 1000);
+
+  const { searchParams, setSearchParams } = useGlobalContext();
+
+  useEffect(() => {
+    if (searchParams?.filter) {
+      setFilters([searchParams.filter]);
+      setSearchParams(null);
+    }
+  });
 
   useEffect(() => {
     if (!filters || filters?.length === 0) {
