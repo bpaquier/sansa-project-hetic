@@ -6,7 +6,7 @@ import theme from "~/Styles/theme.styles";
 const { color } = theme;
 
 export const OnboardingPageWrapper = styled.View`
-  width: ${Dimensions.get("window").width};
+  width: ${Dimensions.get("window").width}px;
 `;
 
 export const FlagButtonWrapper = styled.TouchableOpacity`
