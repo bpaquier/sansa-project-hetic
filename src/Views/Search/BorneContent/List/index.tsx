@@ -17,7 +17,6 @@ import {
   ListHeader,
   LoaderWrapper,
   SpinnerWrapper,
-  IndexWrapper,
   ListItem,
   LoadingOverlay
 } from "./styles";
@@ -25,12 +24,12 @@ import Icon from "~/Components/Icon";
 import Spinner from "~/Components/Icons/Spinner";
 import ArrowDown from "~/Components/Icons/System/Arrows/ArrowDown";
 import ArrowUp from "~/Components/Icons/System/Arrows/ArrowUp";
+import Ping from "~/Components/Ping";
 import ServiceWithIcon from "~/Components/ServiceWithIcon";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import { useSearchContext, PlaceProps } from "~/Contexts/searchContext";
 import useCurrentDay from "~/hooks/useCurrentDay";
-import Ping from "~/Components/Ping";
 
 export default function List(): JSX.Element {
   const { t } = useTranslation();
