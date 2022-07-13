@@ -17,7 +17,7 @@ export const TopBarWrapper = styled.View`
   position: absolute;
   top: ${grid.borneGutter}px;
   right: ${grid.borneGutter}px;
-  width: ${getColumnWidth(21, false)}px;
+  left: ${grid?.borneGutter * 2 + getColumnWidth(2, false)}px;
   height: ${sizes?.bornContent?.topBarHeight}px;
   background-color: ${color.primary.white};
   border-radius: ${shape?.radius?.input}px;

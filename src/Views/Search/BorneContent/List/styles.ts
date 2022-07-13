@@ -9,10 +9,9 @@ const { color, shape, sizes, grid } = theme;
 
 export const ListWrapper = styled.View`
   position: absolute;
-  left: ${getColumnWidth(3, false)}px;
-  margin-left: ${grid?.borneGutter}px;
+  left: ${grid?.borneGutter * 2 + getColumnWidth(2, false)}px;
   top: ${sizes?.bornContent?.topBarHeight + grid?.borneGutter + 8}px;
-  width: ${getColumnWidth(7.7, false)}px;
+  width: ${getColumnWidth(8, false)}px;
   border-radius: ${shape?.radius?.input}px;
   overflow: hidden;
   background-color: ${color.primary.white};
