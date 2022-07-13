@@ -30,6 +30,7 @@ import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import { useSearchContext, PlaceProps } from "~/Contexts/searchContext";
 import useCurrentDay from "~/hooks/useCurrentDay";
+import Ping from "~/Components/Ping";
 
 export default function List(): JSX.Element {
   const { t } = useTranslation();
@@ -99,9 +100,7 @@ export default function List(): JSX.Element {
                     setDisplayFilters(null);
                   }}
                 >
-                  <IndexWrapper>
-                    <Text color="white">{index + 1}</Text>
-                  </IndexWrapper>
+                  <Ping small index={index} />
                   <InfoWrapper>
                     <TextWrapper>
                       <TextStyled>
