@@ -168,7 +168,10 @@ export default function List(): JSX.Element {
 
   return (
     <ListWrapper>
-      <ListHeader onPress={() => setIsOpen((prev) => !prev)}>
+      <ListHeader
+        onPress={() => setIsOpen((prev) => !prev)}
+        activeOpacity={0.7}
+      >
         {isFilterLoading && !isOpen ? (
           <LoaderWrapper>
             <SpinnerWrapper>
@@ -179,9 +182,13 @@ export default function List(): JSX.Element {
         ) : (
           <Text>
             {filteredPlaces?.length > 0
-              ? t("search.showList", {
-                  resultsLength: `${filteredPlaces?.length}`
-                })
+              ? isOpen
+                ? t("search.hideList", {
+                    resultsLength: `${filteredPlaces?.length}`
+                  })
+                : t("search.showList", {
+                    resultsLength: `${filteredPlaces?.length}`
+                  })
               : t("search.noResults")}
           </Text>
         )}

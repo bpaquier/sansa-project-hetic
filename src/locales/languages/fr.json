@@ -73,6 +73,7 @@
     "servicesOffered": "Services proposés",
     "mission": "Mission",
     "showList": "Voir la liste ({{ resultsLength }} resultats)",
+    "hideList": "Masquer la liste ({{ resultsLength }} resultats)",
     "learnMore": "En savoir plus",
     "seeMore": "Voir plus",
     "lastUpdate": "Dernière mise à jour",

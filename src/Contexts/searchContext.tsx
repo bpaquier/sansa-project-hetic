@@ -229,6 +229,7 @@ function SearchProvider({ children }: SearchProviderProps) {
     displayFilters && setDisplayFilters(null);
     displayPlaceDescription && setDisplayPlaceDescription(null);
     displayPlacesList && setDisplayPlacesList(null);
+    setDisplaySearchResultsList && setDisplaySearchResultsList(null);
   };
 
   const providerValue = {
