@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from "react";
 
 import * as Location from "expo-location";
-import { StyleSheet, Dimensions, Alert, Keyboard } from "react-native";
+import { Dimensions, Alert, Keyboard } from "react-native";
 // eslint-disable-next-line import/named
 import MapView, { PROVIDER_GOOGLE, Camera, Marker } from "react-native-maps";
 
@@ -17,15 +17,6 @@ import { useSearchContext } from "~/Contexts/searchContext";
 import { getColumnWidth } from "~/Styles/mixins.styles";
 import theme from "~/Styles/theme.styles";
 
-const styles = StyleSheet.create({
-  map: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height
-  }
-});
 interface LocationProps {
   latitude: number;
   longitude: number;
@@ -36,7 +27,7 @@ interface LocationProps {
 export default function Map(): JSX.Element {
   const initialDelta = 0.1;
   const delta = 0.04;
-  const { isMobile } = useGlobalContext();
+  const { isMobile, statusBarHeight } = useGlobalContext();
   const {
     selectedPlaceIndex,
     filteredPlaces,
@@ -152,7 +143,13 @@ export default function Map(): JSX.Element {
     <>
       <MapView
         ref={mapRef}
-        style={styles.map}
+        style={{
+          position: "absolute",
+          top: isMobile ? -1 * statusBarHeight : 0,
+          left: 0,
+          width: Dimensions.get("window").width,
+          height: Dimensions.get("window").height
+        }}
         customMapStyle={mapStyle}
         provider={PROVIDER_GOOGLE}
         showsUserLocation={true}

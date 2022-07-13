@@ -37,6 +37,7 @@ import Globe from "~/Components/Icons/System/System/Globe";
 import ServiceWithIcon from "~/Components/ServiceWithIcon";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
+import { useGlobalContext } from "~/Contexts/globalContext";
 import { PlaceProps, useSearchContext } from "~/Contexts/searchContext";
 import useApi from "~/hooks/useApi";
 import useCurrentDay from "~/hooks/useCurrentDay";
@@ -54,8 +55,9 @@ export default function PlaceDescriptionMobile(): JSX.Element {
     displayPlaceDescription,
     setDisplayPlaceDescription
   } = useSearchContext();
-  const [place, setPlace] = useState<PlaceProps | null>(null);
   const currentDay = useCurrentDay();
+  const { statusBarHeight } = useGlobalContext();
+  const [place, setPlace] = useState<PlaceProps | null>(null);
 
   useEffect(() => {
     displayPlaceDescription &&
@@ -88,7 +90,7 @@ export default function PlaceDescriptionMobile(): JSX.Element {
   );
 
   return place ? (
-    <Wrapper>
+    <Wrapper {...{ statusBarHeight }}>
       <Header>
         <TouchableOpacity
           onPress={() => {
