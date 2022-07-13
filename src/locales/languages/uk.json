@@ -136,6 +136,24 @@
     }
   },
   "home": {
-    "home": "додому"
+    "home": "додому",
+    "dashboard": "Панель приладів",
+    "eventsSoon": "Скоро нові події!",
+    "eventsSoonBorne": "Не панікуйте! Скоро ми знайдемо для вас нові події",
+    "noEventsPrompt": "На даний момент немає подій",
+    "publicShower": "Громадський душ",
+    "publicShowers": "Громадські душові",
+    "wateringPlace": "Місце водопою",
+    "wateringPlaces": "Місце водопою",
+    "publicRestroom": "Громадська вбиральня",
+    "publicRestrooms": "Громадські туалети",
+    "closestAssociations": "5 найближчих вам асоціацій",
+    "associations": "Асоціації",
+    "nightShelter": "Притулок для ночівлі",
+    "nightShelters": "Нічні притулки",
+    "whereCanIGo": "Куди мені піти?",
+    "lookForADoctor": "Знайдіть лікаря",
+    "showTheMap": "Показати карту",
+    "searchAPlace": "Знайдіть місце"
   }
 }
