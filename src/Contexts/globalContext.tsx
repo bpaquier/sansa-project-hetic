@@ -19,6 +19,8 @@ interface ContextProps {
   isMenuLanguagesOpen?: boolean;
   setMenuLanguagesOpen?: (isOpen?: boolean) => void;
   statusBarHeight?: number;
+  setUserConnected?: (connected?: string) => void;
+  userConnected?: string;
 }
 
 export const Context = createContext<ContextProps>({});
@@ -36,6 +38,9 @@ function GlobalProvider({ children }: GlobalProviderProps) {
   const [isMobile, setIsMobile] = useState<boolean>(
     Dimensions?.get("window").width < Theme?.sizes?.breakPoint
   );
+  const [userConnected, setUserContextConnected] = useState<
+    string | undefined
+  >();
 
   const [isMenuLanguagesOpen, setIsMenuLanguagesOpen] =
     useState<boolean>(false);
@@ -69,11 +74,17 @@ function GlobalProvider({ children }: GlobalProviderProps) {
     );
   };
 
+  const setUserConnected = (connected?: string) => {
+    setUserContextConnected(connected);
+  };
+
   const providedValue = {
     isMobile,
     isMenuLanguagesOpen,
     setMenuLanguagesOpen,
-    statusBarHeight
+    statusBarHeight,
+    userConnected,
+    setUserConnected
   };
   return <Context.Provider value={providedValue}>{children}</Context.Provider>;
 }

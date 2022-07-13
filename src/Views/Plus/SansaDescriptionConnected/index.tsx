@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-native";
 
 import {
   ConnectedIllustrationsWrapper,
@@ -7,6 +8,7 @@ import {
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import TextWrapper from "~/Components/Ui-kit/TextWrapper";
+import { useGlobalContext } from "~/Contexts/globalContext";
 import DisconnectIllustration from "~/Views/Plus/Illustrations/DisconnectIllustration";
 import HeartIllustration from "~/Views/Plus/Illustrations/HeartIllustration";
 import SafeIllustration from "~/Views/Plus/Illustrations/SafeIllustration";
@@ -14,12 +16,16 @@ import TakeNotesIllustration from "~/Views/Plus/Illustrations/TakeNotesIllustrat
 
 type SansaDescriptionConnectedProps = {
   isMobile?: boolean;
+  userConnected?: string;
 };
 
 export default function SansaDescriptionConnected({
-  isMobile
+  isMobile,
+  userConnected
 }: SansaDescriptionConnectedProps): JSX.Element {
   const { t } = useTranslation();
+  const { setUserConnected } = useGlobalContext();
+  const navigate = useNavigate();
 
   const connectedContent = [
     {
@@ -50,7 +56,7 @@ export default function SansaDescriptionConnected({
   return (
     <>
       <Text type={isMobile ? "titleL" : "titleM"}>
-        {t("plus.helloWithName", { name: "Baswel" })}
+        {t("plus.helloWithName", { name: userConnected })}
       </Text>
       {isMobile && (
         <>
@@ -78,8 +84,12 @@ export default function SansaDescriptionConnected({
             const isDisabled = connectedContent.length - 1 !== index;
             return (
               <ConnectedIllustrationWrapper
+                activeOpacity={0.7}
                 onPress={() => {
-                  //TODO
+                  if (content.id === "logout") {
+                    setUserConnected();
+                    navigate("/");
+                  }
                 }}
                 key={content.title}
               >

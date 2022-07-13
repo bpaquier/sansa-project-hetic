@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
+import { useNavigate } from "react-router-native";
 
 import { WrapperPlus } from "./styles";
 import Separator from "~/Components/Ui-kit/Separator";
@@ -16,7 +17,9 @@ export default function PlusSection({
   isMobile
 }: PlusSectionProps): JSX.Element {
   const { t } = useTranslation();
-  const { setMenuLanguagesOpen } = useGlobalContext();
+  const { setMenuLanguagesOpen, setUserConnected } = useGlobalContext();
+  const navigate = useNavigate();
+
   const plusContent = [
     { id: "contact", title: t("plus.contactUs"), link: "#" },
     {
@@ -48,11 +51,14 @@ export default function PlusSection({
               type="paragraph"
               color="grey"
               marginTop={isMobile && index > 0 ? 16 : 0}
-              onPress={() =>
-                content.id === "languages" &&
-                setMenuLanguagesOpen &&
-                setMenuLanguagesOpen()
-              }
+              onPress={() => {
+                if (content.id === "languages" && setMenuLanguagesOpen)
+                  setMenuLanguagesOpen();
+                if (content.id === "logout") {
+                  setUserConnected();
+                  navigate("/");
+                }
+              }}
             >
               {content.title}
             </TextWrapper>
