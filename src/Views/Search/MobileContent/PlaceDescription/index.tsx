@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+//import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import {
   Pressable,
@@ -51,6 +52,8 @@ interface ItemTitleProps {
 
 export default function PlaceDescriptionMobile(): JSX.Element {
   const { t } = useTranslation();
+  //const { languages } = i18next;
+  //const language = languages?.[1];
   const { getOrgaById } = useApi();
   const {
     filteredPlaces,
@@ -66,7 +69,7 @@ export default function PlaceDescriptionMobile(): JSX.Element {
   useEffect(() => {
     setIsLoading(true);
     displayPlaceDescription &&
-      getOrgaById(displayPlaceDescription)
+      getOrgaById(displayPlaceDescription /* , language */)
         ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
           if (status === 200) {
             if (data?.[0]) {

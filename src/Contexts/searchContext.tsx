@@ -155,7 +155,6 @@ function SearchProvider({ children }: SearchProviderProps) {
             } else {
               handleApiErrors();
             }
-            handleApiErrors();
           } else {
             handleApiErrors();
           }
