@@ -31,7 +31,7 @@ export const OnboardingImagePageWrapper = styled(OnboardingPageWrapper)`
 `;
 
 export const OnboardingImage = styled(Image)`
-  width: ${Dimensions.get("window").width};
-  height: ${(Dimensions.get("window").width * 71) / 40};
+  width: ${Dimensions.get("window").width}px;
+  height: ${(Dimensions.get("window").width * 71) / 40}px;
   resize-mode: contain;
 `;
