@@ -3,16 +3,16 @@ import { NativeRouter, Routes, Route } from "react-router-native";
 
 import LanguagesMenu from "~/Components/LanguagesMenu";
 import GlobalProvider from "~/Contexts/globalContext";
-import Home from "~/Views/Home";
 import Login from "~/Views/Account/Login";
 import Register from "~/Views/Account/Register";
 import FAQ from "~/Views/FAQ";
 import FAQCategory from "~/Views/FAQCategory";
 import FAQResponse from "~/Views/FAQResponse";
+import Home from "~/Views/Home";
+import MobileOnboarding from "~/Views/MobileOnboarding";
 import Page from "~/Views/Page";
 import Plus from "~/Views/Plus";
 import Search from "~/Views/Search";
-import MobileOnboarding from "~/Views/MobileOnboarding";
 import "~/locales/i18n";
 
 export default function App() {
