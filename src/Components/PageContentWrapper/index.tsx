@@ -1,22 +1,32 @@
 import React, { ReactElement } from "react";
 
-import { PageContainerBorne, PageContainerMobile } from "./styles";
+import {
+  PageContainerBorne,
+  PageContainerMobileNoScroll,
+  PageContainerMobileScroll
+} from "./styles";
 import { useGlobalContext } from "~/Contexts/globalContext";
 
 interface PageContentWrapperProps {
   children: ReactElement;
   noPaddingX?: boolean;
   backgroundColor?: "grey" | "white" | "blue";
+  noScroll?: boolean;
 }
 export default function PageContentWrapper({
   children,
   noPaddingX,
-  backgroundColor
+  backgroundColor,
+  noScroll
 }: PageContentWrapperProps) {
   const { isMobile } = useGlobalContext();
 
   const ContentContainer = (
-    isMobile ? PageContainerMobile : PageContainerBorne
+    isMobile
+      ? noScroll
+        ? PageContainerMobileNoScroll
+        : PageContainerMobileScroll
+      : PageContainerBorne
   ) as React.ElementType;
 
   return (

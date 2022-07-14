@@ -88,59 +88,72 @@ export default function FAQResponse() {
   return (
     <>
       {type && index && (
-        <PageContentWrapper noPaddingX backgroundColor="white">
-          <PageContainer>
+        <PageContentWrapper noPaddingX backgroundColor="white" noScroll>
+          {isMobile && (
             <GlobalWrapper>
               <Breadcrumb
-                marginBottom={isMobile ? 0 : 24}
+                marginBottom={16}
                 url={`/faq/${type}`}
                 text={t(`administrativeAssistance.${type}.sectionTitle`)}
               />
             </GlobalWrapper>
-            <ScrollView>
+          )}
+          <>
+            <PageContainer>
               {!isMobile && (
-                <Separator orientation="horizontal" columnWidth={19} />
+                <GlobalWrapper>
+                  <Breadcrumb
+                    marginBottom={24}
+                    url={`/faq/${type}`}
+                    text={t(`administrativeAssistance.${type}.sectionTitle`)}
+                  />
+                </GlobalWrapper>
               )}
-              <GlobalWrapper>
-                <TextWrapper
-                  type="titleL"
-                  marginTop={isMobile ? 16 : 40}
-                  marginBottom={16}
-                >
-                  {t(
-                    `administrativeAssistance.${type}.questions.${index}.title`
-                  )}
-                </TextWrapper>
-                <ResponseParagraphs paragraphs={paragraphs} />
-              </GlobalWrapper>
-              <QuestionsWrapper>
-                <FAQQuestionCategory
-                  category={t(`administrativeAssistance.${type}.${type}`)}
-                />
-                <TextWrapper type="titleM" marginTop={8} marginBottom={24}>
-                  {t("administrativeAssistance.otherQuestions")}
-                </TextWrapper>
-                {questionsPerIndexAndType &&
-                  questionsPerIndexAndType.map((question, i) => (
-                    <FAQQuestionItem
-                      key={question}
-                      isShadow={!isMobile}
-                      type={type}
-                      index={i}
-                      questionIndex={question}
-                      length={questionsPerIndexAndType.length}
-                      color={theme.color.primary.blue}
-                      bold
-                    />
-                  ))}
-              </QuestionsWrapper>
-            </ScrollView>
-            {isMobile && (
-              <GlobalWrapper>
-                <LanguageFAQSelector />
-              </GlobalWrapper>
-            )}
-          </PageContainer>
+              <ScrollView>
+                {!isMobile && (
+                  <Separator orientation="horizontal" columnWidth={19} />
+                )}
+                <GlobalWrapper>
+                  <TextWrapper
+                    type="titleL"
+                    marginTop={isMobile ? 0 : 40}
+                    marginBottom={16}
+                  >
+                    {t(
+                      `administrativeAssistance.${type}.questions.${index}.title`
+                    )}
+                  </TextWrapper>
+                  <ResponseParagraphs paragraphs={paragraphs} />
+                </GlobalWrapper>
+                <QuestionsWrapper>
+                  <FAQQuestionCategory
+                    category={t(`administrativeAssistance.${type}.${type}`)}
+                  />
+                  <TextWrapper type="titleM" marginTop={8} marginBottom={24}>
+                    {t("administrativeAssistance.otherQuestions")}
+                  </TextWrapper>
+                  {questionsPerIndexAndType &&
+                    questionsPerIndexAndType.map((question, i) => (
+                      <FAQQuestionItem
+                        key={question}
+                        isShadow={!isMobile}
+                        type={type}
+                        index={i}
+                        questionIndex={question}
+                        length={questionsPerIndexAndType.length}
+                        color={theme.color.primary.blue}
+                        bold
+                      />
+                    ))}
+                </QuestionsWrapper>
+              </ScrollView>
+              {isMobile && (
+                <GlobalWrapper>
+                  <LanguageFAQSelector />
+                </GlobalWrapper>
+              )}
+            </PageContainer>
+          </>
         </PageContentWrapper>
       )}
     </>

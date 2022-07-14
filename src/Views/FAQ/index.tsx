@@ -56,60 +56,69 @@ export default function FAQ() {
   ) as React.ElementType;
 
   return (
-    <PageContentWrapper noPaddingX backgroundColor="white">
-      <PageContainer>
-        <FAQSectionsContainers isMobile={isMobile}>
-          <Breadcrumb url={"/plus"} text={t("plus.plus")} />
-        </FAQSectionsContainers>
-        {!isMobile && (
-          <Separator orientation="horizontal" columnWidth={19} margin={28} />
-        )}
+    <PageContentWrapper noPaddingX backgroundColor="white" noScroll>
+      <>
         {isMobile && (
-          <FAQTitleWrapper
-            title={t("administrativeAssistance.sansaAnswerQuestions")}
-          />
-        )}
-        <FAQSectionsContainers isMobile={isMobile} row={!isMobile}>
-          <ColumnsContainer>
-            <TextWrapper type="titleL" marginTop={24} marginBottom={24}>
-              {t("administrativeAssistance.searchByCategory")}
-            </TextWrapper>
-            <FAQCategoryCardsWrapper />
-          </ColumnsContainer>
-          <ColumnsContainer>
-            <TextWrapper
-              type={isMobile ? "titleM" : "titleL"}
-              marginTop={24}
-              marginBottom={24}
-            >
-              {t("administrativeAssistance.mostAskedQuestions")}
-            </TextWrapper>
-            <FAQQuestionsContainer
-              contentContainerStyle={{
-                flexGrow: 1,
-                justifyContent: "space-between"
-              }}
-              isMobile={isMobile}
-            >
-              {questionsFAQ.map((question, index) => (
-                <FAQQuestionItem
-                  key={`${question.type}${question.questionIndex}`}
-                  questionIndex={question.questionIndex}
-                  index={index}
-                  showCategory
-                  type={question.type}
-                  length={questionsFAQ.length}
-                />
-              ))}
-            </FAQQuestionsContainer>
-          </ColumnsContainer>
-        </FAQSectionsContainers>
-        {isMobile && (
-          <FAQSectionsContainers isMobile={isMobile}>
-            <LanguageFAQSelector />
+          <FAQSectionsContainers isMobile>
+            <Breadcrumb marginBottom={16} url={"/plus"} text={t("plus.plus")} />
           </FAQSectionsContainers>
         )}
-      </PageContainer>
+        <PageContainer>
+          {!isMobile && (
+            <FAQSectionsContainers>
+              <Breadcrumb url={"/plus"} text={t("plus.plus")} />
+            </FAQSectionsContainers>
+          )}
+          {!isMobile && (
+            <Separator orientation="horizontal" columnWidth={19} margin={28} />
+          )}
+          {isMobile && (
+            <FAQTitleWrapper
+              title={t("administrativeAssistance.sansaAnswerQuestions")}
+            />
+          )}
+          <FAQSectionsContainers isMobile={isMobile} row={!isMobile}>
+            <ColumnsContainer>
+              <TextWrapper type="titleL" marginTop={24} marginBottom={24}>
+                {t("administrativeAssistance.searchByCategory")}
+              </TextWrapper>
+              <FAQCategoryCardsWrapper />
+            </ColumnsContainer>
+            <ColumnsContainer>
+              <TextWrapper
+                type={isMobile ? "titleM" : "titleL"}
+                marginTop={24}
+                marginBottom={24}
+              >
+                {t("administrativeAssistance.mostAskedQuestions")}
+              </TextWrapper>
+              <FAQQuestionsContainer
+                contentContainerStyle={{
+                  flexGrow: 1,
+                  justifyContent: "space-between"
+                }}
+                isMobile={isMobile}
+              >
+                {questionsFAQ.map((question, index) => (
+                  <FAQQuestionItem
+                    key={`${question.type}${question.questionIndex}`}
+                    questionIndex={question.questionIndex}
+                    index={index}
+                    showCategory
+                    type={question.type}
+                    length={questionsFAQ.length}
+                  />
+                ))}
+              </FAQQuestionsContainer>
+            </ColumnsContainer>
+          </FAQSectionsContainers>
+          {isMobile && (
+            <FAQSectionsContainers isMobile={isMobile}>
+              <LanguageFAQSelector />
+            </FAQSectionsContainers>
+          )}
+        </PageContainer>
+      </>
     </PageContentWrapper>
   );
 }

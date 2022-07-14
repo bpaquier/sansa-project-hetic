@@ -41,44 +41,57 @@ export default function FAQCategory() {
   ) as React.ElementType;
 
   return (
-    <PageContentWrapper noPaddingX backgroundColor="white">
-      <PageContainer>
-        <FAQSectionsContainers isMobile={isMobile}>
-          <Breadcrumb
-            url="/faq"
-            text={t("administrativeAssistance.administrativeAssistance")}
-          />
-        </FAQSectionsContainers>
+    <PageContentWrapper noPaddingX backgroundColor="white" noScroll>
+      <>
         {isMobile && (
-          <FAQTitleWrapper
-            title={t(`administrativeAssistance.${type}.${type}`)}
-          />
+          <FAQSectionsContainers isMobile>
+            <Breadcrumb
+              marginBottom={16}
+              url="/faq"
+              text={t("administrativeAssistance.administrativeAssistance")}
+            />
+          </FAQSectionsContainers>
         )}
-        {!isMobile && (
-          <Separator orientation="horizontal" columnWidth={19} margin={24} />
-        )}
-        <FAQSectionsContainers isMobile={isMobile} fillHeight>
-          <TextWrapper type="titleL" marginTop={24} marginBottom={24}>
-            {t(`administrativeAssistance.${type}.sectionTitle`)}
-          </TextWrapper>
-          <QuestionsContainer>
-            {questions.map(
-              (question, index) =>
-                type && (
-                  <FAQQuestionItem
-                    key={question.id}
-                    questionIndex={question.id}
-                    index={index}
-                    type={type}
-                    length={questions.length}
-                    isShadow={!isMobile}
-                  />
-                )
-            )}
-          </QuestionsContainer>
-          {isMobile && <LanguageFAQSelector />}
-        </FAQSectionsContainers>
-      </PageContainer>
+        <PageContainer>
+          {!isMobile && (
+            <FAQSectionsContainers>
+              <Breadcrumb
+                url="/faq"
+                text={t("administrativeAssistance.administrativeAssistance")}
+              />
+            </FAQSectionsContainers>
+          )}
+          {isMobile && (
+            <FAQTitleWrapper
+              title={t(`administrativeAssistance.${type}.${type}`)}
+            />
+          )}
+          {!isMobile && (
+            <Separator orientation="horizontal" columnWidth={19} margin={24} />
+          )}
+          <FAQSectionsContainers isMobile={isMobile} fillHeight>
+            <TextWrapper type="titleL" marginTop={24} marginBottom={24}>
+              {t(`administrativeAssistance.${type}.sectionTitle`)}
+            </TextWrapper>
+            <QuestionsContainer>
+              {questions.map(
+                (question, index) =>
+                  type && (
+                    <FAQQuestionItem
+                      key={question.id}
+                      questionIndex={question.id}
+                      index={index}
+                      type={type}
+                      length={questions.length}
+                      isShadow={!isMobile}
+                    />
+                  )
+              )}
+            </QuestionsContainer>
+            {isMobile && <LanguageFAQSelector />}
+          </FAQSectionsContainers>
+        </PageContainer>
+      </>
     </PageContentWrapper>
   );
 }
