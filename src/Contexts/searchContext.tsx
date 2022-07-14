@@ -93,7 +93,8 @@ interface SearchProviderProps {
 
 function SearchProvider({ children }: SearchProviderProps) {
   const { t } = useTranslation();
-  const { getOrgaByServices, getOrgaByNameOrAdress } = useApi();
+  const { getOrgaByServices, getOrgaByNameOrAdress, getFiveBestOrga } =
+    useApi();
   const [selectedPlaceIndex, setSelectedPlaceIndex] = useState<number | null>(
     null
   );
@@ -121,7 +122,11 @@ function SearchProvider({ children }: SearchProviderProps) {
 
   useEffect(() => {
     if (searchParams?.filter) {
-      setFilters([searchParams.filter]);
+      if (searchParams.filter === "fivebestorga") {
+        setFiveBestOrga();
+      } else {
+        setFilters([searchParams.filter]);
+      }
       setSearchParams(null);
     }
   });
@@ -176,6 +181,27 @@ function SearchProvider({ children }: SearchProviderProps) {
         });
     }
   }, [debouncedSearch]);
+
+  const setFiveBestOrga = () => {
+    getFiveBestOrga(filters)
+      ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
+        if (status === 200) {
+          if (data) {
+            const serializedPlaces = serializePlaces(data);
+            setFilteredPlaces(serializedPlaces);
+          } else {
+            handleApiErrors();
+          }
+        } else {
+          handleApiErrors();
+        }
+        setIsFilterLoading(false);
+      })
+      .catch(() => {
+        handleApiErrors();
+        setIsFilterLoading(false);
+      });
+  };
 
   const updatePlacesSelection = () => {
     getOrgaByServices(filters)

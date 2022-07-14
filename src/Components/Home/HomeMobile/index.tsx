@@ -145,7 +145,9 @@ export default function HomeMobile({
         </SanitaryCard>
         <CardTouchable
           style={boxShadow.panelAndroid}
-          onPress={() => navigate("/")}
+          onPress={() =>
+            setSearchParamsAndNavigate("/search", { filter: "fivebestorga" })
+          }
           activeOpacity={0.7}
         >
           <Text color="black60">Associations</Text>
