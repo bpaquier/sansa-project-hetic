@@ -17,8 +17,7 @@ import {
   PageContainerBorne,
   ColumnsContainersMobile,
   ColumnsContainersBorne,
-  FAQQuestionsContainer,
-  FlexContainer
+  FAQQuestionsContainer
 } from "~/Views/FAQ/styles";
 
 const questionsFAQ = [
