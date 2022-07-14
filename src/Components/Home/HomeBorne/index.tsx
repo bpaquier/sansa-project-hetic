@@ -207,7 +207,9 @@ export default function HomeBorne({
           <AssociationsCard
             activeOpacity={0.7}
             style={boxShadow.panelAndroid}
-            onPress={() => navigate("/search")}
+            onPress={() =>
+              setSearchParamsAndNavigate("/search", { filter: "fivebestorga" })
+            }
           >
             <Text color="black40">{t("home.associations")}</Text>
             <Text type="titleXL">{t("home.closestAssociations")}</Text>
