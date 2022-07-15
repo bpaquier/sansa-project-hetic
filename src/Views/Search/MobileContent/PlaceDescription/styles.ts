@@ -1,3 +1,4 @@
+import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 
 import theme from "~/Styles/theme.styles";
@@ -91,7 +92,7 @@ export const LastItem = styled.View`
 export const LoadingOverlay = styled.View`
   position: absolute;
   right: 0;
-  bottom: 0;
+  height: 200px;
   top: 0;
   left: 0;
   background-color: rgba(255, 255, 255, 0.6);
