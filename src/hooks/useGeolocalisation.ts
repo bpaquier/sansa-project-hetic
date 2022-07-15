@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import * as Location from "expo-location";
 
@@ -12,33 +12,33 @@ export default function useGeolocalisation(
 ): LocationProps {
   const [currentLocation, setCurrentLocation] =
     useState<LocationProps | null>();
+  const unsuscribe = useRef(() => undefined);
 
   useEffect(() => {
     if (hasPermission) {
-      setWatcher();
-
-      getCurrentPosition().then((locationObject) => {
-        setCurrentLocation({
-          latitude: locationObject.coords.latitude,
-          longitude: locationObject.coords.longitude
-        });
-      });
+      const localisationSubsciption = setWatcher();
+      unsuscribe.current = async () => {
+        (await localisationSubsciption)?.remove();
+      };
     } else {
       setCurrentLocation(null);
     }
+
+    return () => {
+      unsuscribe.current();
+    };
   }, [hasPermission]);
 
-  const getCurrentPosition = async () => {
-    return Location.getCurrentPositionAsync({});
-  };
-
   const setWatcher = async () => {
-    await Location.watchPositionAsync({ distanceInterval: 5 }, (locaction) => {
-      setCurrentLocation({
-        latitude: locaction.coords.latitude,
-        longitude: locaction.coords.longitude
-      });
-    });
+    return await Location.watchPositionAsync(
+      { distanceInterval: 5 },
+      (locaction) => {
+        setCurrentLocation({
+          latitude: locaction.coords.latitude,
+          longitude: locaction.coords.longitude
+        });
+      }
+    );
   };
   return currentLocation;
 }
