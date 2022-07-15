@@ -1,5 +1,6 @@
 {
   "expo": {
+    "owner": "sansa-app",
     "name": "Sansa",
     "slug": "sansa-app",
     "version": "1.0.0",
