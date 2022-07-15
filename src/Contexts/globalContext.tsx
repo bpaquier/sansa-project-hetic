@@ -19,7 +19,9 @@ interface ContextProps {
   isMenuLanguagesOpen?: boolean;
   setMenuLanguagesOpen?: (isOpen?: boolean) => void;
   statusBarHeight?: number;
-  searchParams?: object;
+  searchParams?: {
+    filter?: string;
+  };
   setSearchParams?: (params: object | null) => void;
   setUserConnected?: (connected?: string) => void;
   userConnected?: string;

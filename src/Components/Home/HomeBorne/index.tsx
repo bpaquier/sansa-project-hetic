@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { TouchableOpacity } from "react-native";
-import { PROVIDER_GOOGLE } from "react-native-maps";
+import { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import { useNavigate } from "react-router-native";
 
 import { HealthIconWrapper } from "../HomeMobile/styles";
@@ -35,6 +35,7 @@ import Toilets from "~/Components/Icons/Categories/Hygiene/Toilets";
 import WaterFountain from "~/Components/Icons/Categories/Hygiene/WaterFountain";
 import ArrowRight from "~/Components/Icons/System/Arrows/ArrowRight";
 import PageContentWrapper from "~/Components/PageContentWrapper";
+import Ping from "~/Components/Ping";
 import Button from "~/Components/Ui-kit/Button";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
@@ -92,7 +93,32 @@ export default function HomeBorne({
                 <MapButtonWrapper>
                   <Button type="secondary" text={t("home.searchAPlace")} />
                 </MapButtonWrapper>
-                <Map provider={PROVIDER_GOOGLE} />
+                <Map
+                  initialRegion={{
+                    latitude: 48.859,
+                    longitude: 2.3397,
+                    latitudeDelta: 0.3,
+                    longitudeDelta: 0.3
+                  }}
+                  provider={PROVIDER_GOOGLE}
+                >
+                  <Marker
+                    coordinate={{
+                      latitude: 48.871202,
+                      longitude: 2.379976
+                    }}
+                  >
+                    <Ping index={0} />
+                  </Marker>
+                  <Marker
+                    coordinate={{
+                      latitude: 48.8299981,
+                      longitude: 2.3598868
+                    }}
+                  >
+                    <Ping index={1} />
+                  </Marker>
+                </Map>
               </MapWrapper>
             </TouchableOpacity>
           </MapCard>

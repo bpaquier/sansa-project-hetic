@@ -129,7 +129,7 @@ function SearchProvider({ children }: SearchProviderProps) {
       }
       setSearchParams(null);
     }
-  });
+  }, [searchParams]);
 
   useEffect(() => {
     if (!filters || filters?.length === 0) {
@@ -183,12 +183,13 @@ function SearchProvider({ children }: SearchProviderProps) {
   }, [debouncedSearch]);
 
   const setFiveBestOrga = () => {
-    getFiveBestOrga(filters)
+    getFiveBestOrga()
       ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
         if (status === 200) {
           if (data) {
             const serializedPlaces = serializePlaces(data);
             setFilteredPlaces(serializedPlaces);
+            setDisplayPlacesList(true);
           } else {
             handleApiErrors();
           }
