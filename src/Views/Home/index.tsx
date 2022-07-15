@@ -36,7 +36,7 @@ export default function Home(): JSX.Element {
     } else {
       getPointsNumber();
     }
-  });
+  }, []);
 
   const { getServicesCount } = useApi();
 
@@ -58,7 +58,7 @@ export default function Home(): JSX.Element {
       const serviceCounts: number[] = [];
 
       for (const service of services) {
-        const serviceCount: number = data.find(
+        const serviceCount: number = data?.find(
           (el: serviceObj) => el.service === service
         ).count;
         serviceCounts.push(serviceCount);
