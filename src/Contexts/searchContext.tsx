@@ -9,6 +9,7 @@ import {
 import { useTranslation } from "react-i18next";
 import { Alert } from "react-native";
 
+import { useGlobalContext } from "~/Contexts/globalContext";
 import useApi from "~/hooks/useApi";
 import { useDebounce } from "~/hooks/useDebounce";
 import serializePlaces from "~/utils/serializePlaces";
@@ -92,7 +93,8 @@ interface SearchProviderProps {
 
 function SearchProvider({ children }: SearchProviderProps) {
   const { t } = useTranslation();
-  const { getOrgaByServices, getOrgaByNameOrAdress } = useApi();
+  const { getOrgaByServices, getOrgaByNameOrAdress, getFiveBestOrga } =
+    useApi();
   const [selectedPlaceIndex, setSelectedPlaceIndex] = useState<number | null>(
     null
   );
@@ -115,6 +117,19 @@ function SearchProvider({ children }: SearchProviderProps) {
 
   const debouncedFilters = useDebounce(filters, 500);
   const debouncedSearch = useDebounce(searchValue, 1000);
+
+  const { searchParams, setSearchParams } = useGlobalContext();
+
+  useEffect(() => {
+    if (searchParams?.filter) {
+      if (searchParams.filter === "fivebestorga") {
+        setFiveBestOrga();
+      } else {
+        setFilters([searchParams.filter]);
+      }
+      setSearchParams(null);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     if (!filters || filters?.length === 0) {
@@ -166,6 +181,28 @@ function SearchProvider({ children }: SearchProviderProps) {
         });
     }
   }, [debouncedSearch]);
+
+  const setFiveBestOrga = () => {
+    getFiveBestOrga()
+      ?.then(({ data, status }: { data: PlaceProps[]; status: number }) => {
+        if (status === 200) {
+          if (data) {
+            const serializedPlaces = serializePlaces(data);
+            setFilteredPlaces(serializedPlaces);
+            setDisplayPlacesList(true);
+          } else {
+            handleApiErrors();
+          }
+        } else {
+          handleApiErrors();
+        }
+        setIsFilterLoading(false);
+      })
+      .catch(() => {
+        handleApiErrors();
+        setIsFilterLoading(false);
+      });
+  };
 
   const updatePlacesSelection = () => {
     getOrgaByServices(filters)

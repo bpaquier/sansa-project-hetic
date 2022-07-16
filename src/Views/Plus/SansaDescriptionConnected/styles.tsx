@@ -14,7 +14,7 @@ export const ConnectedIllustrationsWrapper = styled.View`
   flex: 1;
 `;
 
-export const ConnectedIllustrationWrapper = styled.Pressable`
+export const ConnectedIllustrationWrapper = styled.TouchableOpacity`
   width: 48%;
   border: 1px solid ${color.neutral.black5};
   border-radius: ${shape.radius.input}px;

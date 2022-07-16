@@ -45,7 +45,7 @@ export const BackButtonBorne = styled.TouchableOpacity`
   position: absolute;
   top: ${getColumnWidth(1, false)};
   left: ${(
-    parseFloat(getColumnWidth(0.5, false)) -
+    getColumnWidth(0.5, false) -
     theme.sizes.icon.system / 2
   ).toString() + "px"};
   z-index: 1;
@@ -61,9 +61,9 @@ export const ImageWrapperMobile = styled.View`
 export const ImageWrapperBorne = styled.View`
   align-items: center;
   justify-content: flex-start;
-  width: ${getColumnWidth(10, false)};
+  width: ${getColumnWidth(10, false)}px;
   max-height: 480px;
-  margin-left: ${getColumnWidth(2, false)}; ;
+  margin-left: ${getColumnWidth(2, false)}px; ;
 `;
 
 export const FormWrapperMobile = styled.View`

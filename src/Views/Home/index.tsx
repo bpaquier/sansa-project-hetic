@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 
-import HomeBorne from "../../../Components/Home/HomeBorne";
-import HomeMobile from "../../../Components/Home/HomeMobile";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigate } from "react-router-native";
+
+import HomeBorne from "~/Components/Home/HomeBorne";
+import HomeMobile from "~/Components/Home/HomeMobile";
 import { useGlobalContext } from "~/Contexts/globalContext";
 import useApi from "~/hooks/useApi";
 
@@ -14,6 +17,26 @@ export default function Home(): JSX.Element {
   const { isMobile } = useGlobalContext();
 
   const HomeComponent = isMobile ? HomeMobile : HomeBorne;
+
+  const navigate = useNavigate();
+
+  const checkIfFirstLaunch = async () => {
+    const hasFirstLaunched = await AsyncStorage.getItem("alreadyLaunched");
+    if (hasFirstLaunched === null) {
+      AsyncStorage.setItem("alreadyLaunched", "true");
+      navigate("/onboarding");
+    } else {
+      getPointsNumber();
+    }
+  };
+
+  useEffect(() => {
+    if (isMobile) {
+      checkIfFirstLaunch();
+    } else {
+      getPointsNumber();
+    }
+  }, []);
 
   const { getServicesCount } = useApi();
 
@@ -35,7 +58,7 @@ export default function Home(): JSX.Element {
       const serviceCounts: number[] = [];
 
       for (const service of services) {
-        const serviceCount: number = data.find(
+        const serviceCount: number = data?.find(
           (el: serviceObj) => el.service === service
         ).count;
         serviceCounts.push(serviceCount);
@@ -49,10 +72,6 @@ export default function Home(): JSX.Element {
       });
     });
   };
-
-  useEffect(() => {
-    getPointsNumber();
-  }, []);
 
   return <HomeComponent pointsNumber={pointsNumber} />;
 }

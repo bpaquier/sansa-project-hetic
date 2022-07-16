@@ -1,5 +1,7 @@
 import { Fragment, useState, useEffect } from "react";
 
+import { useNavigate } from "react-router-native";
+
 import Checkbox, { CheckBoxProps } from "./Checkbox";
 import Input, { InputProps } from "./Input";
 import {
@@ -19,15 +21,20 @@ export interface FormProps {
   submitCtaLabel?: string;
   inlineCtaLabel?: string;
   items?: InputProps[] | CheckBoxProps[];
+  onSubmitAction?: (name: string) => void;
 }
 
 export default function Form({
   title,
   submitCtaLabel,
   inlineCtaLabel,
-  items
+  items,
+  onSubmitAction
 }: FormProps): JSX.Element {
-  const [formData, setFormData] = useState({});
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState<{ ID?: string; password?: string }>(
+    {}
+  );
   const [ctaDisabled, setCtaDisabled] = useState(true);
 
   useEffect(() => {
@@ -45,7 +52,10 @@ export default function Form({
   };
 
   const onSubmit = () => {
-    !ctaDisabled && console.log(formData);
+    if (!ctaDisabled && onSubmitAction) {
+      onSubmitAction(formData.ID.split("@")[0]);
+      navigate("/plus");
+    }
   };
 
   return (

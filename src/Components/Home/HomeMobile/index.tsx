@@ -27,8 +27,8 @@ import ArrowRight from "~/Components/Icons/System/Arrows/ArrowRight";
 import PageContentWrapper from "~/Components/PageContentWrapper";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
+import { useGlobalContext } from "~/Contexts/globalContext";
 import Theme from "~/Styles/theme.styles";
-
 const { color, boxShadow } = Theme;
 
 interface HomeMobileProps {
@@ -43,8 +43,21 @@ interface HomeMobileProps {
 export default function HomeMobile({
   pointsNumber
 }: HomeMobileProps): JSX.Element {
+  const { setSearchParams } = useGlobalContext();
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  interface searchParamsProps {
+    filter?: string;
+  }
+
+  const setSearchParamsAndNavigate = (
+    path: string,
+    params: searchParamsProps
+  ) => {
+    setSearchParams(params);
+    navigate(path);
+  };
 
   const { shower, water, toilets, housing } = pointsNumber;
 
@@ -68,7 +81,11 @@ export default function HomeMobile({
           </NoEventIllustrationWrapper>
         </EventCard>
         <SanitaryCard style={boxShadow.panelAndroid}>
-          <SanitaryItemWrapper onPress={() => navigate("/")}>
+          <SanitaryItemWrapper
+            onPress={() =>
+              setSearchParamsAndNavigate("/search", { filter: "Douche" })
+            }
+          >
             <Text type="paragraph" weight="bold" textAlign="center">
               {shower}
             </Text>
@@ -84,7 +101,13 @@ export default function HomeMobile({
             </SanitaryIconWrapper>
           </SanitaryItemWrapper>
           <Separator orientation="vertical" height="120px" margin={12} />
-          <SanitaryItemWrapper onPress={() => navigate("/")}>
+          <SanitaryItemWrapper
+            onPress={() =>
+              setSearchParamsAndNavigate("/search", {
+                filter: "Fontaine à eau"
+              })
+            }
+          >
             <Text type="paragraph" weight="bold" textAlign="center">
               {water}
             </Text>
@@ -100,7 +123,11 @@ export default function HomeMobile({
             </SanitaryIconWrapper>
           </SanitaryItemWrapper>
           <Separator orientation="vertical" height="120px" margin={12} />
-          <SanitaryItemWrapper onPress={() => navigate("/")}>
+          <SanitaryItemWrapper
+            onPress={() =>
+              setSearchParamsAndNavigate("/search", { filter: "Toilettes" })
+            }
+          >
             <Text type="paragraph" weight="bold" textAlign="center">
               {toilets}
             </Text>
@@ -118,7 +145,9 @@ export default function HomeMobile({
         </SanitaryCard>
         <CardTouchable
           style={boxShadow.panelAndroid}
-          onPress={() => navigate("/")}
+          onPress={() =>
+            setSearchParamsAndNavigate("/search", { filter: "fivebestorga" })
+          }
           activeOpacity={0.7}
         >
           <Text color="black60">Associations</Text>
@@ -127,7 +156,9 @@ export default function HomeMobile({
           </AssociationsCardTitleWrapper>
         </CardTouchable>
         <CardTouchable
-          onPress={() => navigate("/")}
+          onPress={() =>
+            setSearchParamsAndNavigate("/search", { filter: "Halte de nuit" })
+          }
           activeOpacity={0.7}
           backgroundColor="blue"
           style={boxShadow.panelAndroid}
@@ -150,7 +181,11 @@ export default function HomeMobile({
         </CardTouchable>
         <HealthCard
           style={boxShadow.panelAndroid}
-          onPress={() => navigate("/")}
+          onPress={() =>
+            setSearchParamsAndNavigate("/search", {
+              filter: "Médecin généraliste"
+            })
+          }
           activeOpacity={0.7}
         >
           <HealthIconWrapper>

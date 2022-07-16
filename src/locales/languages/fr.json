@@ -148,7 +148,7 @@
     "wateringPlaces": "Points d'eau",
     "publicRestroom": "Toilette publique",
     "publicRestrooms": "Toilettes publiques",
-    "closestAssociations": "Les 5 associations les plus proches de vous",
+    "closestAssociations": "Les 5 associations de la semaine",
     "associations": "Associations",
     "nightShelter": "Accueil de nuit",
     "nightShelters": "Accueils de nuit",
@@ -156,5 +156,35 @@
     "lookForADoctor": "Rechercher un médecin",
     "showTheMap": "Voir la carte",
     "searchAPlace": "Rechercher un lieu"
+  },
+  "mobileOnboarding": {
+    "title": "Bienvenue sur SANSA !",
+    "subtitle": "Solution d’aide numérique aux sans-abris",
+    "start": "Commencer",
+    "skip": "Passer",
+    "next": "Suivant",
+    "end": "Démarrer",
+    "tooltip": [
+      {
+        "title": "Recherchez",
+        "description": "Vous pouvez rechercher une association grâce à la barre de recherche"
+      },
+      {
+        "title": "Filtrez",
+        "description": "Vous pouvez aussi rechercher vos besoins grâce aux catégories"
+      },
+      {
+        "title": "Les associations",
+        "description": "Ici, vous pourrez accéder aux resultats de votre recherche. En cliquant sur cette zone vous aurez accès au détail de l’association"
+      },
+      {
+        "title": "Plus de résultats",
+        "description": "En glissant vers la gauche vous pourrez voir les différentes associations"
+      },
+      {
+        "title": "Informez-vous",
+        "description": "En cliquant sur l’encart de l’assocation vous pourrez accéder à son détail"
+      }
+    ]
   }
 }

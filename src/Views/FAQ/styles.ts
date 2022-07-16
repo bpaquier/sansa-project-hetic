@@ -12,8 +12,8 @@ type FAQSectionContainersProps = {
 const { grid, color, shape } = theme;
 
 export const PageContainerMobile = styled.ScrollView`
-  margin-bottom: 170px;
   background-color: ${color.primary.white};
+  margin-bottom: 50px;
 `;
 
 export const PageContainerBorne = styled.View`
