@@ -31,10 +31,18 @@ export default function useApi() {
       ?.catch((error) => error);
   };
 
+  const getFiveBestOrga = async () => {
+    return await axios
+      ?.get(`${API_ENDPOINT}/getfivebestorga`)
+      ?.then((resp) => resp)
+      ?.catch((error) => error);
+  };
+
   return {
     getOrgaById,
     getOrgaByNameOrAdress,
     getOrgaByServices,
-    getServicesCount
+    getServicesCount,
+    getFiveBestOrga
   };
 }

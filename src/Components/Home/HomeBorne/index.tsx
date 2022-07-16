@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { TouchableOpacity } from "react-native";
-import { PROVIDER_GOOGLE } from "react-native-maps";
+import { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import { useNavigate } from "react-router-native";
 
 import { HealthIconWrapper } from "../HomeMobile/styles";
@@ -35,10 +35,12 @@ import Toilets from "~/Components/Icons/Categories/Hygiene/Toilets";
 import WaterFountain from "~/Components/Icons/Categories/Hygiene/WaterFountain";
 import ArrowRight from "~/Components/Icons/System/Arrows/ArrowRight";
 import PageContentWrapper from "~/Components/PageContentWrapper";
+import Ping from "~/Components/Ping";
 import Button from "~/Components/Ui-kit/Button";
 import Separator from "~/Components/Ui-kit/Separator";
 import Text from "~/Components/Ui-kit/Text";
 import TextWrapper from "~/Components/Ui-kit/TextWrapper";
+import { useGlobalContext } from "~/Contexts/globalContext";
 import Theme from "~/Styles/theme.styles";
 const { color, boxShadow } = Theme;
 
@@ -54,8 +56,21 @@ interface HomeBorneProps {
 export default function HomeBorne({
   pointsNumber
 }: HomeBorneProps): JSX.Element {
+  const { setSearchParams } = useGlobalContext();
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  interface searchParamsProps {
+    filter?: string;
+  }
+
+  const setSearchParamsAndNavigate = (
+    path: string,
+    params: searchParamsProps
+  ) => {
+    setSearchParams(params);
+    navigate(path);
+  };
 
   const { shower, water, toilets, housing } = pointsNumber;
 
@@ -70,12 +85,40 @@ export default function HomeBorne({
       >
         <FirstRow>
           <MapCard style={boxShadow.panelAndroid}>
-            <TouchableOpacity onPress={() => navigate("/")} activeOpacity={0.7}>
+            <TouchableOpacity
+              onPress={() => navigate("/search")}
+              activeOpacity={0.7}
+            >
               <MapWrapper>
                 <MapButtonWrapper>
                   <Button type="secondary" text={t("home.searchAPlace")} />
                 </MapButtonWrapper>
-                <Map provider={PROVIDER_GOOGLE} />
+                <Map
+                  initialRegion={{
+                    latitude: 48.859,
+                    longitude: 2.3397,
+                    latitudeDelta: 0.3,
+                    longitudeDelta: 0.3
+                  }}
+                  provider={PROVIDER_GOOGLE}
+                >
+                  <Marker
+                    coordinate={{
+                      latitude: 48.871202,
+                      longitude: 2.379976
+                    }}
+                  >
+                    <Ping index={0} />
+                  </Marker>
+                  <Marker
+                    coordinate={{
+                      latitude: 48.8299981,
+                      longitude: 2.3598868
+                    }}
+                  >
+                    <Ping index={1} />
+                  </Marker>
+                </Map>
               </MapWrapper>
             </TouchableOpacity>
           </MapCard>
@@ -95,7 +138,9 @@ export default function HomeBorne({
             </EventCard>
             <SanitaryCard style={boxShadow.panelAndroid}>
               <TouchableOpacity
-                onPress={() => navigate("/")}
+                onPress={() =>
+                  setSearchParamsAndNavigate("/search", { filter: "Douche" })
+                }
                 activeOpacity={0.7}
               >
                 <Text type="titleXL" textAlign="center">
@@ -121,7 +166,14 @@ export default function HomeBorne({
                 </TextWrapper>
               </TouchableOpacity>
               <Separator orientation="vertical" height="160px" />
-              <TouchableOpacity onPress={() => navigate("/")}>
+
+              <TouchableOpacity
+                onPress={() =>
+                  setSearchParamsAndNavigate("/search", {
+                    filter: "Fontaine à eau"
+                  })
+                }
+              >
                 <Text type="titleXL" textAlign="center">
                   {water}
                 </Text>
@@ -145,7 +197,11 @@ export default function HomeBorne({
                 </TextWrapper>
               </TouchableOpacity>
               <Separator orientation="vertical" height="160px" />
-              <TouchableOpacity onPress={() => navigate("/")}>
+              <TouchableOpacity
+                onPress={() =>
+                  setSearchParamsAndNavigate("/search", { filter: "Toilettes" })
+                }
+              >
                 <Text type="titleXL" textAlign="center">
                   {toilets}
                 </Text>
@@ -177,7 +233,9 @@ export default function HomeBorne({
           <AssociationsCard
             activeOpacity={0.7}
             style={boxShadow.panelAndroid}
-            onPress={() => navigate("/")}
+            onPress={() =>
+              setSearchParamsAndNavigate("/search", { filter: "fivebestorga" })
+            }
           >
             <Text color="black40">{t("home.associations")}</Text>
             <Text type="titleXL">{t("home.closestAssociations")}</Text>
@@ -188,6 +246,9 @@ export default function HomeBorne({
           <SleepCard
             style={boxShadow.panelAndroid}
             backgroundColor="blue"
+            onPress={() =>
+              setSearchParamsAndNavigate("/search", { filter: "Halte de nuit" })
+            }
             activeOpacity={0.7}
           >
             <SleepCardTitleWrapper>
@@ -212,7 +273,11 @@ export default function HomeBorne({
           </SleepCard>
           <HealthCard
             style={boxShadow.panelAndroid}
-            onPress={() => navigate("/")}
+            onPress={() =>
+              setSearchParamsAndNavigate("/search", {
+                filter: "Médecin généraliste"
+              })
+            }
             activeOpacity={0.7}
           >
             <HealthCardHeadlineWrapper>

@@ -19,6 +19,10 @@ interface ContextProps {
   isMenuLanguagesOpen?: boolean;
   setMenuLanguagesOpen?: (isOpen?: boolean) => void;
   statusBarHeight?: number;
+  searchParams?: {
+    filter?: string;
+  };
+  setSearchParams?: (params: object | null) => void;
   setUserConnected?: (connected?: string) => void;
   userConnected?: string;
 }
@@ -45,6 +49,8 @@ function GlobalProvider({ children }: GlobalProviderProps) {
   const [isMenuLanguagesOpen, setIsMenuLanguagesOpen] =
     useState<boolean>(false);
   const [statusBarHeight, setStatusBarHeight] = useState<number>(insets?.top);
+
+  const [searchParams, setSearchParams] = useState<object | null>(null);
 
   useEffect(() => {
     setStatusBarHeight(insets?.top);
@@ -83,6 +89,8 @@ function GlobalProvider({ children }: GlobalProviderProps) {
     isMenuLanguagesOpen,
     setMenuLanguagesOpen,
     statusBarHeight,
+    searchParams,
+    setSearchParams,
     userConnected,
     setUserConnected
   };
