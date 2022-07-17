@@ -1,7 +1,7 @@
 # SANSA Application
 
 The project is a complete responsive React Native application. It's designed for android and ios smartphone, and tablet.
-But the homeless people experience will mainly be on 20 inches bornes in the street. So to have the full experience, you should start by follow the [borne installation](#installation-for-borne).
+But the user experience will mainly be on 20 inches bornes in the street. So to have the full experience, you should start by follow the [borne installation](#installation-for-borne).
 
 ## SUMMARY
 
