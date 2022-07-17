@@ -16,14 +16,13 @@ export const PageContainerMobileScroll = styled.ScrollView<PageContainerProps>`
   width: 100%;
   height: 100%;
   min-height: 100%;
-  padding: 50px ${({ noPaddingX }) => `${noPaddingX ? 0 : grid.mobileGutter}px`};
+  padding: 32px ${({ noPaddingX }) => `${noPaddingX ? 0 : grid.mobileGutter}px`};
   background-color: ${({ backgroundColor }) =>
     backgroundColor === "white"
       ? color.primary.white
       : backgroundColor === "blue"
       ? color.primary.blue
       : color.components.backgroundApp};
-  padding-top: 60px;
 `;
 
 export const PageContainerMobileNoScroll = styled.View<PageContainerProps>`
@@ -33,14 +32,13 @@ export const PageContainerMobileNoScroll = styled.View<PageContainerProps>`
   width: 100%;
   height: 100%;
   min-height: 100%;
-  padding: 50px ${({ noPaddingX }) => `${noPaddingX ? 0 : grid.mobileGutter}px`};
+  padding: 32px ${({ noPaddingX }) => `${noPaddingX ? 0 : grid.mobileGutter}px`};
   background-color: ${({ backgroundColor }) =>
     backgroundColor === "white"
       ? color.primary.white
       : backgroundColor === "blue"
       ? color.primary.blue
       : color.components.backgroundApp};
-  padding-top: 60px;
 `;
 
 export const PageContainerBorne = styled.View`

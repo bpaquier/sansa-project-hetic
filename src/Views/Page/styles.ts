@@ -8,7 +8,7 @@ interface StyledViewProps {
 export const SafeArea = styled.View`
   bottom: 0;
   width: ${(props: StyledViewProps) => props.width}px;
-  top: 0;
+  height: ${(props: StyledViewProps) => props.height}px;
   position: absolute;
   align-items: center;
 `;
