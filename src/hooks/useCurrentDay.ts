@@ -7,6 +7,7 @@ export default function useCurrentDay():
   | "saturday"
   | "sunday" {
   const currentDayIndex = new Date().getDay();
+  console.log(currentDayIndex);
 
   const days: (
     | "monday"
@@ -17,14 +18,14 @@ export default function useCurrentDay():
     | "saturday"
     | "sunday"
   )[] = [
+    "sunday",
     "monday",
     "tuesday",
     "wednesday",
     "thurday",
     "friday",
-    "saturday",
-    "sunday"
+    "saturday"
   ];
 
-  return days[currentDayIndex - 1];
+  return days[currentDayIndex];
 }
