@@ -65,7 +65,7 @@ export default function HomeMobile({
     <PageContentWrapper>
       <GlobalWrapper>
         <Text color="black40" type="titleL">
-          {t("home.dashboard")}
+          {t("home.home")}
         </Text>
         <EventCard style={boxShadow.panelAndroid}>
           <Text color="black60" type="small" textAlign="center">
