@@ -18,7 +18,7 @@ export const PageContainerMobileScroll = styled.ScrollView<PageContainerProps>`
   height: 100%;
   min-height: 100%;
   padding: ${({ statusBarHeight }) =>
-      statusBarHeight ? statusBarHeight + 16 : "16"}px
+      statusBarHeight ? statusBarHeight + 16 : "36"}px
     ${({ noPaddingX }) => `${noPaddingX ? 0 : grid.mobileGutter}px`};
   background-color: ${({ backgroundColor }) =>
     backgroundColor === "white"
@@ -36,7 +36,7 @@ export const PageContainerMobileNoScroll = styled.View<PageContainerProps>`
   height: 100%;
   min-height: 100%;
   padding: ${({ statusBarHeight }) =>
-      statusBarHeight ? statusBarHeight + 16 : "16"}px
+      statusBarHeight ? statusBarHeight + 16 : "36"}px
     ${({ noPaddingX }) => `${noPaddingX ? 0 : grid.mobileGutter}px`};
   background-color: ${({ backgroundColor }) =>
     backgroundColor === "white"

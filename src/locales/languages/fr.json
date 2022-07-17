@@ -137,8 +137,8 @@
     }
   },
   "home": {
-    "home": "Acceuil",
-    "dashboard": "Dashboard",
+    "home": "Accueil",
+    "dashboard": "Accueil",
     "eventsSoon": "Bientôt de nouveaux événements !",
     "eventsSoonBorne": "Pas de panique ! Nous allons bientôt vous trouver de nouveaux événements",
     "noEventsPrompt": "Aucun événement pour le moment",
