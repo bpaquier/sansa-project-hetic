@@ -3,6 +3,16 @@
 The project is a complete responsive React Native application. It's designed for android and ios smartphone, and tablet.
 But the homeless people experience will mainly be on 20 inches bornes in the street. So to have the full experience, you should start by follow the [borne installation](#installation-for-borne).
 
+SUMMARY
+
+- [How to start](#how-to-start)
+- [Installation on your phone or tablet](#installation-on-your-own-phone-or-tablet)
+- [Installation for phone on emulator](#installation-for-phone-on-emulator)
+- [Installation for borne on emulator](#installation-for-borne-on-emulator)
+  - [Install android studio](#install-android-studio)
+  - [Setup android studio](#set-up-android-studio)
+  - [Install a playstore on borne](#install-a-playstore-on-borne)
+
 ### How to start
 
 - pull project
@@ -16,13 +26,13 @@ But the homeless people experience will mainly be on 20 inches bornes in the str
 Connect your computer and phone or tablet on the same wifi. Install expo go on your device (available in Play Store for android and App Store on ios).
 Start the project on your terminal, and scan the QR code that the terminal shows you with the Expo application on your device.
 
-### Installation for phone
+### Installation for phone on emulator
 
 If you are using android studio, you just need to create a device with the Playstore enabled, and launch the device. When it's launch, `expo start`
 Once it's started, launch
 `> Press a │ open Android`
 
-### Installation for borne
+### Installation for borne on emulator
 
 #### Install android studio
 
