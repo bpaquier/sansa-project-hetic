@@ -3,7 +3,7 @@
 The project is a complete responsive React Native application. It's designed for android and ios smartphone, and tablet.
 But the homeless people experience will mainly be on 20 inches bornes in the street. So to have the full experience, you should start by follow the [borne installation](#installation-for-borne).
 
-SUMMARY
+## SUMMARY
 
 - [How to start](#how-to-start)
 - [Installation on your phone or tablet](#installation-on-your-own-phone-or-tablet)
@@ -13,7 +13,7 @@ SUMMARY
   - [Setup android studio](#set-up-android-studio)
   - [Install a playstore on borne](#install-a-playstore-on-borne)
 
-## How to start
+# How to start
 
 - pull project
 - `yarn`
