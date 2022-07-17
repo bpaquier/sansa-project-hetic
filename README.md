@@ -13,7 +13,7 @@ SUMMARY
   - [Setup android studio](#set-up-android-studio)
   - [Install a playstore on borne](#install-a-playstore-on-borne)
 
-### How to start
+## How to start
 
 - pull project
 - `yarn`
@@ -21,24 +21,24 @@ SUMMARY
   - `yarn web` for your browser
   - `expo start` for ExpoGo app
 
-### Installation on your own phone or tablet
+# Installation on your own phone or tablet
 
 Connect your computer and phone or tablet on the same wifi. Install expo go on your device (available in Play Store for android and App Store on ios).
 Start the project on your terminal, and scan the QR code that the terminal shows you with the Expo application on your device.
 
-### Installation for phone on emulator
+# Installation for phone on emulator
 
 If you are using android studio, you just need to create a device with the Playstore enabled, and launch the device. When it's launch, `expo start`
 Once it's started, launch
 `> Press a │ open Android`
 
-### Installation for borne on emulator
+# Installation for borne on emulator
 
-#### Install android studio
+## Install android studio
 
 You can install android studio [here](https://developer.android.com/studio?hl=fr&gclid=CjwKCAjwt7SWBhAnEiwAx8ZLauM51PPjHIOn9TDCpCK5lJiIA0gqltwkFi0uifg7W90HB-beCyMwvBoCKfEQAvD_BwE&gclsrc=aw.ds).
 
-#### Set up android studio
+## Set up android studio
 
 Once android studio is installed, you click on the button `More Actions` and select `Virtual Device Manager`
 
@@ -79,7 +79,7 @@ On this file, you will find the name of the device you just created. Open it, an
 
 To make the google maps api works on tablet, you need to change some other values in this file; see below.
 
-#### Install a playstore on borne
+## Install a playstore on borne
 
 Only a few android studio smartphones emulators has google play store installed. For the tablets, there is none. So you have to enable the playstore to be able to use google maps.
 
