@@ -11,6 +11,17 @@ But the homeless people experience will mainly be on 20 inches bornes in the str
   - `yarn web` for your browser
   - `expo start` for ExpoGo app
 
+### Installation on your own phone or tablet
+
+Connect your computer and phone or tablet on the same wifi. Install expo go on your device (available in Play Store for android and App Store on ios).
+Start the project on your terminal, and scan the QR code that the terminal shows you with the Expo application on your device.
+
+### Installation for phone
+
+If you are using android studio, you just need to create a device with the Playstore enabled, and launch the device. When it's launch, `expo start`
+Once it's started, launch
+`> Press a │ open Android`
+
 ### Installation for borne
 
 #### Install android studio
@@ -47,4 +58,34 @@ On the `Verify Configuration` page, click on `Show Advanced Settings` and fill t
 Then, select `Finish`.
 
 A loader should appear, and if there is no error, it should display the device in the device list.
-But there is a few more still a few more step to follow.
+
+In your terminal :
+
+`$ cd ~/.android/avd/`
+
+On this file, you will find the name of the device you just created. Open it, and you will find a `config.ini` file. Open it in your text editor and change this value :
+
+`hw.lcd.density=240`
+
+To make the google maps api works on tablet, you need to change some other values in this file; see below.
+
+#### Install a playstore on borne
+
+Only a few android studio smartphones emulators has google play store installed. For the tablets, there is none. So you have to enable the playstore to be able to use google maps.
+
+`PlayStore.enabled = true`
+
+If it's an API32 android :
+`image.sysdir.1 = system-images/android-32/google_apis_playstore/arm64-v8a/`
+
+If it's an API30 android : `image.sysdir.1 = system-images/android-30/google_apis_playstore/arm64-v8a/`
+
+ect...
+
+`tag.display = Google Play`
+
+`tag.id = google_apis_playstore`
+
+[Source on stackoverflow](https://stackoverflow.com/a/62436883/14997648)
+
+Save the changes, and launch the device. Once the device has fully started, launch expo.
