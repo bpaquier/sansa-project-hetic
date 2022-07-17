@@ -7,7 +7,6 @@ export default function useCurrentDay():
   | "saturday"
   | "sunday" {
   const currentDayIndex = new Date().getDay();
-  console.log(currentDayIndex);
 
   const days: (
     | "monday"

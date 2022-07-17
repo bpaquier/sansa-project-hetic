@@ -20,8 +20,6 @@ export default function Card({
   const { setDisplayPlaceDescription, selectedPlaceIndex } = useSearchContext();
   const currentDay = useCurrentDay();
 
-  console.log({ currentDay });
-
   return (
     <CardWrapper>
       <CardContent
