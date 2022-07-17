@@ -48,12 +48,14 @@ function GlobalProvider({ children }: GlobalProviderProps) {
 
   const [isMenuLanguagesOpen, setIsMenuLanguagesOpen] =
     useState<boolean>(false);
-  const [statusBarHeight, setStatusBarHeight] = useState<number>(insets?.top);
+  const [statusBarHeight, setStatusBarHeight] = useState<number>(
+    Device?.osName === "iOS" ? insets?.top : 0
+  );
 
   const [searchParams, setSearchParams] = useState<object | null>(null);
 
   useEffect(() => {
-    setStatusBarHeight(insets?.top);
+    setStatusBarHeight(Device?.osName === "iOS" ? insets?.top : 0);
   }, [insets?.top]);
 
   useEffect(() => {

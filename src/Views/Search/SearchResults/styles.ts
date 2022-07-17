@@ -16,7 +16,7 @@ export const SearchResultsWrapper = styled.View`
   margin-left: ${grid?.borneGutter}px;
   top: ${({ isMobile }: GlobalProps) =>
     isMobile
-      ? `66px`
+      ? `81px`
       : `${sizes?.bornContent?.topBarHeight + grid?.borneGutter + 8}px`};
   background-color: ${color.primary.white};
   border-radius: ${shape?.radius?.input}px;

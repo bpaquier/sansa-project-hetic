@@ -20,13 +20,13 @@ export const FiltersWrapper = styled.View`
 `;
 
 export const InputWrapper = styled.View`
-  padding: 0 ${theme?.grid?.mobileGutter}px;
+  padding: 15px ${theme?.grid?.mobileGutter}px;
   position: relative;
 `;
 
 export const SearchIconWrapper = styled.View`
   position: absolute;
-  top: 12px;
+  top: 27px;
   left: ${theme?.grid?.mobileGutter + 12}px;
 `;
 

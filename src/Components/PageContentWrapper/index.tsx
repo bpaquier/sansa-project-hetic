@@ -19,7 +19,7 @@ export default function PageContentWrapper({
   backgroundColor,
   noScroll
 }: PageContentWrapperProps) {
-  const { isMobile } = useGlobalContext();
+  const { isMobile, statusBarHeight } = useGlobalContext();
 
   const ContentContainer = (
     isMobile
@@ -33,6 +33,7 @@ export default function PageContentWrapper({
     <ContentContainer
       backgroundColor={backgroundColor}
       noPaddingX={isMobile && noPaddingX ? noPaddingX : false}
+      {...{ statusBarHeight }}
     >
       {children}
     </ContentContainer>

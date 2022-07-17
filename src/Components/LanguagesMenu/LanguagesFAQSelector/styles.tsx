@@ -4,7 +4,7 @@ export const LanguageContainer = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  margin-bottom: 24px;
+  margin-bottom: 60px;
 `;
 
 export const LanguageSelector = styled.TouchableOpacity`
