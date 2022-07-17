@@ -16,17 +16,17 @@ export const FiltersWrapper = styled.View`
   left: 0;
   width: ${Dimensions.get("window").width}px;
   overflow: visible;
-  padding-top: 16px;
+  padding-top: 35px;
 `;
 
 export const InputWrapper = styled.View`
-  padding: 15px ${theme?.grid?.mobileGutter}px;
+  padding: 0px ${theme?.grid?.mobileGutter}px;
   position: relative;
 `;
 
 export const SearchIconWrapper = styled.View`
   position: absolute;
-  top: 27px;
+  top: 12px;
   left: ${theme?.grid?.mobileGutter + 12}px;
 `;
 
