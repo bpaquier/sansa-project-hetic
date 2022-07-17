@@ -84,7 +84,7 @@ export const SleepIllustrationWrapper = styled.View`
 export const HealthCard = styled(CardTouchable)`
   flex-direction: row;
   align-items: center;
-  margin-bottom: 168px;
+  margin-bottom: 170px;
   display: flex;
   align-content: center;
 `;

@@ -5,6 +5,7 @@ import Theme from "~/Styles/theme.styles";
 type PageContainerProps = {
   noPaddingX?: boolean;
   backgroundColor?: "grey" | "white" | "blue";
+  statusBarHeight?: number;
 };
 
 const { grid, color } = Theme;
@@ -16,7 +17,9 @@ export const PageContainerMobileScroll = styled.ScrollView<PageContainerProps>`
   width: 100%;
   height: 100%;
   min-height: 100%;
-  padding: 32px ${({ noPaddingX }) => `${noPaddingX ? 0 : grid.mobileGutter}px`};
+  padding: ${({ statusBarHeight }) =>
+      statusBarHeight ? statusBarHeight + 16 : "16"}px
+    ${({ noPaddingX }) => `${noPaddingX ? 0 : grid.mobileGutter}px`};
   background-color: ${({ backgroundColor }) =>
     backgroundColor === "white"
       ? color.primary.white
@@ -32,7 +35,9 @@ export const PageContainerMobileNoScroll = styled.View<PageContainerProps>`
   width: 100%;
   height: 100%;
   min-height: 100%;
-  padding: 32px ${({ noPaddingX }) => `${noPaddingX ? 0 : grid.mobileGutter}px`};
+  padding: ${({ statusBarHeight }) =>
+      statusBarHeight ? statusBarHeight + 16 : "16"}px
+    ${({ noPaddingX }) => `${noPaddingX ? 0 : grid.mobileGutter}px`};
   background-color: ${({ backgroundColor }) =>
     backgroundColor === "white"
       ? color.primary.white
